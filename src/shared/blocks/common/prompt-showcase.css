@@ -24,11 +24,12 @@
   padding: 1.5px;
   background: conic-gradient(
     from var(--prompt-glow-angle),
-    #3ddc97 0%,
-    #f5c451 24%,
-    #f78fb3 48%,
-    #9d7bff 74%,
-    #3ddc97 100%
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.12) 58%,
+    #3ddc97 72%,
+    #f5c451 86%,
+    rgba(255, 255, 255, 0.12) 94%,
+    rgba(255, 255, 255, 0.12) 100%
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -45,14 +46,15 @@
   z-index: 0;
   background: conic-gradient(
     from var(--prompt-glow-angle),
-    #3ddc97,
-    #f5c451,
-    #f78fb3,
-    #9d7bff,
-    #3ddc97
+    transparent 0%,
+    transparent 58%,
+    #3ddc97 72%,
+    #f5c451 86%,
+    transparent 94%,
+    transparent 100%
   );
   filter: blur(20px);
-  opacity: 0.35;
+  opacity: 0.5;
 }
 
 @keyframes prompt-glow-rotate {

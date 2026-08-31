@@ -1,6 +1,6 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import {
   Aperture,
@@ -143,6 +143,7 @@ export function PromptShowcase({ className }: { className?: string }) {
   const [configOpen, setConfigOpen] = useState(false);
   const [floating, setFloating] = useState(false);
   const [floatingExpanded, setFloatingExpanded] = useState(false);
+  const floatingExpandedRef = useRef(false);
   const expanded = hovered || focused || configOpen;
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -151,16 +152,30 @@ export function PromptShowcase({ className }: { className?: string }) {
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setFloating(!entry.isIntersecting);
         if (entry.isIntersecting) {
-          setFloatingExpanded(false);
+          if (!floatingExpandedRef.current) {
+            setFloating(false);
+          }
+        } else {
+          setFloating(true);
         }
       },
-      { threshold: 0 }
+      { threshold: 0, rootMargin: '-160px 0px 0px 0px' }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  const updateFloatingExpanded = (next: boolean) => {
+    floatingExpandedRef.current = next;
+    setFloatingExpanded(next);
+  };
+
+  const collapseFloating = () => {
+    floatingExpandedRef.current = false;
+    setFloatingExpanded(false);
+    setFloating(false);
+  };
 
   useEffect(() => {
     const handlePointerDown = (event: PointerEvent) => {
@@ -189,7 +204,7 @@ export function PromptShowcase({ className }: { className?: string }) {
       : `${imageRatio} | ...`;
   const durationPercent = ((duration - 4) / (15 - 4)) * 100;
 
-  const renderPromptBox = (forceExpanded: boolean) => {
+  const renderPromptBox = (forceExpanded: boolean, isFloating = false) => {
     const boxExpanded = forceExpanded || expanded;
     return (
       <div
@@ -206,6 +221,9 @@ export function PromptShowcase({ className }: { className?: string }) {
                 setFocused(true);
                 if (value === DEFAULT_PROMPT) {
                   setValue('');
+                }
+                if (!isFloating) {
+                  collapseFloating();
                 }
               }}
               onBlur={() => setFocused(false)}
@@ -412,40 +430,45 @@ export function PromptShowcase({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
-        <AnimatePresence mode="wait">
-          {floating && !floatingExpanded ? (
-            <motion.button
-              key="mini"
-              type="button"
-              onClick={() => setFloatingExpanded(true)}
-              initial={{ opacity: 0, y: 32, scale: 0.85 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 32, scale: 0.85 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="flex h-14 w-[380px] max-w-[calc(100vw-2rem)] items-center justify-between rounded-2xl border border-white/10 bg-[#0d0f14]/95 pl-5 pr-2 shadow-[0_16px_40px_rgba(0,0,0,0.45)]"
-            >
-              <span className="text-[15px] text-white/50">
-                Describe your idea...
-              </span>
-              <span className="flex size-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)]">
-                <Sparkles className="size-4 text-[#2b2410]" />
-              </span>
-            </motion.button>
-          ) : null}
-          {floating && floatingExpanded ? (
-            <motion.div
-              key="full"
-              initial={{ opacity: 0, y: 32, scale: 0.85 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 32, scale: 0.85 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="w-[840px] max-w-[calc(100vw-2rem)]"
-            >
-              {renderPromptBox(true)}
-            </motion.div>
-          ) : null}
-        </AnimatePresence>
+      <div className="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
+        <motion.button
+          type="button"
+          onClick={() => updateFloatingExpanded(true)}
+          initial={false}
+          animate={{
+            opacity: floating && !floatingExpanded ? 1 : 0,
+            y: floating && !floatingExpanded ? 0 : 32,
+            x: '-50%',
+            scale: floating && !floatingExpanded ? 1 : 0.85,
+          }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          className={`pointer-events-auto absolute bottom-0 left-1/2 flex h-14 w-[380px] max-w-[calc(100vw-2rem)] items-center justify-between rounded-2xl border border-white/10 bg-[#0d0f14]/95 pl-5 pr-2 shadow-[0_16px_40px_rgba(0,0,0,0.45)] ${
+            floating && !floatingExpanded ? '' : 'pointer-events-none'
+          }`}
+        >
+          <span className="text-[15px] text-white/50">
+            Describe your idea...
+          </span>
+          <span className="flex size-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)]">
+            <Sparkles className="size-4 text-[#2b2410]" />
+          </span>
+        </motion.button>
+
+        <motion.div
+          initial={false}
+          animate={{
+            opacity: floating && floatingExpanded ? 1 : 0,
+            y: floating && floatingExpanded ? 0 : 32,
+            x: '-50%',
+            scale: floating && floatingExpanded ? 0.9 : 0.8,
+          }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          className={`absolute bottom-0 left-1/2 w-[680px] max-w-[calc(100vw-2rem)] ${
+            floating && floatingExpanded ? '' : 'pointer-events-none'
+          }`}
+        >
+          {renderPromptBox(true, true)}
+        </motion.div>
       </div>
     </div>
   );

@@ -24,9 +24,7 @@ import { Header as HeaderType } from '@/shared/types/blocks/landing';
 const HEADER_TOP_PROMO_SESSION_KEY = 'header-top-promo-dismissed';
 
 function shouldHideItem(item: NavItem) {
-  if (item.hidden) return true;
-  const value = `${item.title || ''} ${item.url || ''}`.toLowerCase();
-  return value.includes('seedance') || value.includes('topics');
+  return Boolean(item.hidden);
 }
 
 function filterNavItems(items?: NavItem[]) {
@@ -163,11 +161,12 @@ export function Header({ header }: { header: HeaderType }) {
         )}
       >
         <div className="container">
-          <div className="flex h-16 items-center justify-between gap-6">
-            <div className="flex min-w-0 items-center gap-10">
+          <div className="relative flex h-16 items-center justify-between gap-6">
+            <div className="flex min-w-0 items-center">
               {header.brand ? <BrandLogo brand={header.brand} /> : null}
+            </div>
 
-              <nav className="hidden items-center gap-8 lg:flex">
+            <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex">
                 {navItems.map((item, idx) => (
                   <div key={idx} className="group relative">
                     {!item.children || item.children.length === 0 ? (
@@ -179,15 +178,18 @@ export function Header({ header }: { header: HeaderType }) {
                           isItemActive(item) && 'text-[var(--landing-nav-text-hover)]'
                         )}
                       >
-                        {idx === 0 ? (
-                          <span className="text-base leading-none">🔥</span>
-                        ) : item.icon ? (
+                        {item.icon ? (
                           <SmartIcon
                             name={item.icon as string}
                             className="landing-nav-text size-4"
                           />
                         ) : null}
                         <span>{item.title}</span>
+                        {item.badge ? (
+                          <span className="ml-0.5 rounded-full bg-orange-500 px-2 py-0.5 text-xs font-semibold text-white">
+                            {item.badge}
+                          </span>
+                        ) : null}
                       </Link>
                     ) : (
                       <>

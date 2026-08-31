@@ -6,7 +6,6 @@ import type { MouseEvent } from 'react';
 
 import { Link } from '@/core/i18n/navigation';
 import { LazyImage } from '@/shared/blocks/common';
-import { PromptShowcase } from '@/shared/blocks/common/prompt-showcase';
 import { cn } from '@/shared/lib/utils';
 import { Section } from '@/shared/types/blocks/landing';
 
@@ -176,12 +175,6 @@ export function Hero({
               </Link>
             </motion.div>
           )}
-
-          {primaryButton ? (
-            <motion.div {...createFadeInVariant(0.5)}>
-              <PromptShowcase className="mt-12" />
-            </motion.div>
-          ) : null}
 
           {trustItems.length > 0 && (
             <motion.div

@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getThemePage } from '@/core/theme';
 import { ImageGenerator } from '@/shared/blocks/generator';
+import { PromptShowcase } from '@/shared/blocks/common/prompt-showcase';
 import {
   getCurrentSubscription,
   type Subscription,
@@ -89,6 +90,7 @@ export default async function LandingPage({
         acc[section] = {
           component: (
             <div className="pt-0 pb-12 md:pb-14" key="generator">
+              <PromptShowcase className="mt-12" />
               <ImageGenerator
                 srOnlyTitle={createT.raw('generator.title')}
                 promptKey={promptKey}

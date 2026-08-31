@@ -1,5 +1,6 @@
 'use client';
 
+import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import {
   Aperture,
@@ -140,8 +141,26 @@ export function PromptShowcase({ className }: { className?: string }) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [configOpen, setConfigOpen] = useState(false);
+  const [floating, setFloating] = useState(false);
+  const [floatingExpanded, setFloatingExpanded] = useState(false);
   const expanded = hovered || focused || configOpen;
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setFloating(!entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setFloatingExpanded(false);
+        }
+      },
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handlePointerDown = (event: PointerEvent) => {
@@ -170,11 +189,9 @@ export function PromptShowcase({ className }: { className?: string }) {
       : `${imageRatio} | ...`;
   const durationPercent = ((duration - 4) / (15 - 4)) * 100;
 
-  return (
-    <div
-      ref={containerRef}
-      className={cn('mx-auto w-full max-w-6xl', className)}
-    >
+  const renderPromptBox = (forceExpanded: boolean) => {
+    const boxExpanded = forceExpanded || expanded;
+    return (
       <div
         className="prompt-glow-border rounded-[22px]"
         onClick={handleToggleExpanded}
@@ -195,7 +212,7 @@ export function PromptShowcase({ className }: { className?: string }) {
               placeholder="Describe your idea..."
               className="min-w-0 flex-1 bg-transparent text-[15px] text-white/85 outline-none placeholder:text-white/40"
             />
-            {!expanded ? (
+            {!boxExpanded ? (
               <button
                 type="button"
                 className="flex h-10 shrink-0 items-center gap-2 rounded-full bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)] px-5 text-[15px] font-semibold text-[#2b2410] transition-opacity hover:opacity-90"
@@ -206,7 +223,7 @@ export function PromptShowcase({ className }: { className?: string }) {
             ) : null}
           </div>
 
-          {expanded ? (
+          {boxExpanded ? (
             <div className="prompt-toolbar-in mt-4 flex flex-wrap items-center gap-3">
               <div className="flex h-10 items-center gap-1 rounded-full bg-white/[0.07] p-1">
                 <button
@@ -215,7 +232,7 @@ export function PromptShowcase({ className }: { className?: string }) {
                   className={cn(
                     'flex h-8 items-center gap-1.5 rounded-full px-3.5 text-[14px] font-medium transition-colors',
                     mode === 'image'
-                      ? 'bg-white text-[#15171c]'
+                      ? 'bg-white/[0.15] text-white'
                       : 'text-white/60 hover:text-white'
                   )}
                 >
@@ -228,7 +245,7 @@ export function PromptShowcase({ className }: { className?: string }) {
                   className={cn(
                     'flex h-8 items-center gap-1.5 rounded-full px-3.5 text-[14px] font-medium transition-colors',
                     mode === 'video'
-                      ? 'bg-white text-[#15171c]'
+                      ? 'bg-white/[0.15] text-white'
                       : 'text-white/60 hover:text-white'
                   )}
                 >
@@ -236,7 +253,6 @@ export function PromptShowcase({ className }: { className?: string }) {
                   Video
                 </button>
               </div>
-
               <SelectDropdown
                 value={model}
                 options={mode === 'image' ? IMAGE_MODELS : VIDEO_MODELS}
@@ -364,6 +380,15 @@ export function PromptShowcase({ className }: { className?: string }) {
           ) : null}
         </div>
       </div>
+    );
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      className={cn('mx-auto w-full max-w-6xl', className)}
+    >
+      {renderPromptBox(false)}
 
       <div className="mt-6 flex justify-center">
         <div className="prompt-model-bar mx-auto flex w-full max-w-4xl flex-wrap items-center justify-center gap-x-6 gap-y-3 rounded-full px-8 py-4">
@@ -385,6 +410,42 @@ export function PromptShowcase({ className }: { className?: string }) {
             );
           })}
         </div>
+      </div>
+
+      <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
+        <AnimatePresence mode="wait">
+          {floating && !floatingExpanded ? (
+            <motion.button
+              key="mini"
+              type="button"
+              onClick={() => setFloatingExpanded(true)}
+              initial={{ opacity: 0, y: 32, scale: 0.85 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 32, scale: 0.85 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="flex h-14 w-[380px] max-w-[calc(100vw-2rem)] items-center justify-between rounded-2xl border border-white/10 bg-[#0d0f14]/95 pl-5 pr-2 shadow-[0_16px_40px_rgba(0,0,0,0.45)]"
+            >
+              <span className="text-[15px] text-white/50">
+                Describe your idea...
+              </span>
+              <span className="flex size-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)]">
+                <Sparkles className="size-4 text-[#2b2410]" />
+              </span>
+            </motion.button>
+          ) : null}
+          {floating && floatingExpanded ? (
+            <motion.div
+              key="full"
+              initial={{ opacity: 0, y: 32, scale: 0.85 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 32, scale: 0.85 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="w-[840px] max-w-[calc(100vw-2rem)]"
+            >
+              {renderPromptBox(true)}
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
       </div>
     </div>
   );

@@ -463,7 +463,7 @@ export function PromptShowcase({ className }: { className?: string }) {
             scale: floating && floatingExpanded ? 0.9 : 0.8,
           }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          className={`absolute bottom-0 left-1/2 max-w-[calc(100vw-2rem)] ${
+          className={`absolute bottom-0 left-1/2 w-[680px] max-w-[calc(100vw-2rem)] ${
             floating && floatingExpanded ? '' : 'pointer-events-none'
           }`}
         >

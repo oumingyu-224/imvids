@@ -237,7 +237,6 @@ export function Header({ header }: { header: HeaderType }) {
                   </div>
                 ))}
               </nav>
-            </div>
 
             <div className="hidden items-center gap-3 lg:flex">
               {header.show_locale ? <LocaleSelector type="button" /> : null}

@@ -464,7 +464,7 @@ export function PromptShowcase({ className }: { className?: string }) {
           }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
           className={`absolute bottom-0 left-1/2 w-[896px] max-w-[calc(100vw-2rem)] ${
-            floating && floatingExpanded ? '' : 'pointer-events-none'
+            floating && floatingExpanded ? 'pointer-events-auto' : 'pointer-events-none'
           }`}
         >
           {renderPromptBox(true, true)}

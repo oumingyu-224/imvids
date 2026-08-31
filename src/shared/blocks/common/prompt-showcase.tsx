@@ -92,7 +92,7 @@ function SelectDropdown({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex h-10 items-center gap-2 rounded-full bg-white/[0.07] px-4 text-[14px] font-medium text-white/85 transition-colors hover:bg-white/[0.12]"
+        className="flex h-8 items-center gap-2 rounded-full bg-white/[0.07] px-3.5 text-[13px] font-medium text-white/85 transition-colors hover:bg-white/[0.12]"
       >
         {Icon ? <Icon className="size-4 shrink-0" /> : null}
         <span className="max-w-36 truncate">{value}</span>
@@ -242,13 +242,13 @@ export function PromptShowcase({ className }: { className?: string }) {
           </div>
 
           {boxExpanded ? (
-            <div className="prompt-toolbar-in mt-4 flex flex-wrap items-center gap-3">
-              <div className="flex h-10 items-center gap-1 rounded-full bg-white/[0.07] p-1">
+            <div className="prompt-toolbar-in mt-4 flex flex-wrap items-center gap-2">
+              <div className="flex h-9 items-center gap-1 rounded-full bg-white/[0.07] p-1">
                 <button
                   type="button"
                   onClick={() => handleModeChange('image')}
                   className={cn(
-                    'flex h-8 items-center gap-1.5 rounded-full px-3.5 text-[14px] font-medium transition-colors',
+                    'flex h-7 items-center gap-1.5 rounded-full px-3 text-[13px] font-medium transition-colors',
                     mode === 'image'
                       ? 'bg-white/[0.15] text-white'
                       : 'text-white/60 hover:text-white'
@@ -261,7 +261,7 @@ export function PromptShowcase({ className }: { className?: string }) {
                   type="button"
                   onClick={() => handleModeChange('video')}
                   className={cn(
-                    'flex h-8 items-center gap-1.5 rounded-full px-3.5 text-[14px] font-medium transition-colors',
+                    'flex h-7 items-center gap-1.5 rounded-full px-3 text-[13px] font-medium transition-colors',
                     mode === 'video'
                       ? 'bg-white/[0.15] text-white'
                       : 'text-white/60 hover:text-white'
@@ -282,7 +282,7 @@ export function PromptShowcase({ className }: { className?: string }) {
                 <button
                   type="button"
                   onClick={() => setConfigOpen((prev) => !prev)}
-                  className="flex h-10 items-center gap-2 rounded-full bg-white/[0.07] px-4 text-[14px] font-medium text-white/85 transition-colors hover:bg-white/[0.12]"
+                  className="flex h-8 items-center gap-2 rounded-full bg-white/[0.07] px-3.5 text-[13px] font-medium text-white/85 transition-colors hover:bg-white/[0.12]"
                 >
                   <span className="max-w-52 truncate">{summary}</span>
                   <ChevronDown
@@ -389,7 +389,7 @@ export function PromptShowcase({ className }: { className?: string }) {
 
               <button
                 type="button"
-                className="ml-auto flex h-10 shrink-0 items-center gap-2 rounded-full bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)] px-5 text-[15px] font-semibold text-[#2b2410] transition-opacity hover:opacity-90"
+                className="ml-auto flex h-8 shrink-0 items-center gap-1.5 rounded-full bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)] px-4 text-[13px] font-semibold text-[#2b2410] transition-opacity hover:opacity-90"
               >
                 <Sparkles className="size-4" />
                 Generate
@@ -463,7 +463,7 @@ export function PromptShowcase({ className }: { className?: string }) {
             scale: floating && floatingExpanded ? 0.9 : 0.8,
           }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          className={`absolute bottom-0 left-1/2 w-[680px] max-w-[calc(100vw-2rem)] ${
+          className={`absolute bottom-0 left-1/2 max-w-[calc(100vw-2rem)] ${
             floating && floatingExpanded ? '' : 'pointer-events-none'
           }`}
         >

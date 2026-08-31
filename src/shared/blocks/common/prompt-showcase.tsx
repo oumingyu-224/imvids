@@ -215,7 +215,7 @@ export function PromptShowcase({ className }: { className?: string }) {
     const boxExpanded = forceExpanded || expanded;
     return (
       <div
-        className="prompt-glow-border rounded-[22px]"
+        className="prompt-glow-border relative rounded-[22px]"
         onClick={handleToggleExpanded}
       >
         <div className="relative z-10 rounded-[22px] bg-[#0d0f14]/90 px-5 py-4">
@@ -449,7 +449,7 @@ export function PromptShowcase({ className }: { className?: string }) {
             scale: floating && !floatingExpanded ? 1 : 0.6,
           }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className={`pointer-events-auto absolute bottom-0 left-1/2 flex h-14 w-[380px] max-w-[calc(100vw-2rem)] items-center justify-between rounded-2xl border border-white/10 bg-[#0d0f14]/95 pl-5 pr-2 shadow-[0_16px_40px_rgba(0,0,0,0.45)] ${
+          className={`prompt-glow-border pointer-events-auto absolute bottom-0 left-1/2 flex h-14 w-[380px] max-w-[calc(100vw-2rem)] items-center justify-between rounded-2xl border border-white/10 bg-[#0d0f14]/95 pl-5 pr-2 shadow-[0_16px_40px_rgba(0,0,0,0.45)] ${
             floating && !floatingExpanded ? '' : 'pointer-events-none'
           }`}
         >

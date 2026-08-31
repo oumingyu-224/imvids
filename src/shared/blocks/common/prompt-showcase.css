@@ -5,22 +5,17 @@
 }
 
 .prompt-glow-border {
-  position: relative;
   isolation: isolate;
 }
 
-.prompt-glow-border::before,
-.prompt-glow-border::after {
+.prompt-glow-border::before {
   content: '';
   position: absolute;
   border-radius: inherit;
   pointer-events: none;
   animation: prompt-glow-rotate 6s linear infinite;
-}
-
-.prompt-glow-border::before {
   inset: 0;
-  z-index: 2;
+  z-index: 11;
   padding: 1.5px;
   background: conic-gradient(
     from var(--prompt-glow-angle),
@@ -39,22 +34,6 @@
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   mask-composite: exclude;
-}
-
-.prompt-glow-border::after {
-  inset: -3px;
-  z-index: 0;
-  background: conic-gradient(
-    from var(--prompt-glow-angle),
-    transparent 0%,
-    transparent 58%,
-    #3ddc97 72%,
-    #f5c451 86%,
-    transparent 94%,
-    transparent 100%
-  );
-  filter: blur(20px);
-  opacity: 0.5;
 }
 
 @keyframes prompt-glow-rotate {

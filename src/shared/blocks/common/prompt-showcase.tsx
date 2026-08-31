@@ -139,7 +139,7 @@ export function PromptShowcase({ className }: { className?: string }) {
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [configOpen, setConfigOpen] = useState(false);
-  const expanded = hovered || focused;
+  const expanded = hovered || focused || configOpen;
   const configRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -158,6 +158,10 @@ export function PromptShowcase({ className }: { className?: string }) {
     setModel(next === 'image' ? IMAGE_MODELS[0] : VIDEO_MODELS[0]);
   };
 
+  const handleToggleExpanded = () => {
+    setHovered(true);
+  };
+
   const currentRatio = mode === 'video' ? videoRatio : imageRatio;
   const summary =
     mode === 'video'
@@ -166,11 +170,10 @@ export function PromptShowcase({ className }: { className?: string }) {
   const durationPercent = ((duration - 4) / (15 - 4)) * 100;
 
   return (
-    <div className={cn('mx-auto w-full max-w-4xl', className)}>
+    <div className={cn('mx-auto w-full max-w-5xl', className)}>
       <div
         className="prompt-glow-border rounded-[22px]"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onClick={handleToggleExpanded}
       >
         <div className="relative z-10 rounded-[22px] bg-[#0d0f14]/90 px-5 py-4">
           <div className="flex items-center gap-3">
@@ -354,7 +357,7 @@ export function PromptShowcase({ className }: { className?: string }) {
       </div>
 
       <div className="mt-6 flex justify-center">
-        <div className="prompt-model-bar flex flex-wrap items-center justify-center gap-x-6 gap-y-3 rounded-full px-8 py-4">
+        <div className="prompt-model-bar mx-auto flex w-full max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-3 rounded-full px-8 py-4">
           {MODELS.map((model) => {
             const active = activeModel === model.name;
             return (

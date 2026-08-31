@@ -39,6 +39,9 @@ const RESOLUTIONS = ['480p', '720p', '1080p'];
 const QUALITIES = ['Basic', 'High'];
 const IMAGE_COUNTS = [1, 2, 3, 4];
 
+const DEFAULT_PROMPT =
+  'A young desert survivor, wearing a hooded desert cloak, runs across golden sand dunes under the intense sunlight.';
+
 type Mode = 'image' | 'video';
 
 function OptionChip({
@@ -124,9 +127,7 @@ function SelectDropdown({
 }
 
 export function PromptShowcase({ className }: { className?: string }) {
-  const [value, setValue] = useState(
-    'A young desert survivor, wearing a hooded desert cloak, runs across golden sand dunes under the intense sunlight.'
-  );
+  const [value, setValue] = useState(DEFAULT_PROMPT);
   const [activeModel, setActiveModel] = useState('Seedance');
   const [mode, setMode] = useState<Mode>('image');
   const [model, setModel] = useState(IMAGE_MODELS[0]);
@@ -140,18 +141,18 @@ export function PromptShowcase({ className }: { className?: string }) {
   const [focused, setFocused] = useState(false);
   const [configOpen, setConfigOpen] = useState(false);
   const expanded = hovered || focused || configOpen;
-  const configRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!configOpen) return;
     const handlePointerDown = (event: PointerEvent) => {
-      if (!configRef.current?.contains(event.target as Node)) {
+      if (!containerRef.current?.contains(event.target as Node)) {
+        setHovered(false);
         setConfigOpen(false);
       }
     };
     document.addEventListener('pointerdown', handlePointerDown);
     return () => document.removeEventListener('pointerdown', handlePointerDown);
-  }, [configOpen]);
+  }, []);
 
   const handleModeChange = (next: Mode) => {
     setMode(next);
@@ -170,7 +171,10 @@ export function PromptShowcase({ className }: { className?: string }) {
   const durationPercent = ((duration - 4) / (15 - 4)) * 100;
 
   return (
-    <div className={cn('mx-auto w-full max-w-5xl', className)}>
+    <div
+      ref={containerRef}
+      className={cn('mx-auto w-full max-w-6xl', className)}
+    >
       <div
         className="prompt-glow-border rounded-[22px]"
         onClick={handleToggleExpanded}
@@ -181,7 +185,12 @@ export function PromptShowcase({ className }: { className?: string }) {
             <input
               value={value}
               onChange={(event) => setValue(event.target.value)}
-              onFocus={() => setFocused(true)}
+              onFocus={() => {
+                setFocused(true);
+                if (value === DEFAULT_PROMPT) {
+                  setValue('');
+                }
+              }}
               onBlur={() => setFocused(false)}
               placeholder="Describe your idea..."
               className="min-w-0 flex-1 bg-transparent text-[15px] text-white/85 outline-none placeholder:text-white/40"
@@ -235,7 +244,7 @@ export function PromptShowcase({ className }: { className?: string }) {
                 onChange={setModel}
               />
 
-              <div className="relative" ref={configRef}>
+              <div className="relative">
                 <button
                   type="button"
                   onClick={() => setConfigOpen((prev) => !prev)}
@@ -357,7 +366,7 @@ export function PromptShowcase({ className }: { className?: string }) {
       </div>
 
       <div className="mt-6 flex justify-center">
-        <div className="prompt-model-bar mx-auto flex w-full max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-3 rounded-full px-8 py-4">
+        <div className="prompt-model-bar mx-auto flex w-full max-w-4xl flex-wrap items-center justify-center gap-x-6 gap-y-3 rounded-full px-8 py-4">
           {MODELS.map((model) => {
             const active = activeModel === model.name;
             return (

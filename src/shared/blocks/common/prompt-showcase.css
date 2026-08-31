@@ -1,0 +1,121 @@
+@property --prompt-glow-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.prompt-glow-border {
+  position: relative;
+  isolation: isolate;
+}
+
+.prompt-glow-border::before,
+.prompt-glow-border::after {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+  animation: prompt-glow-rotate 6s linear infinite;
+}
+
+.prompt-glow-border::before {
+  inset: 0;
+  z-index: 1;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--prompt-glow-angle),
+    #3ddc97 0%,
+    #f5c451 24%,
+    #f78fb3 48%,
+    #9d7bff 74%,
+    #3ddc97 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.prompt-glow-border::after {
+  inset: -3px;
+  z-index: 0;
+  background: conic-gradient(
+    from var(--prompt-glow-angle),
+    #3ddc97,
+    #f5c451,
+    #f78fb3,
+    #9d7bff,
+    #3ddc97
+  );
+  filter: blur(20px);
+  opacity: 0.35;
+}
+
+@keyframes prompt-glow-rotate {
+  to {
+    --prompt-glow-angle: 360deg;
+  }
+}
+
+@keyframes prompt-toolbar-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.prompt-toolbar-in {
+  animation: prompt-toolbar-in 0.18s ease-out;
+}
+
+.prompt-duration-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+
+.prompt-duration-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.prompt-duration-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.prompt-duration-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.prompt-model-bar {
+  position: relative;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}

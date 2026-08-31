@@ -16,14 +16,14 @@
   animation: prompt-glow-rotate 6s linear infinite;
   inset: 0;
   z-index: 11;
-  padding: 1.5px;
+  padding: 2.5px;
   background: conic-gradient(
     from var(--prompt-glow-angle),
     rgba(255, 255, 255, 0.12) 0%,
-    rgba(255, 255, 255, 0.12) 58%,
-    #3ddc97 72%,
-    #f5c451 86%,
-    rgba(255, 255, 255, 0.12) 94%,
+    rgba(255, 255, 255, 0.12) 26%,
+    #3dff8f 30%,
+    #ffd257 86%,
+    rgba(255, 255, 255, 0.12) 90%,
     rgba(255, 255, 255, 0.12) 100%
   );
   -webkit-mask:

@@ -146,6 +146,7 @@ export function PromptShowcase({ className }: { className?: string }) {
   const floatingExpandedRef = useRef(false);
   const expanded = hovered || focused || configOpen;
   const containerRef = useRef<HTMLDivElement>(null);
+  const floatingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -153,9 +154,7 @@ export function PromptShowcase({ className }: { className?: string }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          if (!floatingExpandedRef.current) {
-            setFloating(false);
-          }
+          collapseFloating();
         } else {
           setFloating(true);
         }
@@ -179,9 +178,17 @@ export function PromptShowcase({ className }: { className?: string }) {
 
   useEffect(() => {
     const handlePointerDown = (event: PointerEvent) => {
-      if (!containerRef.current?.contains(event.target as Node)) {
+      const target = event.target as Node;
+      if (!containerRef.current?.contains(target)) {
         setHovered(false);
         setConfigOpen(false);
+      }
+      if (
+        floatingExpandedRef.current &&
+        !containerRef.current?.contains(target) &&
+        !floatingRef.current?.contains(target)
+      ) {
+        updateFloatingExpanded(false);
       }
     };
     document.addEventListener('pointerdown', handlePointerDown);
@@ -439,9 +446,9 @@ export function PromptShowcase({ className }: { className?: string }) {
             opacity: floating && !floatingExpanded ? 1 : 0,
             y: floating && !floatingExpanded ? 0 : 32,
             x: '-50%',
-            scale: floating && !floatingExpanded ? 1 : 0.85,
+            scale: floating && !floatingExpanded ? 1 : 0.6,
           }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
+          transition={{ duration: 1, ease: 'easeOut' }}
           className={`pointer-events-auto absolute bottom-0 left-1/2 flex h-14 w-[380px] max-w-[calc(100vw-2rem)] items-center justify-between rounded-2xl border border-white/10 bg-[#0d0f14]/95 pl-5 pr-2 shadow-[0_16px_40px_rgba(0,0,0,0.45)] ${
             floating && !floatingExpanded ? '' : 'pointer-events-none'
           }`}
@@ -455,14 +462,15 @@ export function PromptShowcase({ className }: { className?: string }) {
         </motion.button>
 
         <motion.div
+          ref={floatingRef}
           initial={false}
           animate={{
             opacity: floating && floatingExpanded ? 1 : 0,
             y: floating && floatingExpanded ? 0 : 32,
             x: '-50%',
-            scale: floating && floatingExpanded ? 0.9 : 0.8,
+            scale: floating && floatingExpanded ? 1 : 0.6,
           }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
+          transition={{ duration: 1, ease: 'easeOut' }}
           className={`absolute bottom-0 left-1/2 w-[896px] max-w-[calc(100vw-2rem)] ${
             floating && floatingExpanded ? 'pointer-events-auto' : 'pointer-events-none'
           }`}

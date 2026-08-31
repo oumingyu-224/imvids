@@ -319,15 +319,18 @@ export function Header({ header }: { header: HeaderType }) {
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="landing-strong flex items-center gap-2 py-3 text-sm font-medium"
                       >
-                        {idx === 0 ? (
-                          <span className="text-base leading-none">🔥</span>
-                        ) : item.icon ? (
+                        {item.icon ? (
                           <SmartIcon
                             name={item.icon as string}
                             className="landing-soft-text size-4"
                           />
                         ) : null}
                         {item.title}
+                        {item.badge ? (
+                          <span className="ml-0.5 rounded-full bg-orange-500 px-2 py-0.5 text-xs font-semibold text-white">
+                            {item.badge}
+                          </span>
+                        ) : null}
                       </Link>
                     )}
                   </AccordionItem>

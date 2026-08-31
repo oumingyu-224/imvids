@@ -19,44 +19,25 @@
     "nav": {
       "items": [
         {
-          "title": "创建",
-          "url": "/create",
-          "icon": "Zap"
+          "title": "首页",
+          "url": "/"
+        },
+        {
+          "title": "AI 视频",
+          "url": "/ai-video-generator"
+        },
+        {
+          "title": "AI 图像",
+          "url": "/ai-image-generator"
+        },
+        {
+          "title": "Seedance 提示词",
+          "url": "/seedance-prompts"
         },
         {
           "title": "价格",
           "url": "/pricing",
-          "icon": "DollarSign"
-        },
-        {
-          "title": "案例展示",
-          "url": "/showcases",
-          "icon": "Box"
-        },
-        {
-          "title": "AI 图像",
-          "hidden": true,
-          "icon": "Sparkles",
-          "children": [
-            {
-              "title": "Seedream 4.5",
-              "url": "/seedream4-5",
-              "icon": "Wind",
-              "description": "适合高质量海报设计和图像编辑，内容策略更宽松"
-            },
-            {
-              "title": "Nano Banana Pro",
-              "url": "/nano-banana-pro",
-              "icon": "Wind",
-              "description": "适合强调角色一致性和场景保持的高级图像编辑"
-            },
-            {
-              "title": "Z-Image",
-              "url": "/z-image",
-              "icon": "Wind",
-              "description": "快速且低成本的文生图能力"
-            }
-          ]
+          "badge": "50% OFF"
         }
       ]
     },

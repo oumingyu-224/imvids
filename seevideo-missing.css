@@ -1,0 +1,537 @@
+/* 从 seevideo.css 机械提取：项目缺失的自定义类规则 + 相关 CSS 变量定义，未做任何修改 */
+
+
+.gradient-text {
+background-image:linear-gradient(to right, var(--tw-gradient-stops));--tw-gradient-from:hsl(var(--gradient-start)) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--gradient-end)) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to);color:#0000;-webkit-background-clip:text;background-clip:text;font-weight:700
+}
+
+.gradient-text-glow {
+background-image:linear-gradient(to right, var(--tw-gradient-stops));--tw-gradient-from:hsl(var(--gradient-start)) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--gradient-end)) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to);color:#0000;filter:drop-shadow(0 0 6px hsl(var(--gradient-start) / .5));-webkit-background-clip:text;background-clip:text;font-weight:700
+}
+
+.highlight-button {
+background-color:hsl(var(--highlight));color:hsl(var(--highlight-foreground));border-radius:9999px;justify-content:center;align-items:center;padding:.75rem 1.5rem;font-weight:500;transition-property:all;transition-duration:.15s;transition-timing-function:cubic-bezier(.4,0,.2,1);display:inline-flex;position:relative;overflow:hidden
+}
+
+.highlight-button:hover {
+background-color:hsl(var(--highlight-hover))
+}
+
+.highlight-button:focus {
+outline-offset:2px;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow,0 0 #0000);--tw-ring-color:hsl(var(--highlight));--tw-ring-offset-width:2px;outline:2px solid #0000
+}
+
+.highlight-button:disabled {
+pointer-events:none;opacity:.5
+}
+
+.highlight-light-bg {
+background-color:hsl(var(--highlight-light))
+}
+
+.border-\[hsl\(var\(--highlight\)\)\] {
+border-color:hsl(var(--highlight))
+}
+
+.border-\[hsl\(var\(--highlight\)\)\]\/10 {
+border-color:hsl(var(--highlight) / .1)
+}
+
+.border-\[hsl\(var\(--highlight\)\)\]\/20 {
+border-color:hsl(var(--highlight) / .2)
+}
+
+.border-\[hsl\(var\(--highlight\)\)\]\/30 {
+border-color:hsl(var(--highlight) / .3)
+}
+
+.border-\[hsl\(var\(--highlight\)\)\]\/40 {
+border-color:hsl(var(--highlight) / .4)
+}
+
+.border-\[hsl\(var\(--highlight\)\)\]\/50 {
+border-color:hsl(var(--highlight) / .5)
+}
+
+.border-\[hsl\(var\(--highlight\)\)\]\/70 {
+border-color:hsl(var(--highlight) / .7)
+}
+
+.border-highlight {
+border-color:hsl(var(--highlight))
+}
+
+.border-highlight\/20 {
+border-color:hsl(var(--highlight) / .2)
+}
+
+.border-highlight\/30 {
+border-color:hsl(var(--highlight) / .3)
+}
+
+.border-highlight\/40 {
+border-color:hsl(var(--highlight) / .4)
+}
+
+.border-b-highlight\/50 {
+border-bottom-color:hsl(var(--highlight) / .5)
+}
+
+.border-l-highlight {
+border-left-color:hsl(var(--highlight))
+}
+
+.border-t-\[hsl\(var\(--highlight\)\)\] {
+border-top-color:hsl(var(--highlight))
+}
+
+.bg-\[hsl\(var\(--highlight\)\)\] {
+background-color:hsl(var(--highlight))
+}
+
+.bg-\[hsl\(var\(--highlight\)\)\]\/10 {
+background-color:hsl(var(--highlight) / .1)
+}
+
+.bg-\[hsl\(var\(--highlight\)\)\]\/20 {
+background-color:hsl(var(--highlight) / .2)
+}
+
+.bg-\[hsl\(var\(--highlight\)\)\]\/45 {
+background-color:hsl(var(--highlight) / .45)
+}
+
+.bg-\[hsl\(var\(--highlight\)\)\]\/5 {
+background-color:hsl(var(--highlight) / .05)
+}
+
+.bg-\[hsl\(var\(--highlight-foreground\)\)\] {
+background-color:hsl(var(--highlight-foreground))
+}
+
+.bg-\[hsl\(var\(--highlight-light\)\)\] {
+background-color:hsl(var(--highlight-light))
+}
+
+.bg-\[hsl\(var\(--highlight-light\)\)\]\/10 {
+background-color:hsl(var(--highlight-light) / .1)
+}
+
+.bg-\[hsl\(var\(--highlight-light\)\)\]\/20 {
+background-color:hsl(var(--highlight-light) / .2)
+}
+
+.bg-\[hsl\(var\(--highlight-light\)\)\]\/30 {
+background-color:hsl(var(--highlight-light) / .3)
+}
+
+.bg-\[hsl\(var\(--highlight-light\)\)\]\/5 {
+background-color:hsl(var(--highlight-light) / .05)
+}
+
+.bg-highlight {
+background-color:hsl(var(--highlight))
+}
+
+.bg-highlight\/10 {
+background-color:hsl(var(--highlight) / .1)
+}
+
+.bg-highlight\/20 {
+background-color:hsl(var(--highlight) / .2)
+}
+
+.bg-highlight\/30 {
+background-color:hsl(var(--highlight) / .3)
+}
+
+.bg-highlight\/5 {
+background-color:hsl(var(--highlight) / .05)
+}
+
+.bg-highlight\/60 {
+background-color:hsl(var(--highlight) / .6)
+}
+
+.from-\[hsl\(var\(--highlight\)\)\] {
+--tw-gradient-from:hsl(var(--highlight)) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--highlight) / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)
+}
+
+.from-\[hsl\(var\(--highlight\)\)\]\/10 {
+--tw-gradient-from:hsl(var(--highlight) / .1) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--highlight) / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)
+}
+
+.from-\[hsl\(var\(--highlight\)\)\]\/5 {
+--tw-gradient-from:hsl(var(--highlight) / .05) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--highlight) / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)
+}
+
+.from-\[hsl\(var\(--highlight-light\)\)\]\/20 {
+--tw-gradient-from:hsl(var(--highlight-light) / .2) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--highlight-light) / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)
+}
+
+.from-highlight {
+--tw-gradient-from:hsl(var(--highlight)) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--highlight) / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)
+}
+
+.from-highlight\/10 {
+--tw-gradient-from:hsl(var(--highlight) / .1) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--highlight) / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)
+}
+
+.from-highlight\/15 {
+--tw-gradient-from:hsl(var(--highlight) / .15) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--highlight) / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)
+}
+
+.from-highlight\/20 {
+--tw-gradient-from:hsl(var(--highlight) / .2) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--highlight) / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)
+}
+
+.from-highlight\/5 {
+--tw-gradient-from:hsl(var(--highlight) / .05) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--highlight) / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)
+}
+
+.via-\[hsl\(var\(--highlight\)\)\] {
+--tw-gradient-to:hsl(var(--highlight) / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), hsl(var(--highlight)) var(--tw-gradient-via-position), var(--tw-gradient-to)
+}
+
+.via-highlight\/10 {
+--tw-gradient-to:hsl(var(--highlight) / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), hsl(var(--highlight) / .1) var(--tw-gradient-via-position), var(--tw-gradient-to)
+}
+
+.to-\[hsl\(var\(--highlight\)\)\] {
+--tw-gradient-to:hsl(var(--highlight)) var(--tw-gradient-to-position)
+}
+
+.to-\[hsl\(var\(--highlight\)\)\]\/10 {
+--tw-gradient-to:hsl(var(--highlight) / .1) var(--tw-gradient-to-position)
+}
+
+.to-\[hsl\(var\(--highlight-light\)\)\]\/10 {
+--tw-gradient-to:hsl(var(--highlight-light) / .1) var(--tw-gradient-to-position)
+}
+
+.to-highlight\/10 {
+--tw-gradient-to:hsl(var(--highlight) / .1) var(--tw-gradient-to-position)
+}
+
+.to-highlight\/40 {
+--tw-gradient-to:hsl(var(--highlight) / .4) var(--tw-gradient-to-position)
+}
+
+.to-highlight\/5 {
+--tw-gradient-to:hsl(var(--highlight) / .05) var(--tw-gradient-to-position)
+}
+
+.to-highlight\/70 {
+--tw-gradient-to:hsl(var(--highlight) / .7) var(--tw-gradient-to-position)
+}
+
+.text-\[hsl\(var\(--highlight\)\)\] {
+color:hsl(var(--highlight))
+}
+
+.text-\[hsl\(var\(--highlight\)\)\]\/60 {
+color:hsl(var(--highlight) / .6)
+}
+
+.text-\[hsl\(var\(--highlight\)\)\]\/70 {
+color:hsl(var(--highlight) / .7)
+}
+
+.text-\[hsl\(var\(--highlight-foreground\)\)\] {
+color:hsl(var(--highlight-foreground))
+}
+
+.text-highlight {
+color:hsl(var(--highlight))
+}
+
+.text-highlight\/70 {
+color:hsl(var(--highlight) / .7)
+}
+
+.text-highlight\/90 {
+color:hsl(var(--highlight) / .9)
+}
+
+.decoration-\[hsl\(var\(--highlight\)\)\]\/30 {
+-webkit-text-decoration-color:hsl(var(--highlight) / .3);text-decoration-color:hsl(var(--highlight) / .3)
+}
+
+.decoration-\[hsl\(var\(--highlight\)\)\]\/40 {
+-webkit-text-decoration-color:hsl(var(--highlight) / .4);text-decoration-color:hsl(var(--highlight) / .4)
+}
+
+.shadow-\[0_0_0_1px_hsl\(var\(--highlight\)\)\] {
+--tw-shadow:0 0 0 1px hsl(var(--highlight));--tw-shadow-colored:0 0 0 1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000), var(--tw-ring-shadow,0 0 #0000), var(--tw-shadow)
+}
+
+.shadow-\[0_0_0_1px_hsl\(var\(--highlight\)\/0\.05\)\] {
+--tw-shadow:0 0 0 1px hsl(var(--highlight)/.05);--tw-shadow-colored:0 0 0 1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000), var(--tw-ring-shadow,0 0 #0000), var(--tw-shadow)
+}
+
+.shadow-\[0_0_0_1px_hsl\(var\(--highlight\)\/0\.1\)\] {
+--tw-shadow:0 0 0 1px hsl(var(--highlight)/.1);--tw-shadow-colored:0 0 0 1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000), var(--tw-ring-shadow,0 0 #0000), var(--tw-shadow)
+}
+
+.shadow-highlight\/10 {
+--tw-shadow-color:hsl(var(--highlight) / .1);--tw-shadow:var(--tw-shadow-colored)
+}
+
+.shadow-highlight\/20 {
+--tw-shadow-color:hsl(var(--highlight) / .2);--tw-shadow:var(--tw-shadow-colored)
+}
+
+.ring-\[hsl\(var\(--highlight\)\)\] {
+--tw-ring-color:hsl(var(--highlight))
+}
+
+.ring-\[hsl\(var\(--highlight\)\)\]\/20 {
+--tw-ring-color:hsl(var(--highlight) / .2)
+}
+
+.ring-\[hsl\(var\(--highlight\)\)\]\/30 {
+--tw-ring-color:hsl(var(--highlight) / .3)
+}
+
+.\[text-shadow\:_0_0_10px_hsl\(var\(--highlight\)\/0\.35\)\] {
+text-shadow:0 0 10px hsl(var(--highlight)/.35)
+}
+
+.\[text-shadow\:_0_0_12px_hsl\(var\(--highlight\)\/0\.4\)\] {
+text-shadow:0 0 12px hsl(var(--highlight)/.4)
+}
+
+.custom-scrollbar {
+scrollbar-width:thin;scrollbar-color:hsl(var(--border)) transparent;transition:scrollbar-color .2s
+}
+
+.custom-scrollbar:hover {
+scrollbar-color:hsl(var(--muted-foreground)) transparent
+}
+
+.custom-scrollbar-thin {
+scrollbar-width:thin;scrollbar-color:hsl(var(--border) / .5) transparent
+}
+
+.custom-scrollbar-thin:hover {
+scrollbar-color:hsl(var(--muted-foreground) / .8) transparent
+}
+
+.hover\:border-\[hsl\(var\(--highlight\)\)\]\/40:hover {
+border-color:hsl(var(--highlight) / .4)
+}
+
+.hover\:border-\[hsl\(var\(--highlight\)\)\]\/50:hover {
+border-color:hsl(var(--highlight) / .5)
+}
+
+.hover\:border-\[hsl\(var\(--highlight\)\)\]\/60:hover {
+border-color:hsl(var(--highlight) / .6)
+}
+
+.hover\:border-\[hsl\(var\(--highlight\)\)\]\/70:hover {
+border-color:hsl(var(--highlight) / .7)
+}
+
+.hover\:border-highlight:hover {
+border-color:hsl(var(--highlight))
+}
+
+.hover\:border-highlight\/30:hover {
+border-color:hsl(var(--highlight) / .3)
+}
+
+.hover\:border-highlight\/40:hover {
+border-color:hsl(var(--highlight) / .4)
+}
+
+.hover\:border-highlight\/50:hover {
+border-color:hsl(var(--highlight) / .5)
+}
+
+.hover\:bg-\[hsl\(var\(--highlight\)\)\]:hover {
+background-color:hsl(var(--highlight))
+}
+
+.hover\:bg-\[hsl\(var\(--highlight\)\)\]\/10:hover {
+background-color:hsl(var(--highlight) / .1)
+}
+
+.hover\:bg-\[hsl\(var\(--highlight\)\)\]\/15:hover {
+background-color:hsl(var(--highlight) / .15)
+}
+
+.hover\:bg-\[hsl\(var\(--highlight\)\)\]\/20:hover {
+background-color:hsl(var(--highlight) / .2)
+}
+
+.hover\:bg-\[hsl\(var\(--highlight\)\)\]\/90:hover {
+background-color:hsl(var(--highlight) / .9)
+}
+
+.hover\:bg-\[hsl\(var\(--highlight\)\)\]\/\[0\.03\]:hover {
+background-color:hsl(var(--highlight) / .03)
+}
+
+.hover\:bg-\[hsl\(var\(--highlight-hover\)\)\]:hover {
+background-color:hsl(var(--highlight-hover))
+}
+
+.hover\:bg-\[hsl\(var\(--highlight-light\)\)\]\/10:hover {
+background-color:hsl(var(--highlight-light) / .1)
+}
+
+.hover\:bg-\[hsl\(var\(--highlight-light\)\)\]\/30:hover {
+background-color:hsl(var(--highlight-light) / .3)
+}
+
+.hover\:bg-\[hsl\(var\(--highlight-light\)\)\]\/40:hover {
+background-color:hsl(var(--highlight-light) / .4)
+}
+
+.hover\:bg-highlight:hover {
+background-color:hsl(var(--highlight))
+}
+
+.hover\:bg-highlight\/10:hover {
+background-color:hsl(var(--highlight) / .1)
+}
+
+.hover\:bg-highlight\/30:hover {
+background-color:hsl(var(--highlight) / .3)
+}
+
+.hover\:text-\[hsl\(var\(--highlight\)\)\]:hover {
+color:hsl(var(--highlight))
+}
+
+.hover\:text-\[hsl\(var\(--highlight\)\)\]\/80:hover {
+color:hsl(var(--highlight) / .8)
+}
+
+.hover\:text-\[hsl\(var\(--highlight-hover\)\)\]:hover {
+color:hsl(var(--highlight-hover))
+}
+
+.hover\:text-highlight:hover {
+color:hsl(var(--highlight))
+}
+
+.hover\:decoration-\[hsl\(var\(--highlight\)\)\]:hover {
+-webkit-text-decoration-color:hsl(var(--highlight));text-decoration-color:hsl(var(--highlight))
+}
+
+.hover\:shadow-highlight\/10:hover {
+--tw-shadow-color:hsl(var(--highlight) / .1);--tw-shadow:var(--tw-shadow-colored)
+}
+
+.hover\:shadow-highlight\/25:hover {
+--tw-shadow-color:hsl(var(--highlight) / .25);--tw-shadow:var(--tw-shadow-colored)
+}
+
+.focus\:border-\[hsl\(var\(--highlight\)\)\]\/40:focus {
+border-color:hsl(var(--highlight) / .4)
+}
+
+.focus\:text-highlight:focus {
+color:hsl(var(--highlight))
+}
+
+.focus\:ring-\[hsl\(var\(--highlight\)\)\]:focus {
+--tw-ring-color:hsl(var(--highlight))
+}
+
+.focus\:ring-\[hsl\(var\(--highlight\)\)\]\/20:focus {
+--tw-ring-color:hsl(var(--highlight) / .2)
+}
+
+.focus\:ring-\[hsl\(var\(--highlight\)\)\]\/30:focus {
+--tw-ring-color:hsl(var(--highlight) / .3)
+}
+
+.focus\:ring-\[hsl\(var\(--highlight\)\)\]\/40:focus {
+--tw-ring-color:hsl(var(--highlight) / .4)
+}
+
+.focus-visible\:border-highlight:focus-visible {
+border-color:hsl(var(--highlight))
+}
+
+.focus-visible\:ring-highlight:focus-visible {
+--tw-ring-color:hsl(var(--highlight))
+}
+
+.group:hover .group-hover\:border-\[hsl\(var\(--highlight\)\)\] {
+border-color:hsl(var(--highlight))
+}
+
+.group:hover .group-hover\:border-\[hsl\(var\(--highlight\)\)\]\/40 {
+border-color:hsl(var(--highlight) / .4)
+}
+
+.group:hover .group-hover\:border-\[hsl\(var\(--highlight\)\)\]\/60 {
+border-color:hsl(var(--highlight) / .6)
+}
+
+.group:hover .group-hover\:border-\[hsl\(var\(--highlight-hover\)\)\] {
+border-color:hsl(var(--highlight-hover))
+}
+
+.group:hover .group-hover\:border-highlight\/30 {
+border-color:hsl(var(--highlight) / .3)
+}
+
+.group:hover .group-hover\:border-highlight\/50 {
+border-color:hsl(var(--highlight) / .5)
+}
+
+.group:hover .group-hover\:bg-\[hsl\(var\(--highlight\)\)\]\/15 {
+background-color:hsl(var(--highlight) / .15)
+}
+
+.group:hover .group-hover\:bg-\[hsl\(var\(--highlight\)\)\]\/20 {
+background-color:hsl(var(--highlight) / .2)
+}
+
+.group:hover .group-hover\:text-\[hsl\(var\(--highlight\)\)\] {
+color:hsl(var(--highlight))
+}
+
+.group:hover .group-hover\:text-\[hsl\(var\(--highlight-hover\)\)\] {
+color:hsl(var(--highlight-hover))
+}
+
+.group:hover .group-hover\:text-highlight {
+color:hsl(var(--highlight))
+}
+
+.group[data-playing] .group-data-\[playing\]\:border-\[hsl\(var\(--highlight\)\)\]\/50 {
+border-color:hsl(var(--highlight) / .5)
+}
+
+:root {
+  --border:240 6% 32%;
+  --border-subtle:240 6% 24%;
+  --border-hover:240 6% 40%;
+  --gradient-start:42 78% 60%;
+  --gradient-end:50 90% 72%;
+  --muted-foreground:239 3% 70%;
+  --highlight:46 85% 65%;
+  --highlight-hover:42 78% 68%;
+  --highlight-hover:42 78% 68%;
+  --highlight-foreground:0 0% 10%;
+  --highlight-foreground:0 0% 10%;
+  --highlight-light:46 55% 90%;
+  --highlight-light:46 55% 90%;
+}
+
+.dark {
+  --muted-foreground:240 5% 65%;
+  --border:240 6% 32%;
+  --border-subtle:240 6% 24%;
+  --border-hover:240 6% 40%;
+  --gradient-start:54 95% 45%;
+  --gradient-end:54 95% 60%;
+  --highlight-hover:47 85% 58%;
+  --highlight-light:54 60% 91%;
+}

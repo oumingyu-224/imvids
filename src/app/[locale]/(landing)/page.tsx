@@ -53,7 +53,7 @@ export default async function LandingPage({
   const showSections = [
     'hero',
     'prompt-showcase',
-    'generator',
+    // 'generator',
     'showcases-flow',
     'logos',
     'introduce',

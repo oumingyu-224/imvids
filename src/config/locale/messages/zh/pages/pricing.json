@@ -33,9 +33,66 @@
           "全部基础与增强模型一折（限时特惠）",
           "Seedance 2.0 和 MiniMax H3 不参与此限时折扣，采用按秒计费的积分定价，并按套餐单独享受最高 60% 折扣",
           "所有高级 AI 模型（已解锁）",
-          "高级视频模型：MiniMax H3、Veo 3 / 3.1 系列、Kling 2.1 / 2.5 系列、Seedance 系列、Wan 2.5 / 3.0、Runway Gen 4、Grok Imagine Video",
-          "高级图像模型：GPT-4o、Nano Banana 系列、Flux Kontext Pro / Max、Seedream 4.0 / 5.0、Qwen Image Edit、Grok Imagine Image",
+          {
+            "title": "视频:",
+            "items": [
+              "MiniMax H3",
+              "Veo 3、Veo 3.1 Lite、Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "Seedance 2.0",
+              "Wan 2.5、Runway Gen 4",
+              "Grok Imagine Video"
+            ]
+          },
+          {
+            "title": "图像:",
+            "items": [
+              "GPT-4o",
+              "Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "Flux Kontext Pro、Flux Kontext Max",
+              "Seedream 4.0、Seedream 5.0 Lite",
+              "Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
           "SOTA 模型原价",
+          {
+            "title": "包含的 SOTA 模型:",
+            "items": [
+              "Wan 3.0、Wan 3.0 Prime",
+              "MiniMax H3",
+              "Seedance 2.5",
+              "Seedance 2.0",
+              "Seedance 2.0 Fast",
+              "Seedance 2.0 Mini",
+              "Veo 3 Premium",
+              "Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.1 Master",
+              "PixVerse V6 超出免费画质时长",
+              "LTX 2.5 Fast 4K"
+            ]
+          },
+          {
+            "title": "PixVerse V6:",
+            "items": [
+              "Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分"
+            ]
+          },
+          {
+            "title": "MiniMax H3 定价:",
+            "items": [
+              "768P：每秒 20 积分；2K：每秒 30 积分",
+              "前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣"
+            ]
+          },
+          {
+            "title": "套餐折扣:",
+            "items": [
+              "月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
           "2 并发生成数",
           "私密生成",
           "无广告体验",
@@ -71,11 +128,67 @@
         "features": [
           "无限点数 · 无限视频",
           "全部基础与增强模型无限使用",
-          "所有高级 AI 模型（已解锁）",
-          "高级视频模型：MiniMax H3、Veo 3 / 3.1 系列、Kling 2.1 / 2.5 系列、Seedance 系列、Wan 2.5 / 3.0、Runway Gen 4、Grok Imagine Video",
-          "高级图像模型：GPT-4o、Nano Banana 系列、Flux Kontext Pro / Max、Seedream 4.0 / 5.0、Qwen Image Edit、Grok Imagine Image",
+          "无限使用基础与增强模型。SOTA 模型需消耗积分，包括 Veo 3 Premium、Veo 3.1 Basic/Premium、PixVerse V6 超出免费画质时长、LTX 2.5 Fast 4K、Kling 2.1 Master、Seedance 2.x 和 MiniMax H3。",
+          {
+            "title": "视频:",
+            "items": [
+              "MiniMax H3",
+              "Veo 3、Veo 3.1 Lite、Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "Seedance 2.0",
+              "Wan 2.5、Runway Gen 4",
+              "Grok Imagine Video"
+            ]
+          },
+          {
+            "title": "图像:",
+            "items": [
+              "GPT-4o",
+              "Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "Flux Kontext Pro、Flux Kontext Max",
+              "Seedream 4.0、Seedream 5.0 Lite",
+              "Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
           "90,000 SOTA 模型额外积分（每次生成享 60% 折扣）",
-          "SOTA 模型五折优惠",
+          {
+            "title": "包含的 SOTA 模型:",
+            "items": [
+              "Wan 3.0、Wan 3.0 Prime",
+              "MiniMax H3",
+              "Seedance 2.5",
+              "Seedance 2.0",
+              "Seedance 2.0 Fast",
+              "Seedance 2.0 Mini",
+              "Veo 3 Premium",
+              "Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.1 Master",
+              "PixVerse V6 超出免费画质时长",
+              "LTX 2.5 Fast 4K"
+            ]
+          },
+          {
+            "title": "PixVerse V6:",
+            "items": [
+              "Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分"
+            ]
+          },
+          {
+            "title": "MiniMax H3 定价:",
+            "items": [
+              "768P：每秒 20 积分；2K：每秒 30 积分",
+              "前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣"
+            ]
+          },
+          {
+            "title": "套餐折扣:",
+            "items": [
+              "月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
           "8 并发生成数",
           "私密生成",
           "无广告体验",
@@ -113,10 +226,67 @@
           "全部基础与增强模型一折（限时特惠）",
           "Seedance 2.0 和 MiniMax H3 不参与此限时折扣，采用按秒计费的积分定价，并按套餐单独享受最高 60% 折扣",
           "所有高级 AI 模型（已解锁）",
-          "高级视频模型：MiniMax H3、Veo 3 / 3.1 系列、Kling 2.1 / 2.5 系列、Seedance 系列、Wan 2.5 / 3.0、Runway Gen 4、Grok Imagine Video",
-          "高级图像模型：GPT-4o、Nano Banana 系列、Flux Kontext Pro / Max、Seedream 4.0 / 5.0、Qwen Image Edit、Grok Imagine Image",
+          {
+            "title": "视频:",
+            "items": [
+              "MiniMax H3",
+              "Veo 3、Veo 3.1 Lite、Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "Seedance 2.0",
+              "Wan 2.5、Runway Gen 4",
+              "Grok Imagine Video"
+            ]
+          },
+          {
+            "title": "图像:",
+            "items": [
+              "GPT-4o",
+              "Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "Flux Kontext Pro、Flux Kontext Max",
+              "Seedream 4.0、Seedream 5.0 Lite",
+              "Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
           "SOTA 模型八折优惠",
-          "4 并发生成数",
+          {
+            "title": "包含的 SOTA 模型:",
+            "items": [
+              "Wan 3.0、Wan 3.0 Prime",
+              "MiniMax H3",
+              "Seedance 2.5",
+              "Seedance 2.0",
+              "Seedance 2.0 Fast",
+              "Seedance 2.0 Mini",
+              "Veo 3 Premium",
+              "Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.1 Master",
+              "PixVerse V6 超出免费画质时长",
+              "LTX 2.5 Fast 4K"
+            ]
+          },
+          {
+            "title": "PixVerse V6:",
+            "items": [
+              "Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分"
+            ]
+          },
+          {
+            "title": "MiniMax H3 定价:",
+            "items": [
+              "768P：每秒 20 积分；2K：每秒 30 积分",
+              "前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣"
+            ]
+          },
+          {
+            "title": "套餐折扣:",
+            "items": [
+              "月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
+          "2 并发生成数",
           "私密生成",
           "无广告体验",
           "无水印",
@@ -152,9 +322,66 @@
           "全部基础与增强模型一折（限时特惠）",
           "Seedance 2.0 和 MiniMax H3 不参与此限时折扣，采用按秒计费的积分定价，并按套餐单独享受最高 60% 折扣",
           "所有高级 AI 模型（已解锁）",
-          "高级视频模型：MiniMax H3、Veo 3 / 3.1 系列、Kling 2.1 / 2.5 系列、Seedance 系列、Wan 2.5 / 3.0、Runway Gen 4、Grok Imagine Video",
-          "高级图像模型：GPT-4o、Nano Banana 系列、Flux Kontext Pro / Max、Seedream 4.0 / 5.0、Qwen Image Edit、Grok Imagine Image",
+          {
+            "title": "视频:",
+            "items": [
+              "MiniMax H3",
+              "Veo 3、Veo 3.1 Lite、Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "Seedance 2.0",
+              "Wan 2.5、Runway Gen 4",
+              "Grok Imagine Video"
+            ]
+          },
+          {
+            "title": "图像:",
+            "items": [
+              "GPT-4o",
+              "Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "Flux Kontext Pro、Flux Kontext Max",
+              "Seedream 4.0、Seedream 5.0 Lite",
+              "Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
           "SOTA 模型八折优惠",
+          {
+            "title": "包含的 SOTA 模型:",
+            "items": [
+              "Wan 3.0、Wan 3.0 Prime",
+              "MiniMax H3",
+              "Seedance 2.5",
+              "Seedance 2.0",
+              "Seedance 2.0 Fast",
+              "Seedance 2.0 Mini",
+              "Veo 3 Premium",
+              "Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.1 Master",
+              "PixVerse V6 超出免费画质时长",
+              "LTX 2.5 Fast 4K"
+            ]
+          },
+          {
+            "title": "PixVerse V6:",
+            "items": [
+              "Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分"
+            ]
+          },
+          {
+            "title": "MiniMax H3 定价:",
+            "items": [
+              "768P：每秒 20 积分；2K：每秒 30 积分",
+              "前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣"
+            ]
+          },
+          {
+            "title": "套餐折扣:",
+            "items": [
+              "月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
           "2 并发生成数",
           "私密生成",
           "无广告体验",
@@ -190,12 +417,68 @@
         "features": [
           "无限点数 · 无限视频",
           "全部基础与增强模型无限使用",
-          "所有高级 AI 模型（已解锁）",
-          "高级视频模型：MiniMax H3、Veo 3 / 3.1 系列、Kling 2.1 / 2.5 系列、Seedance 系列、Wan 2.5 / 3.0、Runway Gen 4、Grok Imagine Video",
-          "高级图像模型：GPT-4o、Nano Banana 系列、Flux Kontext Pro / Max、Seedream 4.0 / 5.0、Qwen Image Edit、Grok Imagine Image",
+          "无限使用基础与增强模型。SOTA 模型需消耗积分，包括 Veo 3 Premium、Veo 3.1 Basic/Premium、PixVerse V6 超出免费画质时长、LTX 2.5 Fast 4K、Kling 2.1 Master、Seedance 2.x 和 MiniMax H3。",
+          {
+            "title": "视频:",
+            "items": [
+              "MiniMax H3",
+              "Veo 3、Veo 3.1 Lite、Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "Seedance 2.0",
+              "Wan 2.5、Runway Gen 4",
+              "Grok Imagine Video"
+            ]
+          },
+          {
+            "title": "图像:",
+            "items": [
+              "GPT-4o",
+              "Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "Flux Kontext Pro、Flux Kontext Max",
+              "Seedream 4.0、Seedream 5.0 Lite",
+              "Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
           "90,000 SOTA 模型额外积分（每次生成享 60% 折扣）",
-          "SOTA 模型四折优惠",
-          "8 并发生成数",
+          {
+            "title": "包含的 SOTA 模型:",
+            "items": [
+              "Wan 3.0、Wan 3.0 Prime",
+              "MiniMax H3",
+              "Seedance 2.5",
+              "Seedance 2.0",
+              "Seedance 2.0 Fast",
+              "Seedance 2.0 Mini",
+              "Veo 3 Premium",
+              "Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.1 Master",
+              "PixVerse V6 超出免费画质时长",
+              "LTX 2.5 Fast 4K"
+            ]
+          },
+          {
+            "title": "PixVerse V6:",
+            "items": [
+              "Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分"
+            ]
+          },
+          {
+            "title": "MiniMax H3 定价:",
+            "items": [
+              "768P：每秒 20 积分；2K：每秒 30 积分",
+              "前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣"
+            ]
+          },
+          {
+            "title": "套餐折扣:",
+            "items": [
+              "月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
+          "2 并发生成数",
           "私密生成",
           "无广告体验",
           "无水印",
@@ -233,10 +516,67 @@
           "全部基础与增强模型一折（限时特惠）",
           "Seedance 2.0 和 MiniMax H3 不参与此限时折扣，采用按秒计费的积分定价，并按套餐单独享受最高 60% 折扣",
           "所有高级 AI 模型（已解锁）",
-          "高级视频模型：MiniMax H3、Veo 3 / 3.1 系列、Kling 2.1 / 2.5 系列、Seedance 系列、Wan 2.5 / 3.0、Runway Gen 4、Grok Imagine Video",
-          "高级图像模型：GPT-4o、Nano Banana 系列、Flux Kontext Pro / Max、Seedream 4.0 / 5.0、Qwen Image Edit、Grok Imagine Image",
+          {
+            "title": "视频:",
+            "items": [
+              "MiniMax H3",
+              "Veo 3、Veo 3.1 Lite、Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "Seedance 2.0",
+              "Wan 2.5、Runway Gen 4",
+              "Grok Imagine Video"
+            ]
+          },
+          {
+            "title": "图像:",
+            "items": [
+              "GPT-4o",
+              "Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "Flux Kontext Pro、Flux Kontext Max",
+              "Seedream 4.0、Seedream 5.0 Lite",
+              "Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
           "SOTA 模型七折优惠",
-          "4 并发生成数",
+          {
+            "title": "包含的 SOTA 模型:",
+            "items": [
+              "Wan 3.0、Wan 3.0 Prime",
+              "MiniMax H3",
+              "Seedance 2.5",
+              "Seedance 2.0",
+              "Seedance 2.0 Fast",
+              "Seedance 2.0 Mini",
+              "Veo 3 Premium",
+              "Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.1 Master",
+              "PixVerse V6 超出免费画质时长",
+              "LTX 2.5 Fast 4K"
+            ]
+          },
+          {
+            "title": "PixVerse V6:",
+            "items": [
+              "Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分"
+            ]
+          },
+          {
+            "title": "MiniMax H3 定价:",
+            "items": [
+              "768P：每秒 20 积分；2K：每秒 30 积分",
+              "前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣"
+            ]
+          },
+          {
+            "title": "套餐折扣:",
+            "items": [
+              "月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
+          "2 并发生成数",
           "私密生成",
           "无广告体验",
           "无水印",
@@ -271,9 +611,69 @@
         "features_title": "包含功能",
         "features": [
           "23,500 积分（约 2,350 个视频）",
-          "所有高级 AI 模型（已解锁）",
           "全部基础与增强模型一折（限时特惠）",
           "Seedance 2.0 和 MiniMax H3 不参与此限时折扣，采用按秒计费的积分定价，并按套餐单独享受最高 60% 折扣",
+          "所有高级 AI 模型（已解锁）",
+          {
+            "title": "视频:",
+            "items": [
+              "MiniMax H3",
+              "Veo 3、Veo 3.1 Lite、Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "Seedance 2.0",
+              "Wan 2.5、Runway Gen 4",
+              "Grok Imagine Video"
+            ]
+          },
+          {
+            "title": "图像:",
+            "items": [
+              "GPT-4o",
+              "Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "Flux Kontext Pro、Flux Kontext Max",
+              "Seedream 4.0、Seedream 5.0 Lite",
+              "Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
+          "SOTA 模型原价",
+          {
+            "title": "包含的 SOTA 模型:",
+            "items": [
+              "Wan 3.0、Wan 3.0 Prime",
+              "MiniMax H3",
+              "Seedance 2.5",
+              "Seedance 2.0",
+              "Seedance 2.0 Fast",
+              "Seedance 2.0 Mini",
+              "Veo 3 Premium",
+              "Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.1 Master",
+              "PixVerse V6 超出免费画质时长",
+              "LTX 2.5 Fast 4K"
+            ]
+          },
+          {
+            "title": "PixVerse V6:",
+            "items": [
+              "Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分"
+            ]
+          },
+          {
+            "title": "MiniMax H3 定价:",
+            "items": [
+              "768P：每秒 20 积分；2K：每秒 30 积分",
+              "前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣"
+            ]
+          },
+          {
+            "title": "套餐折扣:",
+            "items": [
+              "月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
           "3 并发生成数",
           "私密生成",
           "无水印",
@@ -316,9 +716,69 @@
         "features_title": "包含功能",
         "features": [
           "60,000 积分（约 6,000 个视频）",
-          "所有高级 AI 模型（已解锁）",
           "全部基础与增强模型一折（限时特惠）",
           "Seedance 2.0 和 MiniMax H3 不参与此限时折扣，采用按秒计费的积分定价，并按套餐单独享受最高 60% 折扣",
+          "所有高级 AI 模型（已解锁）",
+          {
+            "title": "视频:",
+            "items": [
+              "MiniMax H3",
+              "Veo 3、Veo 3.1 Lite、Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "Seedance 2.0",
+              "Wan 2.5、Runway Gen 4",
+              "Grok Imagine Video"
+            ]
+          },
+          {
+            "title": "图像:",
+            "items": [
+              "GPT-4o",
+              "Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "Flux Kontext Pro、Flux Kontext Max",
+              "Seedream 4.0、Seedream 5.0 Lite",
+              "Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
+          "SOTA 模型原价",
+          {
+            "title": "包含的 SOTA 模型:",
+            "items": [
+              "Wan 3.0、Wan 3.0 Prime",
+              "MiniMax H3",
+              "Seedance 2.5",
+              "Seedance 2.0",
+              "Seedance 2.0 Fast",
+              "Seedance 2.0 Mini",
+              "Veo 3 Premium",
+              "Veo 3.1 Basic、Veo 3.1 Premium",
+              "Kling 2.1 Master",
+              "PixVerse V6 超出免费画质时长",
+              "LTX 2.5 Fast 4K"
+            ]
+          },
+          {
+            "title": "PixVerse V6:",
+            "items": [
+              "Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分"
+            ]
+          },
+          {
+            "title": "MiniMax H3 定价:",
+            "items": [
+              "768P：每秒 20 积分；2K：每秒 30 积分",
+              "前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣"
+            ]
+          },
+          {
+            "title": "套餐折扣:",
+            "items": [
+              "月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
           "6 并发生成数",
           "私密生成",
           "无水印",

@@ -30,7 +30,9 @@ export interface PricingItem {
 
   unit?: string;
   features_title?: string;
-  features?: string[];
+  // string = simple check-item line; { title, items } = a titled bullet
+  // group (e.g. "视频:" / "图像:" model lists)
+  features?: (string | { title: string; items: string[] })[];
   button?: Button;
   tip?: string;
   is_featured?: boolean;

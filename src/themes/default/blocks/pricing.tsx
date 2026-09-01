@@ -598,12 +598,31 @@ export function Pricing({
                       compact ? 'space-y-2' : 'space-y-3'
                     )}
                   >
-                    {item.features?.map((item, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <Check className="size-3 text-primary" />
-                        {item}
-                      </li>
-                    ))}
+                    {item.features?.map((feature, index) =>
+                      typeof feature === 'string' ? (
+                        <li key={index} className="flex items-start gap-2">
+                          <Check className="mt-0.5 size-3 shrink-0 text-primary" />
+                          <span>{feature}</span>
+                        </li>
+                      ) : (
+                        <li key={index} className="flex flex-col gap-1">
+                          <span className="font-medium">
+                            {feature.title}
+                          </span>
+                          <ul className="space-y-1">
+                            {feature.items.map((sub, subIndex) => (
+                              <li
+                                key={subIndex}
+                                className="flex items-start gap-2 text-muted-foreground"
+                              >
+                                <span className="shrink-0">•</span>
+                                <span>{sub}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </li>
+                      )
+                    )}
                   </ul>
                 </CardContent>
               </Card>

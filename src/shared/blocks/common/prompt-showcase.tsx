@@ -12,6 +12,7 @@ import {
   Image as ImageIcon,
   ImagePlus,
   Orbit,
+  X,
   Sparkles,
   Triangle,
   Video,
@@ -72,6 +73,68 @@ function OptionChip({
 
 function PanelLabel({ children }: { children: React.ReactNode }) {
   return <p className="text-[13px] font-medium text-white/45">{children}</p>;
+}
+
+function PromptImageUploadButton({
+  image,
+  onSelect,
+  onRemove,
+}: {
+  image: string | null;
+  onSelect: (file: File | undefined) => void;
+  onRemove: () => void;
+}) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  return (
+    <div className="relative size-6 shrink-0">
+      <button
+        type="button"
+        title={image ? undefined : 'Upload image'}
+        onClick={(event) => {
+          event.stopPropagation();
+          inputRef.current?.click();
+        }}
+        className="block size-6 overflow-hidden rounded-md transition-opacity hover:opacity-80"
+      >
+        {image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={image}
+            alt=""
+            className="size-6 object-cover"
+          />
+        ) : (
+          <ImagePlus className="size-6 text-white/50" />
+        )}
+      </button>
+
+      {image ? (
+        <button
+          type="button"
+          title="Remove image"
+          onClick={(event) => {
+            event.stopPropagation();
+            onRemove();
+          }}
+          className="absolute -right-1.5 -top-1.5 z-10 flex size-4 items-center justify-center rounded-full bg-white text-[#15171c] shadow-[0_2px_6px_rgba(0,0,0,0.45)] transition-colors hover:bg-white/80"
+        >
+          <X className="size-2.5" strokeWidth={3} />
+        </button>
+      ) : null}
+
+      <input
+        ref={inputRef}
+        type="file"
+        accept="image/*"
+        className="hidden"
+        onChange={(event) => {
+          onSelect(event.target.files?.[0]);
+          event.target.value = '';
+        }}
+      />
+    </div>
+  );
 }
 
 function SelectDropdown({
@@ -143,6 +206,7 @@ export function PromptShowcase({ className }: { className?: string }) {
   const [configOpen, setConfigOpen] = useState(false);
   const [floating, setFloating] = useState(false);
   const [floatingExpanded, setFloatingExpanded] = useState(false);
+  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const floatingExpandedRef = useRef(false);
   const expanded = hovered || focused || configOpen;
   const containerRef = useRef<HTMLDivElement>(null);
@@ -204,6 +268,17 @@ export function PromptShowcase({ className }: { className?: string }) {
     setHovered(true);
   };
 
+  const handleImageSelect = (file: File | undefined) => {
+    if (!file || !file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === 'string') {
+        setUploadedImage(reader.result);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
   const currentRatio = mode === 'video' ? videoRatio : imageRatio;
   const summary =
     mode === 'video'
@@ -220,7 +295,11 @@ export function PromptShowcase({ className }: { className?: string }) {
       >
         <div className="relative z-10 rounded-[22px] bg-[#0d0f14]/90 px-5 py-4">
           <div className="flex items-center gap-3">
-            <ImagePlus className="size-6 shrink-0 text-white/50" />
+            <PromptImageUploadButton
+              image={uploadedImage}
+              onSelect={handleImageSelect}
+              onRemove={() => setUploadedImage(null)}
+            />
             <input
               value={value}
               onChange={(event) => setValue(event.target.value)}

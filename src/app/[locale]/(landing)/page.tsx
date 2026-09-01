@@ -52,6 +52,7 @@ export default async function LandingPage({
 
   const showSections = [
     'hero',
+    'prompt-showcase',
     'generator',
     'showcases-flow',
     'logos',
@@ -86,11 +87,18 @@ export default async function LandingPage({
             />
           ),
         };
+      } else if (section === 'prompt-showcase') {
+        acc[section] = {
+          component: (
+            <div className="pt-0 pb-0" key="prompt-showcase">
+              <PromptShowcase className="mt-12" />
+            </div>
+          ),
+        };
       } else if (section === 'generator') {
         acc[section] = {
           component: (
             <div className="pt-0 pb-12 md:pb-14" key="generator">
-              <PromptShowcase className="mt-12" />
               <ImageGenerator
                 srOnlyTitle={createT.raw('generator.title')}
                 promptKey={promptKey}

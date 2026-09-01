@@ -118,7 +118,13 @@
         "product_name": "SeeVideo Starter Monthly",
         "credits": 2500,
         "valid_days": 30,
-        "group": "monthly"
+        "group": "monthly",
+        "highlights": [
+          "每月 2,500 积分（约 250 个视频）",
+          "全部基础与增强模型一折（限时特惠）",
+          "2 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "Unlimited",
@@ -214,7 +220,13 @@
         "product_name": "SeeVideo Unlimited Monthly",
         "credits_label": "Unlimited",
         "valid_days": 30,
-        "group": "monthly"
+        "group": "monthly",
+        "highlights": [
+          "无限点数 · 无限视频",
+          "全部基础与增强模型无限使用",
+          "8 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "Pro",
@@ -311,7 +323,13 @@
         "product_name": "SeeVideo Pro Monthly",
         "credits": 10000,
         "valid_days": 30,
-        "group": "monthly"
+        "group": "monthly",
+        "highlights": [
+          "每月 10,000 积分（约 1,000 个视频）",
+          "全部基础与增强模型一折（限时特惠）",
+          "2 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "Starter",
@@ -407,7 +425,13 @@
         "product_name": "SeeVideo Starter Yearly",
         "credits": 10000,
         "valid_days": 365,
-        "group": "yearly"
+        "group": "yearly",
+        "highlights": [
+          "每年 10,000 积分 · 1,000 个视频",
+          "全部基础与增强模型一折（限时特惠）",
+          "2 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "Unlimited",
@@ -504,7 +528,13 @@
         "product_name": "SeeVideo Unlimited Yearly",
         "credits_label": "Unlimited",
         "valid_days": 365,
-        "group": "yearly"
+        "group": "yearly",
+        "highlights": [
+          "无限点数 · 无限视频",
+          "全部基础与增强模型无限使用",
+          "2 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "Pro",
@@ -602,7 +632,13 @@
         "product_name": "SeeVideo Pro Yearly",
         "credits": 32000,
         "valid_days": 365,
-        "group": "yearly"
+        "group": "yearly",
+        "highlights": [
+          "每年 32,000 积分 · 3,200 个视频",
+          "全部基础与增强模型一折（限时特惠）",
+          "2 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "Standard Credits Pack",
@@ -708,7 +744,13 @@
         "product_name": "SeeVideo Standard Credits Pack",
         "credits": 23500,
         "valid_days": 365,
-        "group": "one-time"
+        "group": "one-time",
+        "highlights": [
+          "23,500 积分（约 2,350 个视频）",
+          "全部基础与增强模型一折（限时特惠）",
+          "3 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "Pro Credits Pack",
@@ -813,9 +855,943 @@
         "product_name": "SeeVideo Pro Credits Pack",
         "credits": 60000,
         "valid_days": 365,
-        "group": "one-time"
+        "group": "one-time",
+        "highlights": [
+          "60,000 积分（约 6,000 个视频）",
+          "全部基础与增强模型一折（限时特惠）",
+          "6 并发生成数",
+          "无水印"
+        ]
       }
-    ]
+    ],
+    "benefits": [
+      {
+        "icon": "Zap",
+        "title": "Model Flash Sale",
+        "description": "All base & enhanced models at 90% off (limited-time flash sale): Seedance 1.5 Pro 40 → 4 credits, Seedream 5.0 20 → 2 credits, Veo 3 100 → 10 credits; up to 60% off SOTA models per generation."
+      },
+      {
+        "icon": "LockOpen",
+        "title": "All Premium Models Unlocked",
+        "description": "Use MiniMax H3, Seedance 2.0 and Veo 3.1 Premium from the Starter plan, plus every premium model like Seedance 2.0 Pro, Seedream and Nano Banana Pro."
+      },
+      {
+        "icon": "Briefcase",
+        "title": "Commercial License",
+        "description": "Yearly plans include a commercial license — use your creations in commercial projects, watermark-free."
+      },
+      {
+        "icon": "BadgePercent",
+        "title": "Price Locked for 12 Months",
+        "description": "Yearly prices are locked for 12 months. No price increase on renewal, up to 50% off."
+      },
+      {
+        "icon": "Cloud",
+        "title": "Unlimited Storage · Private",
+        "description": "All plans include unlimited storage and private generations — your creations are visible only to you by default."
+      },
+      {
+        "icon": "RefreshCcw",
+        "title": "Cancel Anytime · Rollover",
+        "description": "Cancel your subscription anytime. Unused credits roll over automatically — nothing goes to waste."
+      }
+    ],
+    "models": {
+      "section_title": "Model Credits",
+      "section_description": "Credits per generation for each model, synced with the selected plan",
+      "video_title": "Video Models",
+      "image_title": "Image Models",
+      "free_label": "Free",
+      "not_included_label": "Not included in the current plan",
+      "show_more": "Show all models",
+      "show_less": "Show less",
+      "visible_count": 8,
+      "items": [
+        {
+          "name": "Wan 3.0",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "Shows 480p 5s price. Base rate: 480p 8 credits/s, 720p 14 credits/s, 1080p 27 credits/s. Reference-video mode bills input + output duration. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 32
+            },
+            "standard-monthly": {
+              "original": 40,
+              "value": 32
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 28
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": 20
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": 16
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Wan 3.0 Prime",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "Shows 480p 5s price. Base rate: 480p 10 credits/s, 720p 20 credits/s, 1080p 40 credits/s. Reference-video mode bills input + output duration. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 50,
+            "starter-yearly": {
+              "original": 50,
+              "value": 40
+            },
+            "standard-monthly": {
+              "original": 50,
+              "value": 40
+            },
+            "standard-yearly": {
+              "original": 50,
+              "value": 35
+            },
+            "premium-monthly": {
+              "original": 50,
+              "value": 25
+            },
+            "premium-yearly": {
+              "original": 50,
+              "value": 20
+            },
+            "starter": 50,
+            "standard": 50
+          }
+        },
+        {
+          "name": "MiniMax H3",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "Shows 768P 5s price. Base rate: 768P 20 credits/s, 2K 30 credits/s. Credits required on all paid plans; monthly Pro 20% off, monthly Unlimited 50% off, up to 60% off on yearly. First 5 reference images free, then 5 credits each (no plan discounts).",
+          "credits": {
+            "starter-monthly": 100,
+            "starter-yearly": {
+              "original": 100,
+              "value": 80
+            },
+            "standard-monthly": {
+              "original": 100,
+              "value": 80
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 70
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": 50
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": 40
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Seedance 2.5",
+          "category": "video",
+          "badge": "NEW",
+          "description": "Shows 480p 4s price. Billed per second, up to 40% off for yearly users. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 160,
+            "starter-yearly": {
+              "original": 160,
+              "value": 128
+            },
+            "standard-monthly": 160,
+            "standard-yearly": {
+              "original": 160,
+              "value": 112
+            },
+            "premium-monthly": 160,
+            "premium-yearly": {
+              "original": 160,
+              "value": 64
+            },
+            "starter": 160,
+            "standard": 160
+          }
+        },
+        {
+          "name": "Seedance 2.0",
+          "category": "video",
+          "badge": "ULTRA",
+          "description": "Shows 480p 5s price. Billed per second, up to 40% off for yearly users. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 80,
+            "starter-yearly": {
+              "original": 80,
+              "value": 64
+            },
+            "standard-monthly": {
+              "original": 80,
+              "value": 65
+            },
+            "standard-yearly": {
+              "original": 80,
+              "value": 56
+            },
+            "premium-monthly": {
+              "original": 80,
+              "value": 40
+            },
+            "premium-yearly": {
+              "original": 80,
+              "value": 32
+            },
+            "starter": 80,
+            "standard": 80
+          }
+        },
+        {
+          "name": "Seedance 2.0 Fast",
+          "category": "video",
+          "badge": null,
+          "description": "Shows 480p 5s price. Billed per second, up to 40% off for yearly users. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 65,
+            "starter-yearly": {
+              "original": 65,
+              "value": 52
+            },
+            "standard-monthly": {
+              "original": 65,
+              "value": 50
+            },
+            "standard-yearly": {
+              "original": 65,
+              "value": 39
+            },
+            "premium-monthly": {
+              "original": 65,
+              "value": 35
+            },
+            "premium-yearly": {
+              "original": 65,
+              "value": 26
+            },
+            "starter": 65,
+            "standard": 65
+          }
+        },
+        {
+          "name": "Seedance 2.0 Mini",
+          "category": "video",
+          "badge": null,
+          "description": "Shows 480p 5s price. Billed per second, up to 40% off for yearly users. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 55,
+            "starter-yearly": {
+              "original": 55,
+              "value": 44
+            },
+            "standard-monthly": {
+              "original": 55,
+              "value": 45
+            },
+            "standard-yearly": {
+              "original": 55,
+              "value": 33
+            },
+            "premium-monthly": {
+              "original": 55,
+              "value": 30
+            },
+            "premium-yearly": {
+              "original": 55,
+              "value": 22
+            },
+            "starter": 55,
+            "standard": 55
+          }
+        },
+        {
+          "name": "PixVerse V6",
+          "category": "video",
+          "badge": null,
+          "description": "Shows 720p 5s price. Unlimited users: 360p up to 14s, 540p up to 12s, 720p up to 10s, 1080p up to 8s included in unlimited usage; beyond that SOTA credits apply.",
+          "credits": {
+            "starter-monthly": 70,
+            "starter-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "standard-monthly": 70,
+            "standard-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "premium-monthly": {
+              "original": 70,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 70,
+              "value": "free"
+            },
+            "starter": 70,
+            "standard": 70
+          }
+        },
+        {
+          "name": "LTX 2.5 Fast",
+          "category": "video",
+          "badge": null,
+          "description": "Shows 720p 5s price. Base rate: 720p 8 credits/s, 1080p 16 credits/s, 2K 24 credits/s, 4K 48 credits/s. LTX 4K requires SOTA credits on all plans including Unlimited.",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": 40,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Seedance 1.5 Pro",
+          "category": "video",
+          "badge": null,
+          "description": "Flash sale: 40 → 4 credits. Billed per second, up to 40% off for yearly users. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": 40,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Veo 3",
+          "category": "video",
+          "badge": null,
+          "description": "Flash sale: 100 → 10 credits. 8s videos with native audio generation.",
+          "credits": {
+            "starter-monthly": 100,
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-monthly": 100,
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": "free"
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Veo 3.1 Lite",
+          "category": "video",
+          "badge": null,
+          "description": "Flash sale: 75 → 7 credits. Faster generation and better quality over Veo 3.",
+          "credits": {
+            "starter-monthly": 75,
+            "starter-yearly": {
+              "original": 75,
+              "value": 7
+            },
+            "standard-monthly": 75,
+            "standard-yearly": {
+              "original": 75,
+              "value": 7
+            },
+            "premium-monthly": {
+              "original": 75,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 75,
+              "value": "free"
+            },
+            "starter": 75,
+            "standard": 75
+          }
+        },
+        {
+          "name": "Veo 3.1 Basic",
+          "category": "video",
+          "badge": null,
+          "description": "Flash sale: 150 → 15 credits. 3 reference images, frame control, faster processing.",
+          "credits": {
+            "starter-monthly": 150,
+            "starter-yearly": {
+              "original": 150,
+              "value": 15
+            },
+            "standard-monthly": 150,
+            "standard-yearly": {
+              "original": 150,
+              "value": 15
+            },
+            "premium-monthly": {
+              "original": 150,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 150,
+              "value": "free"
+            },
+            "starter": 150,
+            "standard": 150
+          }
+        },
+        {
+          "name": "Veo 3.1 Premium",
+          "category": "video",
+          "badge": null,
+          "description": "Flash sale: 200 → 20 credits. Cinematic 4K, frame-level control, multiple reference images.",
+          "credits": {
+            "starter-monthly": null,
+            "starter-yearly": {
+              "original": 200,
+              "value": 20
+            },
+            "standard-monthly": 200,
+            "standard-yearly": {
+              "original": 200,
+              "value": 20
+            },
+            "premium-monthly": {
+              "original": 200,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 200,
+              "value": "free"
+            },
+            "starter": 200,
+            "standard": 200
+          }
+        },
+        {
+          "name": "Kling 2.5",
+          "category": "video",
+          "badge": null,
+          "description": "Flash sale: 100 → 10 credits. Text & image to video with natural motion.",
+          "credits": {
+            "starter-monthly": 100,
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-monthly": 100,
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": "free"
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Kling 2.1 Pro",
+          "category": "video",
+          "badge": null,
+          "description": "Flash sale: 120 → 12 credits. High-quality video with excellent camera work and physics.",
+          "credits": {
+            "starter-monthly": 120,
+            "starter-yearly": {
+              "original": 120,
+              "value": 12
+            },
+            "standard-monthly": 120,
+            "standard-yearly": {
+              "original": 120,
+              "value": 12
+            },
+            "premium-monthly": {
+              "original": 120,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 120,
+              "value": "free"
+            },
+            "starter": 120,
+            "standard": 120
+          }
+        },
+        {
+          "name": "Kling 2.1 Master",
+          "category": "video",
+          "badge": null,
+          "description": "Flash sale: 200 → 20 credits. Flagship Kling quality, yearly & one-time plans only.",
+          "credits": {
+            "starter-monthly": null,
+            "starter-yearly": {
+              "original": 200,
+              "value": 20
+            },
+            "standard-monthly": null,
+            "standard-yearly": {
+              "original": 200,
+              "value": 20
+            },
+            "premium-monthly": {
+              "original": 200,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 200,
+              "value": "free"
+            },
+            "starter": 200,
+            "standard": 200
+          }
+        },
+        {
+          "name": "Wan 2.5",
+          "category": "video",
+          "badge": null,
+          "description": "Flash sale: 100 → 10 credits. Text & image to video with synced audio.",
+          "credits": {
+            "starter-monthly": 100,
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-monthly": 100,
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": "free"
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Runway Gen 4",
+          "category": "video",
+          "badge": null,
+          "description": "Flash sale: 100 → 10 credits. Filmmaker-grade video with consistent characters.",
+          "credits": {
+            "starter-monthly": 100,
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-monthly": 100,
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": "free"
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Grok Imagine Video",
+          "category": "video",
+          "badge": null,
+          "description": "From 40+ credits, billed by resolution and duration, up to 40% off for yearly users.",
+          "credits": {
+            "starter-monthly": "40+",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": "40+",
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": "40+",
+            "standard": "40+"
+          }
+        },
+        {
+          "name": "Seedream",
+          "category": "image",
+          "badge": null,
+          "description": "Flash sale: 30 → 3 credits. High-quality text-to-image and image editing.",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "GPT-4o Image",
+          "category": "image",
+          "badge": null,
+          "description": "Flash sale: 30 → 3 credits. Image generation and editing powered by GPT-4o.",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Nano Banana",
+          "category": "image",
+          "badge": null,
+          "description": "Flash sale: 30 → 3 credits. Up to 4 reference images for consistent characters.",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Nano Banana Pro",
+          "category": "image",
+          "badge": null,
+          "description": "Flash sale: 40 → 4 credits. Up to 4 reference images for consistent characters, yearly & one-time plans only.",
+          "credits": {
+            "starter-monthly": null,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": null,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Nano Banana 2",
+          "category": "image",
+          "badge": null,
+          "description": "Flash sale: 40 → 4 credits. Up to 4 reference images for consistent characters.",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": 40,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Flux Kontext Pro",
+          "category": "image",
+          "badge": null,
+          "description": "Flash sale: 30 → 3 credits. Context-aware image generation and editing.",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Flux Kontext Max",
+          "category": "image",
+          "badge": null,
+          "description": "Flash sale: 40 → 4 credits. Flagship Flux quality with better details and text rendering.",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": 40,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Seedream 4.0",
+          "category": "image",
+          "badge": null,
+          "description": "Flash sale: 30 → 3 credits. 4K text-to-image with multi-image reference and editing.",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Seedream 5.0 Lite",
+          "category": "image",
+          "badge": null,
+          "description": "Flash sale: 40 → 4 credits. The latest lightweight Seedream balancing speed and quality.",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": 40,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Qwen Image Edit",
+          "category": "image",
+          "badge": null,
+          "description": "Flash sale: 30 → 3 credits. Precise local edits with Qwen image editing.",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Grok Imagine Image",
+          "category": "image",
+          "badge": null,
+          "description": "Flash sale: 30 → 3 credits. Grok image generation with diverse styles.",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        }
+      ]
+    }
   },
   "page": {
     "title": "ChatGPT Image 2 Pricing",

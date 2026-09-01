@@ -1,7 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Check, Loader2 } from 'lucide-react';
+import {
+  Check,
+  ChevronDown,
+  ChevronUp,
+  Info,
+  Loader2,
+  X,
+} from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 
@@ -28,8 +35,12 @@ import { getCookie } from '@/shared/lib/cookie';
 import { cn } from '@/shared/lib/utils';
 import { Subscription } from '@/shared/models/subscription';
 import {
+  PricingBenefit,
   PricingCurrency,
   PricingItem,
+  PricingModel,
+  PricingModelCredit,
+  PricingModelsSection,
   Pricing as PricingType,
 } from '@/shared/types/blocks/pricing';
 
@@ -73,6 +84,224 @@ function getInitialCurrency(
 
   // Otherwise return default currency
   return defaultCurrency;
+}
+
+// Benefits row: icon + short title, full description in a hover tooltip
+function PricingBenefits({ benefits }: { benefits: PricingBenefit[] }) {
+  return (
+    <div className="mb-10 flex flex-wrap items-start justify-center gap-x-8 gap-y-5 md:gap-x-12">
+      {benefits.map((benefit, i) => (
+        <div key={i} className="group relative">
+          <div className="flex cursor-default items-center gap-2">
+            {benefit.icon && (
+              <SmartIcon
+                name={benefit.icon}
+                size={18}
+                className="shrink-0 text-primary"
+              />
+            )}
+            <span className="landing-strong text-sm font-medium">
+              {benefit.title}
+            </span>
+          </div>
+          <div className="pointer-events-none absolute left-1/2 top-full z-50 mt-2 hidden w-80 -translate-x-1/2 rounded-lg border bg-popover px-4 py-3 text-left text-xs shadow-xl group-hover:block">
+            <p className="landing-strong font-semibold">{benefit.title}</p>
+            <p className="landing-body mt-1.5 leading-relaxed text-muted-foreground">
+              {benefit.description}
+            </p>
+            <span className="absolute -top-1 left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 border-l border-t border bg-popover" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Right-side credit cell of a model row:
+// number / struck-through original + discounted / "free" badge / ✕ when the
+// plan does not include the model
+function PricingModelCreditCell({
+  credit,
+  freeLabel,
+  notIncludedLabel,
+  highlighted,
+}: {
+  credit: PricingModelCredit;
+  freeLabel?: string;
+  notIncludedLabel?: string;
+  highlighted?: boolean;
+}) {
+  if (credit === null || credit === undefined) {
+    return (
+      <span
+        className="flex items-center justify-end"
+        title={notIncludedLabel}
+      >
+        <X className="size-3.5 text-muted-foreground/40" />
+      </span>
+    );
+  }
+
+  const value =
+    typeof credit === 'object'
+      ? credit.value === 'free'
+        ? freeLabel || credit.value
+        : credit.value
+      : credit === 'free'
+        ? freeLabel || credit
+        : credit;
+
+  const valueEl = (
+    <span
+      className={cn(
+        'text-sm font-semibold',
+        highlighted ? 'text-primary' : 'landing-strong'
+      )}
+    >
+      {value}
+    </span>
+  );
+
+  if (typeof credit === 'object') {
+    return (
+      <span className="flex items-center justify-end gap-1.5">
+        <span className="landing-muted text-xs line-through">
+          {credit.original}
+        </span>
+        {valueEl}
+      </span>
+    );
+  }
+
+  return <span className="flex items-center justify-end">{valueEl}</span>;
+}
+
+// Model credits list: "model name + credits" rows, description hidden in a
+// hover tooltip, collapsible, and synced with the selected plan (models not
+// included in the plan render as ✕)
+function PricingModels({
+  models,
+  plans,
+  planId,
+  onPlanChange,
+}: {
+  models: PricingModelsSection;
+  plans: PricingItem[];
+  planId: string | null;
+  onPlanChange: (id: string) => void;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const visiblePerCategory = models.visible_count ?? 8;
+
+  const videoItems =
+    models.items?.filter((m) => m.category === 'video') ?? [];
+  const imageItems =
+    models.items?.filter((m) => m.category === 'image') ?? [];
+  const collapsible =
+    videoItems.length > visiblePerCategory ||
+    imageItems.length > visiblePerCategory;
+
+  const renderCategory = (title: string, items: PricingModel[]) => {
+    if (items.length === 0) return null;
+    const shown = expanded ? items : items.slice(0, visiblePerCategory);
+
+    return (
+      <div className="space-y-1">
+        <p className="landing-strong px-3 pt-4 text-xs font-bold tracking-wide uppercase">
+          {title}
+        </p>
+        {shown.map((model) => (
+          <div
+            key={model.name}
+            className="group relative flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 transition-colors hover:bg-muted/50"
+          >
+            <div className="flex min-w-0 items-center gap-1.5">
+              <span className="landing-strong truncate text-sm font-medium">
+                {model.name}
+              </span>
+              {model.badge && (
+                <span className="shrink-0 rounded bg-primary/20 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
+                  {model.badge}
+                </span>
+              )}
+              <Info className="size-3.5 shrink-0 text-muted-foreground/50" />
+            </div>
+
+            <PricingModelCreditCell
+              credit={model.credits?.[planId ?? '']}
+              freeLabel={models.free_label}
+              notIncludedLabel={models.not_included_label}
+            />
+
+            <div className="pointer-events-none absolute left-3 top-full z-50 mt-1 hidden w-max max-w-md rounded-lg border bg-popover px-3 py-2 text-xs shadow-xl group-hover:block">
+              <p className="landing-body leading-relaxed text-muted-foreground">
+                {model.description}
+              </p>
+              <span className="absolute -top-1 left-4 h-2 w-2 rotate-45 border-l border-t border bg-popover" />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  return (
+    <div className="mx-auto mt-14 w-full max-w-5xl">
+      {models.section_title && (
+        <h3 className="landing-strong mb-1 text-center text-xl font-bold sm:text-2xl">
+          {models.section_title}
+        </h3>
+      )}
+      {models.section_description && (
+        <p className="landing-body mb-5 text-center text-sm text-muted-foreground">
+          {models.section_description}
+        </p>
+      )}
+
+      {/* plan selector: credits/✕ follow the selected plan */}
+      {plans.length > 0 && (
+        <div className="mb-4 flex flex-wrap items-center justify-center gap-2">
+          {plans.map((plan) => (
+            <button
+              key={plan.product_id}
+              type="button"
+              onClick={() => onPlanChange(plan.product_id)}
+              className={cn(
+                'rounded-full border px-3 py-1.5 text-xs font-medium transition-colors',
+                plan.product_id === planId
+                  ? 'border-primary bg-primary text-primary-foreground shadow-sm'
+                  : 'border-border bg-card text-muted-foreground hover:text-foreground'
+              )}
+            >
+              {plan.title}
+            </button>
+          ))}
+        </div>
+      )}
+
+      <div className="landing-panel rounded-2xl border py-2">
+        {renderCategory(models.video_title || '', videoItems)}
+        {renderCategory(models.image_title || '', imageItems)}
+
+        {collapsible && (
+          <div className="flex justify-center pt-3 pb-1">
+            <button
+              type="button"
+              onClick={() => setExpanded(!expanded)}
+              className="landing-body flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
+            >
+              {expanded ? models.show_less : models.show_more}
+              {expanded ? (
+                <ChevronUp className="size-4" />
+              ) : (
+                <ChevronDown className="size-4" />
+              )}
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export function Pricing({
@@ -121,6 +350,9 @@ export function Pricing({
 
   const [isLoading, setIsLoading] = useState(false);
   const [productId, setProductId] = useState<string | null>(null);
+
+  // selected plan of the model-credits section (follows the billing group)
+  const [modelPlanId, setModelPlanId] = useState<string | null>(null);
 
   // Currency state management for each item
   // Store selected currency and displayed item for each product_id
@@ -337,6 +569,18 @@ export function Pricing({
     }
   }, [pricing.items, group]);
 
+  // plans of the current billing group; the model-credits section shows a
+  // ✕ for models not included in the selected plan
+  const groupItems =
+    pricing.items?.filter((i) => !i.group || i.group === group) ?? [];
+  const effectiveModelPlanId = groupItems.some(
+    (i) => i.product_id === modelPlanId
+  )
+    ? modelPlanId
+    : groupItems.find((i) => i.is_featured)?.product_id ||
+      groupItems[0]?.product_id ||
+      null;
+
   return (
     <section
       id={pricing.id}
@@ -358,6 +602,12 @@ export function Pricing({
       )}
 
       <div className={compact ? 'w-full px-0' : 'container'}>
+        {!compact &&
+          pricing.benefits &&
+          pricing.benefits.length > 0 && (
+            <PricingBenefits benefits={pricing.benefits} />
+          )}
+
         {pricing.groups && pricing.groups.length > 0 && (
           <div
             className={cn(
@@ -592,43 +842,40 @@ export function Pricing({
                       {item.features_title}
                     </p>
                   )}
+                  {/* compact highlights only — full model details live in
+                      the dedicated model-credits section below */}
                   <ul
                     className={cn(
                       'landing-body list-outside text-sm',
                       compact ? 'space-y-2' : 'space-y-3'
                     )}
                   >
-                    {item.features?.map((feature, index) =>
-                      typeof feature === 'string' ? (
-                        <li key={index} className="flex items-start gap-2">
-                          <Check className="mt-0.5 size-3 shrink-0 text-primary" />
-                          <span>{feature}</span>
-                        </li>
-                      ) : (
-                        <li key={index} className="flex flex-col gap-1">
-                          <span className="font-medium">
-                            {feature.title}
-                          </span>
-                          <ul className="space-y-1">
-                            {feature.items.map((sub, subIndex) => (
-                              <li
-                                key={subIndex}
-                                className="flex items-start gap-2 text-muted-foreground"
-                              >
-                                <span className="shrink-0">•</span>
-                                <span>{sub}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </li>
-                      )
-                    )}
+                    {(item.highlights ??
+                      item.features?.filter(
+                        (f): f is string => typeof f === 'string'
+                      ) ??
+                      []
+                    ).map((feature, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <Check className="mt-0.5 size-3 shrink-0 text-primary" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
                   </ul>
                 </CardContent>
               </Card>
             );
           })}
         </div>
+
+        {!compact && pricing.models?.items && pricing.models.items.length > 0 && (
+          <PricingModels
+            models={pricing.models}
+            plans={groupItems}
+            planId={effectiveModelPlanId}
+            onPlanChange={setModelPlanId}
+          />
+        )}
       </div>
 
       <PaymentModal

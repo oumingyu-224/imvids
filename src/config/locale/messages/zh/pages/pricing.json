@@ -118,7 +118,13 @@
         "product_name": "SeeVideo 入门版包月",
         "credits": 2500,
         "valid_days": 30,
-        "group": "monthly"
+        "group": "monthly",
+        "highlights": [
+          "每月 2,500 积分（约 250 个视频）",
+          "全部基础与增强模型一折（限时特惠）",
+          "2 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "无限制",
@@ -214,7 +220,13 @@
         "product_name": "SeeVideo 无限制包月",
         "credits_label": "无限",
         "valid_days": 30,
-        "group": "monthly"
+        "group": "monthly",
+        "highlights": [
+          "无限点数 · 无限视频",
+          "全部基础与增强模型无限使用",
+          "8 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "专业版",
@@ -311,7 +323,13 @@
         "product_name": "SeeVideo 专业版包月",
         "credits": 10000,
         "valid_days": 30,
-        "group": "monthly"
+        "group": "monthly",
+        "highlights": [
+          "每月 10,000 积分（约 1,000 个视频）",
+          "全部基础与增强模型一折（限时特惠）",
+          "2 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "入门版",
@@ -407,7 +425,13 @@
         "product_name": "SeeVideo 入门版包年",
         "credits": 10000,
         "valid_days": 365,
-        "group": "yearly"
+        "group": "yearly",
+        "highlights": [
+          "每年 10,000 积分 · 1,000 个视频",
+          "全部基础与增强模型一折（限时特惠）",
+          "2 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "无限制",
@@ -504,7 +528,13 @@
         "product_name": "SeeVideo 无限制包年",
         "credits_label": "无限",
         "valid_days": 365,
-        "group": "yearly"
+        "group": "yearly",
+        "highlights": [
+          "无限点数 · 无限视频",
+          "全部基础与增强模型无限使用",
+          "2 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "专业版",
@@ -602,7 +632,13 @@
         "product_name": "SeeVideo 专业版包年",
         "credits": 32000,
         "valid_days": 365,
-        "group": "yearly"
+        "group": "yearly",
+        "highlights": [
+          "每年 32,000 积分 · 3,200 个视频",
+          "全部基础与增强模型一折（限时特惠）",
+          "2 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "标准积分包",
@@ -708,7 +744,13 @@
         "product_name": "SeeVideo 标准积分包",
         "credits": 23500,
         "valid_days": 365,
-        "group": "one-time"
+        "group": "one-time",
+        "highlights": [
+          "23,500 积分（约 2,350 个视频）",
+          "全部基础与增强模型一折（限时特惠）",
+          "3 并发生成数",
+          "无水印"
+        ]
       },
       {
         "title": "专业积分包",
@@ -813,9 +855,943 @@
         "product_name": "SeeVideo 专业积分包",
         "credits": 60000,
         "valid_days": 365,
-        "group": "one-time"
+        "group": "one-time",
+        "highlights": [
+          "60,000 积分（约 6,000 个视频）",
+          "全部基础与增强模型一折（限时特惠）",
+          "6 并发生成数",
+          "无水印"
+        ]
       }
-    ]
+    ],
+    "benefits": [
+      {
+        "icon": "Zap",
+        "title": "模型闪购折扣",
+        "description": "所有基础与增强模型一折优惠（限时闪购）：Seedance 1.5 Pro 40 → 4 积分、Seedream 5.0 20 → 2 积分、Veo 3 100 → 10 积分；SOTA 模型每次生成最高享 60% 折扣。"
+      },
+      {
+        "icon": "LockOpen",
+        "title": "高级模型全解锁",
+        "description": "从入门计划起即可使用 MiniMax H3、Seedance 2.0 和 Veo 3.1 高级版，以及 Seedance 2.0 Pro、Seedream、Nano Banana Pro 等所有高级模型。"
+      },
+      {
+        "icon": "Briefcase",
+        "title": "商业授权",
+        "description": "年付套餐均含商业许可证，生成内容可自由用于商业项目，无水印导出。"
+      },
+      {
+        "icon": "BadgePercent",
+        "title": "价格锁定 12 个月",
+        "description": "年付订阅价格锁定 12 个月，续费不涨价，最高节省 50%。"
+      },
+      {
+        "icon": "Cloud",
+        "title": "无限存储 · 私密生成",
+        "description": "所有套餐含无限存储空间与私密生成，作品默认仅自己可见。"
+      },
+      {
+        "icon": "RefreshCcw",
+        "title": "随时取消 · 额度结转",
+        "description": "随时可取消订阅，未用完的额度自动结转，不浪费每一分。"
+      }
+    ],
+    "models": {
+      "section_title": "模型积分",
+      "section_description": "各模型每次生成的积分消耗，随所选套餐联动",
+      "video_title": "视频模型",
+      "image_title": "图像模型",
+      "free_label": "免费",
+      "not_included_label": "当前套餐不包含该模型",
+      "show_more": "展开全部模型",
+      "show_less": "收起",
+      "visible_count": 8,
+      "items": [
+        {
+          "name": "Wan 3.0",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "显示 480p 5 秒价格。基础费率：480p 每秒 8 积分、720p 每秒 14 积分、1080p 每秒 27 积分。参考视频模式按输入与输出总时长计费。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 32
+            },
+            "standard-monthly": {
+              "original": 40,
+              "value": 32
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 28
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": 20
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": 16
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Wan 3.0 Prime",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "显示 480p 5 秒价格。基础费率：480p 每秒 10 积分、720p 每秒 20 积分、1080p 每秒 40 积分。参考视频模式按输入与输出总时长计费。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 50,
+            "starter-yearly": {
+              "original": 50,
+              "value": 40
+            },
+            "standard-monthly": {
+              "original": 50,
+              "value": 40
+            },
+            "standard-yearly": {
+              "original": 50,
+              "value": 35
+            },
+            "premium-monthly": {
+              "original": 50,
+              "value": 25
+            },
+            "premium-yearly": {
+              "original": 50,
+              "value": 20
+            },
+            "starter": 50,
+            "standard": 50
+          }
+        },
+        {
+          "name": "MiniMax H3",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "显示 768P 5 秒价格。基础费率为 768P 每秒 20 积分、2K 每秒 30 积分。所有付费套餐均需消耗积分；月 Pro 八折、月 Unlimited 五折，年费最高享 60% 折扣。前 5 张参考图片免费，之后每张额外收取 5 积分且不参与折扣。",
+          "credits": {
+            "starter-monthly": 100,
+            "starter-yearly": {
+              "original": 100,
+              "value": 80
+            },
+            "standard-monthly": {
+              "original": 100,
+              "value": 80
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 70
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": 50
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": 40
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Seedance 2.5",
+          "category": "video",
+          "badge": "NEW",
+          "description": "显示 480p 4 秒价格。按秒计费，年费用户享受最高六折优惠。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 160,
+            "starter-yearly": {
+              "original": 160,
+              "value": 128
+            },
+            "standard-monthly": 160,
+            "standard-yearly": {
+              "original": 160,
+              "value": 112
+            },
+            "premium-monthly": 160,
+            "premium-yearly": {
+              "original": 160,
+              "value": 64
+            },
+            "starter": 160,
+            "standard": 160
+          }
+        },
+        {
+          "name": "Seedance 2.0",
+          "category": "video",
+          "badge": "ULTRA",
+          "description": "显示 480p 5 秒价格。按秒计费，年费用户享受最高六折优惠。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 80,
+            "starter-yearly": {
+              "original": 80,
+              "value": 64
+            },
+            "standard-monthly": {
+              "original": 80,
+              "value": 65
+            },
+            "standard-yearly": {
+              "original": 80,
+              "value": 56
+            },
+            "premium-monthly": {
+              "original": 80,
+              "value": 40
+            },
+            "premium-yearly": {
+              "original": 80,
+              "value": 32
+            },
+            "starter": 80,
+            "standard": 80
+          }
+        },
+        {
+          "name": "Seedance 2.0 Fast",
+          "category": "video",
+          "badge": null,
+          "description": "显示 480p 5 秒价格。按秒计费，年费用户享受最高六折优惠。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 65,
+            "starter-yearly": {
+              "original": 65,
+              "value": 52
+            },
+            "standard-monthly": {
+              "original": 65,
+              "value": 50
+            },
+            "standard-yearly": {
+              "original": 65,
+              "value": 39
+            },
+            "premium-monthly": {
+              "original": 65,
+              "value": 35
+            },
+            "premium-yearly": {
+              "original": 65,
+              "value": 26
+            },
+            "starter": 65,
+            "standard": 65
+          }
+        },
+        {
+          "name": "Seedance 2.0 Mini",
+          "category": "video",
+          "badge": null,
+          "description": "显示 480p 5 秒价格。按秒计费，年费用户享受最高六折优惠。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 55,
+            "starter-yearly": {
+              "original": 55,
+              "value": 44
+            },
+            "standard-monthly": {
+              "original": 55,
+              "value": 45
+            },
+            "standard-yearly": {
+              "original": 55,
+              "value": 33
+            },
+            "premium-monthly": {
+              "original": 55,
+              "value": 30
+            },
+            "premium-yearly": {
+              "original": 55,
+              "value": 22
+            },
+            "starter": 55,
+            "standard": 55
+          }
+        },
+        {
+          "name": "PixVerse V6",
+          "category": "video",
+          "badge": null,
+          "description": "显示 720p 5 秒价格。Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分。",
+          "credits": {
+            "starter-monthly": 70,
+            "starter-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "standard-monthly": 70,
+            "standard-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "premium-monthly": {
+              "original": 70,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 70,
+              "value": "free"
+            },
+            "starter": 70,
+            "standard": 70
+          }
+        },
+        {
+          "name": "LTX 2.5 Fast",
+          "category": "video",
+          "badge": null,
+          "description": "显示 720p 5 秒价格。基础费率为 720p 每秒 8 积分、1080p 每秒 16 积分、2K 每秒 24 积分、4K 每秒 48 积分。LTX 4K 在所有套餐（包括 Unlimited）均需消耗 SOTA 积分。",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": 40,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Seedance 1.5 Pro",
+          "category": "video",
+          "badge": null,
+          "description": "限时一折：40 → 4 积分。按秒计费，年费用户享受最高六折优惠。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": 40,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Veo 3",
+          "category": "video",
+          "badge": null,
+          "description": "限时一折：100 → 10 积分。8 秒视频，支持原生音频生成。",
+          "credits": {
+            "starter-monthly": 100,
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-monthly": 100,
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": "free"
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Veo 3.1 Lite",
+          "category": "video",
+          "badge": null,
+          "description": "限时一折：75 → 7 积分。在 Veo 3 基础上更快的生成速度与更优画质。",
+          "credits": {
+            "starter-monthly": 75,
+            "starter-yearly": {
+              "original": 75,
+              "value": 7
+            },
+            "standard-monthly": 75,
+            "standard-yearly": {
+              "original": 75,
+              "value": 7
+            },
+            "premium-monthly": {
+              "original": 75,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 75,
+              "value": "free"
+            },
+            "starter": 75,
+            "standard": 75
+          }
+        },
+        {
+          "name": "Veo 3.1 Basic",
+          "category": "video",
+          "badge": null,
+          "description": "限时一折：150 → 15 积分。支持 3 张参考图、帧控制、更快的处理速度。",
+          "credits": {
+            "starter-monthly": 150,
+            "starter-yearly": {
+              "original": 150,
+              "value": 15
+            },
+            "standard-monthly": 150,
+            "standard-yearly": {
+              "original": 150,
+              "value": 15
+            },
+            "premium-monthly": {
+              "original": 150,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 150,
+              "value": "free"
+            },
+            "starter": 150,
+            "standard": 150
+          }
+        },
+        {
+          "name": "Veo 3.1 Premium",
+          "category": "video",
+          "badge": null,
+          "description": "限时一折：200 → 20 积分。电影级 4K 画质，帧级精控，支持多参考图。",
+          "credits": {
+            "starter-monthly": null,
+            "starter-yearly": {
+              "original": 200,
+              "value": 20
+            },
+            "standard-monthly": 200,
+            "standard-yearly": {
+              "original": 200,
+              "value": 20
+            },
+            "premium-monthly": {
+              "original": 200,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 200,
+              "value": "free"
+            },
+            "starter": 200,
+            "standard": 200
+          }
+        },
+        {
+          "name": "Kling 2.5",
+          "category": "video",
+          "badge": null,
+          "description": "限时一折：100 → 10 积分。图文生视频，动作自然流畅。",
+          "credits": {
+            "starter-monthly": 100,
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-monthly": 100,
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": "free"
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Kling 2.1 Pro",
+          "category": "video",
+          "badge": null,
+          "description": "限时一折：120 → 12 积分。高品质视频生成，运镜与物理表现出色。",
+          "credits": {
+            "starter-monthly": 120,
+            "starter-yearly": {
+              "original": 120,
+              "value": 12
+            },
+            "standard-monthly": 120,
+            "standard-yearly": {
+              "original": 120,
+              "value": 12
+            },
+            "premium-monthly": {
+              "original": 120,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 120,
+              "value": "free"
+            },
+            "starter": 120,
+            "standard": 120
+          }
+        },
+        {
+          "name": "Kling 2.1 Master",
+          "category": "video",
+          "badge": null,
+          "description": "限时一折：200 → 20 积分。Kling 旗舰级画质，仅年付与一次性套餐可用。",
+          "credits": {
+            "starter-monthly": null,
+            "starter-yearly": {
+              "original": 200,
+              "value": 20
+            },
+            "standard-monthly": null,
+            "standard-yearly": {
+              "original": 200,
+              "value": 20
+            },
+            "premium-monthly": {
+              "original": 200,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 200,
+              "value": "free"
+            },
+            "starter": 200,
+            "standard": 200
+          }
+        },
+        {
+          "name": "Wan 2.5",
+          "category": "video",
+          "badge": null,
+          "description": "限时一折：100 → 10 积分。图文生视频，支持音画同步。",
+          "credits": {
+            "starter-monthly": 100,
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-monthly": 100,
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": "free"
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Runway Gen 4",
+          "category": "video",
+          "badge": null,
+          "description": "限时一折：100 → 10 积分。影视级视频生成与角色一致性。",
+          "credits": {
+            "starter-monthly": 100,
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-monthly": 100,
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": "free"
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Grok Imagine Video",
+          "category": "video",
+          "badge": null,
+          "description": "40+ 积分起，按分辨率与时长计费，年费用户享最高六折优惠。",
+          "credits": {
+            "starter-monthly": "40+",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": "40+",
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": "40+",
+            "standard": "40+"
+          }
+        },
+        {
+          "name": "Seedream",
+          "category": "image",
+          "badge": null,
+          "description": "限时一折：30 → 3 积分。高质量文生图与图像编辑。",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "GPT-4o Image",
+          "category": "image",
+          "badge": null,
+          "description": "限时一折：30 → 3 积分。GPT-4o 驱动的图像生成与编辑。",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Nano Banana",
+          "category": "image",
+          "badge": null,
+          "description": "限时一折：30 → 3 积分。支持最多 4 张参考图，确保角色生成的一致性。",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Nano Banana Pro",
+          "category": "image",
+          "badge": null,
+          "description": "限时一折：40 → 4 积分。支持最多 4 张参考图，确保角色生成的一致性，仅年付与一次性套餐可用。",
+          "credits": {
+            "starter-monthly": null,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": null,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Nano Banana 2",
+          "category": "image",
+          "badge": null,
+          "description": "限时一折：40 → 4 积分。支持最多 4 张参考图，确保角色生成的一致性。",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": 40,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Flux Kontext Pro",
+          "category": "image",
+          "badge": null,
+          "description": "限时一折：30 → 3 积分。上下文感知的图像生成与编辑。",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Flux Kontext Max",
+          "category": "image",
+          "badge": null,
+          "description": "限时一折：40 → 4 积分。Flux 旗舰级图像生成，细节与文字渲染更佳。",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": 40,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Seedream 4.0",
+          "category": "image",
+          "badge": null,
+          "description": "限时一折：30 → 3 积分。4K 级文生图，多图参考与编辑。",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Seedream 5.0 Lite",
+          "category": "image",
+          "badge": null,
+          "description": "限时一折：40 → 4 积分。Seedream 最新轻量版，速度与质量兼顾。",
+          "credits": {
+            "starter-monthly": 40,
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-monthly": 40,
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": "free"
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Qwen Image Edit",
+          "category": "image",
+          "badge": null,
+          "description": "限时一折：30 → 3 积分。通义千问图像编辑，精准局部修改。",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Grok Imagine Image",
+          "category": "image",
+          "badge": null,
+          "description": "限时一折：30 → 3 积分。Grok 图像生成，风格多样。",
+          "credits": {
+            "starter-monthly": 30,
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-monthly": 30,
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-monthly": {
+              "original": 30,
+              "value": "free"
+            },
+            "premium-yearly": {
+              "original": 30,
+              "value": "free"
+            },
+            "starter": 30,
+            "standard": 30
+          }
+        }
+      ]
+    }
   },
   "page": {
     "title": "ChatGPT Image 2 价格方案",

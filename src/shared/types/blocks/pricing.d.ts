@@ -33,6 +33,8 @@ export interface PricingItem {
   // string = simple check-item line; { title, items } = a titled bullet
   // group (e.g. "视频:" / "图像:" model lists)
   features?: (string | { title: string; items: string[] })[];
+  highlights?: string[]; // compact check-lines shown on the card; full
+  // model details live in the dedicated model-credits section
   button?: Button;
   tip?: string;
   is_featured?: boolean;
@@ -49,6 +51,46 @@ export interface PricingItem {
   group?: string;
 }
 
+// A benefit shown as "icon + short title" row; full description is
+// revealed in a hover tooltip (seevideo-style)
+export interface PricingBenefit {
+  icon?: string;
+  title: string;
+  description: string;
+}
+
+// Per-plan credit cost of a model.
+// - number / string: credits displayed directly (e.g. 40 or "40+")
+// - { original, value }: struck-through original + discounted credits
+// - null: model not included in that plan (rendered as ✕)
+export type PricingModelCredit =
+  | number
+  | string
+  | { original: number | string; value: number | string }
+  | null;
+
+export interface PricingModel {
+  name: string;
+  category: 'video' | 'image';
+  badge?: string; // e.g. SOTA / NEW / ULTRA
+  description: string; // shown in the row hover tooltip
+  // keyed by pricing item product_id, keeps every plan's credits
+  credits: Record<string, PricingModelCredit>;
+}
+
+export interface PricingModelsSection {
+  section_title?: string;
+  section_description?: string;
+  video_title?: string;
+  image_title?: string;
+  free_label?: string; // "免费" badge for unlimited plans
+  not_included_label?: string; // tooltip text for ✕ cells
+  show_more?: string; // expand collapsed rows
+  show_less?: string; // collapse back
+  visible_count?: number; // rows shown before collapsing
+  items?: PricingModel[];
+}
+
 export interface Pricing {
   id?: string;
   disabled?: boolean;
@@ -57,6 +99,8 @@ export interface Pricing {
   description?: string;
   items?: PricingItem[];
   groups?: PricingGroup[];
+  benefits?: PricingBenefit[];
+  models?: PricingModelsSection;
   className?: string;
   sr_only_title?: string;
 }

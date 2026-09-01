@@ -488,15 +488,17 @@ export function Pricing({
                     )}
                   </div>
 
-                  {item.credits != null && (
+                  {(item.credits != null || item.credits_label) && (
                     <div className="mt-2 rounded-xl border bg-muted/40 px-4 py-3">
                       <div className="flex items-baseline gap-1.5">
                         <span className="landing-strong text-2xl font-bold">
-                          {item.credits.toLocaleString()}
+                          {item.credits_label ?? item.credits!.toLocaleString()}
                         </span>
-                        <span className="landing-muted text-sm">
-                          {t('credits_unit')}
-                        </span>
+                        {!item.credits_label && (
+                          <span className="landing-muted text-sm">
+                            {t('credits_unit')}
+                          </span>
+                        )}
                       </div>
                     </div>
                   )}

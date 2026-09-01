@@ -42,6 +42,7 @@ export interface PricingItem {
   plan_name?: string;
 
   credits?: number;
+  credits_label?: string; // e.g. "无限" / "Unlimited" when credits are not a number
   valid_days?: number;
   group?: string;
 }

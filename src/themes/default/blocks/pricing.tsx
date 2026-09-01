@@ -652,8 +652,8 @@ export function Pricing({
           className={cn(
             'mx-auto w-full',
             compact
-              ? 'grid grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-3'
-              : 'flex snap-x snap-mandatory gap-3 overflow-x-auto pt-6 pb-4 md:grid md:snap-none md:grid-cols-3 md:gap-6 md:overflow-visible md:pt-6 md:pb-0 lg:gap-8'
+              ? 'grid grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-3 lg:items-center'
+              : 'flex snap-x snap-mandatory gap-3 overflow-x-auto pt-6 pb-4 md:grid md:snap-none md:grid-cols-3 md:items-center md:gap-6 md:overflow-visible md:pt-6 md:pb-0 lg:gap-8'
           )}
         >
           {pricing.items?.map((item: PricingItem, idx) => {
@@ -684,7 +684,7 @@ export function Pricing({
                   !compact &&
                     'min-w-[280px] snap-center sm:min-w-[340px] md:min-w-0',
                   item.is_featured &&
-                    'border-primary shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_18px_42px_hsl(var(--primary)/0.15)]'
+                    'z-10 border-primary shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_18px_42px_hsl(var(--primary)/0.15)] md:scale-[1.06]'
                 )}
               >
                 {item.label && (

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import {
   Check,
   ChevronDown,
@@ -16,7 +16,6 @@ import { SmartIcon } from '@/shared/blocks/common';
 import { PaymentModal } from '@/shared/blocks/payment/payment-modal';
 import { Button } from '@/shared/components/ui/button';
 import {
-  Card,
   CardContent,
   CardDescription,
   CardHeader,
@@ -29,7 +28,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/shared/components/ui/select';
-import { Tabs, TabsList, TabsTrigger } from '@/shared/components/ui/tabs';
 import { useAppContext } from '@/shared/contexts/app';
 import { getCookie } from '@/shared/lib/cookie';
 import { cn } from '@/shared/lib/utils';
@@ -591,13 +589,15 @@ export function Pricing({
       )}
     >
       {!hideHeader && (
-        <div className="mx-auto mb-8 px-4 text-center md:px-8 sm:mb-10">
+        <div className="flex flex-col items-center justify-start">
           {pricing.sr_only_title && (
             <h1 className="sr-only">{pricing.sr_only_title}</h1>
           )}
-          <h2 className="landing-title mb-8 text-2xl font-bold tracking-tight text-pretty sm:text-4xl lg:text-5xl">
-            {pricing.title}
-          </h2>
+          <div className="mx-auto mb-8 flex max-w-3xl flex-col items-center sm:mb-10">
+            <h1 className="text-center text-2xl font-bold tracking-tight text-card-foreground sm:text-4xl lg:text-5xl">
+              {pricing.title}
+            </h1>
+          </div>
         </div>
       )}
 
@@ -610,42 +610,53 @@ export function Pricing({
 
         {pricing.groups && pricing.groups.length > 0 && (
           <div
+            id="pricing-plans"
             className={cn(
-              'mx-auto flex w-full justify-center',
-              compact
-                ? 'mt-0 mb-3 justify-start overflow-x-auto px-0 sm:justify-center sm:overflow-visible'
-                : 'mb-4 sm:mb-6'
+              'flex w-full flex-col items-center',
+              compact ? 'mb-3 scroll-mt-24' : 'scroll-mt-24'
             )}
           >
-            <div className="relative flex w-fit items-center rounded-full bg-card p-1 shadow-sm">
-              <Tabs value={group} onValueChange={setGroup}>
-                <TabsList className="h-auto rounded-full bg-transparent p-0">
-                  {pricing.groups.map((item, i) => {
-                    return (
-                      <TabsTrigger
-                        key={i}
-                        value={item.name || ''}
-                        className="relative rounded-full px-4 py-2 text-xs font-medium text-muted-foreground transition-all duration-200 hover:text-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md sm:px-6 sm:py-2.5 sm:text-sm"
-                      >
-                        {item.title}
-                        {item.label && (
-                          <span className="absolute -top-2.5 -right-1 z-10 rounded-md border border-primary bg-background px-1 py-0.5 text-[8px] leading-tight font-bold text-primary shadow-[0_0_6px_hsl(var(--primary)/0.6),0_0_12px_hsl(var(--primary)/0.3)] sm:-top-3 sm:-right-2 sm:px-1.5 sm:text-[10px]">
-                            {item.label}
-                          </span>
-                        )}
-                      </TabsTrigger>
-                    );
-                  })}
-                </TabsList>
-              </Tabs>
+            <div
+              className={cn(
+                'flex items-center rounded-full bg-card p-0.5',
+                compact ? '' : 'mb-4 sm:mb-10 sm:p-1'
+              )}
+            >
+              {pricing.groups.map((item, i) => {
+                const isActive = (item.name || '') === group;
+                return (
+                  <div key={i} className="relative">
+                    {item.label && (
+                      <div className="absolute -right-1 -top-2.5 z-10 sm:-right-2 sm:-top-3">
+                        <div className="rounded-md border border-[hsl(var(--primary))] bg-black/90 px-1 py-0.5 text-[8px] font-bold text-[hsl(var(--primary))] shadow-[0_0_6px_hsl(var(--primary)/0.6),0_0_12px_hsl(var(--primary)/0.3)] sm:px-1.5 sm:text-[10px] md:px-2 md:text-xs">
+                          {item.label}
+                        </div>
+                      </div>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => setGroup(item.name || '')}
+                      className={cn(
+                        'whitespace-nowrap rounded-full px-3 py-2 text-xs transition-all duration-200 sm:px-6 sm:py-2.5 sm:text-sm md:px-8 md:py-3 md:text-base',
+                        isActive
+                          ? 'bg-primary text-primary-foreground shadow-md sm:scale-105'
+                          : 'text-muted-foreground hover:text-foreground'
+                      )}
+                    >
+                      {item.title}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
+            {!hideHeader && pricing.description && (
+              <div className="mb-6 text-center md:mb-12">
+                <p className="text-sm font-medium text-primary sm:text-base">
+                  {pricing.description}
+                </p>
+              </div>
+            )}
           </div>
-        )}
-
-        {!hideHeader && pricing.description && (
-          <p className="landing-body mb-6 text-center text-sm font-medium text-primary sm:mb-10 sm:text-base">
-            {pricing.description}
-          </p>
         )}
 
         <div
@@ -653,7 +664,7 @@ export function Pricing({
             'mx-auto w-full',
             compact
               ? 'grid grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-3 lg:items-center'
-              : 'flex snap-x snap-mandatory gap-3 overflow-x-auto pt-6 pb-4 md:grid md:snap-none md:grid-cols-3 md:items-center md:gap-6 md:overflow-visible md:pt-6 md:pb-0 lg:gap-8'
+              : 'flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth px-4 pb-8 pt-8 md:grid md:snap-none md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:pt-0 lg:gap-8'
           )}
         >
           {pricing.items?.map((item: PricingItem, idx) => {
@@ -677,14 +688,19 @@ export function Pricing({
             const currencies = getCurrenciesFromItem(item);
 
             return (
-              <Card
+              <div
                 key={idx}
                 className={cn(
-                  'landing-panel relative mx-auto w-full rounded-2xl border shadow-none',
+                  'relative mx-auto flex w-full flex-shrink-0 snap-center flex-col bg-[hsl(var(--surface-1))] p-4 transition-all duration-300',
                   !compact &&
-                    'min-w-[280px] snap-center sm:min-w-[340px] md:min-w-0',
+                    'min-w-[80%] max-w-[80%] md:min-w-0 md:max-w-none',
+                  compact && 'rounded-2xl border',
+                  idx === 0 &&
+                    'order-1 md:order-1 rounded-sm border border-[hsl(var(--border))] hover:shadow-lg md:p-6',
                   item.is_featured &&
-                    'z-10 border-primary shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_18px_42px_hsl(var(--primary)/0.15)] md:scale-[1.06]'
+                    'order-2 md:order-2 z-10 scale-[1.02] rounded-2xl border-2 border-transparent md:scale-105 md:p-8',
+                  idx === 2 &&
+                    'order-3 md:order-3 rounded-2xl border border-transparent shadow-xl hover:shadow-2xl md:p-6'
                 )}
               >
                 {item.label && (
@@ -863,7 +879,7 @@ export function Pricing({
                     ))}
                   </ul>
                 </CardContent>
-              </Card>
+              </div>
             );
           })}
         </div>

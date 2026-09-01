@@ -10,18 +10,17 @@
     "description": "为 ChatGPT Image 2 的图像生成与编辑工作流选择积分包或订阅方案。",
     "groups": [
       {
-        "name": "one-time",
-        "title": "按需付费"
-      },
-      {
         "name": "monthly",
-        "title": "月付",
-        "is_featured": true
+        "title": "月付"
       },
       {
         "name": "yearly",
         "title": "年付",
         "label": "节省50%"
+      },
+      {
+        "name": "one-time",
+        "title": "一次性购买"
       }
     ],
     "items": [
@@ -354,6 +353,8 @@
   },
   "messages": {
     "current_plan": "当前方案",
-    "processing": "处理中"
+    "processing": "处理中",
+    "billed_yearly": "按年计费",
+    "credits_unit": "积分"
   }
 }

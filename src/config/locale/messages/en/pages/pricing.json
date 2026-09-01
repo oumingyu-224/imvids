@@ -10,18 +10,17 @@
     "description": "Choose credits or a subscription for ChatGPT Image 2 image generation and editing workflows.",
     "groups": [
       {
-        "name": "one-time",
-        "title": "Pay as you go"
-      },
-      {
         "name": "monthly",
-        "title": "Monthly",
-        "is_featured": true
+        "title": "Monthly"
       },
       {
         "name": "yearly",
         "title": "Annually",
         "label": "save 50%"
+      },
+      {
+        "name": "one-time",
+        "title": "One-time"
       }
     ],
     "items": [
@@ -354,6 +353,8 @@
   },
   "messages": {
     "current_plan": "Current Plan",
-    "processing": "Processing"
+    "processing": "Processing",
+    "billed_yearly": "billed yearly",
+    "credits_unit": "credits"
   }
 }

@@ -7,7 +7,6 @@ import { toast } from 'sonner';
 
 import { SmartIcon } from '@/shared/blocks/common';
 import { PaymentModal } from '@/shared/blocks/payment/payment-modal';
-import { Badge } from '@/shared/components/ui/badge';
 import { Button } from '@/shared/components/ui/button';
 import {
   Card,
@@ -348,16 +347,13 @@ export function Pricing({
       )}
     >
       {!hideHeader && (
-        <div className="mx-auto mb-12 px-4 text-center md:px-8">
+        <div className="mx-auto mb-8 px-4 text-center md:px-8 sm:mb-10">
           {pricing.sr_only_title && (
             <h1 className="sr-only">{pricing.sr_only_title}</h1>
           )}
-          <h2 className="landing-title mb-6 text-3xl font-bold text-pretty lg:text-4xl">
+          <h2 className="landing-title mb-8 text-2xl font-bold tracking-tight text-pretty sm:text-4xl lg:text-5xl">
             {pricing.title}
           </h2>
-          <p className="landing-body mx-auto mb-4 max-w-xl lg:max-w-none lg:text-lg">
-            {pricing.description}
-          </p>
         </div>
       )}
 
@@ -365,37 +361,49 @@ export function Pricing({
         {pricing.groups && pricing.groups.length > 0 && (
           <div
             className={cn(
-              'mx-auto flex w-full justify-center md:max-w-lg',
-              compact ? 'mt-0 mb-3 justify-start overflow-x-auto px-0 sm:justify-center sm:overflow-visible' : 'mt-8 mb-16'
+              'mx-auto flex w-full justify-center',
+              compact
+                ? 'mt-0 mb-3 justify-start overflow-x-auto px-0 sm:justify-center sm:overflow-visible'
+                : 'mb-4 sm:mb-6'
             )}
           >
-            <Tabs value={group} onValueChange={setGroup}>
-              <TabsList className="landing-input-surface h-auto rounded-full border p-1">
-                {pricing.groups.map((item, i) => {
-                  return (
-                    <TabsTrigger
-                      key={i}
-                      value={item.name || ''}
-                      className="rounded-full px-4 py-2 text-xs font-medium data-[state=active]:bg-[#1773ea] data-[state=active]:text-white data-[state=active]:shadow-none"
-                    >
-                      {item.title}
-                      {item.label && (
-                        <Badge className="ml-2 bg-[#dff6e8] text-[#169c53] shadow-none">
-                          {item.label}
-                        </Badge>
-                      )}
-                    </TabsTrigger>
-                  );
-                })}
-              </TabsList>
-            </Tabs>
+            <div className="relative flex w-fit items-center rounded-full bg-card p-1 shadow-sm">
+              <Tabs value={group} onValueChange={setGroup}>
+                <TabsList className="h-auto rounded-full bg-transparent p-0">
+                  {pricing.groups.map((item, i) => {
+                    return (
+                      <TabsTrigger
+                        key={i}
+                        value={item.name || ''}
+                        className="relative rounded-full px-4 py-2 text-xs font-medium text-muted-foreground transition-all duration-200 hover:text-foreground data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md sm:px-6 sm:py-2.5 sm:text-sm"
+                      >
+                        {item.title}
+                        {item.label && (
+                          <span className="absolute -top-2.5 -right-1 z-10 rounded-md border border-primary bg-background px-1 py-0.5 text-[8px] leading-tight font-bold text-primary shadow-[0_0_6px_hsl(var(--primary)/0.6),0_0_12px_hsl(var(--primary)/0.3)] sm:-top-3 sm:-right-2 sm:px-1.5 sm:text-[10px]">
+                            {item.label}
+                          </span>
+                        )}
+                      </TabsTrigger>
+                    );
+                  })}
+                </TabsList>
+              </Tabs>
+            </div>
           </div>
+        )}
+
+        {!hideHeader && pricing.description && (
+          <p className="landing-body mb-6 text-center text-sm font-medium text-primary sm:mb-10 sm:text-base">
+            {pricing.description}
+          </p>
         )}
 
         <div
           className={cn(
-            'mx-auto mt-0 grid w-full',
-            compact ? 'grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-3' : 'gap-6 lg:grid-cols-3'
+            'mx-auto w-full',
+            compact
+              ? 'grid grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-3'
+              : 'flex snap-x snap-mandatory gap-3 overflow-x-auto pt-6 pb-4 md:grid md:snap-none md:grid-cols-3 md:gap-6 md:overflow-visible md:pt-6 md:pb-0 lg:gap-8'
           )}
         >
           {pricing.items?.map((item: PricingItem, idx) => {
@@ -422,75 +430,104 @@ export function Pricing({
               <Card
                 key={idx}
                 className={cn(
-                  'landing-panel relative mx-auto w-full rounded-[22px] border shadow-none',
+                  'landing-panel relative mx-auto w-full rounded-2xl border shadow-none',
+                  !compact &&
+                    'min-w-[280px] snap-center sm:min-w-[340px] md:min-w-0',
                   item.is_featured &&
-                    'border-[#1773ea] shadow-[0_0_0_1px_rgba(23,115,234,0.28),0_18px_42px_rgba(23,115,234,0.14)]'
+                    'border-primary shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_18px_42px_hsl(var(--primary)/0.15)]'
                 )}
               >
                 {item.label && (
-                  <span className="absolute top-4 right-4 flex h-6 w-fit items-center rounded-full bg-[#1773ea] px-3 py-1 text-xs font-medium text-white">
+                  <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-semibold whitespace-nowrap text-primary-foreground shadow-md">
                     {item.label}
                   </span>
                 )}
 
                 <CardHeader className={cn(compact ? 'p-4 pb-3 sm:p-4 sm:pb-3' : 'p-6 pb-4')}>
-                  <CardTitle className="font-medium">
-                    <h3 className="landing-strong text-sm font-medium">
+                  <CardTitle className="font-semibold">
+                    <h3 className="landing-strong text-lg font-semibold">
                       {item.title}
                     </h3>
                   </CardTitle>
 
-                  <div className="my-3 flex flex-wrap items-baseline gap-2">
+                  {item.description && (
+                    <CardDescription className="landing-body text-sm">
+                      {item.description}
+                    </CardDescription>
+                  )}
+
+                  <div className="mt-4 flex flex-wrap items-center gap-2">
                     {displayedItem.original_price && (
                       <span className="landing-muted text-sm line-through">
                         {displayedItem.original_price}
                       </span>
                     )}
-
-                    <div className="my-3 block text-2xl font-semibold">
-                      <span className="text-[#1773ea]">
-                        {displayedItem.price}
-                      </span>{' '}
-                      {displayedItem.unit ? (
-                        <span className="landing-muted text-sm font-normal">
-                          {displayedItem.unit}
-                        </span>
-                      ) : (
-                        ''
-                      )}
-                    </div>
-
-                    {currencies.length > 1 && (
-                      <Select
-                        value={selectedCurrency}
-                        onValueChange={(currency) =>
-                          handleCurrencyChange(item.product_id, currency)
-                        }
-                      >
-                        <SelectTrigger
-                          size="sm"
-                          className="landing-input-surface h-6 min-w-[60px] border px-2 text-xs shadow-none"
-                        >
-                          <SelectValue placeholder="Currency" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {currencies.map((currency) => (
-                            <SelectItem
-                              key={currency.currency}
-                              value={currency.currency}
-                              className="text-xs"
-                            >
-                              {currency.currency.toUpperCase()}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                    {item.interval === 'year' && (
+                      <span className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
+                        {t('billed_yearly')}
+                      </span>
                     )}
                   </div>
 
-                  <CardDescription className="landing-body text-sm">
-                    {item.description}
-                  </CardDescription>
+                  <div className="flex items-baseline gap-1">
+                    <span
+                      className={cn(
+                        'font-bold tracking-tight',
+                        compact ? 'text-3xl' : 'text-4xl',
+                        item.is_featured ? 'text-primary' : 'landing-strong'
+                      )}
+                    >
+                      {displayedItem.price}
+                    </span>{' '}
+                    {displayedItem.unit ? (
+                      <span className="landing-muted text-sm font-normal">
+                        {displayedItem.unit}
+                      </span>
+                    ) : (
+                      ''
+                    )}
+                  </div>
+
+                  {item.credits != null && (
+                    <div className="mt-2 rounded-xl border bg-muted/40 px-4 py-3">
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="landing-strong text-2xl font-bold">
+                          {item.credits.toLocaleString()}
+                        </span>
+                        <span className="landing-muted text-sm">
+                          {t('credits_unit')}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {currencies.length > 1 && (
+                    <Select
+                      value={selectedCurrency}
+                      onValueChange={(currency) =>
+                        handleCurrencyChange(item.product_id, currency)
+                      }
+                    >
+                      <SelectTrigger
+                        size="sm"
+                        className="landing-input-surface h-6 min-w-[60px] border px-2 text-xs shadow-none"
+                      >
+                        <SelectValue placeholder="Currency" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {currencies.map((currency) => (
+                          <SelectItem
+                            key={currency.currency}
+                            value={currency.currency}
+                            className="text-xs"
+                          >
+                            {currency.currency.toUpperCase()}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  )}
+
                   {item.tip && (
                     <span className="landing-muted text-sm">
                       {item.tip}
@@ -502,7 +539,7 @@ export function Pricing({
                       disabled
                       className={cn(
                         'mt-4 h-10 w-full rounded-xl border px-4 py-2 text-sm font-medium',
-                        'bg-[#cfd6e2] text-white opacity-60'
+                        'bg-muted text-muted-foreground opacity-60'
                       )}
                     >
                       <span className="text-sm">
@@ -514,9 +551,11 @@ export function Pricing({
                       onClick={() => handlePayment(item)}
                       disabled={isLoading}
                       className={cn(
-                        'h-10 w-full rounded-xl px-4 py-2 text-sm font-medium text-white disabled:opacity-50',
+                        'h-10 w-full rounded-xl px-4 py-2 text-sm font-medium disabled:opacity-50',
                         compact ? 'mt-3' : 'mt-4',
-                        'bg-[#1773ea] hover:bg-[#1569d5]'
+                        item.is_featured
+                          ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+                          : 'border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground'
                       )}
                     >
                       {isLoading && item.product_id === productId ? (
@@ -559,7 +598,7 @@ export function Pricing({
                   >
                     {item.features?.map((item, index) => (
                       <li key={index} className="flex items-center gap-2">
-                        <Check className="size-3 text-[#1773ea]" />
+                        <Check className="size-3 text-primary" />
                         {item}
                       </li>
                     ))}

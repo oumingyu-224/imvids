@@ -5,6 +5,7 @@
   },
   "sign": {
     "sign_in_title": "Sign In",
+    "sign_in_up_title": "Sign In / Sign Up",
     "sign_in_description": "Sign in to your account",
     "sign_up_title": "Sign Up",
     "sign_up_description": "Create an account",

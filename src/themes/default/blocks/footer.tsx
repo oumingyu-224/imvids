@@ -9,7 +9,7 @@ import {
   Copyright,
   LazyImage,
   LocaleSelector,
-  ThemeToggler,
+  // ThemeToggler, // 主题切换已禁用（仅暗色模式）
 } from '@/shared/blocks/common';
 import { NavItem } from '@/shared/types/blocks/common';
 import { Footer as FooterType } from '@/shared/types/blocks/landing';
@@ -151,9 +151,11 @@ export function Footer({ footer }: { footer: FooterType }) {
 
           <div className="mt-10 flex justify-end">
             <div className="flex items-center gap-3">
+              {/* 主题切换已禁用（仅暗色模式）：恢复时取消注释
               {footer.show_theme !== false ? (
                 <ThemeToggler type="toggle" />
               ) : null}
+              */}
               {footer.show_locale !== false ? (
                 <LocaleSelector type="button" />
               ) : null}

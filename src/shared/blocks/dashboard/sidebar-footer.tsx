@@ -7,7 +7,7 @@ import { useSidebar } from '@/shared/components/ui/sidebar';
 import { NavItem } from '@/shared/types/blocks/common';
 import { SidebarFooter as SidebarFooterType } from '@/shared/types/blocks/dashboard';
 
-import { LocaleSelector, ThemeToggler } from '../common';
+import { LocaleSelector /*, ThemeToggler */ } from '../common'; // 主题切换已禁用（仅暗色模式）
 
 export function SidebarFooter({ footer }: { footer: SidebarFooterType }) {
   const { open } = useSidebar();
@@ -35,7 +35,7 @@ export function SidebarFooter({ footer }: { footer: SidebarFooterType }) {
           {(footer.show_theme || footer.show_locale) && (
             <Separator orientation="vertical" className="h-4" />
           )}
-          {footer.show_theme && <ThemeToggler />}
+          {/* 主题切换已禁用（仅暗色模式）：{footer.show_theme && <ThemeToggler />} */}
           {footer.show_locale && <LocaleSelector />}
         </div>
       ) : null}

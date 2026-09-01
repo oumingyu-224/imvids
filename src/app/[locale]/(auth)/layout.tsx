@@ -2,7 +2,7 @@ import { envConfigs } from '@/config';
 import {
   BrandLogo,
   LocaleSelector,
-  ThemeToggler,
+  // ThemeToggler, // 主题切换已禁用（仅暗色模式）
 } from '@/shared/blocks/common';
 
 export default function AuthLayout({
@@ -27,7 +27,7 @@ export default function AuthLayout({
         />
       </div>
       <div className="absolute top-4 right-4 flex items-center gap-4">
-        <ThemeToggler />
+        {/* 主题切换已禁用（仅暗色模式）：<ThemeToggler /> */}
         <LocaleSelector type="button" />
       </div>
       <div className="w-full px-4">{children}</div>

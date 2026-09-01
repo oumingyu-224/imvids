@@ -19,7 +19,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     <NextThemesProvider
       attribute="class"
       defaultTheme={envConfigs.appearance}
-      enableSystem
+      // 强制暗色模式：即使 localStorage 中存有 light/system 也只渲染暗色
+      // 恢复主题切换时，删除 forcedTheme 并取消下面 enableSystem 的注释即可
+      forcedTheme="dark"
+      // enableSystem
       disableTransitionOnChange
     >
       {children}

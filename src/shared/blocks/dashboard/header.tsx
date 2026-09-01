@@ -4,7 +4,7 @@ import { Link } from '@/core/i18n/navigation';
 import {
   LocaleSelector,
   SmartIcon,
-  ThemeToggler,
+  // ThemeToggler, // 主题切换已禁用（仅暗色模式）
 } from '@/shared/blocks/common';
 import {
   Breadcrumb,
@@ -83,7 +83,7 @@ export function Header({
               ))}
             </div>
           )}
-          {show_theme && <ThemeToggler />}
+          {/* 主题切换已禁用（仅暗色模式）：{show_theme && <ThemeToggler />} */}
           {show_locale !== false && <LocaleSelector type="button" />}
         </div>
       </div>

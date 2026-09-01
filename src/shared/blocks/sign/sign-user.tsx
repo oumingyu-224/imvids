@@ -58,20 +58,16 @@ export function SignUser({
   isScrolled,
   signButtonSize = 'sm',
   userNav,
-  showSignUp = false,
   containerClassName,
   signInClassName,
-  signUpClassName,
   avatarButtonClassName,
   signedInActionsClassName,
 }: {
   isScrolled?: boolean;
   signButtonSize?: 'default' | 'sm' | 'lg' | 'icon';
   userNav?: UserNav;
-  showSignUp?: boolean;
   containerClassName?: string;
   signInClassName?: string;
-  signUpClassName?: string;
   avatarButtonClassName?: string;
   signedInActionsClassName?: string;
 }) {
@@ -472,24 +468,8 @@ export function SignUser({
               setIsShowSignModal(true);
             }}
           >
-            {t('sign_in_title')}
+            {t('sign_in_up_title')}
           </Button>
-          {showSignUp ? (
-            <Button
-              size={signButtonSize}
-              type="button"
-              className={cn(
-                'cursor-pointer border border-sky-200 bg-[#1773ea] text-white hover:bg-[#0f63d8] dark:border-sky-400/20 dark:bg-[#1773ea] dark:hover:bg-[#0f63d8]',
-                signUpClassName
-              )}
-              onClick={() => {
-                setSignModalInitialMode('sign-up');
-                setIsShowSignModal(true);
-              }}
-            >
-              {t('sign_up_title')}
-            </Button>
-          ) : null}
           <SignModal callbackUrl={pathname || '/'} initialMode={signModalInitialMode} />
         </div>
       )}

@@ -5,6 +5,7 @@
   },
   "sign": {
     "sign_in_title": "登录",
+    "sign_in_up_title": "登录 / 注册",
     "sign_in_description": "登录到您的账户",
     "sign_up_title": "注册",
     "sign_up_description": "创建一个新账户",

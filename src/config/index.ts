@@ -28,7 +28,8 @@ export const envConfigs: ConfigMap = {
   app_preview_image:
     process.env.NEXT_PUBLIC_APP_PREVIEW_IMAGE ?? '/preview.png',
   theme: process.env.NEXT_PUBLIC_THEME ?? 'default',
-  appearance: process.env.NEXT_PUBLIC_APPEARANCE ?? 'system',
+  // 默认主题改为暗色（原为 'system'，跟随系统）
+  appearance: process.env.NEXT_PUBLIC_APPEARANCE ?? 'dark',
   locale: process.env.NEXT_PUBLIC_DEFAULT_LOCALE ?? 'en',
   database_url: process.env.DATABASE_URL ?? '',
   database_auth_token: process.env.DATABASE_AUTH_TOKEN ?? '',

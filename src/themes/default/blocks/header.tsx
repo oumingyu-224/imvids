@@ -9,7 +9,7 @@ import {
   LocaleSelector,
   SignUser,
   SmartIcon,
-  ThemeToggler,
+  // ThemeToggler, // 主题切换已禁用（仅暗色模式）
 } from '@/shared/blocks/common';
 import {
   Accordion,
@@ -241,21 +241,21 @@ export function Header({ header }: { header: HeaderType }) {
             <div className="hidden items-center gap-3 lg:flex">
               {header.show_locale ? <LocaleSelector type="button" /> : null}
 
+              {/* 主题切换已禁用（仅暗色模式）：恢复时取消注释
               {header.show_theme ? (
                 <div className="landing-input-surface flex size-8 items-center justify-center rounded-full border">
                   <ThemeToggler />
                 </div>
               ) : null}
+              */}
 
               {header.show_sign ? (
                 <SignUser
                   userNav={header.user_nav}
-                  showSignUp
                   containerClassName="items-center gap-3 space-y-0"
                   signedInActionsClassName="items-center gap-3"
                   signButtonSize="sm"
                   signInClassName="landing-input-surface ml-0 h-10 rounded-xl border px-5 text-sm font-medium shadow-none hover:opacity-90"
-                  signUpClassName="h-10 rounded-xl bg-[#1773ea] px-5 text-sm font-medium text-white shadow-none hover:bg-[#1569d5]"
                   avatarButtonClassName="landing-input-surface border"
                 />
               ) : null}
@@ -341,17 +341,15 @@ export function Header({ header }: { header: HeaderType }) {
               <div className="mt-4 flex flex-wrap items-start justify-between gap-3">
                 <div className="flex items-center gap-2">
                   <LocaleSelector type="button" />
-                  {header.show_theme ? <ThemeToggler /> : null}
+                  {/* 主题切换已禁用（仅暗色模式）：{header.show_theme ? <ThemeToggler /> : null} */}
                 </div>
                 {header.show_sign ? (
                   <SignUser
                     userNav={header.user_nav}
-                    showSignUp
                     containerClassName="items-center gap-2 space-y-0"
                     signedInActionsClassName="order-3 flex w-full items-start justify-between gap-3"
                     signButtonSize="sm"
                     signInClassName="landing-input-surface ml-0 h-9 rounded-lg border px-4 text-sm font-medium"
-                    signUpClassName="h-9 rounded-lg bg-[#1773ea] px-4 text-sm font-medium text-white"
                   />
                 ) : null}
               </div>

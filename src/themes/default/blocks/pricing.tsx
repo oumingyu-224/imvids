@@ -15,12 +15,7 @@ import { toast } from 'sonner';
 import { SmartIcon } from '@/shared/blocks/common';
 import { PaymentModal } from '@/shared/blocks/payment/payment-modal';
 import { Button } from '@/shared/components/ui/button';
-import {
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/shared/components/ui/card';
+import { CardContent, CardHeader } from '@/shared/components/ui/card';
 import {
   Select,
   SelectContent,
@@ -704,58 +699,52 @@ export function Pricing({
                 )}
               >
                 {item.label && (
-                  <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-semibold whitespace-nowrap text-primary-foreground shadow-md">
-                    {item.label}
-                  </span>
+                  <div className="absolute -right-2 -top-2 z-30">
+                    <div className="rounded-full px-3 py-1 text-xs font-semibold text-white shadow-lg">
+                      {item.label}
+                    </div>
+                  </div>
                 )}
 
                 <CardHeader className={cn(compact ? 'p-4 pb-3 sm:p-4 sm:pb-3' : 'p-6 pb-4')}>
-                  <CardTitle className="font-semibold">
-                    <h3 className="landing-strong text-lg font-semibold">
+                  <div className="mb-3">
+                    <h3 className="text-2xl font-semibold md:text-3xl">
                       {item.title}
                     </h3>
-                  </CardTitle>
-
-                  {item.description && (
-                    <CardDescription className="landing-body text-sm">
-                      {item.description}
-                    </CardDescription>
-                  )}
-
-                  <div className="mt-4 flex flex-wrap items-center gap-2">
-                    {displayedItem.original_price && (
-                      <span className="landing-muted text-sm line-through">
-                        {displayedItem.original_price}
-                      </span>
-                    )}
-                    {item.interval === 'year' && (
-                      <span className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
-                        {t('billed_yearly')}
-                      </span>
+                    {item.description && (
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {item.description}
+                      </p>
                     )}
                   </div>
 
-                  <div className="flex items-baseline gap-1">
-                    <span
-                      className={cn(
-                        'font-bold tracking-tight',
-                        compact ? 'text-3xl' : 'text-4xl',
-                        item.is_featured ? 'text-primary' : 'landing-strong'
-                      )}
-                    >
-                      {displayedItem.price}
-                    </span>{' '}
-                    {displayedItem.unit ? (
-                      <span className="landing-muted text-sm font-normal">
-                        {displayedItem.unit}
+                  <div className="mb-3">
+                    <div className="flex flex-wrap items-baseline gap-2">
+                      <span className="text-3xl font-bold tracking-tight md:text-4xl">
+                        {displayedItem.price}
                       </span>
-                    ) : (
-                      ''
+                      {displayedItem.unit && (
+                        <span className="text-base text-muted-foreground md:text-lg">
+                          {displayedItem.unit}
+                        </span>
+                      )}
+                      {displayedItem.original_price && (
+                        <span className="text-xs text-muted-foreground line-through">
+                          {displayedItem.original_price}
+                        </span>
+                      )}
+                    </div>
+                    {item.interval === 'year' && (
+                      <div className="mt-1">
+                        <span className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
+                          {t('billed_yearly')}
+                        </span>
+                      </div>
                     )}
                   </div>
 
                   {(item.credits != null || item.credits_label) && (
-                    <div className="mt-2 rounded-xl border bg-muted/40 px-4 py-3">
+                    <div className="mb-3 rounded-xl border p-3">
                       <div className="flex items-baseline gap-1.5">
                         <span className="landing-strong text-2xl font-bold">
                           {item.credits_label ?? item.credits!.toLocaleString()}

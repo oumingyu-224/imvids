@@ -933,46 +933,49 @@ export function Pricing({
                   )}
 
                   {isCurrentPlan ? (
-                    <Button
-                      disabled
-                      className={cn(
-                        'mt-4 h-10 w-full rounded-xl border px-4 py-2 text-sm font-medium',
-                        'bg-muted text-muted-foreground opacity-60'
-                      )}
-                    >
-                      <span className="text-sm">
-                        {t('current_plan')}
-                      </span>
-                    </Button>
+                    <div className="group relative mb-6">
+                      <Button
+                        disabled
+                        className={cn(
+                          'w-full rounded-xl px-6 py-3.5 text-center text-base font-semibold',
+                          'bg-muted text-muted-foreground opacity-60'
+                        )}
+                      >
+                        <span className="text-base">
+                          {t('current_plan')}
+                        </span>
+                      </Button>
+                    </div>
                   ) : (
-                    <Button
-                      onClick={() => handlePayment(item)}
-                      disabled={isLoading}
-                      className={cn(
-                        'h-10 w-full rounded-xl px-4 py-2 text-sm font-medium disabled:opacity-50',
-                        compact ? 'mt-3' : 'mt-4',
-                        item.is_featured
-                          ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-                          : 'border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground'
-                      )}
-                    >
-                      {isLoading && item.product_id === productId ? (
-                        <>
-                          <Loader2 className="size-4 animate-spin" />
-                          <span className="block">{t('processing')}</span>
-                        </>
-                      ) : (
-                        <>
-                          {item.button?.icon && (
-                            <SmartIcon
-                              name={item.button?.icon as string}
-                              className="size-4"
-                            />
-                          )}
-                          <span className="block">{item.button?.title}</span>
-                        </>
-                      )}
-                    </Button>
+                    <div className="group relative mb-6">
+                      <Button
+                        onClick={() => handlePayment(item)}
+                        disabled={isLoading}
+                        className={cn(
+                          'w-full rounded-xl px-6 py-3.5 text-center text-base font-semibold text-black shadow-sm transition-all duration-200 hover:opacity-90 hover:shadow-md disabled:opacity-50',
+                          item.is_featured
+                            ? 'bg-primary text-primary-foreground'
+                            : 'border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground'
+                        )}
+                      >
+                        {isLoading && item.product_id === productId ? (
+                          <>
+                            <Loader2 className="size-4 animate-spin" />
+                            <span className="block">{t('processing')}</span>
+                          </>
+                        ) : (
+                          <>
+                            {item.button?.icon && (
+                              <SmartIcon
+                                name={item.button?.icon as string}
+                                className="size-4"
+                              />
+                            )}
+                            <span className="block">{item.button?.title}</span>
+                          </>
+                        )}
+                      </Button>
+                    </div>
                   )}
                 </CardHeader>
 
@@ -988,26 +991,50 @@ export function Pricing({
                       {item.features_title}
                     </p>
                   )}
-                  {/* compact highlights only — full model details live in
-                      the dedicated model-credits section below */}
-                  <ul
+                  <div
                     className={cn(
-                      'landing-body list-outside text-sm',
-                      compact ? 'space-y-2' : 'space-y-3'
+                      'landing-body flex flex-col gap-3 text-sm',
+                      compact && 'gap-2'
                     )}
                   >
-                    {(item.highlights ??
-                      item.features?.filter(
-                        (f): f is string => typeof f === 'string'
-                      ) ??
-                      []
-                    ).map((feature, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <Check className="mt-0.5 size-3 shrink-0 text-primary" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    {(item.features ?? []).map((feature, index) => {
+                      if (typeof feature === 'string') {
+                        return (
+                          <div
+                            key={index}
+                            className="group relative flex flex-row items-center justify-between gap-2"
+                          >
+                            <div className="flex min-w-0 items-center gap-2">
+                              <Check className="size-3 shrink-0 text-primary" />
+                              <span>{feature}</span>
+                            </div>
+                          </div>
+                        );
+                      }
+
+                      return (
+                        <div
+                          key={index}
+                          className="group relative flex flex-col gap-1"
+                        >
+                          <div className="flex flex-row items-center justify-between gap-2">
+                            <span className="font-medium">{feature.title}</span>
+                          </div>
+                          <div className="flex flex-col gap-1 pl-5 text-muted-foreground">
+                            {feature.items.map((subFeature, subIndex) => (
+                              <div
+                                key={subIndex}
+                                className="flex flex-row items-start gap-2"
+                              >
+                                <span aria-hidden="true">•</span>
+                                <span>{subFeature}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </CardContent>
               </div>
             );

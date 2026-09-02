@@ -97,3 +97,4 @@ class="text-sm font-medium text-primary sm:text-base"
     line-height: 1.5rem;
   }
 }
+<h3 class="text-2xl font-semibold md:text-3xl" style="background:linear-gradient(148deg, #ffba6b 0%, #ffd685 40%, #fff5eb 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">无限制</h3>

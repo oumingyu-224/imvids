@@ -742,10 +742,11 @@ export function Pricing({
                       style={
                         item.is_featured
                           ? {
-                              background: featuredGradient,
+                              backgroundImage: featuredGradient,
                               backgroundClip: 'text',
                               WebkitBackgroundClip: 'text',
                               WebkitTextFillColor: 'transparent',
+                              color: 'transparent',
                             }
                           : undefined
                       }
@@ -766,10 +767,11 @@ export function Pricing({
                         style={
                           item.is_featured
                             ? {
-                                background: featuredGradient,
+                                backgroundImage: featuredGradient,
                                 backgroundClip: 'text',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
+                                color: 'transparent',
                               }
                             : undefined
                         }

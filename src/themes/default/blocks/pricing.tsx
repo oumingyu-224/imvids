@@ -683,6 +683,18 @@ export function Pricing({
             const selectedCurrency =
               currencyState?.selectedCurrency || item.currency;
             const currencies = getCurrenciesFromItem(item);
+            const featuredGradient =
+              item.group === 'one-time'
+                ? 'linear-gradient(148deg, #ffb475 0%, #ebecff 100%)'
+                : 'linear-gradient(148deg, #ffba6b 0%, #ffd685 40%, #fff5eb 100%)';
+            const featuredShadow =
+              item.group === 'one-time'
+                ? '0 0 12px rgba(255, 180, 117, 0.2), 0 0 24px rgba(235, 236, 255, 0.1)'
+                : '0 0 20px rgba(255, 186, 107, 0.4), 0 0 40px rgba(255, 214, 133, 0.2)';
+            const featuredCreditBackground =
+              item.group === 'one-time'
+                ? 'linear-gradient(148deg, rgba(255, 180, 117, 0.05) 0%, rgba(235, 236, 255, 0.05) 100%)'
+                : 'linear-gradient(148deg, rgba(255, 186, 107, 0.05) 0%, rgba(255, 214, 133, 0.05) 40%, rgba(255, 245, 235, 0.05) 100%)';
 
             return (
               <div
@@ -695,14 +707,29 @@ export function Pricing({
                   idx === 0 &&
                     'order-1 md:order-1 hover:shadow-lg md:p-6',
                   item.is_featured &&
-                    'order-2 md:order-2 z-10 scale-[1.02] border-2 border-transparent shadow-2xl md:scale-105 md:p-8',
+                    'order-2 md:order-2 z-10 scale-[1.02] rounded-2xl border-2 border-transparent shadow-2xl md:scale-105 md:p-8',
                   idx === 2 &&
                     'order-3 md:order-3 shadow-xl hover:shadow-2xl md:p-6'
                 )}
+                style={
+                  item.is_featured
+                    ? {
+                        borderImage: `${featuredGradient} 1`,
+                        boxShadow: featuredShadow,
+                      }
+                    : undefined
+                }
               >
                 {item.label && (
                   <div className="absolute -right-2 -top-2 z-30">
-                    <div className="rounded-full px-3 py-1 text-xs font-semibold text-white shadow-lg">
+                    <div
+                      className="rounded-full px-3 py-1 text-xs font-semibold text-white shadow-lg"
+                      style={
+                        item.is_featured
+                          ? { background: featuredGradient }
+                          : undefined
+                      }
+                    >
                       {item.label}
                     </div>
                   </div>
@@ -710,7 +737,19 @@ export function Pricing({
 
                 <CardHeader className={cn(compact ? 'p-4 pb-3 sm:p-4 sm:pb-3' : 'p-6 pb-4')}>
                   <div className="mb-3">
-                    <h3 className="text-2xl font-semibold md:text-3xl">
+                    <h3
+                      className="text-2xl font-semibold md:text-3xl"
+                      style={
+                        item.is_featured
+                          ? {
+                              background: featuredGradient,
+                              backgroundClip: 'text',
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent',
+                            }
+                          : undefined
+                      }
+                    >
                       {item.title}
                     </h3>
                     {item.description && (
@@ -722,7 +761,19 @@ export function Pricing({
 
                   <div className="mb-3">
                     <div className="flex flex-wrap items-baseline gap-2">
-                      <span className="text-3xl font-bold tracking-tight md:text-4xl">
+                      <span
+                        className="text-3xl font-bold tracking-tight md:text-4xl"
+                        style={
+                          item.is_featured
+                            ? {
+                                background: featuredGradient,
+                                backgroundClip: 'text',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                              }
+                            : undefined
+                        }
+                      >
                         {displayedItem.price}
                       </span>
                       {displayedItem.unit && (
@@ -749,7 +800,20 @@ export function Pricing({
                   </div>
 
                   {(item.credits != null || item.credits_label) && (
-                    <div className="mb-3 rounded-xl border p-3">
+                    <div
+                      className="mb-3 rounded-xl border p-3"
+                      style={
+                        item.is_featured
+                          ? {
+                              borderColor:
+                                item.group === 'one-time'
+                                  ? 'rgba(255, 180, 117, 0.4)'
+                                  : 'rgba(255, 186, 107, 0.4)',
+                              background: featuredCreditBackground,
+                            }
+                          : undefined
+                      }
+                    >
                       <div className="md:hidden">
                         <div className="flex items-center justify-center gap-1.5">
                           <Gem

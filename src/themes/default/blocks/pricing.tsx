@@ -664,11 +664,7 @@ export function Pricing({
               : 'flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth px-4 pb-8 pt-8 md:grid md:snap-none md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:pt-0 lg:gap-8'
           )}
         >
-          {pricing.items?.map((item: PricingItem, idx) => {
-            if (item.group && item.group !== group) {
-              return null;
-            }
-
+          {groupItems.map((item: PricingItem, idx) => {
             let isCurrentPlan = false;
             if (
               currentSubscription &&
@@ -986,11 +982,6 @@ export function Pricing({
                 >
                   <hr className="landing-divider border-dashed" />
 
-                  {item.features_title && (
-                    <p className="landing-strong text-sm font-medium">
-                      {item.features_title}
-                    </p>
-                  )}
                   <div
                     className={cn(
                       'landing-body flex flex-col gap-3 text-sm',
@@ -1015,21 +1006,20 @@ export function Pricing({
                       return (
                         <div
                           key={index}
-                          className="group relative flex flex-col gap-1"
+                          className="group relative flex flex-row items-center justify-between gap-2"
                         >
-                          <div className="flex flex-row items-center justify-between gap-2">
-                            <span className="font-medium">{feature.title}</span>
+                          <div className="flex min-w-0 flex-row items-center gap-2">
+                            <Check className="size-3 shrink-0 text-primary" />
+                            <span>{feature.title}</span>
+                            <Info className="size-3.5 shrink-0 text-muted-foreground" />
                           </div>
-                          <div className="flex flex-col gap-1 pl-5 text-muted-foreground">
-                            {feature.items.map((subFeature, subIndex) => (
-                              <div
-                                key={subIndex}
-                                className="flex flex-row items-start gap-2"
-                              >
-                                <span aria-hidden="true">•</span>
-                                <span>{subFeature}</span>
-                              </div>
-                            ))}
+                          <div className="pointer-events-none absolute left-0 top-full z-50 mt-2 hidden w-max max-w-md rounded-lg border bg-popover px-3 py-2 text-xs shadow-xl group-hover:block">
+                            <div className="space-y-1 leading-relaxed text-muted-foreground">
+                              {feature.items.map((description, descriptionIndex) => (
+                                <div key={descriptionIndex}>{description}</div>
+                              ))}
+                            </div>
+                            <span className="absolute -top-1 left-4 h-2 w-2 rotate-45 border-l border-t border bg-popover" />
                           </div>
                         </div>
                       );

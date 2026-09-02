@@ -6,8 +6,6 @@
   "pricing": {
     "id": "pricing",
     "sr_only_title": "Pricing plans",
-    "title": "Choose your plan to get started",
-    "description": "Cancel anytime • Unused credits roll over",
     "groups": [
       {
         "name": "monthly",
@@ -27,73 +25,52 @@
       {
         "title": "Starter",
         "description": "Perfect for getting started",
-        "features_title": "What's included",
         "features": [
-          "Monthly 2,500 credits (about 250 videos)",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "Seedance 2.0 and MiniMax H3 are excluded from this limited-time discount. They use per-second credit pricing and receive up to 60% off per plan.",
-          "All premium AI models (unlocked)",
           {
-            "title": "Video:",
+            "title": "Base model access",
             "items": [
-              "MiniMax H3",
-              "Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
-              "Seedance 1.0 Lite, Seedance 1.5 Pro",
-              "Seedance 2.0",
-              "Wan 2.5, Runway Gen 4",
-              "Grok Imagine Video"
+              "Video:",
+              "• MiniMax H3",
+              "• Veo 3, Veo 3.1 Lite, Veo 3.1 Basic",
+              "• Kling 2.5, Kling 2.1 Pro",
+              "• Wan 2.5, Runway Gen 4",
+              "• Grok Imagine Video",
+              "• Seedance 1.0 Lite, Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "Image:",
+              "• GPT-4o, Nano Banana, Nano Banana 2",
+              "• Flux Kontext Pro, Flux Kontext Max",
+              "• Seedream 4.0, Seedream 5.0 Lite",
+              "• Qwen Image Edit, Grok Imagine Image"
             ]
           },
           {
-            "title": "Image:",
+            "title": "SOTA model access (credits required)",
             "items": [
-              "GPT-4o",
-              "Nano Banana, Nano Banana Pro, Nano Banana 2",
-              "Flux Kontext Pro, Flux Kontext Max",
-              "Seedream 4.0, Seedream 5.0 Lite",
-              "Qwen Image Edit, Grok Imagine Image"
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3 Premium",
+              "• Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
             ]
           },
-          "SOTA models at regular price",
-          {
-            "title": "Included SOTA models:",
-            "items": [
-              "Wan 3.0, Wan 3.0 Prime",
-              "MiniMax H3",
-              "Seedance 2.5",
-              "Seedance 2.0",
-              "Seedance 2.0 Fast",
-              "Seedance 2.0 Mini",
-              "Veo 3 Premium",
-              "Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.1 Master",
-              "PixVerse V6 beyond the free quality duration",
-              "LTX 2.5 Fast 4K"
-            ]
-          },
-          {
-            "title": "PixVerse V6:",
-            "items": [
-              "For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required."
-            ]
-          },
-          {
-            "title": "MiniMax H3 pricing:",
-            "items": [
-              "768P: 20 credits per second; 2K: 30 credits per second",
-              "The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount"
-            ]
-          },
-          {
-            "title": "Plan discounts:",
-            "items": [
-              "Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
-              "Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
-              "All plans (including Unlimited) require credits for SOTA models"
-            ]
-          },
-          "2 concurrent generations",
+          "1 concurrent generation",
           "Private generations",
           "Ad-free experience",
           "No watermark",
@@ -119,84 +96,65 @@
         "credits": 2500,
         "credits_videos": "25 videos",
         "valid_days": 30,
-        "group": "monthly",
-        "highlights": [
-          "Monthly 2,500 credits (about 250 videos)",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "2 concurrent generations",
-          "No watermark"
-        ]
+        "group": "monthly"
       },
       {
         "title": "Unlimited",
         "description": "Great for power users and teams",
         "label": "Best value",
-        "features_title": "What's included",
         "features": [
-          "Unlimited points · Unlimited videos",
-          "Unlimited use of all base & enhanced models",
-          "Use all base and enhanced models without limits. SOTA models require credits, including Veo 3 Premium, Veo 3.1 Basic/Premium, PixVerse V6 beyond the free quality duration, LTX 2.5 Fast 4K, Kling 2.1 Master, Seedance 2.x, and MiniMax H3.",
           {
-            "title": "Video:",
+            "title": "Unlimited use of all base & enhanced models",
             "items": [
-              "MiniMax H3",
-              "Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
-              "Seedance 1.0 Lite, Seedance 1.5 Pro",
-              "Seedance 2.0",
-              "Wan 2.5, Runway Gen 4",
-              "Grok Imagine Video"
+              "Use all base and enhanced models without limits. SOTA models require credits, including Veo 3 Premium, Veo 3.1 Basic/Premium, PixVerse V6 beyond the free quality duration, LTX 2.5 Fast 4K, Kling 2.1 Master, Seedance 2.x, and MiniMax H3."
             ]
           },
           {
-            "title": "Image:",
+            "title": "All premium AI models (unlocked)",
             "items": [
-              "GPT-4o",
-              "Nano Banana, Nano Banana Pro, Nano Banana 2",
-              "Flux Kontext Pro, Flux Kontext Max",
-              "Seedream 4.0, Seedream 5.0 Lite",
-              "Qwen Image Edit, Grok Imagine Image"
-            ]
-          },
-          "90,000 extra SOTA model credits (60% off per generation)",
-          {
-            "title": "Included SOTA models:",
-            "items": [
-              "Wan 3.0, Wan 3.0 Prime",
-              "MiniMax H3",
-              "Seedance 2.5",
-              "Seedance 2.0",
-              "Seedance 2.0 Fast",
-              "Seedance 2.0 Mini",
-              "Veo 3 Premium",
-              "Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.1 Master",
-              "PixVerse V6 beyond the free quality duration",
-              "LTX 2.5 Fast 4K"
+              "Video:",
+              "• MiniMax H3",
+              "• Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
+              "• Seedance 1.0 Lite, Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5, Runway Gen 4",
+              "• Grok Imagine Video",
+              "Image:",
+              "• GPT-4o",
+              "• Nano Banana, Nano Banana Pro, Nano Banana 2",
+              "• Flux Kontext Pro, Flux Kontext Max",
+              "• Seedream 4.0, Seedream 5.0 Lite",
+              "• Qwen Image Edit, Grok Imagine Image"
             ]
           },
           {
-            "title": "PixVerse V6:",
+            "title": "15,000 extra SOTA model credits (50% off per generation)",
             "items": [
-              "For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required."
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3 Premium",
+              "• Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
             ]
           },
-          {
-            "title": "MiniMax H3 pricing:",
-            "items": [
-              "768P: 20 credits per second; 2K: 30 credits per second",
-              "The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount"
-            ]
-          },
-          {
-            "title": "Plan discounts:",
-            "items": [
-              "Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
-              "Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
-              "All plans (including Unlimited) require credits for SOTA models"
-            ]
-          },
-          "8 concurrent generations",
+          "5 concurrent generations",
           "Private generations",
           "Ad-free experience",
           "No watermark",
@@ -222,85 +180,58 @@
         "credits_label": "Unlimited points",
         "credits_videos": "Unlimited videos",
         "valid_days": 30,
-        "group": "monthly",
-        "highlights": [
-          "Unlimited points · Unlimited videos",
-          "Unlimited use of all base & enhanced models",
-          "8 concurrent generations",
-          "No watermark"
-        ]
+        "group": "monthly"
       },
       {
         "title": "Pro",
         "description": "First choice for professionals",
         "label": "Popular",
-        "features_title": "What's included",
         "features": [
-          "Monthly 10,000 credits (about 1,000 videos)",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "Seedance 2.0 and MiniMax H3 are excluded from this limited-time discount. They use per-second credit pricing and receive up to 60% off per plan.",
-          "All premium AI models (unlocked)",
           {
-            "title": "Video:",
+            "title": "Enhanced model access",
             "items": [
-              "MiniMax H3",
-              "Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
-              "Seedance 1.0 Lite, Seedance 1.5 Pro",
-              "Seedance 2.0",
-              "Wan 2.5, Runway Gen 4",
-              "Grok Imagine Video"
+              "Video:",
+              "• MiniMax H3",
+              "• Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.5, Kling 2.1 Pro",
+              "• Seedance 1.0 Lite, Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5, Runway Gen 4",
+              "• Grok Imagine Video",
+              "Image:",
+              "• GPT-4o, Nano Banana, Nano Banana 2",
+              "• Flux Kontext Pro, Flux Kontext Max",
+              "• Seedream 4.0, Seedream 5.0 Lite",
+              "• Qwen Image Edit, Grok Imagine Image"
             ]
           },
           {
-            "title": "Image:",
+            "title": "SOTA models at 20% off",
             "items": [
-              "GPT-4o",
-              "Nano Banana, Nano Banana Pro, Nano Banana 2",
-              "Flux Kontext Pro, Flux Kontext Max",
-              "Seedream 4.0, Seedream 5.0 Lite",
-              "Qwen Image Edit, Grok Imagine Image"
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3 Premium",
+              "• Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
             ]
           },
-          "SOTA models at 20% off",
-          {
-            "title": "Included SOTA models:",
-            "items": [
-              "Wan 3.0, Wan 3.0 Prime",
-              "MiniMax H3",
-              "Seedance 2.5",
-              "Seedance 2.0",
-              "Seedance 2.0 Fast",
-              "Seedance 2.0 Mini",
-              "Veo 3 Premium",
-              "Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.1 Master",
-              "PixVerse V6 beyond the free quality duration",
-              "LTX 2.5 Fast 4K"
-            ]
-          },
-          {
-            "title": "PixVerse V6:",
-            "items": [
-              "For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required."
-            ]
-          },
-          {
-            "title": "MiniMax H3 pricing:",
-            "items": [
-              "768P: 20 credits per second; 2K: 30 credits per second",
-              "The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount"
-            ]
-          },
-          {
-            "title": "Plan discounts:",
-            "items": [
-              "Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
-              "Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
-              "All plans (including Unlimited) require credits for SOTA models"
-            ]
-          },
-          "2 concurrent generations",
+          "3 concurrent generations",
           "Private generations",
           "Ad-free experience",
           "No watermark",
@@ -326,84 +257,57 @@
         "credits": 10000,
         "credits_videos": "100 videos",
         "valid_days": 30,
-        "group": "monthly",
-        "highlights": [
-          "Monthly 10,000 credits (about 1,000 videos)",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "2 concurrent generations",
-          "No watermark"
-        ]
+        "group": "monthly"
       },
       {
         "title": "Starter",
         "description": "Perfect for getting started",
-        "features_title": "What's included",
         "features": [
-          "Yearly 10,000 credits · 1,000 videos",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "Seedance 2.0 and MiniMax H3 are excluded from this limited-time discount. They use per-second credit pricing and receive up to 60% off per plan.",
-          "All premium AI models (unlocked)",
           {
-            "title": "Video:",
+            "title": "Base model access",
             "items": [
-              "MiniMax H3",
-              "Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
-              "Seedance 1.0 Lite, Seedance 1.5 Pro",
-              "Seedance 2.0",
-              "Wan 2.5, Runway Gen 4",
-              "Grok Imagine Video"
+              "Video:",
+              "• MiniMax H3",
+              "• Veo 3, Veo 3.1 Lite, Veo 3.1 Basic",
+              "• Kling 2.5, Kling 2.1 Pro",
+              "• Wan 2.5, Runway Gen 4",
+              "• Grok Imagine Video",
+              "• Seedance 1.0 Lite, Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "Image:",
+              "• GPT-4o, Nano Banana, Nano Banana 2",
+              "• Flux Kontext Pro, Flux Kontext Max",
+              "• Seedream 4.0, Seedream 5.0 Lite",
+              "• Qwen Image Edit, Grok Imagine Image"
             ]
           },
           {
-            "title": "Image:",
+            "title": "SOTA model access (credits required)",
             "items": [
-              "GPT-4o",
-              "Nano Banana, Nano Banana Pro, Nano Banana 2",
-              "Flux Kontext Pro, Flux Kontext Max",
-              "Seedream 4.0, Seedream 5.0 Lite",
-              "Qwen Image Edit, Grok Imagine Image"
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3 Premium",
+              "• Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
             ]
           },
-          "SOTA models at 20% off",
-          {
-            "title": "Included SOTA models:",
-            "items": [
-              "Wan 3.0, Wan 3.0 Prime",
-              "MiniMax H3",
-              "Seedance 2.5",
-              "Seedance 2.0",
-              "Seedance 2.0 Fast",
-              "Seedance 2.0 Mini",
-              "Veo 3 Premium",
-              "Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.1 Master",
-              "PixVerse V6 beyond the free quality duration",
-              "LTX 2.5 Fast 4K"
-            ]
-          },
-          {
-            "title": "PixVerse V6:",
-            "items": [
-              "For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required."
-            ]
-          },
-          {
-            "title": "MiniMax H3 pricing:",
-            "items": [
-              "768P: 20 credits per second; 2K: 30 credits per second",
-              "The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount"
-            ]
-          },
-          {
-            "title": "Plan discounts:",
-            "items": [
-              "Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
-              "Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
-              "All plans (including Unlimited) require credits for SOTA models"
-            ]
-          },
-          "2 concurrent generations",
+          "1 concurrent generation",
           "Private generations",
           "Ad-free experience",
           "No watermark",
@@ -431,84 +335,65 @@
         "credits_videos": "1,000 videos",
         "per_video_discount": "(97% off)",
         "valid_days": 365,
-        "group": "yearly",
-        "highlights": [
-          "Yearly 10,000 credits · 1,000 videos",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "2 concurrent generations",
-          "No watermark"
-        ]
+        "group": "yearly"
       },
       {
         "title": "Unlimited",
         "description": "Great for power users and teams",
         "label": "Best value",
-        "features_title": "What's included",
         "features": [
-          "Unlimited points · Unlimited videos",
-          "Unlimited use of all base & enhanced models",
-          "Use all base and enhanced models without limits. SOTA models require credits, including Veo 3 Premium, Veo 3.1 Basic/Premium, PixVerse V6 beyond the free quality duration, LTX 2.5 Fast 4K, Kling 2.1 Master, Seedance 2.x, and MiniMax H3.",
           {
-            "title": "Video:",
+            "title": "Unlimited use of all base & enhanced models",
             "items": [
-              "MiniMax H3",
-              "Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
-              "Seedance 1.0 Lite, Seedance 1.5 Pro",
-              "Seedance 2.0",
-              "Wan 2.5, Runway Gen 4",
-              "Grok Imagine Video"
+              "Use all base and enhanced models without limits. SOTA models require credits, including Veo 3 Premium, Veo 3.1 Basic/Premium, PixVerse V6 beyond the free quality duration, LTX 2.5 Fast 4K, Kling 2.1 Master, Seedance 2.x, and MiniMax H3."
             ]
           },
           {
-            "title": "Image:",
+            "title": "All premium AI models (unlocked)",
             "items": [
-              "GPT-4o",
-              "Nano Banana, Nano Banana Pro, Nano Banana 2",
-              "Flux Kontext Pro, Flux Kontext Max",
-              "Seedream 4.0, Seedream 5.0 Lite",
-              "Qwen Image Edit, Grok Imagine Image"
-            ]
-          },
-          "90,000 extra SOTA model credits (60% off per generation)",
-          {
-            "title": "Included SOTA models:",
-            "items": [
-              "Wan 3.0, Wan 3.0 Prime",
-              "MiniMax H3",
-              "Seedance 2.5",
-              "Seedance 2.0",
-              "Seedance 2.0 Fast",
-              "Seedance 2.0 Mini",
-              "Veo 3 Premium",
-              "Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.1 Master",
-              "PixVerse V6 beyond the free quality duration",
-              "LTX 2.5 Fast 4K"
+              "Video:",
+              "• MiniMax H3",
+              "• Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
+              "• Seedance 1.0 Lite, Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5, Runway Gen 4",
+              "• Grok Imagine Video",
+              "Image:",
+              "• GPT-4o",
+              "• Nano Banana, Nano Banana Pro, Nano Banana 2",
+              "• Flux Kontext Pro, Flux Kontext Max",
+              "• Seedream 4.0, Seedream 5.0 Lite",
+              "• Qwen Image Edit, Grok Imagine Image"
             ]
           },
           {
-            "title": "PixVerse V6:",
+            "title": "15,000 extra SOTA model credits (50% off per generation)",
             "items": [
-              "For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required."
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3 Premium",
+              "• Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
             ]
           },
-          {
-            "title": "MiniMax H3 pricing:",
-            "items": [
-              "768P: 20 credits per second; 2K: 30 credits per second",
-              "The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount"
-            ]
-          },
-          {
-            "title": "Plan discounts:",
-            "items": [
-              "Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
-              "Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
-              "All plans (including Unlimited) require credits for SOTA models"
-            ]
-          },
-          "2 concurrent generations",
+          "5 concurrent generations",
           "Private generations",
           "Ad-free experience",
           "No watermark",
@@ -537,85 +422,58 @@
         "credits_videos": "Unlimited videos",
         "valid_days": 365,
         "group": "yearly",
-        "highlights": [
-          "Unlimited points · Unlimited videos",
-          "Unlimited use of all base & enhanced models",
-          "2 concurrent generations",
-          "No watermark"
-        ],
         "discount_text": "· 50% off"
       },
       {
         "title": "Pro",
         "description": "First choice for professionals",
         "label": "Popular",
-        "features_title": "What's included",
         "features": [
-          "Yearly 32,000 credits · 3,200 videos",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "Seedance 2.0 and MiniMax H3 are excluded from this limited-time discount. They use per-second credit pricing and receive up to 60% off per plan.",
-          "All premium AI models (unlocked)",
           {
-            "title": "Video:",
+            "title": "Enhanced model access",
             "items": [
-              "MiniMax H3",
-              "Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
-              "Seedance 1.0 Lite, Seedance 1.5 Pro",
-              "Seedance 2.0",
-              "Wan 2.5, Runway Gen 4",
-              "Grok Imagine Video"
+              "Video:",
+              "• MiniMax H3",
+              "• Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.5, Kling 2.1 Pro",
+              "• Seedance 1.0 Lite, Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5, Runway Gen 4",
+              "• Grok Imagine Video",
+              "Image:",
+              "• GPT-4o, Nano Banana, Nano Banana 2",
+              "• Flux Kontext Pro, Flux Kontext Max",
+              "• Seedream 4.0, Seedream 5.0 Lite",
+              "• Qwen Image Edit, Grok Imagine Image"
             ]
           },
           {
-            "title": "Image:",
+            "title": "SOTA models at 30% off",
             "items": [
-              "GPT-4o",
-              "Nano Banana, Nano Banana Pro, Nano Banana 2",
-              "Flux Kontext Pro, Flux Kontext Max",
-              "Seedream 4.0, Seedream 5.0 Lite",
-              "Qwen Image Edit, Grok Imagine Image"
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3 Premium",
+              "• Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
             ]
           },
-          "SOTA models at 30% off",
-          {
-            "title": "Included SOTA models:",
-            "items": [
-              "Wan 3.0, Wan 3.0 Prime",
-              "MiniMax H3",
-              "Seedance 2.5",
-              "Seedance 2.0",
-              "Seedance 2.0 Fast",
-              "Seedance 2.0 Mini",
-              "Veo 3 Premium",
-              "Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.1 Master",
-              "PixVerse V6 beyond the free quality duration",
-              "LTX 2.5 Fast 4K"
-            ]
-          },
-          {
-            "title": "PixVerse V6:",
-            "items": [
-              "For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required."
-            ]
-          },
-          {
-            "title": "MiniMax H3 pricing:",
-            "items": [
-              "768P: 20 credits per second; 2K: 30 credits per second",
-              "The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount"
-            ]
-          },
-          {
-            "title": "Plan discounts:",
-            "items": [
-              "Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
-              "Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
-              "All plans (including Unlimited) require credits for SOTA models"
-            ]
-          },
-          "2 concurrent generations",
+          "3 concurrent generations",
           "Private generations",
           "Ad-free experience",
           "No watermark",
@@ -644,89 +502,42 @@
         "credits_videos": "3,200 videos",
         "per_video_discount": "(97% off)",
         "valid_days": 365,
-        "group": "yearly",
-        "highlights": [
-          "Yearly 32,000 credits · 3,200 videos",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "2 concurrent generations",
-          "No watermark"
-        ]
+        "group": "yearly"
       },
       {
-        "title": "Standard Credits Pack",
-        "description": "One-time purchase",
-        "label": "Popular",
-        "features_title": "What's included",
         "features": [
-          "23,500 credits (about 2,350 videos)",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "Seedance 2.0 and MiniMax H3 are excluded from this limited-time discount. They use per-second credit pricing and receive up to 60% off per plan.",
-          "All premium AI models (unlocked)",
           {
-            "title": "Video:",
+            "title": "SOTA model access (credits required)",
             "items": [
-              "MiniMax H3",
-              "Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
-              "Seedance 1.0 Lite, Seedance 1.5 Pro",
-              "Seedance 2.0",
-              "Wan 2.5, Runway Gen 4",
-              "Grok Imagine Video"
-            ]
-          },
-          {
-            "title": "Image:",
-            "items": [
-              "GPT-4o",
-              "Nano Banana, Nano Banana Pro, Nano Banana 2",
-              "Flux Kontext Pro, Flux Kontext Max",
-              "Seedream 4.0, Seedream 5.0 Lite",
-              "Qwen Image Edit, Grok Imagine Image"
-            ]
-          },
-          "SOTA models at regular price",
-          {
-            "title": "Included SOTA models:",
-            "items": [
-              "Wan 3.0, Wan 3.0 Prime",
-              "MiniMax H3",
-              "Seedance 2.5",
-              "Seedance 2.0",
-              "Seedance 2.0 Fast",
-              "Seedance 2.0 Mini",
-              "Veo 3 Premium",
-              "Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.1 Master",
-              "PixVerse V6 beyond the free quality duration",
-              "LTX 2.5 Fast 4K"
-            ]
-          },
-          {
-            "title": "PixVerse V6:",
-            "items": [
-              "For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required."
-            ]
-          },
-          {
-            "title": "MiniMax H3 pricing:",
-            "items": [
-              "768P: 20 credits per second; 2K: 30 credits per second",
-              "The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount"
-            ]
-          },
-          {
-            "title": "Plan discounts:",
-            "items": [
-              "Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
-              "Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
-              "All plans (including Unlimited) require credits for SOTA models"
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3 Premium",
+              "• Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
             ]
           },
           "3 concurrent generations",
           "Private generations",
+          "Ad-free experience",
           "No watermark",
           "Priority processing queue",
-          "Commercial license",
+          "Priority support",
           "Unlimited storage"
         ],
         "interval": "one-time",
@@ -745,10 +556,10 @@
           }
         ],
         "unit": "",
-        "is_featured": true,
+        "is_featured": false,
         "tip": "",
         "button": {
-          "title": "Buy now",
+          "title": "One-time payment",
           "url": "/#pricing",
           "icon": "RiFlashlightFill"
         },
@@ -757,88 +568,42 @@
         "credits": 23500,
         "credits_videos": "235 videos",
         "valid_days": 365,
-        "group": "one-time",
-        "highlights": [
-          "23,500 credits (about 2,350 videos)",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "3 concurrent generations",
-          "No watermark"
-        ]
+        "group": "one-time"
       },
       {
-        "title": "Pro Credits Pack",
-        "description": "One-time purchase",
-        "features_title": "What's included",
         "features": [
-          "60,000 credits (about 6,000 videos)",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "Seedance 2.0 and MiniMax H3 are excluded from this limited-time discount. They use per-second credit pricing and receive up to 60% off per plan.",
-          "All premium AI models (unlocked)",
           {
-            "title": "Video:",
+            "title": "SOTA model access (credits required)",
             "items": [
-              "MiniMax H3",
-              "Veo 3, Veo 3.1 Lite, Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
-              "Seedance 1.0 Lite, Seedance 1.5 Pro",
-              "Seedance 2.0",
-              "Wan 2.5, Runway Gen 4",
-              "Grok Imagine Video"
-            ]
-          },
-          {
-            "title": "Image:",
-            "items": [
-              "GPT-4o",
-              "Nano Banana, Nano Banana Pro, Nano Banana 2",
-              "Flux Kontext Pro, Flux Kontext Max",
-              "Seedream 4.0, Seedream 5.0 Lite",
-              "Qwen Image Edit, Grok Imagine Image"
-            ]
-          },
-          "SOTA models at regular price",
-          {
-            "title": "Included SOTA models:",
-            "items": [
-              "Wan 3.0, Wan 3.0 Prime",
-              "MiniMax H3",
-              "Seedance 2.5",
-              "Seedance 2.0",
-              "Seedance 2.0 Fast",
-              "Seedance 2.0 Mini",
-              "Veo 3 Premium",
-              "Veo 3.1 Basic, Veo 3.1 Premium",
-              "Kling 2.1 Master",
-              "PixVerse V6 beyond the free quality duration",
-              "LTX 2.5 Fast 4K"
-            ]
-          },
-          {
-            "title": "PixVerse V6:",
-            "items": [
-              "For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required."
-            ]
-          },
-          {
-            "title": "MiniMax H3 pricing:",
-            "items": [
-              "768P: 20 credits per second; 2K: 30 credits per second",
-              "The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount"
-            ]
-          },
-          {
-            "title": "Plan discounts:",
-            "items": [
-              "Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
-              "Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
-              "All plans (including Unlimited) require credits for SOTA models"
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3 Premium",
+              "• Veo 3.1 Basic, Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
             ]
           },
           "6 concurrent generations",
           "Private generations",
+          "Ad-free experience",
           "No watermark",
           "Priority processing queue",
-          "Commercial license",
+          "Priority support",
           "Unlimited storage"
         ],
         "interval": "one-time",
@@ -857,10 +622,10 @@
           }
         ],
         "unit": "",
-        "is_featured": false,
+        "is_featured": true,
         "tip": "",
         "button": {
-          "title": "Buy now",
+          "title": "One-time payment",
           "url": "/#pricing",
           "icon": "RiFlashlightFill"
         },
@@ -870,12 +635,7 @@
         "credits_videos": "600 videos",
         "valid_days": 365,
         "group": "one-time",
-        "highlights": [
-          "60,000 credits (about 6,000 videos)",
-          "All base & enhanced models at 90% off (limited-time flash sale)",
-          "6 concurrent generations",
-          "No watermark"
-        ]
+        "label": "Popular"
       }
     ],
     "benefits": [
@@ -1805,7 +1565,8 @@
           }
         }
       ]
-    }
+    },
+    "title": "Choose your plan to get started"
   },
   "page": {
     "title": "ChatGPT Image 2 Pricing",

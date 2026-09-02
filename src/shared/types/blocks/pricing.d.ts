@@ -26,6 +26,8 @@ export interface PricingItem {
   amount: number; // default price amount
   price?: string; // default price text
   original_price?: string; // default original price text
+  discount_text?: string; // e.g. "· 50% off" shown after the struck-through price
+  total_price_note?: string; // e.g. "$900/年 按年计费" shown under the price row
   currencies?: PricingCurrency[]; // alternative currencies with different prices
 
   unit?: string;
@@ -46,7 +48,13 @@ export interface PricingItem {
   plan_name?: string;
 
   credits?: number;
-  credits_label?: string; // e.g. "无限" / "Unlimited" when credits are not a number
+  credits_label?: string; // e.g. "无限点数" / "Unlimited points" when credits are not a number
+  credits_display?: string; // e.g. "50,000" override of the credits number text
+  credits_extra?: string; // e.g. "10,000" bonus segment after the "+" in one-time cards
+  credits_videos?: string; // e.g. "1,000 个视频" / "无限视频"
+  per_video_price?: string; // e.g. "$0.10" / "~ $0.001"
+  per_video_discount?: string; // e.g. "(97% off)" suffix in the per-video row
+  credit_accent?: string; // e.g. "#abbbcc"; gem icon color, border-t uses `${accent}22`
   valid_days?: number;
   group?: string;
 }

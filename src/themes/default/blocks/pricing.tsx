@@ -6,6 +6,7 @@ import {
   Check,
   ChevronDown,
   ChevronUp,
+  Gem,
   Info,
   Loader2,
   X,
@@ -734,26 +735,165 @@ export function Pricing({
                           {displayedItem.original_price}
                         </span>
                       )}
-                    </div>
-                    {item.interval === 'year' && (
-                      <div className="mt-1">
-                        <span className="rounded-full bg-muted px-2 py-0.5 text-xs text-muted-foreground">
-                          {t('billed_yearly')}
+                      {displayedItem.discount_text && (
+                        <span className="text-xs font-semibold text-orange-500">
+                          {displayedItem.discount_text}
                         </span>
+                      )}
+                    </div>
+                    {displayedItem.total_price_note && (
+                      <div className="mt-1 text-xs text-muted-foreground">
+                        {displayedItem.total_price_note}
                       </div>
                     )}
                   </div>
 
                   {(item.credits != null || item.credits_label) && (
                     <div className="mb-3 rounded-xl border p-3">
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="landing-strong text-2xl font-bold">
-                          {item.credits_label ?? item.credits!.toLocaleString()}
-                        </span>
-                        {!item.credits_label && (
-                          <span className="landing-muted text-sm">
-                            {t('credits_unit')}
+                      <div className="md:hidden">
+                        <div className="flex items-center justify-center gap-1.5">
+                          <Gem
+                            className={cn(
+                              'h-4 w-4 flex-shrink-0',
+                              item.credits_label && 'animate-pulse'
+                            )}
+                            style={{ color: item.credit_accent }}
+                          />
+                          <span
+                            className={cn(
+                              item.interval === 'one-time'
+                                ? 'text-lg font-bold'
+                                : 'text-lg font-bold sm:text-xl',
+                              item.credits_label && 'animate-pulse'
+                            )}
+                          >
+                            {item.credits_display ??
+                              item.credits_label ??
+                              item.credits!.toLocaleString()}
                           </span>
+                          {item.credits_extra && (
+                            <span className="text-lg font-bold">
+                              <span className="text-lg text-muted-foreground">
+                                +
+                              </span>
+                              {item.credits_extra}
+                            </span>
+                          )}
+                          {!item.credits_label && (
+                            <span className="text-[11px] text-muted-foreground">
+                              {t('credits_unit')}
+                            </span>
+                          )}
+                        </div>
+                        {item.credits_videos && (
+                          <div
+                            className="mt-2 flex items-center justify-center border-t pt-2"
+                            style={
+                              item.credit_accent
+                                ? { borderColor: `${item.credit_accent}22` }
+                                : undefined
+                            }
+                          >
+                            <span
+                              className={cn(
+                                'text-sm font-semibold',
+                                !item.credits_label && 'text-foreground'
+                              )}
+                            >
+                              {item.credits_videos}
+                            </span>
+                          </div>
+                        )}
+                        {item.per_video_price && (
+                          <div
+                            className={cn(
+                              'mt-2 flex items-center justify-center border-t pt-2',
+                              item.credits_label ? 'gap-2' : 'gap-1.5'
+                            )}
+                            style={
+                              item.credit_accent
+                                ? { borderColor: `${item.credit_accent}22` }
+                                : undefined
+                            }
+                          >
+                            <span className="text-lg font-bold">
+                              {item.per_video_price}
+                            </span>
+                            <span className="text-[10px] text-muted-foreground">
+                              /video
+                            </span>
+                            {item.per_video_discount && (
+                              <span className="text-[10px] font-semibold text-orange-500">
+                                {item.per_video_discount}
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                      <div className="hidden md:block">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-1.5">
+                            <Gem
+                              className={cn(
+                                'h-4 w-4 flex-shrink-0',
+                                item.credits_label && 'animate-pulse'
+                              )}
+                              style={{ color: item.credit_accent }}
+                            />
+                            <span className="text-lg font-bold sm:text-xl">
+                              {item.credits_display ??
+                                item.credits_label ??
+                                item.credits!.toLocaleString()}
+                            </span>
+                            {item.credits_extra && (
+                              <span className="text-lg font-bold">
+                                <span className="text-lg text-muted-foreground">
+                                  +
+                                </span>
+                                {item.credits_extra}
+                              </span>
+                            )}
+                            {!item.credits_label && (
+                              <span className="text-[11px] text-muted-foreground">
+                                {t('credits_unit')}
+                              </span>
+                            )}
+                          </div>
+                          {item.credits_videos && (
+                            <span
+                              className={cn(
+                                'text-sm font-semibold',
+                                !item.credits_label && 'text-foreground'
+                              )}
+                            >
+                              {item.credits_videos}
+                            </span>
+                          )}
+                        </div>
+                        {item.per_video_price && (
+                          <div
+                            className={cn(
+                              'mt-2 flex items-center justify-center border-t pt-2',
+                              item.credits_label ? 'gap-2' : 'gap-1.5'
+                            )}
+                            style={
+                              item.credit_accent
+                                ? { borderColor: `${item.credit_accent}22` }
+                                : undefined
+                            }
+                          >
+                            <span className="text-lg font-bold">
+                              {item.per_video_price}
+                            </span>
+                            <span className="text-[10px] text-muted-foreground">
+                              /video
+                            </span>
+                            {item.per_video_discount && (
+                              <span className="text-[10px] font-semibold text-orange-500">
+                                {item.per_video_discount}
+                              </span>
+                            )}
+                          </div>
                         )}
                       </div>
                     </div>

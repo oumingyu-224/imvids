@@ -117,6 +117,7 @@
         "product_id": "starter-monthly",
         "product_name": "SeeVideo Starter Monthly",
         "credits": 2500,
+        "credits_videos": "25 videos",
         "valid_days": 30,
         "group": "monthly",
         "highlights": [
@@ -218,7 +219,8 @@
         },
         "product_id": "premium-monthly",
         "product_name": "SeeVideo Unlimited Monthly",
-        "credits_label": "Unlimited",
+        "credits_label": "Unlimited points",
+        "credits_videos": "Unlimited videos",
         "valid_days": 30,
         "group": "monthly",
         "highlights": [
@@ -322,6 +324,7 @@
         "product_id": "standard-monthly",
         "product_name": "SeeVideo Pro Monthly",
         "credits": 10000,
+        "credits_videos": "100 videos",
         "valid_days": 30,
         "group": "monthly",
         "highlights": [
@@ -413,6 +416,7 @@
         "amount": 10000,
         "currency": "USD",
         "price": "$8.3",
+        "total_price_note": "$100/yr billed annually",
         "unit": "/ mo",
         "is_featured": false,
         "tip": "$0.10 /video (97% off)",
@@ -424,6 +428,8 @@
         "product_id": "starter-yearly",
         "product_name": "SeeVideo Starter Yearly",
         "credits": 10000,
+        "credits_videos": "1,000 videos",
+        "per_video_discount": "(97% off)",
         "valid_days": 365,
         "group": "yearly",
         "highlights": [
@@ -515,6 +521,7 @@
         "amount": 90000,
         "currency": "USD",
         "price": "$75.0",
+        "total_price_note": "$900/yr billed annually",
         "original_price": "$149.99/mo",
         "unit": "/ mo",
         "is_featured": true,
@@ -526,7 +533,8 @@
         },
         "product_id": "premium-yearly",
         "product_name": "SeeVideo Unlimited Yearly",
-        "credits_label": "Unlimited",
+        "credits_label": "Unlimited points",
+        "credits_videos": "Unlimited videos",
         "valid_days": 365,
         "group": "yearly",
         "highlights": [
@@ -534,7 +542,8 @@
           "全部基础与增强模型无限使用",
           "2 并发生成数",
           "无水印"
-        ]
+        ],
+        "discount_text": "· 50% off"
       },
       {
         "title": "Pro",
@@ -619,6 +628,7 @@
         "amount": 30000,
         "currency": "USD",
         "price": "$25.0",
+        "total_price_note": "$300/yr billed annually",
         "original_price": "$35.99/mo",
         "unit": "/ mo",
         "is_featured": false,
@@ -631,6 +641,8 @@
         "product_id": "standard-yearly",
         "product_name": "SeeVideo Pro Yearly",
         "credits": 32000,
+        "credits_videos": "3,200 videos",
+        "per_video_discount": "(97% off)",
         "valid_days": 365,
         "group": "yearly",
         "highlights": [
@@ -743,6 +755,7 @@
         "product_id": "starter",
         "product_name": "SeeVideo Standard Credits Pack",
         "credits": 23500,
+        "credits_videos": "235 videos",
         "valid_days": 365,
         "group": "one-time",
         "highlights": [
@@ -854,6 +867,7 @@
         "product_id": "standard",
         "product_name": "SeeVideo Pro Credits Pack",
         "credits": 60000,
+        "credits_videos": "600 videos",
         "valid_days": 365,
         "group": "one-time",
         "highlights": [

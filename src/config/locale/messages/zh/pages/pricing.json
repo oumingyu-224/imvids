@@ -9,16 +9,19 @@
     "groups": [
       {
         "name": "monthly",
-        "title": "月付"
+        "title": "按月计费",
+        "description": "随时可取消 • 未用完的额度自动结转"
       },
       {
         "name": "yearly",
-        "title": "年付",
-        "label": "节省50%"
+        "title": "按年计费",
+        "label": "节省50%",
+        "description": "随时可取消 • 未用完的额度自动结转"
       },
       {
         "name": "one-time",
-        "title": "一次性购买"
+        "title": "一次性购买",
+        "description": "随时升级 • 保留积分 • 立享新权益"
       }
     ],
     "items": [
@@ -556,17 +559,6 @@
         "amount": 19999,
         "currency": "USD",
         "price": "$199.99",
-        "currencies": [
-          {
-            "currency": "CNY",
-            "amount": 69999,
-            "price": "¥699.99",
-            "original_price": "",
-            "payment_providers": [
-              "stripe"
-            ]
-          }
-        ],
         "unit": "",
         "is_featured": false,
         "tip": "",
@@ -626,17 +618,6 @@
         "amount": 49999,
         "currency": "USD",
         "price": "$499.99",
-        "currencies": [
-          {
-            "currency": "CNY",
-            "amount": 174900,
-            "price": "¥1,749.00",
-            "original_price": "",
-            "payment_providers": [
-              "stripe"
-            ]
-          }
-        ],
         "unit": "",
         "is_featured": true,
         "tip": "",
@@ -656,38 +637,6 @@
         "valid_days": 365,
         "group": "one-time",
         "label": "热门"
-      }
-    ],
-    "benefits": [
-      {
-        "icon": "Zap",
-        "title": "模型闪购折扣",
-        "description": "所有基础与增强模型一折优惠（限时闪购）：Seedance 1.5 Pro 40 → 4 积分、Seedream 5.0 20 → 2 积分、Veo 3 100 → 10 积分；SOTA 模型每次生成最高享 60% 折扣。"
-      },
-      {
-        "icon": "LockOpen",
-        "title": "高级模型全解锁",
-        "description": "从入门计划起即可使用 MiniMax H3、Seedance 2.0 和 Veo 3.1 高级版，以及 Seedance 2.0 Pro、Seedream、Nano Banana Pro 等所有高级模型。"
-      },
-      {
-        "icon": "Briefcase",
-        "title": "商业授权",
-        "description": "年付套餐均含商业许可证，生成内容可自由用于商业项目，无水印导出。"
-      },
-      {
-        "icon": "BadgePercent",
-        "title": "价格锁定 12 个月",
-        "description": "年付订阅价格锁定 12 个月，续费不涨价，最高节省 50%。"
-      },
-      {
-        "icon": "Cloud",
-        "title": "无限存储 · 私密生成",
-        "description": "所有套餐含无限存储空间与私密生成，作品默认仅自己可见。"
-      },
-      {
-        "icon": "RefreshCcw",
-        "title": "随时取消 · 额度结转",
-        "description": "随时可取消订阅，未用完的额度自动结转，不浪费每一分。"
       }
     ],
     "models": {

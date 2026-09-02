@@ -599,12 +599,6 @@ export function Pricing({
       )}
 
       <div className={compact ? 'w-full px-0' : 'container'}>
-        {!compact &&
-          pricing.benefits &&
-          pricing.benefits.length > 0 && (
-            <PricingBenefits benefits={pricing.benefits} />
-          )}
-
         {pricing.groups && pricing.groups.length > 0 && (
           <div
             id="pricing-plans"
@@ -646,10 +640,10 @@ export function Pricing({
                 );
               })}
             </div>
-            {!hideHeader && pricing.description && (
+            {!hideHeader && (pricing.groups.find((item) => item.name === group)?.description) && (
               <div className="mb-6 text-center md:mb-12">
                 <p className="text-sm font-medium text-primary sm:text-base">
-                  {pricing.description}
+                  {pricing.groups.find((item) => item.name === group)?.description}
                 </p>
               </div>
             )}
@@ -660,9 +654,19 @@ export function Pricing({
           className={cn(
             'mx-auto w-full',
             compact
-              ? 'grid grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-3 lg:items-center'
-              : 'flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth px-4 pb-8 pt-8 md:grid md:snap-none md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:pt-0 lg:gap-8'
-          )}
+              ? cn(
+                  'grid grid-cols-1 gap-3 sm:gap-4',
+                  group === 'one-time'
+                    ? 'lg:max-w-[760px] lg:grid-cols-2 lg:items-stretch'
+                    : 'lg:grid-cols-3 lg:items-center'
+                )
+              : cn(
+                  'flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth px-4 pb-8 pt-8 md:grid md:snap-none md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:pt-0 lg:gap-8',
+                  group === 'one-time'
+                    ? 'md:max-w-[760px] md:grid-cols-2'
+                    : 'md:grid-cols-3'
+                )
+          )
         >
           {groupItems.map((item: PricingItem, idx) => {
             let isCurrentPlan = false;
@@ -684,16 +688,16 @@ export function Pricing({
               <div
                 key={idx}
                 className={cn(
-                  'relative mx-auto flex w-full flex-shrink-0 snap-center flex-col bg-[hsl(var(--surface-1))] p-4 transition-all duration-300',
+                  'relative mx-auto flex w-full flex-shrink-0 snap-center flex-col rounded-sm border border-[hsl(var(--border))] bg-[hsl(var(--surface-1))] p-4 transition-all duration-300',
                   !compact &&
                     'min-w-[80%] max-w-[80%] md:min-w-0 md:max-w-none',
-                  compact && 'rounded-2xl border',
+                  compact && 'rounded-2xl',
                   idx === 0 &&
-                    'order-1 md:order-1 rounded-sm border border-[hsl(var(--border))] hover:shadow-lg md:p-6',
+                    'order-1 md:order-1 hover:shadow-lg md:p-6',
                   item.is_featured &&
-                    'order-2 md:order-2 z-10 scale-[1.02] rounded-2xl border-2 border-transparent md:scale-105 md:p-8',
+                    'order-2 md:order-2 z-10 scale-[1.02] border-2 border-transparent shadow-2xl md:scale-105 md:p-8',
                   idx === 2 &&
-                    'order-3 md:order-3 rounded-2xl border border-transparent shadow-xl hover:shadow-2xl md:p-6'
+                    'order-3 md:order-3 shadow-xl hover:shadow-2xl md:p-6'
                 )}
               >
                 {item.label && (
@@ -895,7 +899,7 @@ export function Pricing({
                     </div>
                   )}
 
-                  {currencies.length > 1 && (
+                  {!compact && group !== 'one-time' && currencies.length > 1 && (
                     <Select
                       value={selectedCurrency}
                       onValueChange={(currency) =>

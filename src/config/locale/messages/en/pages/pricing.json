@@ -9,16 +9,19 @@
     "groups": [
       {
         "name": "monthly",
-        "title": "Monthly"
+        "title": "Monthly billing",
+        "description": "Cancel anytime • Unused credits roll over"
       },
       {
         "name": "yearly",
-        "title": "Annually",
-        "label": "save 50%"
+        "title": "Annual billing",
+        "label": "save 50%",
+        "description": "Cancel anytime • Unused credits roll over"
       },
       {
         "name": "one-time",
-        "title": "One-time"
+        "title": "One-time purchase",
+        "description": "Upgrade anytime • Keep your credits • Enjoy new benefits instantly"
       }
     ],
     "items": [
@@ -544,17 +547,6 @@
         "amount": 19999,
         "currency": "USD",
         "price": "$199.99",
-        "currencies": [
-          {
-            "currency": "CNY",
-            "amount": 69999,
-            "price": "¥699.99",
-            "original_price": "",
-            "payment_providers": [
-              "stripe"
-            ]
-          }
-        ],
         "unit": "",
         "is_featured": false,
         "tip": "",
@@ -610,17 +602,6 @@
         "amount": 49999,
         "currency": "USD",
         "price": "$499.99",
-        "currencies": [
-          {
-            "currency": "CNY",
-            "amount": 174900,
-            "price": "¥1,749.00",
-            "original_price": "",
-            "payment_providers": [
-              "stripe"
-            ]
-          }
-        ],
         "unit": "",
         "is_featured": true,
         "tip": "",
@@ -636,38 +617,6 @@
         "valid_days": 365,
         "group": "one-time",
         "label": "Popular"
-      }
-    ],
-    "benefits": [
-      {
-        "icon": "Zap",
-        "title": "Model Flash Sale",
-        "description": "All base & enhanced models at 90% off (limited-time flash sale): Seedance 1.5 Pro 40 → 4 credits, Seedream 5.0 20 → 2 credits, Veo 3 100 → 10 credits; up to 60% off SOTA models per generation."
-      },
-      {
-        "icon": "LockOpen",
-        "title": "All Premium Models Unlocked",
-        "description": "Use MiniMax H3, Seedance 2.0 and Veo 3.1 Premium from the Starter plan, plus every premium model like Seedance 2.0 Pro, Seedream and Nano Banana Pro."
-      },
-      {
-        "icon": "Briefcase",
-        "title": "Commercial License",
-        "description": "Yearly plans include a commercial license — use your creations in commercial projects, watermark-free."
-      },
-      {
-        "icon": "BadgePercent",
-        "title": "Price Locked for 12 Months",
-        "description": "Yearly prices are locked for 12 months. No price increase on renewal, up to 50% off."
-      },
-      {
-        "icon": "Cloud",
-        "title": "Unlimited Storage · Private",
-        "description": "All plans include unlimited storage and private generations — your creations are visible only to you by default."
-      },
-      {
-        "icon": "RefreshCcw",
-        "title": "Cancel Anytime · Rollover",
-        "description": "Cancel your subscription anytime. Unused credits roll over automatically — nothing goes to waste."
       }
     ],
     "models": {

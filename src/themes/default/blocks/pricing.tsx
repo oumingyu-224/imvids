@@ -1,6 +1,6 @@
 'use client';
 
-import '@/../seevideo-missing.css';
+import '@/config/style/seevideo-missing.css';
 import { Fragment, useEffect, useState } from 'react';
 import {
   Check,

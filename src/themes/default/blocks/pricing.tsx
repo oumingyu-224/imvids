@@ -666,7 +666,7 @@ export function Pricing({
                     ? 'md:max-w-[760px] md:grid-cols-2'
                     : 'md:grid-cols-3'
                 )
-          )
+          )}
         >
           {groupItems.map((item: PricingItem, idx) => {
             let isCurrentPlan = false;
@@ -924,12 +924,6 @@ export function Pricing({
                         ))}
                       </SelectContent>
                     </Select>
-                  )}
-
-                  {item.tip && (
-                    <span className="landing-muted text-sm">
-                      {item.tip}
-                    </span>
                   )}
 
                   {isCurrentPlan ? (

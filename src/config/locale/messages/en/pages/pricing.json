@@ -762,6 +762,7 @@
         {
           "name": "Veo 3 Premium",
           "category": "video",
+          "description": "8-second videos with native audio generation",
           "credits": {
             "starter-monthly": 150,
             "standard-monthly": {
@@ -851,6 +852,7 @@
         {
           "name": "Gemini Omni Flash 1.1",
           "category": "video",
+          "description": "720p 4s shown: 55 credits. Standard prices for 4/6/8/10s are 55/75/90/110 credits at 360p/720p/1080p and 125/145/165/180 at 4K. Video reference costs 145 credits at 360p/720p/1080p or 215 at 4K. SOTA credits are required on every plan; discounted totals are whole credits.",
           "credits": {
             "starter-monthly": 55,
             "standard-monthly": {
@@ -880,6 +882,7 @@
         {
           "name": "Gemini Omni",
           "category": "video",
+          "description": "720p/1080p 4s shown: 55 credits. Standard prices for 4/6/8/10s are 55/75/90/110 credits at 720p/1080p and 125/145/165/180 at 4K. Video reference costs 145 credits at 720p/1080p or 215 at 4K. Audio and Character creation are free for paid users. SOTA credits are required on every plan; discounted totals are whole credits.",
           "credits": {
             "starter-monthly": 55,
             "standard-monthly": {

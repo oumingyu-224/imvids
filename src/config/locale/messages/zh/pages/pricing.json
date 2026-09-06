@@ -794,6 +794,7 @@
         {
           "name": "Veo 3 Premium",
           "category": "video",
+          "description": "8秒视频，支持原生音频生成",
           "credits": {
             "starter-monthly": 150,
             "standard-monthly": {
@@ -883,6 +884,7 @@
         {
           "name": "Gemini Omni Flash 1.1",
           "category": "video",
+          "description": "展示720p、4 秒价格:55积分。4/6/8/10秒标准价在360p/720p/1080p 下为55/75/90/110积分，在4K下为125/145/165/180积分。视频参考模式在360p/720p/1080p下为145积分，4K为215积分。所有套餐均需消耗SOTA积分，折扣后均为整数积分。",
           "credits": {
             "starter-monthly": 55,
             "standard-monthly": {
@@ -912,6 +914,7 @@
         {
           "name": "Gemini Omni",
           "category": "video",
+          "description": "展示720p/1080p、4秒价格:55积分。4/6/8/10秒标准价在720p/1080p下为55/75/90/110积分，在4K下为125/145/165/180积分。视频参考模式在720p/1080p下为145积分，4K为215积分。付费用户创建Audio和Character 免费。所有套餐均需消耗 SOTA积分，折扣后均为整数积分",
           "credits": {
             "starter-monthly": 55,
             "standard-monthly": {

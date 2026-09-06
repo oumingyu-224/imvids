@@ -801,7 +801,7 @@ export function Pricing({
                         </span>
                       )}
                       {displayedItem.discount_text && (
-                        <span className="text-xs font-semibold text-orange-500">
+                        <span className="rounded-full border-0 bg-gradient-to-r from-orange-400 to-amber-300 px-2 py-1 text-[9px] font-bold text-black shadow-[0_4px_16px_rgba(255,186,107,0.6)] sm:px-2.5 sm:text-[10px] md:px-3 md:text-xs">
                           {displayedItem.discount_text}
                         </span>
                       )}

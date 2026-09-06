@@ -353,7 +353,8 @@
         "per_video_price": "$0.10",
         "per_video_discount": "(97% off)",
         "valid_days": 365,
-        "group": "yearly"
+        "group": "yearly",
+        "discount_text": "· 20% off"
       },
       {
         "title": "无限制",
@@ -531,7 +532,8 @@
         "per_video_price": "$0.09",
         "per_video_discount": "(97% off)",
         "valid_days": 365,
-        "group": "yearly"
+        "group": "yearly",
+        "discount_text": "· 30% off"
       },
       {
         "features": [

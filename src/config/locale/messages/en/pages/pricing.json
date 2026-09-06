@@ -338,7 +338,8 @@
         "credits_videos": "1,000 videos",
         "per_video_discount": "(97% off)",
         "valid_days": 365,
-        "group": "yearly"
+        "group": "yearly",
+        "discount_text": "· 20% off"
       },
       {
         "title": "Unlimited",
@@ -493,7 +494,8 @@
         "credits_videos": "3,200 videos",
         "per_video_discount": "(97% off)",
         "valid_days": 365,
-        "group": "yearly"
+        "group": "yearly",
+        "discount_text": "· 30% off"
       },
       {
         "features": [

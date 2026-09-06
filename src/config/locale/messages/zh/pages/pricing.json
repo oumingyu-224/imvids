@@ -273,25 +273,32 @@
         "description": "非常适合入门",
         "features": [
           {
-            "title": "基础模型访问权限",
+            "title": "全部基础与增强模型一折（限时特惠）",
+            "items": [
+              "Seedance 2.0 和 MiniMax H3 不参与此限时折扣，采用按秒计费的积分定价，并按套餐单独享受最高 60% 折扣。"
+            ]
+          },
+          {
+            "title": "所有高级 AI 模型（已解锁）",
             "items": [
               "视频:",
               "• MiniMax H3",
-              "• Veo 3、Veo 3.1 Lite、Veo 3.1 Basic",
-              "• Kling 2.5、Kling 2.1 Pro",
-              "• Wan 2.5、Runway Gen 4",
-              "• Grok Imagine Video",
+              "• Veo 3、Veo 3.1 Lite、Veo 3.1 Basic、Veo 3.1 Premium",
+              "• Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
               "• Seedance 1.0 Lite、Seedance 1.5 Pro",
               "• Seedance 2.0",
+              "• Wan 2.5、Runway Gen 4",
+              "• Grok Imagine Video",
               "图像:",
-              "• GPT-4o、Nano Banana、Nano Banana 2",
+              "• GPT-4o",
+              "• Nano Banana、Nano Banana Pro、Nano Banana 2",
               "• Flux Kontext Pro、Flux Kontext Max",
               "• Seedream 4.0、Seedream 5.0 Lite",
               "• Qwen Image Edit、Grok Imagine Image"
             ]
           },
           {
-            "title": "可使用 SOTA 模型（需消耗积分）",
+            "title": "SOTA 模型八折优惠",
             "items": [
               "包含的 SOTA 模型:",
               "• Wan 3.0, Wan 3.0 Prime",
@@ -379,7 +386,7 @@
             ]
           },
           {
-            "title": "15,000 SOTA 模型额外积分（每次生成享五折）",
+            "title": "90,000 SOTA 模型额外积分（每次生成享 60% 折扣）",
             "items": [
               "包含的 SOTA 模型:",
               "• Wan 3.0, Wan 3.0 Prime",
@@ -443,18 +450,25 @@
         "label": "热门",
         "features": [
           {
-            "title": "增强模型访问权限",
+            "title": "全部基础与增强模型一折（限时特惠）",
+            "items": [
+              "Seedance 2.0 和 MiniMax H3 不参与此限时折扣，采用按秒计费的积分定价，并按套餐单独享受最高 60% 折扣。"
+            ]
+          },
+          {
+            "title": "所有高级 AI 模型（已解锁）",
             "items": [
               "视频:",
               "• MiniMax H3",
               "• Veo 3、Veo 3.1 Lite、Veo 3.1 Basic、Veo 3.1 Premium",
-              "• Kling 2.5、Kling 2.1 Pro",
+              "• Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
               "• Seedance 1.0 Lite、Seedance 1.5 Pro",
               "• Seedance 2.0",
               "• Wan 2.5、Runway Gen 4",
               "• Grok Imagine Video",
               "图像:",
-              "• GPT-4o、Nano Banana、Nano Banana 2",
+              "• GPT-4o",
+              "• Nano Banana、Nano Banana Pro、Nano Banana 2",
               "• Flux Kontext Pro、Flux Kontext Max",
               "• Seedream 4.0、Seedream 5.0 Lite",
               "• Qwen Image Edit、Grok Imagine Image"

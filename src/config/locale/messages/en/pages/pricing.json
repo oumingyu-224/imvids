@@ -99,7 +99,8 @@
         "credits": 2500,
         "credits_videos": "25 videos",
         "valid_days": 30,
-        "group": "monthly"
+        "group": "monthly",
+        "per_video_price": "$1.20"
       },
       {
         "title": "Unlimited",
@@ -183,7 +184,8 @@
         "credits_label": "Unlimited points",
         "credits_videos": "Unlimited videos",
         "valid_days": 30,
-        "group": "monthly"
+        "group": "monthly",
+        "per_video_price": "~ $0.001"
       },
       {
         "title": "Pro",
@@ -260,7 +262,8 @@
         "credits": 10000,
         "credits_videos": "100 videos",
         "valid_days": 30,
-        "group": "monthly"
+        "group": "monthly",
+        "per_video_price": "$0.90"
       },
       {
         "title": "Starter",
@@ -339,7 +342,8 @@
         "per_video_discount": "(97% off)",
         "valid_days": 365,
         "group": "yearly",
-        "discount_text": "· 20% off"
+        "discount_text": "· 20% off",
+        "per_video_price": "$0.10"
       },
       {
         "title": "Unlimited",
@@ -426,7 +430,8 @@
         "credits_videos": "Unlimited videos",
         "valid_days": 365,
         "group": "yearly",
-        "discount_text": "· 50% off"
+        "discount_text": "· 50% off",
+        "per_video_price": "~ $0.001"
       },
       {
         "title": "Pro",
@@ -495,7 +500,8 @@
         "per_video_discount": "(97% off)",
         "valid_days": 365,
         "group": "yearly",
-        "discount_text": "· 30% off"
+        "discount_text": "· 30% off",
+        "per_video_price": "$0.09"
       },
       {
         "features": [
@@ -550,7 +556,11 @@
         "credits": 23500,
         "credits_videos": "235 videos",
         "valid_days": 365,
-        "group": "one-time"
+        "group": "one-time",
+        "per_video_price": "$0.85",
+        "credit_accent": "#abbbcc",
+        "credits_display": "20,000",
+        "credits_extra": "3,500"
       },
       {
         "features": [
@@ -606,7 +616,11 @@
         "credits_videos": "600 videos",
         "valid_days": 365,
         "group": "one-time",
-        "label": "Popular"
+        "label": "Popular",
+        "per_video_price": "$0.83",
+        "credit_accent": "#ffb475",
+        "credits_display": "50,000",
+        "credits_extra": "10,000"
       }
     ],
     "models": {

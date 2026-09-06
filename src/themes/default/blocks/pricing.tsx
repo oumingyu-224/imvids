@@ -663,13 +663,13 @@ export function Pricing({
               ? cn(
                   'grid grid-cols-1 gap-3 sm:gap-4',
                   group === 'one-time'
-                    ? 'lg:max-w-[760px] lg:grid-cols-2 lg:items-stretch'
+                    ? 'lg:max-w-[1040px] lg:grid-cols-2 lg:items-stretch'
                     : 'lg:grid-cols-3 lg:items-center'
                 )
               : cn(
                   'flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth px-4 pb-8 pt-8 md:grid md:snap-none md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:pt-0 lg:gap-8',
                   group === 'one-time'
-                    ? 'md:max-w-[760px] md:grid-cols-2'
+                    ? 'md:max-w-[1040px] md:grid-cols-2'
                     : 'md:grid-cols-3'
                 )
           )}
@@ -713,7 +713,10 @@ export function Pricing({
                   idx === 0 &&
                     'order-1 md:order-1 hover:shadow-lg md:p-6',
                   item.is_featured &&
-                    'order-2 md:order-2 z-10 scale-[1.02] rounded-2xl border-2 border-transparent shadow-2xl md:scale-105 md:p-8',
+                    'order-2 md:order-2 z-10 border-2 border-transparent hover:shadow-lg md:p-6',
+                  item.is_featured &&
+                    item.group !== 'one-time' &&
+                    'scale-[1.02] rounded-2xl shadow-2xl md:scale-105 md:p-8',
                   idx === 2 &&
                     'order-3 md:order-3 shadow-xl hover:shadow-2xl md:p-6'
                 )}
@@ -738,9 +741,24 @@ export function Pricing({
                     {displayedItem.discount_text}
                   </span>
                 )}
-                <CardHeader className={cn(compact ? 'p-4 pb-3 sm:p-4 sm:pb-3' : 'p-6 pb-4')}>
+                <CardHeader className={cn(compact ? 'p-4 pb-3 sm:p-4 sm:pb-3' : 'p-0 pb-0')}>
                   <div className="mb-3">
                     {item.label && (
+                      item.is_featured && item.group === 'one-time' ? (
+                        <div className="mb-3">
+                          <div
+                            className="inline-flex items-center rounded-full px-3 py-1.5 text-sm font-semibold text-black shadow-lg"
+                            style={{ background: featuredGradient }}
+                          >
+                            {item.label === '热门' ? (
+                              <Crown className="mr-1.5 h-4 w-4" />
+                            ) : (
+                              <Star className="mr-1.5 h-4 w-4" />
+                            )}
+                            {item.label}
+                          </div>
+                        </div>
+                      ) : (
                       <div className="mb-2 flex items-center gap-1.5">
                         {item.label === '热门' ? (
                           <Crown className="h-4 w-4 text-amber-500" />
@@ -764,6 +782,7 @@ export function Pricing({
                           {item.label}
                         </span>
                       </div>
+                      )
                     )}
                     <h3
                       className="text-2xl font-semibold md:text-3xl"
@@ -832,7 +851,7 @@ export function Pricing({
                           ? {
                               borderColor:
                                 item.group === 'one-time'
-                                  ? 'rgba(255, 180, 117, 0.4)'
+                                  ? 'rgba(255, 180, 117, 0.3)'
                                   : 'rgba(255, 186, 107, 0.4)',
                               background: featuredCreditBackground,
                             }
@@ -1037,9 +1056,16 @@ export function Pricing({
                         className={cn(
                           'w-full rounded-xl px-6 py-3.5 text-center text-base font-semibold text-black shadow-sm transition-all duration-200 hover:opacity-90 hover:shadow-md disabled:opacity-50',
                           item.is_featured
-                            ? 'bg-primary text-primary-foreground'
+                            ? item.group === 'one-time'
+                              ? 'text-black hover:brightness-105'
+                              : 'bg-primary text-primary-foreground'
                             : 'border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground'
                         )}
+                        style={
+                          item.is_featured && item.group === 'one-time'
+                            ? { background: featuredGradient }
+                            : undefined
+                        }
                       >
                         {isLoading && item.product_id === productId ? (
                           <>
@@ -1064,7 +1090,7 @@ export function Pricing({
 
                 <CardContent
                   className={cn(
-                    compact ? 'space-y-2 px-4 pb-4' : 'space-y-4 px-6 pb-6'
+                    compact ? 'space-y-2 px-4 pb-4' : 'space-y-4 px-0 pb-0'
                   )}
                 >
                   <hr className="landing-divider border-dashed" />

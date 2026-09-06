@@ -600,7 +600,11 @@ export function Pricing({
         </div>
       )}
 
-      <div className={compact ? 'w-full px-0' : 'container'}>
+      <div
+        className={
+          compact ? 'w-full px-0' : 'mx-auto w-full max-w-[1500px] px-2 md:px-4'
+        }
+      >
         {pricing.groups && pricing.groups.length > 0 && (
           <div
             id="pricing-plans"
@@ -724,7 +728,7 @@ export function Pricing({
               >
                 {displayedItem.discount_text && (
                   <span
-                    className="absolute right-3 top-3 z-20 rounded-full px-2.5 py-1 text-xs font-bold text-black"
+                    className="absolute -top-3 right-4 z-20 rounded-full px-2.5 py-1 text-xs font-bold text-black"
                     style={{
                       background:
                         'linear-gradient(90deg, #FFD166 0%, #FFA94D 100%)',

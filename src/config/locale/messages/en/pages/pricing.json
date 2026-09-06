@@ -1405,6 +1405,22 @@
     "compare_499": "$499.99",
     "compare_subscribe": "Subscribe",
     "compare_badge": "Best Value",
-    "compare_free": "Free"
+    "compare_free": "Free",
+    "why_title": "Why Choose the Annual Plan?",
+    "why_value_title": "Great Savings",
+    "why_value_1": "Save $250 per year with Starter",
+    "why_value_2": "Save $760 per year with Pro",
+    "why_value_3": "Save $900 per year with Unlimited",
+    "why_discount_title": "Model Discounts",
+    "why_discount_1": "90% off all basic & enhanced models (flash sale)!",
+    "why_discount_2": "SOTA models: up to 60% off per generation",
+    "why_discount_3": "Seedance 1.5 Pro: 40 → 4 credits",
+    "why_discount_4": "Seedream 5.0: 20 → 2 credits",
+    "why_discount_5": "Veo 3: 100 → 10 credits",
+    "why_perk_title": "Exclusive Perks",
+    "why_perk_1": "Access to all premium models (Seedance 2.0 Pro, Seedream, Nano Banana Pro, etc.)",
+    "why_perk_2": "Use MiniMax H3, Seedance 2.0 and Veo 3.1 Premium from the Starter plan",
+    "why_perk_3": "Commercial license included",
+    "why_perk_4": "Price locked for 12 months"
   }
 }

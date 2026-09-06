@@ -1424,6 +1424,19 @@
     "current_plan": "当前方案",
     "processing": "处理中",
     "billed_yearly": "按年计费",
-    "credits_unit": "积分"
+    "credits_unit": "积分",
+    "compare_title": "比较所有方案",
+    "compare_feature": "模型",
+    "compare_monthly": "每月",
+    "compare_yearly": "按年",
+    "compare_starter": "入门版",
+    "compare_pro": "专业版",
+    "compare_unlimited": "无限制",
+    "compare_onetime": "一次性购买",
+    "compare_199": "$199.99",
+    "compare_499": "$499.99",
+    "compare_subscribe": "订阅",
+    "compare_badge": "推荐",
+    "compare_free": "免费"
   }
 }

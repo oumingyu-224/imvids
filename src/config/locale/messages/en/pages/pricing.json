@@ -1392,6 +1392,19 @@
     "current_plan": "Current Plan",
     "processing": "Processing",
     "billed_yearly": "billed yearly",
-    "credits_unit": "credits"
+    "credits_unit": "credits",
+    "compare_title": "Compare All Plans",
+    "compare_feature": "Model",
+    "compare_monthly": "Monthly",
+    "compare_yearly": "Yearly",
+    "compare_starter": "Starter",
+    "compare_pro": "Pro",
+    "compare_unlimited": "Unlimited",
+    "compare_onetime": "One-time",
+    "compare_199": "$199.99",
+    "compare_499": "$499.99",
+    "compare_subscribe": "Subscribe",
+    "compare_badge": "Best Value",
+    "compare_free": "Free"
   }
 }

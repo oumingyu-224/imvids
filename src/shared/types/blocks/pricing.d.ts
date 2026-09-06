@@ -97,6 +97,9 @@ export interface PricingModelsSection {
   show_more?: string; // expand collapsed rows
   show_less?: string; // collapse back
   visible_count?: number; // rows shown before collapsing
+  card_title?: string; // in-card model list title
+  card_show_more?: string; // in-card expand button
+  card_show_less?: string; // in-card collapse button
   items?: PricingModel[];
 }
 

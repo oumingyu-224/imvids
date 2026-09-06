@@ -122,11 +122,13 @@ function PricingModelCreditCell({
   freeLabel,
   notIncludedLabel,
   highlighted,
+  accent,
 }: {
   credit: PricingModelCredit;
   freeLabel?: string;
   notIncludedLabel?: string;
   highlighted?: boolean;
+  accent?: string;
 }) {
   if (credit === null || credit === undefined) {
     return (
@@ -154,23 +156,34 @@ function PricingModelCreditCell({
         'text-sm font-semibold',
         highlighted ? 'text-primary' : 'landing-strong'
       )}
+      style={accent ? { color: accent } : undefined}
     >
       {value}
     </span>
   );
 
+  const gemEl = accent ? (
+    <Gem className="size-3 shrink-0" style={{ color: accent }} />
+  ) : null;
+
   if (typeof credit === 'object') {
     return (
-      <span className="flex items-center justify-end gap-1.5">
+      <span className="flex shrink-0 items-center justify-end gap-1.5">
         <span className="landing-muted text-xs line-through">
           {credit.original}
         </span>
         {valueEl}
+        {gemEl}
       </span>
     );
   }
 
-  return <span className="flex items-center justify-end">{valueEl}</span>;
+  return (
+    <span className="flex shrink-0 items-center justify-end gap-1.5">
+      {valueEl}
+      {gemEl}
+    </span>
+  );
 }
 
 // Model credits list: "model name + credits" rows, description hidden in a
@@ -297,6 +310,78 @@ function PricingModels({
           </div>
         )}
       </div>
+    </div>
+  );
+}
+
+// In-card model credits list: shown inside each pricing card, credits keyed by
+// that card's own product_id
+function PricingCardModels({
+  models,
+  planId,
+  accent,
+}: {
+  models: PricingModelsSection;
+  planId: string;
+  accent?: string;
+}) {
+  const [expanded, setExpanded] = useState(false);
+  const items = models.items ?? [];
+  const visibleCount = models.visible_count ?? 8;
+  const shown = expanded ? items : items.slice(0, visibleCount);
+  const collapsible = items.length > visibleCount;
+
+  if (items.length === 0) return null;
+
+  return (
+    <div className="landing-panel mt-6 rounded-lg p-4">
+      <h4 className="mb-3 text-xs font-semibold tracking-wider uppercase text-muted-foreground">
+        {models.card_title || models.section_title}
+      </h4>
+      <div className="space-y-2 text-xs sm:text-sm">
+        {shown.map((model) => (
+          <div
+            key={model.name}
+            className="group relative flex items-center justify-between gap-2"
+          >
+            <div className="flex min-w-0 shrink items-center gap-1">
+              <span className="break-words text-foreground">{model.name}</span>
+              {model.description && (
+                <Info className="size-3 shrink-0 text-muted-foreground" />
+              )}
+            </div>
+            <PricingModelCreditCell
+              credit={model.credits?.[planId]}
+              freeLabel={models.free_label}
+              notIncludedLabel={models.not_included_label}
+              accent={accent}
+            />
+            {model.description && (
+              <div className="pointer-events-none absolute left-0 top-full z-10 mt-1 hidden w-full rounded-lg border bg-popover px-3 py-2 text-xs text-foreground shadow-xl group-hover:block">
+                {model.description}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      {collapsible && (
+        <button
+          type="button"
+          onClick={() => setExpanded(!expanded)}
+          className="landing-input-surface mt-3 flex w-full items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium text-foreground transition-all hover:bg-accent"
+        >
+          <span>
+            {expanded
+              ? models.card_show_less || models.show_less
+              : models.card_show_more || models.show_more}
+          </span>
+          {expanded ? (
+            <ChevronUp className="size-4" />
+          ) : (
+            <ChevronDown className="size-4" />
+          )}
+        </button>
+      )}
     </div>
   );
 }
@@ -1148,20 +1233,22 @@ export function Pricing({
                       );
                     })}
                   </div>
+
+                  {!compact &&
+                    pricing.models?.items &&
+                    pricing.models.items.length > 0 && (
+                      <PricingCardModels
+                        models={pricing.models}
+                        planId={item.product_id}
+                        accent={item.credit_accent || '#abbbcc'}
+                      />
+                    )}
                 </CardContent>
               </div>
             );
           })}
         </div>
 
-        {!compact && pricing.models?.items && pricing.models.items.length > 0 && (
-          <PricingModels
-            models={pricing.models}
-            plans={groupItems}
-            planId={effectiveModelPlanId}
-            onPlanChange={setModelPlanId}
-          />
-        )}
       </div>
 
       <PaymentModal

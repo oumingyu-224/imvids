@@ -505,10 +505,13 @@
       },
       {
         "features": [
+          "20,000 + 3,500 Credits",
           {
             "title": "SOTA model access (credits required)",
             "items": [
               "Included SOTA models:",
+              "• Gemini Omni Flash 1.1",
+              "• Gemini Omni",
               "• Wan 3.0, Wan 3.0 Prime",
               "• MiniMax H3",
               "• Seedance 2.5",
@@ -564,10 +567,13 @@
       },
       {
         "features": [
+          "50,000 + 10,000 Credits",
           {
             "title": "SOTA model access (credits required)",
             "items": [
               "Included SOTA models:",
+              "• Gemini Omni Flash 1.1",
+              "• Gemini Omni",
               "• Wan 3.0, Wan 3.0 Prime",
               "• MiniMax H3",
               "• Seedance 2.5",
@@ -633,6 +639,9 @@
       "show_more": "Show all models",
       "show_less": "Show less",
       "visible_count": 8,
+      "card_title": "AI Models (Regular Price)",
+      "card_show_more": "View More Models",
+      "card_show_less": "Show Less",
       "items": [
         {
           "name": "Wan 3.0",

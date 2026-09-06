@@ -537,10 +537,13 @@
       },
       {
         "features": [
+          "20,000 + 3,500 积分",
           {
             "title": "可使用 SOTA 模型（需消耗积分）",
             "items": [
               "包含的 SOTA 模型:",
+              "• Gemini Omni Flash 1.1",
+              "• Gemini Omni",
               "• Wan 3.0, Wan 3.0 Prime",
               "• MiniMax H3",
               "• Seedance 2.5",
@@ -596,10 +599,13 @@
       },
       {
         "features": [
+          "50,000 + 10,000 积分",
           {
             "title": "可使用 SOTA 模型（需消耗积分）",
             "items": [
               "包含的 SOTA 模型:",
+              "• Gemini Omni Flash 1.1",
+              "• Gemini Omni",
               "• Wan 3.0, Wan 3.0 Prime",
               "• MiniMax H3",
               "• Seedance 2.5",
@@ -665,6 +671,9 @@
       "show_more": "展开全部模型",
       "show_less": "收起",
       "visible_count": 8,
+      "card_title": "AI 模型（原价）",
+      "card_show_more": "查看更多模型",
+      "card_show_less": "收起",
       "items": [
         {
           "name": "Wan 3.0",

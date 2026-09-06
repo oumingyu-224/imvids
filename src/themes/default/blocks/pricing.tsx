@@ -6,9 +6,11 @@ import {
   Check,
   ChevronDown,
   ChevronUp,
+  Crown,
   Gem,
   Info,
   Loader2,
+  Star,
   X,
 } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
@@ -619,7 +621,7 @@ export function Pricing({
                   <div key={i} className="relative">
                     {item.label && (
                       <div className="absolute -right-1 -top-2.5 z-10 sm:-right-2 sm:-top-3">
-                        <div className="rounded-md border border-primary bg-black/90 px-1 py-0.5 text-[8px] font-bold text-primary shadow-[0_0_6px_hsl(var(--primary)/0.6),0_0_12px_hsl(var(--primary)/0.3)] sm:px-1.5 sm:text-[10px] md:px-2 md:text-xs">
+                        <div className="rounded-full border-0 bg-gradient-to-r from-orange-400 to-amber-300 px-2 py-1 text-[9px] font-bold text-black shadow-[0_4px_16px_rgba(255,186,107,0.6)] sm:px-2.5 sm:text-[10px] md:px-3 md:text-xs">
                           {item.label}
                         </div>
                       </div>
@@ -720,23 +722,33 @@ export function Pricing({
                     : undefined
                 }
               >
-                {item.label && (
-                  <div className="absolute -right-2 -top-2 z-30">
-                    <div
-                      className="rounded-full px-3 py-1 text-xs font-semibold text-white shadow-lg"
-                      style={
-                        item.is_featured
-                          ? { background: featuredGradient }
-                          : undefined
-                      }
-                    >
-                      {item.label}
-                    </div>
-                  </div>
-                )}
-
                 <CardHeader className={cn(compact ? 'p-4 pb-3 sm:p-4 sm:pb-3' : 'p-6 pb-4')}>
                   <div className="mb-3">
+                    {item.label && (
+                      <div className="mb-2 flex items-center gap-1.5">
+                        {item.label === '热门' ? (
+                          <Crown className="h-4 w-4 text-amber-500" />
+                        ) : (
+                          <Star className="h-4 w-4 text-amber-500" />
+                        )}
+                        <span
+                          className="text-sm font-semibold"
+                          style={
+                            item.is_featured
+                              ? {
+                                  backgroundImage: featuredGradient,
+                                  backgroundClip: 'text',
+                                  WebkitBackgroundClip: 'text',
+                                  WebkitTextFillColor: 'transparent',
+                                  color: 'transparent',
+                                }
+                              : { color: '#f59e0b' }
+                          }
+                        >
+                          {item.label}
+                        </span>
+                      </div>
+                    )}
                     <h3
                       className="text-2xl font-semibold md:text-3xl"
                       style={
@@ -1059,7 +1071,12 @@ export function Pricing({
                             key={index}
                             className="group relative flex flex-row items-center justify-between gap-2"
                           >
-                            <div className="flex min-w-0 items-center gap-2">
+                            <div
+                              className={cn(
+                                'flex min-w-0 items-center gap-2',
+                                index < 3 && 'text-primary'
+                              )}
+                            >
                               <Check className="size-3 shrink-0 text-primary" />
                               <span>{feature}</span>
                             </div>
@@ -1072,7 +1089,12 @@ export function Pricing({
                           key={index}
                           className="group relative flex flex-row items-center justify-between gap-2"
                         >
-                          <div className="flex min-w-0 flex-row items-center gap-2">
+                          <div
+                            className={cn(
+                              'flex min-w-0 flex-row items-center gap-2',
+                              index < 3 && 'text-primary'
+                            )}
+                          >
                             <Check className="size-3 shrink-0 text-primary" />
                             <span>{feature.title}</span>
                             <Info className="size-3.5 shrink-0 text-muted-foreground" />

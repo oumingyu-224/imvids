@@ -722,6 +722,18 @@ export function Pricing({
                     : undefined
                 }
               >
+                {displayedItem.discount_text && (
+                  <span
+                    className="absolute right-3 top-3 z-20 rounded-full px-2.5 py-1 text-xs font-bold text-black"
+                    style={{
+                      background:
+                        'linear-gradient(90deg, #FFD166 0%, #FFA94D 100%)',
+                      boxShadow: '0 0 12px rgba(255, 169, 77, 0.55)',
+                    }}
+                  >
+                    {displayedItem.discount_text}
+                  </span>
+                )}
                 <CardHeader className={cn(compact ? 'p-4 pb-3 sm:p-4 sm:pb-3' : 'p-6 pb-4')}>
                   <div className="mb-3">
                     {item.label && (
@@ -798,11 +810,6 @@ export function Pricing({
                       {displayedItem.original_price && (
                         <span className="text-xs text-muted-foreground line-through">
                           {displayedItem.original_price}
-                        </span>
-                      )}
-                      {displayedItem.discount_text && (
-                        <span className="rounded-full border-0 bg-gradient-to-r from-orange-400 to-amber-300 px-2 py-1 text-[9px] font-bold text-black shadow-[0_4px_16px_rgba(255,186,107,0.6)] sm:px-2.5 sm:text-[10px] md:px-3 md:text-xs">
-                          {displayedItem.discount_text}
                         </span>
                       )}
                     </div>

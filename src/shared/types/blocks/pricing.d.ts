@@ -27,6 +27,7 @@ export interface PricingItem {
   price?: string; // default price text
   original_price?: string; // default original price text
   discount_text?: string; // e.g. "· 50% off" shown after the struck-through price
+  savings_badge?: string; // e.g. "节省 50%" shown as a badge on the card top-right corner
   total_price_note?: string; // e.g. "$900/年 按年计费" shown under the price row
   currencies?: PricingCurrency[]; // alternative currencies with different prices
 

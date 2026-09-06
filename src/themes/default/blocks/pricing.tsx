@@ -6,10 +6,13 @@ import {
   Check,
   ChevronDown,
   ChevronUp,
+  CircleCheck,
   Crown,
+  DollarSign,
   Gem,
   Info,
   Loader2,
+  Rocket,
   Star,
   X,
 } from 'lucide-react';
@@ -1206,6 +1209,25 @@ export function Pricing({
                         );
                       }
 
+                      if (feature && feature.included === false) {
+                        return (
+                          <div
+                            key={index}
+                            className="group relative flex flex-row items-center justify-between gap-2"
+                          >
+                            <div
+                              className={cn(
+                                'flex min-w-0 items-center gap-2',
+                                index < 3 && 'text-destructive'
+                              )}
+                            >
+                              <X className="size-3 shrink-0 text-destructive" />
+                              <span>{feature.title}</span>
+                            </div>
+                          </div>
+                        );
+                      }
+
                       return (
                         <div
                           key={index}
@@ -1248,6 +1270,462 @@ export function Pricing({
             );
           })}
         </div>
+
+        <section id="why-choose-yearly" className="mb-8 mt-12">
+            <h2 className="landing-strong mb-6 text-center text-2xl font-bold sm:text-3xl">
+              为什么选择年度计划？
+            </h2>
+            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 px-2 sm:grid-cols-2 sm:gap-6 sm:px-0 lg:grid-cols-3">
+              <div className="rounded-xl border-2 border-[hsl(var(--border))] bg-[hsl(var(--surface-1))] p-4 shadow-md transition-shadow hover:shadow-lg sm:p-6">
+                <div className="mb-3 sm:mb-4">
+                  <DollarSign className="h-8 w-8 text-primary sm:h-10 sm:w-10" />
+                </div>
+                <h3 className="landing-strong mb-3 text-base font-bold sm:mb-4 sm:text-lg">
+                  超值优惠
+                </h3>
+                <ul className="landing-body space-y-2 text-xs sm:space-y-2.5 sm:text-sm">
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>使用 Starter 每年节省 $250</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>订阅 Pro 每年节省 $760</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>无限套餐每年节省 $900</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl border-2 border-[hsl(var(--border))] bg-[hsl(var(--surface-1))] p-4 shadow-md transition-shadow hover:shadow-lg sm:p-6">
+                <div className="mb-3 sm:mb-4">
+                  <Rocket className="h-8 w-8 text-primary sm:h-10 sm:w-10" />
+                </div>
+                <h3 className="landing-strong mb-3 text-base font-bold sm:mb-4 sm:text-lg">
+                  模型折扣
+                </h3>
+                <ul className="landing-body space-y-2 text-xs sm:space-y-2.5 sm:text-sm">
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>所有基础与增强模型一折优惠（闪购）！</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>SOTA 模型：每次生成最高享 60% 折扣</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>Seedance 1.5 Pro：40 → 4 积分</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>Seedream 5.0：20 → 2 积分</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>Veo 3：100 → 10 积分</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl border-2 border-[hsl(var(--border))] bg-[hsl(var(--surface-1))] p-4 shadow-md transition-shadow hover:shadow-lg sm:p-6">
+                <div className="mb-3 sm:mb-4">
+                  <Star className="h-8 w-8 text-primary sm:h-10 sm:w-10" />
+                </div>
+                <h3 className="landing-strong mb-3 text-base font-bold sm:mb-4 sm:text-lg">
+                  专属特权
+                </h3>
+                <ul className="landing-body space-y-2 text-xs sm:space-y-2.5 sm:text-sm">
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>
+                      访问所有高级模型（Seedance 2.0 Pro、Seedream、Nano Banana
+                      Pro 等）
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>
+                      入门计划起即可使用 MiniMax H3、Seedance 2.0 和 Veo 3.1
+                      高级版
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>含商业授权</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CircleCheck className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                    <span>价格锁定 12 个月</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+        <section id="compare-plans" className="mt-12">
+          <h2 className="landing-strong mb-6 text-center text-2xl font-bold sm:text-3xl">
+            比较所有方案
+          </h2>
+          <div className="overflow-x-auto rounded-xl border-2 border-[hsl(var(--border))] bg-[hsl(var(--surface-1))] shadow-md">
+            <table className="w-full min-w-[900px]">
+              <thead>
+                <tr className="border-b border-[hsl(var(--border))] bg-[hsl(var(--muted))]">
+                  <th className="px-4 py-4 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:px-6">
+                    模型
+                  </th>
+                  <th className="px-4 py-4 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:px-6">
+                    月卡入门
+                  </th>
+                  <th className="px-4 py-4 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:px-6">
+                    月卡专业
+                  </th>
+                  <th className="px-4 py-4 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:px-6">
+                    月卡无限
+                  </th>
+                  <th className="px-4 py-4 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:px-6">
+                    年卡入门
+                  </th>
+                  <th className="px-4 py-4 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:px-6">
+                    年卡专业
+                  </th>
+                  <th className="px-4 py-4 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:px-6">
+                    年卡无限
+                  </th>
+                  <th className="px-4 py-4 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:px-6">
+                    一次性 199
+                  </th>
+                  <th className="px-4 py-4 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground sm:px-6">
+                    一次性 499
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Seedance 2.5</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>160</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>160</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>160</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">160</span><span className="font-medium text-primary">128</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">160</span><span className="font-medium text-primary">112</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">160</span><span className="font-medium text-primary">64</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>160</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>160</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Seedance 2.0</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>80</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">80</span><span className="font-medium text-primary">65</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">80</span><span className="font-medium text-primary">40</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">80</span><span className="font-medium text-primary">64</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">80</span><span className="font-medium text-primary">56</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">80</span><span className="font-medium text-primary">32</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>80</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>80</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Seedance 2.0 Fast</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>65</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">65</span><span className="font-medium text-primary">50</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">65</span><span className="font-medium text-primary">35</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">65</span><span className="font-medium text-primary">52</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">65</span><span className="font-medium text-primary">39</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">65</span><span className="font-medium text-primary">26</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>65</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>65</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Seedance 2.0 Mini</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>55</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">45</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">30</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">44</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">33</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">22</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>55</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>55</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Veo 3 Premium</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>150</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">150</span><span className="font-medium text-primary">120</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">150</span><span className="font-medium text-primary">75</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">150</span><span className="font-medium text-primary">120</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">150</span><span className="font-medium text-primary">105</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">150</span><span className="font-medium text-primary">60</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>150</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>150</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Veo 3.1 Basic</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>150</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">150</span><span className="font-medium text-primary">120</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">150</span><span className="font-medium text-primary">75</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">150</span><span className="font-medium text-primary">120</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">150</span><span className="font-medium text-primary">105</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">150</span><span className="font-medium text-primary">60</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>150</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>150</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Veo 3.1 Premium</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="text-muted-foreground">❌</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">200</span><span className="font-medium text-primary">160</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">200</span><span className="font-medium text-primary">100</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">200</span><span className="font-medium text-primary">160</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">200</span><span className="font-medium text-primary">140</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">200</span><span className="font-medium text-primary">80</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="text-muted-foreground">❌</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>200</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Gemini Omni Flash 1.1</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>55</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">44</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">27</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">44</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">38</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">22</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>55</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>55</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Gemini Omni</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>55</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">44</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">27</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">44</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">38</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">55</span><span className="font-medium text-primary">22</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>55</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>55</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Wan 3.0</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">32</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">20</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">32</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">28</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">16</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Wan 3.0 Prime</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>50</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">50</span><span className="font-medium text-primary">40</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">50</span><span className="font-medium text-primary">25</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">50</span><span className="font-medium text-primary">40</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">50</span><span className="font-medium text-primary">35</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">50</span><span className="font-medium text-primary">20</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>50</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>50</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">MiniMax H3</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">80</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">50</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">80</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">70</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">40</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Kling 2.1 Master</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="text-muted-foreground">❌</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="text-muted-foreground">❌</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">200</span><span className="font-medium text-primary">100</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">200</span><span className="font-medium text-primary">160</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">200</span><span className="font-medium text-primary">140</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">200</span><span className="font-medium text-primary">80</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="text-muted-foreground">❌</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>200</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">LTX 2.5 Fast</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Seedance 1.5 Pro</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Veo 3.1 Lite</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>75</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>75</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">75</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">75</span><span className="font-medium text-primary">7</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">75</span><span className="font-medium text-primary">7</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">75</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>75</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>75</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Wan 2.5</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">10</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">10</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">PixVerse V6</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>70</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>70</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">70</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">70</span><span className="font-medium text-primary">7</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">70</span><span className="font-medium text-primary">7</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">70</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>70</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>70</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Seedream 5.0 Lite</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Seedream 4.0</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">3</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">3</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Nano Banana</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">3</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">3</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Nano Banana Pro</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="text-muted-foreground">❌</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="text-muted-foreground">❌</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="text-muted-foreground">❌</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Nano Banana 2</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Veo 3</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">10</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">10</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Kling 2.5</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">10</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">10</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Kling 2.1 Pro</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>120</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>120</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">120</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">120</span><span className="font-medium text-primary">12</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">120</span><span className="font-medium text-primary">12</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">120</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>120</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>120</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Runway Gen 4</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">10</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">10</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">100</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>100</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Flux Kontext Pro</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">3</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">3</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">30</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>30</span></td>
+                  </tr>
+                  <tr className="border-b border-[hsl(var(--border))]">
+                    <td className="px-4 py-3 text-sm font-medium text-foreground sm:px-6 sm:py-4">Flux Kontext Max</td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">4</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span className="whitespace-nowrap"><span className="mr-1 text-muted-foreground line-through">40</span><span className="font-medium text-primary">免费</span></span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                      <td className="px-4 py-3 text-sm sm:px-6 sm:py-4"><span>40</span></td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
       </div>
 

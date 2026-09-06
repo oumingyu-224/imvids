@@ -35,7 +35,7 @@ export interface PricingItem {
   features_title?: string;
   // string = simple check-item line; { title, items } = a titled bullet
   // group (e.g. "视频:" / "图像:" model lists)
-  features?: (string | { title: string; items: string[] })[];
+  features?: (string | { title: string; items: string[]; included?: boolean })[];
   highlights?: string[]; // compact check-lines shown on the card; full
   // model details live in the dedicated model-credits section
   button?: Button;

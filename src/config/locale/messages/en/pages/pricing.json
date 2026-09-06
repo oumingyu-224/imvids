@@ -79,7 +79,10 @@
           "No watermark",
           "Priority processing queue",
           "Priority support",
-          "Commercial license",
+          {
+            "title": "Commercial license",
+            "included": false
+          },
           "Unlimited storage"
         ],
         "interval": "month",
@@ -164,7 +167,10 @@
           "No watermark",
           "Priority processing queue",
           "Priority support",
-          "Commercial license",
+          {
+            "title": "Commercial license",
+            "included": false
+          },
           "Unlimited storage"
         ],
         "interval": "month",
@@ -242,7 +248,10 @@
           "No watermark",
           "Priority processing queue",
           "Priority support",
-          "Commercial license",
+          {
+            "title": "Commercial license",
+            "included": false
+          },
           "Unlimited storage"
         ],
         "interval": "month",

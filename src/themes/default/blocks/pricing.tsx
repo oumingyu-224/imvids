@@ -1193,19 +1193,17 @@ export function Pricing({
                       <Button
                         onClick={() => handlePayment(item)}
                         disabled={isLoading}
-                        className={cn(
-                          'w-full rounded-xl px-6 py-3.5 text-center text-base font-semibold text-black shadow-sm transition-all duration-200 hover:opacity-90 hover:shadow-md disabled:opacity-50',
-                          item.is_featured
-                            ? item.group === 'one-time'
-                              ? 'text-black hover:brightness-105'
-                              : 'bg-primary text-primary-foreground'
-                            : 'border bg-transparent text-foreground hover:bg-accent hover:text-accent-foreground'
-                        )}
-                        style={
-                          item.is_featured && item.group === 'one-time'
-                            ? { background: featuredGradient }
-                            : undefined
-                        }
+                        className="w-full rounded-xl px-6 py-3.5 text-center text-base font-semibold text-black shadow-sm transition-all duration-200 hover:opacity-90 hover:shadow-md hover:brightness-105 disabled:opacity-50"
+                        style={{
+                          background:
+                            item.group === 'one-time'
+                              ? GRAD_PRO
+                              : idx === 0
+                                ? GRAD_STARTER
+                                : idx === 2
+                                  ? GRAD_UNLIMITED
+                                  : GRAD_PRO,
+                        }}
                       >
                         {isLoading && item.product_id === productId ? (
                           <>
@@ -1470,7 +1468,10 @@ export function Pricing({
                         </span>
                         {col.subscribe && (
                           <div className="group relative mt-2">
-                            <button className="w-full min-w-[100px] rounded-lg bg-primary px-3 py-2 text-xs font-semibold text-primary-foreground transition-all duration-200 hover:opacity-90">
+                            <button
+                              className="w-full min-w-[100px] rounded-lg px-3 py-2 text-xs font-semibold text-black shadow-sm transition-all duration-200 hover:opacity-90 hover:brightness-105"
+                              style={{ background: GRAD_UNLIMITED }}
+                            >
                               {t('compare_subscribe')}
                             </button>
                           </div>

@@ -619,7 +619,7 @@ export function Pricing({
                   <div key={i} className="relative">
                     {item.label && (
                       <div className="absolute -right-1 -top-2.5 z-10 sm:-right-2 sm:-top-3">
-                        <div className="rounded-md border border-[hsl(var(--primary))] bg-black/90 px-1 py-0.5 text-[8px] font-bold text-[hsl(var(--primary))] shadow-[0_0_6px_hsl(var(--primary)/0.6),0_0_12px_hsl(var(--primary)/0.3)] sm:px-1.5 sm:text-[10px] md:px-2 md:text-xs">
+                        <div className="rounded-md border border-primary bg-black/90 px-1 py-0.5 text-[8px] font-bold text-primary-foreground shadow-[0_0_6px_hsl(var(--primary)/0.6),0_0_12px_hsl(var(--primary)/0.3)] sm:px-1.5 sm:text-[10px] md:px-2 md:text-xs">
                           {item.label}
                         </div>
                       </div>

@@ -1483,7 +1483,7 @@ export function Pricing({
                     >
                       {col.highlight && (
                         <div className="absolute right-0 top-0 z-10">
-                          <span className="inline-block whitespace-nowrap rounded-md border border-[hsl(var(--primary))] bg-black/90 px-1 text-[8px] font-semibold text-[hsl(var(--primary))] shadow-[0_0_4px_hsl(var(--primary)/0.6),0_0_8px_hsl(var(--primary)/0.4)]">
+                          <span className="inline-block whitespace-nowrap rounded-md border border-primary bg-black px-1 text-[8px] font-semibold text-primary shadow-[0_0_4px_hsl(var(--primary)/0.6),0_0_8px_hsl(var(--primary)/0.4)]">
                             {t('compare_badge')}
                           </span>
                         </div>

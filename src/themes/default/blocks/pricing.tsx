@@ -1476,6 +1476,34 @@ export function Pricing({
                 </tr>
               </thead>
               <tbody>
+                {COMPARE_META_ROWS.map((row, rowIdx) => (
+                  <tr
+                    key={`meta-${rowIdx}`}
+                    className="border-b border-[hsl(var(--border))]"
+                  >
+                    <td className="px-6 py-4 text-left text-sm font-medium text-foreground">
+                      {t(row.labelKey)}
+                    </td>
+                    {row.cells.map((cell, colIdx) => (
+                      <td
+                        key={colIdx}
+                        className={
+                          compareColumns[colIdx].highlight
+                            ? 'rounded-lg bg-primary/10 px-6 py-4 text-center'
+                            : 'px-6 py-4 text-center'
+                        }
+                      >
+                        {cell === 'X' ? (
+                          <span className="text-sm text-muted-foreground">❌</span>
+                        ) : (
+                          <span className="whitespace-nowrap text-sm text-foreground">
+                            {cell.p.startsWith('compare_') ? t(cell.p) : cell.p}
+                          </span>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
                 {COMPARE_ROWS.map((row, rowIdx) => (
                   <tr
                     key={rowIdx}
@@ -1545,6 +1573,88 @@ const GRAD_UNLIMITED =
   'linear-gradient(148deg, #ffba6b 0%, #ffd685 40%, #fff5eb 100%)';
 
 // 列顺序：入门月、入门年、专业月、专业年、无限月、无限年、一次性199、一次性499
+// 套餐属性行（位于模型行之前）
+const COMPARE_META_ROWS: Array<{ labelKey: string; cells: Array<CompareCell> }> = [
+  {
+    labelKey: 'compare_row_price',
+    cells: [
+      { p: '$29.99' },
+      { p: '$8.30' },
+      { p: '$89.99' },
+      { p: '$25.00' },
+      { p: '$149.99' },
+      { p: '$75.00' },
+      { p: '$199.99' },
+      { p: '$499.99' },
+    ],
+  },
+  {
+    labelKey: 'compare_row_credits',
+    cells: [
+      { p: '2,500' },
+      { p: '10,000' },
+      { p: '10,000' },
+      { p: '32,000' },
+      { p: '∞' },
+      { p: '∞' },
+      { p: '23,500' },
+      { p: '60,000' },
+    ],
+  },
+  {
+    labelKey: 'compare_row_concurrency',
+    cells: [
+      { p: '1' },
+      { p: '1' },
+      { p: '3' },
+      { p: '3' },
+      { p: '5' },
+      { p: '5' },
+      { p: '3' },
+      { p: '6' },
+    ],
+  },
+  {
+    labelKey: 'compare_row_watermark',
+    cells: [
+      { p: '✓' },
+      { p: '✓' },
+      { p: '✓' },
+      { p: '✓' },
+      { p: '✓' },
+      { p: '✓' },
+      { p: '✓' },
+      { p: '✓' },
+    ],
+  },
+  {
+    labelKey: 'compare_row_license',
+    cells: [
+      'X',
+      { p: '✓' },
+      'X',
+      { p: '✓' },
+      'X',
+      { p: '✓' },
+      'X',
+      'X',
+    ],
+  },
+  {
+    labelKey: 'compare_row_discount',
+    cells: [
+      { p: 'compare_disc_regular' },
+      { p: 'compare_disc_90' },
+      { p: 'compare_disc_regular' },
+      { p: 'compare_disc_90' },
+      { p: 'compare_disc_100' },
+      { p: 'compare_disc_100' },
+      { p: 'compare_disc_regular' },
+      { p: 'compare_disc_regular' },
+    ],
+  },
+];
+
 const COMPARE_ROWS: Array<{ name: string; cells: Array<CompareCell> }> = [
   { name: 'Seedance 2.5', cells: [{ p: '160' }, { s: '160', p: '128' }, { p: '160' }, { s: '160', p: '112' }, { p: '160' }, { s: '160', p: '64' }, { p: '160' }, { p: '160' }] },
   { name: 'Seedance 2.0', cells: [{ p: '80' }, { s: '80', p: '64' }, { s: '80', p: '65' }, { s: '80', p: '56' }, { s: '80', p: '40' }, { s: '80', p: '32' }, { p: '80' }, { p: '80' }] },

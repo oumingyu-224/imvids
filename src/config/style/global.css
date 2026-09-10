@@ -371,3 +371,133 @@ pre {
     background-attachment: scroll;
   }
 }
+
+.promo-bubble {
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, #ff006733 0 1px, #0000 1px 100%) 0 0/44px 44px,
+    linear-gradient(0deg, #ffffff0d 0 1px, #0000 1px 100%) 0 0/44px 44px,
+    linear-gradient(135deg, #2a1722 0%, #711438 48%, #a21253 100%) 0 0/100% 100%;
+  border: 1px solid #ff23786b;
+  border-radius: 1.5rem;
+  animation: 0.5s ease-out promoBubbleIn;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 24px 70px #ff00672e,
+    inset 0 1px #ffffff1a;
+}
+
+.promo-bubble:before {
+  content: '';
+  z-index: 0;
+  opacity: 0.85;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, #ffffff29, #0000 34%),
+    linear-gradient(90deg, #140a121a, #140a1280);
+  position: absolute;
+  inset: 0;
+}
+
+.promo-bubble-badge {
+  color: #fff;
+  text-transform: uppercase;
+  background: #f23596;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 1.35rem;
+  padding: 0.2rem 0.65rem;
+  font-size: 0.625rem;
+  font-weight: 900;
+  line-height: 1;
+  display: inline-flex;
+  box-shadow: 0 3px 10px #f2359659;
+}
+
+.promo-bubble-title {
+  color: #fff;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  max-width: 100%;
+  font-size: 1.45rem;
+  font-weight: 950;
+  line-height: 1.08;
+  display: block;
+}
+
+.promo-bubble-title-accent {
+  color: #ff0a68;
+}
+
+.promo-bubble-copy {
+  color: #ffffffad;
+  letter-spacing: 0;
+  min-width: 0;
+  max-width: 54rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  display: block;
+}
+
+.promo-bubble-footnote {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #ffffff7a;
+  letter-spacing: 0;
+  max-width: 40rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  overflow: hidden;
+}
+
+.promo-bubble-cta {
+  color: #1d1d1d;
+  background: #fff;
+  border-radius: 0.55rem;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.25rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 900;
+  line-height: 1;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  display: inline-flex;
+  box-shadow: 0 14px 26px #00000038;
+}
+
+.promo-bubble:hover .promo-bubble-cta {
+  transform: translate(2px);
+  box-shadow: 0 18px 32px #00000047;
+}
+
+.promo-bubble-title {
+  font-size: 1.9rem;
+}
+
+.promo-bubble-copy {
+  font-size: 0.8125rem;
+}
+
+.promo-bubble-title {
+  font-size: 2.25rem;
+}
+
+@keyframes promoBubbleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

@@ -765,7 +765,7 @@ export function Pricing({
                   <div key={i} className="relative">
                     {item.label && (
                       <div className="absolute -right-1 -top-2.5 z-10 sm:-right-2 sm:-top-3">
-                        <div className="rounded-full border-0 px-2 py-1 text-[9px] font-bold text-foreground sm:px-2.5 sm:text-[10px] md:px-3 md:text-xs">
+                        <div className="rounded-full border border-[hsl(var(--primary))] px-2 py-1 text-[9px] font-bold text-[hsl(var(--primary))] sm:px-2.5 sm:text-[10px] md:px-3 md:text-xs">
                           {item.label}
                         </div>
                       </div>
@@ -1496,31 +1496,47 @@ export function Pricing({
                         {cell === 'X' ? (
                           <span className="text-sm text-muted-foreground">❌</span>
                         ) : (
-                          <span
-                            className={cn(
-                              'whitespace-nowrap text-sm text-foreground',
-                              (rowIdx === 0 || rowIdx === 1) &&
-                                (colIdx === 1 || colIdx === 3 || colIdx === 5) &&
-                                'font-medium text-[#ffba6b]'
-                            )}
-                          >
-                            {cell.p.startsWith('compare_') ? t(cell.p) : cell.p}
-                            {cell.sub &&
-                              cell.sub.map((line, lineIdx) => (
-                                <span
-                                  key={lineIdx}
-                                  className={cn(
-                                    'block text-xs',
-                                    (rowIdx === 0 || rowIdx === 1) &&
-                                      (colIdx === 1 || colIdx === 3 || colIdx === 5)
-                                      ? 'text-[#ffba6b]'
-                                      : 'text-muted-foreground'
-                                  )}
-                                >
-                                  {line.startsWith('compare_') ? t(line) : line}
-                                </span>
-                              ))}
-                          </span>
+                          (() => {
+                            const isAccent =
+                              // 价格 / 积分 / 并发：年费列
+                              ((rowIdx === 0 || rowIdx === 1 || rowIdx === 2) &&
+                                (colIdx === 1 || colIdx === 3 || colIdx === 5)) ||
+                              // 无水印：全部
+                              rowIdx === 3 ||
+                              // 商业许可证：有许可证的
+                              (rowIdx === 4 && cell.p !== 'X') ||
+                              // 折扣：节省 90% / 节省 100%
+                              (rowIdx === 5 &&
+                                (cell.p === 'compare_disc_90' ||
+                                  cell.p === 'compare_disc_100'));
+                            return (
+                              <span
+                                className={cn(
+                                  'whitespace-nowrap text-sm text-foreground',
+                                  isAccent && 'font-medium text-primary'
+                                )}
+                              >
+                                {cell.p.startsWith('compare_') ? t(cell.p) : cell.p}
+                                {cell.sub &&
+                                  cell.sub.map((line, lineIdx) => (
+                                    <span
+                                      key={lineIdx}
+                                      className={cn(
+                                        'block text-xs',
+                                        rowIdx === 0 &&
+                                          (colIdx === 1 ||
+                                            colIdx === 3 ||
+                                            colIdx === 5)
+                                          ? 'text-primary'
+                                          : 'text-muted-foreground'
+                                      )}
+                                    >
+                                      {line.startsWith('compare_') ? t(line) : line}
+                                    </span>
+                                  ))}
+                              </span>
+                            );
+                          })()
                         )}
                       </td>
                     ))}

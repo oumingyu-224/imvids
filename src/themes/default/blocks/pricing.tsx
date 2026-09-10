@@ -730,7 +730,7 @@ export function Pricing({
             .getElementById('pricing-plans')
             ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
         }
-        className="promo-bubble group mx-auto mb-6 flex min-h-[126px] w-[calc(100%-1rem)] max-w-6xl cursor-pointer flex-col items-start justify-between gap-3 px-5 pt-24 py-4 text-left transition duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background md:pt-36 sm:min-h-[140px] sm:px-8 sm:py-5 lg:min-h-[160px] lg:px-10"
+        className="promo-bubble group mx-auto mb-6 mt-24 flex min-h-[126px] w-[calc(100%-1rem)] max-w-6xl cursor-pointer flex-col items-start justify-between gap-3 px-5 py-4 text-left transition duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:min-h-[140px] sm:px-8 sm:py-5 lg:min-h-[160px] lg:px-10 md:mt-36"
       >
         <span className="relative z-10 flex min-w-0 flex-col items-start gap-3">
           <span className="promo-bubble-badge">

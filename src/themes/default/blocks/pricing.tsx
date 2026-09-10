@@ -405,6 +405,7 @@ export function Pricing({
 }) {
   const locale = useLocale();
   const t = useTranslations('pages.pricing.messages');
+  const tp = useTranslations('pages.pricing.pricing.promo');
   const compareColumns = [
     {
       title: t('compare_starter'),
@@ -724,7 +725,12 @@ export function Pricing({
       {/* promo-bubble 模块：原样复制自 价格修改/sv-onetime.html */}
       <button
         type="button"
-        className="promo-bubble group mx-auto mb-6 flex min-h-[126px] w-[calc(100%-1rem)] max-w-6xl cursor-pointer flex-col items-start justify-between gap-3 px-5 py-4 text-left transition duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:min-h-[140px] sm:px-8 sm:py-5 lg:min-h-[160px] lg:px-10"
+        onClick={() =>
+          document
+            .getElementById('pricing-plans')
+            ?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+        className="promo-bubble group mx-auto mb-6 flex min-h-[126px] w-[calc(100%-1rem)] max-w-6xl cursor-pointer flex-col items-start justify-between gap-3 px-5 pt-24 py-4 text-left transition duration-200 hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background md:pt-36 sm:min-h-[140px] sm:px-8 sm:py-5 lg:min-h-[160px] lg:px-10"
       >
         <span className="relative z-10 flex min-w-0 flex-col items-start gap-3">
           <span className="promo-bubble-badge">
@@ -732,25 +738,22 @@ export function Pricing({
               className="lucide lucide-sparkles h-3 w-3"
               aria-hidden="true"
             />
-            <span>年费专属</span>
+            <span>{tp('badge')}</span>
           </span>
           <span className="flex max-w-4xl flex-col gap-1.5">
             <span className="promo-bubble-title">
-              Seedance 2.5 正式上线！
-              <span className="promo-bubble-title-accent"> 最高九折优惠！</span>
+              {tp('title')}
+              <span className="promo-bubble-title-accent"> {tp('title_accent')}</span>
             </span>
-            <span className="promo-bubble-copy">
-              Seedance 2.5 现已上线！年费用户可享基础和增强模型九折优惠，Seedance
-              2.5 最高五折优惠。优惠截止至2026年11月30日。
-            </span>
+            <span className="promo-bubble-copy">{tp('copy')}</span>
           </span>
         </span>
         <span className="relative z-10 flex w-full items-center justify-between gap-3">
           <span className="promo-bubble-footnote hidden sm:inline">
-            基础和增强模型九折，Seedance 2.5 最高五折优惠，年费用户专享。
+            {tp('footnote')}
           </span>
           <span className="promo-bubble-cta">
-            立即试用
+            {tp('cta')}
             <ArrowUpRight
               className="lucide lucide-arrow-up-right h-4 w-4"
               aria-hidden="true"

@@ -5,6 +5,14 @@
   },
   "pricing": {
     "id": "pricing",
+    "promo": {
+      "badge": "年费专属",
+      "title": "Seedance 2.5 正式上线！",
+      "title_accent": "最高九折优惠！",
+      "copy": "Seedance 2.5 现已上线！年费用户可享基础和增强模型九折优惠，Seedance 2.5 最高五折优惠。优惠截止至2026年11月30日。",
+      "footnote": "基础和增强模型九折，Seedance 2.5 最高五折优惠，年费用户专享。",
+      "cta": "立即试用"
+    },
     "sr_only_title": "定价方案",
     "groups": [
       {

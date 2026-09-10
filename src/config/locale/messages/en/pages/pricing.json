@@ -5,6 +5,14 @@
   },
   "pricing": {
     "id": "pricing",
+    "promo": {
+      "badge": "Yearly exclusive",
+      "title": "Seedance 2.5 is here!",
+      "title_accent": "Up to 10% off!",
+      "copy": "Seedance 2.5 is now live! Yearly users get 10% off Basic and Enhanced models, and up to 50% off Seedance 2.5. Offer ends November 30, 2026.",
+      "footnote": "10% off Basic and Enhanced models, up to 50% off Seedance 2.5 — yearly users only.",
+      "cta": "Try it now"
+    },
     "sr_only_title": "Pricing plans",
     "groups": [
       {

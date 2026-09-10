@@ -765,7 +765,7 @@ export function Pricing({
                   <div key={i} className="relative">
                     {item.label && (
                       <div className="absolute -right-1 -top-2.5 z-10 sm:-right-2 sm:-top-3">
-                        <div className="rounded-full border-0 bg-gradient-to-r from-orange-400 to-amber-300 px-2 py-1 text-[9px] font-bold text-black shadow-[0_4px_16px_rgba(255,186,107,0.6)] sm:px-2.5 sm:text-[10px] md:px-3 md:text-xs">
+                        <div className="rounded-full border-0 px-2 py-1 text-[9px] font-bold text-foreground sm:px-2.5 sm:text-[10px] md:px-3 md:text-xs">
                           {item.label}
                         </div>
                       </div>
@@ -1496,8 +1496,30 @@ export function Pricing({
                         {cell === 'X' ? (
                           <span className="text-sm text-muted-foreground">❌</span>
                         ) : (
-                          <span className="whitespace-nowrap text-sm text-foreground">
+                          <span
+                            className={cn(
+                              'whitespace-nowrap text-sm text-foreground',
+                              (rowIdx === 0 || rowIdx === 1) &&
+                                (colIdx === 1 || colIdx === 3 || colIdx === 5) &&
+                                'font-medium text-[#ffba6b]'
+                            )}
+                          >
                             {cell.p.startsWith('compare_') ? t(cell.p) : cell.p}
+                            {cell.sub &&
+                              cell.sub.map((line, lineIdx) => (
+                                <span
+                                  key={lineIdx}
+                                  className={cn(
+                                    'block text-xs',
+                                    (rowIdx === 0 || rowIdx === 1) &&
+                                      (colIdx === 1 || colIdx === 3 || colIdx === 5)
+                                      ? 'text-[#ffba6b]'
+                                      : 'text-muted-foreground'
+                                  )}
+                                >
+                                  {line.startsWith('compare_') ? t(line) : line}
+                                </span>
+                              ))}
                           </span>
                         )}
                       </td>
@@ -1565,7 +1587,7 @@ export function Pricing({
 
 
 
-type CompareCell = { s?: string; p: string } | 'X';
+type CompareCell = { s?: string; sub?: string[]; p: string } | 'X';
 
 const GRAD_STARTER = 'linear-gradient(148deg, #abbbcc 0%, #fff 100%)';
 const GRAD_PRO = 'linear-gradient(148deg, #ffb475 0%, #ebecff 100%)';
@@ -1578,25 +1600,25 @@ const COMPARE_META_ROWS: Array<{ labelKey: string; cells: Array<CompareCell> }> 
   {
     labelKey: 'compare_row_price',
     cells: [
-      { p: '$29.99' },
-      { p: '$8.30' },
-      { p: '$89.99' },
-      { p: '$25.00' },
-      { p: '$149.99' },
-      { p: '$75.00' },
-      { p: '$199.99' },
-      { p: '$499.99' },
+      { p: '$29.99', sub: ['compare_unit_monthly'] },
+      { p: '$8.3', sub: ['compare_unit_monthly'] },
+      { p: '$89.99', sub: ['compare_unit_monthly'] },
+      { p: '$25', sub: ['compare_unit_monthly', 'compare_save_30'] },
+      { p: '$149.99', sub: ['compare_unit_monthly'] },
+      { p: '$75', sub: ['compare_unit_monthly', 'compare_save_50'] },
+      { p: '$199.99', sub: ['compare_onetime'] },
+      { p: '$499.99', sub: ['compare_onetime'] },
     ],
   },
   {
     labelKey: 'compare_row_credits',
     cells: [
-      { p: '2,500' },
-      { p: '10,000' },
-      { p: '10,000' },
-      { p: '32,000' },
-      { p: '∞' },
-      { p: '∞' },
+      { p: '2,500', sub: ['compare_unit_monthly'] },
+      { p: '10,000', sub: ['compare_unit_yearly'] },
+      { p: '10,000', sub: ['compare_unit_monthly'] },
+      { p: '32,000', sub: ['compare_unit_yearly'] },
+      { p: 'compare_unlimited' },
+      { p: 'compare_unlimited' },
       { p: '23,500' },
       { p: '60,000' },
     ],

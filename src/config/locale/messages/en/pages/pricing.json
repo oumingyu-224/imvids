@@ -1402,6 +1402,8 @@
     "billed_yearly": "billed yearly",
     "credits_unit": "credits",
     "compare_title": "Compare All Plans",
+    "compare_group_video": "Video Models",
+    "compare_group_image": "Image Models",
     "compare_feature": "Model",
     "compare_monthly": "Monthly",
     "compare_yearly": "Yearly",

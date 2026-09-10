@@ -1434,6 +1434,8 @@
     "billed_yearly": "按年计费",
     "credits_unit": "积分",
     "compare_title": "比较所有方案",
+    "compare_group_video": "视频模型",
+    "compare_group_image": "图像模型",
     "compare_feature": "模型",
     "compare_monthly": "每月",
     "compare_yearly": "按年",

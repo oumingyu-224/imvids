@@ -1584,9 +1584,60 @@ export function Pricing({
                     ))}
                   </tr>
                 ))}
-                {COMPARE_ROWS.map((row, rowIdx) => (
+                <tr>
+                  <td colSpan={9} className={COMPARE_GROUP_CLASS}>
+                    {t('compare_group_video')}
+                  </td>
+                </tr>
+                {COMPARE_VIDEO_ROWS.map((row, rowIdx) => (
                   <tr
-                    key={rowIdx}
+                    key={`video-${rowIdx}`}
+                    className="border-b border-[hsl(var(--border))]"
+                  >
+                    <td className="px-6 py-4 text-left text-sm font-medium text-foreground">
+                      {row.name}
+                    </td>
+                    {row.cells.map((cell, colIdx) => (
+                      <td
+                        key={colIdx}
+                        className={
+                          compareColumns[colIdx].highlight
+                            ? 'rounded-lg bg-primary/10 px-6 py-4 text-center'
+                            : 'px-6 py-4 text-center'
+                        }
+                      >
+                        {cell === 'X' ? (
+                          <span className="text-sm text-muted-foreground">❌</span>
+                        ) : (
+                          <span className="whitespace-nowrap text-sm">
+                            {cell.s && (
+                              <span className="mr-1 text-muted-foreground line-through">
+                                {cell.s}
+                              </span>
+                            )}
+                            <span
+                              className={
+                                cell.s
+                                  ? 'font-medium text-primary'
+                                  : 'text-foreground'
+                              }
+                            >
+                              {cell.p}
+                            </span>
+                          </span>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+                <tr>
+                  <td colSpan={9} className={COMPARE_GROUP_CLASS}>
+                    {t('compare_group_image')}
+                  </td>
+                </tr>
+                {COMPARE_IMAGE_ROWS.map((row, rowIdx) => (
+                  <tr
+                    key={`image-${rowIdx}`}
                     className="border-b border-[hsl(var(--border))]"
                   >
                     <td className="px-6 py-4 text-left text-sm font-medium text-foreground">
@@ -1767,3 +1818,39 @@ const COMPARE_ROWS: Array<{ name: string; cells: Array<CompareCell> }> = [
   { name: 'Flux Kontext Pro', cells: [{ p: '30' }, { s: '30', p: '3' }, { p: '30' }, { s: '30', p: '3' }, { s: '30', p: '免费' }, { s: '30', p: '免费' }, { p: '30' }, { p: '30' }] },
   { name: 'Flux Kontext Max', cells: [{ p: '40' }, { s: '40', p: '4' }, { p: '40' }, { s: '40', p: '4' }, { s: '40', p: '免费' }, { s: '40', p: '免费' }, { p: '40' }, { p: '40' }] },
 ];
+
+// 按「价格修改/模型分类.md」划分：视频模型在上、图像模型在下（组内保持现有顺序）
+const VIDEO_MODEL_NAMES = new Set([
+  'Seedance 2.5',
+  'Seedance 2.0',
+  'Seedance 2.0 Fast',
+  'Seedance 2.0 Mini',
+  'Veo 3 Premium',
+  'Veo 3.1 Basic',
+  'Veo 3.1 Premium',
+  'Gemini Omni Flash 1.1',
+  'Gemini Omni',
+  'Wan 3.0',
+  'Wan 3.0 Prime',
+  'MiniMax H3',
+  'Kling 2.1 Master',
+  'LTX 2.5 Fast',
+  'Seedance 1.5 Pro',
+  'Veo 3.1 Lite',
+  'Wan 2.5',
+  'PixVerse V6',
+  'Veo 3',
+  'Kling 2.5',
+  'Kling 2.1 Pro',
+  'Runway Gen 4',
+]);
+
+const COMPARE_VIDEO_ROWS = COMPARE_ROWS.filter((row) =>
+  VIDEO_MODEL_NAMES.has(row.name)
+);
+const COMPARE_IMAGE_ROWS = COMPARE_ROWS.filter(
+  (row) => !VIDEO_MODEL_NAMES.has(row.name)
+);
+
+const COMPARE_GROUP_CLASS =
+  'bg-muted px-6 py-3 text-left text-sm font-semibold text-foreground';

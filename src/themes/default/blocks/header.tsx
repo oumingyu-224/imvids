@@ -141,9 +141,9 @@ export function Header({ header }: { header: HeaderType }) {
   return (
     <header
       className={cn(
-        'landing-surface-header fixed inset-x-0 top-0 z-50',
+        'landing-surface-header fixed inset-x-0 top-0 z-50 border-b',
         isScrolled &&
-          'landing-surface-header-scrolled border-b shadow-[0_8px_28px_rgba(15,23,42,0.06)]'
+          'landing-surface-header-scrolled shadow-[0_8px_28px_rgba(15,23,42,0.06)]'
       )}
     >
       <HeaderTopPromo

@@ -15,23 +15,23 @@ export function Pricing({
   currentSubscription,
   hideHeader = false,
   compact = false,
+  hideWhyYearly = false,
+  hideCompareTable = false,
 }: {
   pricing: PricingType;
   className?: string;
   currentSubscription?: Subscription;
   hideHeader?: boolean;
   compact?: boolean;
+  hideWhyYearly?: boolean;
+  hideCompareTable?: boolean;
 }) {
   return (
     <>
       <PricingPromo />
       <section
         id={pricing.id}
-        className={cn(
-          compact ? 'py-0 md:py-0' : 'py-24 md:py-36',
-          pricing.className,
-          className
-        )}
+        className={cn(pricing.className, className)}
       >
         {!hideHeader && (
           <div className="flex flex-col items-center justify-start">
@@ -58,9 +58,9 @@ export function Pricing({
             compact={compact}
           />
 
-          <PricingWhyYearly />
+          {!hideWhyYearly && <PricingWhyYearly />}
 
-          <PricingCompareTable />
+          {!hideCompareTable && <PricingCompareTable />}
         </div>
       </section>
     </>

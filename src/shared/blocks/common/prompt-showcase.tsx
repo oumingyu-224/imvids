@@ -20,6 +20,12 @@ import {
 
 import { cn } from '@/shared/lib/utils';
 
+import {
+  IMAGE_MODELS as GEN_IMAGE_MODELS,
+  VIDEO_MODELS as GEN_VIDEO_MODELS,
+  type GeneratorModel,
+} from '@/shared/blocks/generator/models';
+
 import './prompt-showcase.css';
 
 const MODELS = [
@@ -33,8 +39,6 @@ const MODELS = [
   { name: 'Flux', icon: Triangle },
 ];
 
-const IMAGE_MODELS = ['Seedream 5.0 Lite', 'Nano Banana Pro', 'Flux Kontext'];
-const VIDEO_MODELS = ['Seedance 2.0', 'Veo 3', 'Kling 2.5'];
 const VIDEO_RATIOS = ['21:9', '16:9', '4:3', '1:1', '3:4', '9:16'];
 const IMAGE_RATIOS = ['1:1', '4:3', '3:4', '16:9', '9:16', '2:3', '3:2', '21:9'];
 const RESOLUTIONS = ['480p', '720p', '1080p'];
@@ -149,18 +153,17 @@ function PromptImageUploadButton({
   );
 }
 
-function SelectDropdown({
+function ModelDropdown({
   value,
-  options,
-  icon: Icon,
+  models,
   onChange,
 }: {
   value: string;
-  options: string[];
-  icon?: typeof BarChart3;
+  models: GeneratorModel[];
   onChange: (value: string) => void;
 }) {
   const [open, setOpen] = useState(false);
+  const current = models.find((model) => model.name === value);
 
   return (
     <div className="relative">
@@ -169,7 +172,14 @@ function SelectDropdown({
         onClick={() => setOpen((prev) => !prev)}
         className="flex h-8 items-center gap-2 rounded-full bg-white/[0.07] px-3.5 text-[13px] font-medium text-white/85 transition-colors hover:bg-white/[0.12]"
       >
-        {Icon ? <Icon className="size-4 shrink-0" /> : null}
+        {current ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={current.icon}
+            alt=""
+            className="size-4 shrink-0 object-contain"
+          />
+        ) : null}
         <span className="max-w-36 truncate">{value}</span>
         <ChevronDown
           className={cn(
@@ -180,22 +190,30 @@ function SelectDropdown({
       </button>
       {open ? (
         <div className="absolute bottom-full left-0 z-20 mb-2 min-w-full overflow-hidden rounded-2xl border border-white/10 bg-[#14161c] py-1 shadow-[0_16px_40px_rgba(0,0,0,0.45)]">
-          {options.map((option) => (
-            <button
-              key={option}
-              type="button"
-              onClick={() => {
-                onChange(option);
-                setOpen(false);
-              }}
-              className={cn(
-                'flex w-full items-center whitespace-nowrap px-4 py-2 text-left text-[14px] transition-colors hover:bg-white/[0.08]',
-                option === value ? 'text-[#f5d78e]' : 'text-white/80'
-              )}
-            >
-              {option}
-            </button>
-          ))}
+          <div className="max-h-72 overflow-y-auto">
+            {models.map((model) => (
+              <button
+                key={model.id}
+                type="button"
+                onClick={() => {
+                  onChange(model.name);
+                  setOpen(false);
+                }}
+                className={cn(
+                  'flex w-full items-center gap-2.5 whitespace-nowrap px-4 py-2 text-left text-[14px] transition-colors hover:bg-white/[0.08]',
+                  model.name === value ? 'text-[#f5d78e]' : 'text-white/80'
+                )}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={model.icon}
+                  alt=""
+                  className="size-5 shrink-0 object-contain"
+                />
+                <span className="truncate">{model.name}</span>
+              </button>
+            ))}
+          </div>
         </div>
       ) : null}
     </div>
@@ -215,7 +233,7 @@ export function PromptShowcase({
   const [value, setValue] = useState(DEFAULT_PROMPT);
   const [activeModel, setActiveModel] = useState('Seedance');
   const [mode, setMode] = useState<Mode>('image');
-  const [model, setModel] = useState(IMAGE_MODELS[0]);
+  const [model, setModel] = useState(GEN_IMAGE_MODELS[0].name);
   const [videoRatio, setVideoRatio] = useState('16:9');
   const [imageRatio, setImageRatio] = useState('1:1');
   const [duration, setDuration] = useState(5);
@@ -283,7 +301,9 @@ export function PromptShowcase({
 
   const handleModeChange = (next: Mode) => {
     setMode(next);
-    setModel(next === 'image' ? IMAGE_MODELS[0] : VIDEO_MODELS[0]);
+    setModel(
+      next === 'image' ? GEN_IMAGE_MODELS[0].name : GEN_VIDEO_MODELS[0].name
+    );
   };
 
   const handleToggleExpanded = () => {
@@ -363,11 +383,17 @@ export function PromptShowcase({
             {!boxExpanded ? (
               <button
                 type="button"
+                disabled={!value.trim()}
                 onClick={(event) => {
                   event.stopPropagation();
                   handleGenerate();
                 }}
-                className="flex h-10 shrink-0 items-center gap-2 rounded-full bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)] px-5 text-[15px] font-semibold text-[#2b2410] transition-opacity hover:opacity-90"
+                className={cn(
+                  'flex h-10 shrink-0 items-center gap-2 rounded-full px-5 text-[15px] font-semibold transition-colors',
+                  value.trim()
+                    ? 'bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)] text-[#2b2410] hover:opacity-90'
+                    : 'cursor-not-allowed bg-white/10 text-white/40'
+                )}
               >
                 <Sparkles className="size-4" />
                 Generate
@@ -405,10 +431,9 @@ export function PromptShowcase({
                   Video
                 </button>
               </div>
-              <SelectDropdown
+              <ModelDropdown
                 value={model}
-                options={mode === 'image' ? IMAGE_MODELS : VIDEO_MODELS}
-                icon={BarChart3}
+                models={mode === 'image' ? GEN_IMAGE_MODELS : GEN_VIDEO_MODELS}
                 onChange={setModel}
               />
 
@@ -523,11 +548,17 @@ export function PromptShowcase({
 
               <button
                 type="button"
+                disabled={!value.trim()}
                 onClick={(event) => {
                   event.stopPropagation();
                   handleGenerate();
                 }}
-                className="ml-auto flex h-8 shrink-0 items-center gap-1.5 rounded-full bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)] px-4 text-[13px] font-semibold text-[#2b2410] transition-opacity hover:opacity-90"
+                className={cn(
+                  'ml-auto flex h-8 shrink-0 items-center gap-1.5 rounded-full px-4 text-[13px] font-semibold transition-colors',
+                  value.trim()
+                    ? 'bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)] text-[#2b2410] hover:opacity-90'
+                    : 'cursor-not-allowed bg-white/10 text-white/40'
+                )}
               >
                 <Sparkles className="size-4" />
                 Generate

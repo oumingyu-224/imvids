@@ -32,7 +32,9 @@ export function Pricing({
     <>
       {!hidePromo && (
         <>
-          {!compact && <div aria-hidden="true" className="h-16" />}
+          {!compact && (
+            <div aria-hidden="true" className="mt-4 h-16 md:mt-6" />
+          )}
           <PricingPromo />
         </>
       )}

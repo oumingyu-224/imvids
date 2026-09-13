@@ -15,6 +15,7 @@ export function Pricing({
   currentSubscription,
   hideHeader = false,
   compact = false,
+  hidePromo = false,
   hideWhyYearly = false,
   hideCompareTable = false,
 }: {
@@ -23,12 +24,18 @@ export function Pricing({
   currentSubscription?: Subscription;
   hideHeader?: boolean;
   compact?: boolean;
+  hidePromo?: boolean;
   hideWhyYearly?: boolean;
   hideCompareTable?: boolean;
 }) {
   return (
     <>
-      <PricingPromo />
+      {!hidePromo && (
+        <>
+          {!compact && <div aria-hidden="true" className="h-16" />}
+          <PricingPromo />
+        </>
+      )}
       <section
         id={pricing.id}
         className={cn(pricing.className, className)}

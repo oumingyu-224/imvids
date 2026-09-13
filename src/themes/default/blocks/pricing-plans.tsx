@@ -1225,8 +1225,7 @@ export function PricingPlans({
                   })}
                 </div>
 
-                {!compact &&
-                  pricing.models?.items &&
+                {pricing.models?.items &&
                   pricing.models.items.length > 0 && (
                     <PricingCardModels
                       models={pricing.models}

@@ -101,6 +101,9 @@ export default async function LandingPage({
           data: {
             pricing,
             currentSubscription,
+            hidePromo: true,
+            hideWhyYearly: true,
+            hideCompareTable: true,
           },
         };
       } else {

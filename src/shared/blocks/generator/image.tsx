@@ -1654,10 +1654,11 @@ export function ImageGenerator({
 
       <Dialog open={showPricingDialog} onOpenChange={setShowPricingDialog}>
         <DialogContent
-          className="!w-[calc(100vw-32px)] !max-w-none max-h-[calc(100svh-32px)] overflow-hidden rounded-[26px] p-0 sm:!w-[min(calc(100vw-2rem),1600px)] sm:max-h-[calc(100svh-32px)] sm:overflow-hidden sm:rounded-2xl sm:p-5 sm:pt-0"
+          pageScroll
+          className="w-full !max-w-none rounded-[26px] p-0 sm:max-w-[1600px] sm:rounded-2xl sm:p-5 sm:pt-0"
           overlayClassName="bg-black/25 backdrop-blur-sm"
         >
-          <DialogHeader className="sticky top-0 z-10 border-b bg-background/95 px-5 pt-4 pb-3 text-left backdrop-blur sm:static sm:border-b-0 sm:bg-transparent sm:px-0 sm:pb-0">
+          <DialogHeader className="px-5 pt-4 pb-3 text-left sm:px-0 sm:pt-0 sm:pb-0">
             <DialogTitle className="text-xl font-bold">
               {t('pricing_dialog_title')}
             </DialogTitle>
@@ -1665,7 +1666,7 @@ export function ImageGenerator({
               {pricingConfig.description}
             </DialogDescription>
           </DialogHeader>
-          <div className="h-[calc(100svh-152px)] overflow-y-auto px-4 pb-4 pt-3 sm:px-0 sm:pb-0 sm:pt-0">
+          <div className="px-4 pb-4 pt-3 sm:px-0 sm:pb-0 sm:pt-0">
             <PricingBlock
               pricing={pricingConfig}
               className="pt-0 sm:pt-2"

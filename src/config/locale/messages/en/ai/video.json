@@ -41,6 +41,37 @@
     "generated_videos": "Video Preview",
     "ready_to_generate": "Ready to Generate",
     "ready_for_generating": "Ready for Generating",
-    "no_videos_generated": "No Videos Generated"
+    "no_videos_generated": "No Videos Generated",
+    "workbench": {
+      "title_prefix": "Generate",
+      "title_highlight": "Cinematic Motion",
+      "title_suffix": "in Seconds",
+      "badge": "AI Workspace",
+      "subtitle": "Turn any idea into cinematic-quality video — describe, generate, and download.",
+      "mode_video": "Video",
+      "mode_image": "Image",
+      "tab_text": "Text to Video",
+      "tab_image": "Image to Video",
+      "upload_image": "Upload image",
+      "end_frame": "Add end frame",
+      "drop_image": "Drag and drop an image or click to select",
+      "image_format": "JPG/PNG (max {size}MB)",
+      "upload_failed": "Image upload failed, please try again",
+      "prompt": "Prompt",
+      "prompt_placeholder": "Describe the video you want to generate…",
+      "aspect_ratio": "Aspect ratio",
+      "video_duration": "Video duration",
+      "resolution": "Resolution",
+      "generate_audio": "Generate audio",
+      "public_visibility": "Public visibility",
+      "credits_required": "Credits required",
+      "loading": "Loading…",
+      "generating": "Generating…",
+      "generate": "Generate Video",
+      "upgrade_to_generate": "Upgrade to Generate",
+      "my_videos": "My Videos",
+      "generating_video_hint": "Generating your video…",
+      "empty_video_hint": "Generated videos will appear here"
+    }
   }
 }

@@ -1,0 +1,418 @@
+{
+  "ui": {
+    "select_model": "选择模型",
+    "search_placeholder": "搜索模型...",
+    "no_match": "没有匹配的模型",
+    "locked_label": "高级功能",
+    "locked_action": "点击升级",
+    "recommended": "推荐"
+  },
+  "models": {
+    "gpt-images-2-5-flare": {
+      "badges": [
+        "新",
+        "最优"
+      ],
+      "description": "通过精准提示词和参考图控制创建与编辑图像。",
+      "capabilities": [
+        "5+",
+        "HD",
+        "多图",
+        "文本和图片"
+      ]
+    },
+    "seedream-5-lite": {
+      "badges": [
+        "新"
+      ],
+      "description": "字节跳动统一多模态图像生成模型，具备推理能力、深度理解与可控视觉创作功能",
+      "capabilities": [
+        "40+",
+        "文本和图片"
+      ]
+    },
+    "seedream-4": {
+      "badges": [
+        "新"
+      ],
+      "description": "字节跳动旗下先进图像生成模型，兼具卓越画质与强大创意掌控力",
+      "capabilities": [
+        "30+",
+        "文本和图片"
+      ]
+    },
+    "nano-banana": {
+      "badges": [
+        "新"
+      ],
+      "description": "由 Google 提供支持的先进 AI 模型，擅长通过自然语言驱动图像生成",
+      "capabilities": [
+        "30+",
+        "文本和图片"
+      ]
+    },
+    "nano-banana-pro": {
+      "badges": [
+        "专业版"
+      ],
+      "description": "由 Google 提供支持的专业 AI 图像生成，具备增强画质与高级控制功能",
+      "capabilities": [
+        "40+",
+        "HD",
+        "文本和图片"
+      ]
+    },
+    "nano-banana-2": {
+      "badges": [
+        "新"
+      ],
+      "description": "由 Google 驱动的新一代 Flash 模型，提供极速性能与专业级稳定性",
+      "capabilities": [
+        "40+",
+        "HD",
+        "文本和图片"
+      ]
+    },
+    "qwen-image-edit": {
+      "badges": [
+        "新"
+      ],
+      "description": "高级图像编辑，精准掌控风格与细节",
+      "capabilities": [
+        "30+",
+        "仅图片"
+      ]
+    },
+    "grok-imagine-image": {
+      "badges": [
+        "新"
+      ],
+      "description": "xAI 图像生成功能，画质惊艳——文生图每次请求生成 2 张图片，图生图每次生成 1 张。",
+      "capabilities": [
+        "30+",
+        "文本和图片"
+      ]
+    },
+    "gpt-4o-image": {
+      "badges": [
+        "标准版"
+      ],
+      "description": "AI 驱动的图像生成与编辑",
+      "capabilities": [
+        "30+",
+        "文本和图片"
+      ]
+    },
+    "flux-kontext-pro": {
+      "badges": [
+        "专业版"
+      ],
+      "description": "生成情境丰富、真实生动的场景，助力插画创作与故事叙述。",
+      "capabilities": [
+        "30+",
+        "文本和图片"
+      ]
+    },
+    "flux-kontext-max": {
+      "badges": [
+        "MAX"
+      ],
+      "description": "为高端艺术与设计项目生成高度精细、复杂的视觉效果。",
+      "capabilities": [
+        "40+",
+        "文本和图片"
+      ]
+    },
+    "gemini-omni-flash-1-1": {
+      "badges": [
+        "新",
+        "MULTI",
+        "最优"
+      ],
+      "description": "快速多模态视频生成，支持首尾帧、图片、视频片段、音频 ID 和角色 ID",
+      "capabilities": [
+        "4-10s",
+        "55+",
+        "文本、首尾帧、视频、音频与角色"
+      ]
+    },
+    "gemini-omni": {
+      "badges": [
+        "新",
+        "MULTI",
+        "最优"
+      ],
+      "description": "支持图片、视频、可复用 Audio ID 与 Character ID 的多模态视频生成模型",
+      "capabilities": [
+        "4-10s",
+        "55+",
+        "文本、图片、视频、音频与角色"
+      ]
+    },
+    "minimax-h3": {
+      "badges": [
+        "最优",
+        "音频"
+      ],
+      "description": "Native-audio video generation with text, first/last frames, and multimodal references up to 2K",
+      "capabilities": [
+        "15s",
+        "20/s+",
+        "尾帧",
+        "多图",
+        "文本、帧与参考"
+      ]
+    },
+    "minimax-h3-max-turbo": {
+      "badges": [
+        "音频",
+        "新"
+      ],
+      "description": "High-throughput native-audio video generation with text and first/last-frame animation",
+      "capabilities": [
+        "5-15s",
+        "10/s+",
+        "尾帧",
+        "文本与帧"
+      ]
+    },
+    "ltx-2-5-fast": {
+      "badges": [
+        "新",
+        "音频"
+      ],
+      "description": "Fast video generation with synchronized audio, portrait support, and optional start/end frames",
+      "capabilities": [
+        "2-20s",
+        "8/s+",
+        "尾帧",
+        "文本和图片"
+      ]
+    },
+    "seedance-2-5": {
+      "badges": [
+        "新",
+        "音频"
+      ],
+      "description": "新一代多模态视频生成，支持文字、图片、视频和音频输入，最长 30 秒，最高 720p",
+      "capabilities": [
+        "30s",
+        "160+",
+        "文本、图片、视频与音频"
+      ]
+    },
+    "seedance-2-0": {
+      "badges": [
+        "至尊版",
+        "音频"
+      ],
+      "description": "顶级多模态视频生成，支持文字、图片、视频和音频输入，最高 720p",
+      "capabilities": [
+        "15s",
+        "80+",
+        "文本、图片和视频"
+      ]
+    },
+    "seedance-2-0-fast": {
+      "badges": [
+        "FAST",
+        "音频"
+      ],
+      "description": "快速多模态视频生成，支持文字、图片、视频和音频输入，最高 720p",
+      "capabilities": [
+        "15s",
+        "65+",
+        "文本、图片和视频"
+      ]
+    },
+    "seedance-2-0-mini": {
+      "badges": [
+        "FAST",
+        "音频",
+        "新"
+      ],
+      "description": "轻量快速的多模态视频生成，支持文字、图片、视频和音频输入，最高 720p",
+      "capabilities": [
+        "15s",
+        "11/s+",
+        "文本、图片和视频"
+      ]
+    },
+    "pixverse-v6": {
+      "badges": [
+        "新",
+        "音频"
+      ],
+      "description": "Create 1–15 second videos with text, one or two frames, up to seven image references, or an existing video.",
+      "capabilities": [
+        "1-15s",
+        "10/s+",
+        "HD",
+        "尾帧",
+        "多图",
+        "多分镜"
+      ]
+    },
+    "seedance-1-5-pro": {
+      "badges": [
+        "音频"
+      ],
+      "description": "次世代多场景叙事，支持音频生成与增强转场效果",
+      "capabilities": [
+        "8s",
+        "40+",
+        "尾帧",
+        "文本和图片"
+      ]
+    },
+    "veo-3-1-premium": {
+      "badges": [
+        "至尊版",
+        "音频"
+      ],
+      "description": "极致视频画质与原生音频——Google 最先进的模型",
+      "capabilities": [
+        "8s",
+        "200+",
+        "尾帧",
+        "文本和图片"
+      ]
+    },
+    "veo-3-1-lite": {
+      "badges": [
+        "新",
+        "音频"
+      ],
+      "description": "高性价比视频生成，配备原生音频——适合大批量工作流",
+      "capabilities": [
+        "8s",
+        "75",
+        "尾帧",
+        "多图"
+      ]
+    },
+    "veo-3-1-basic": {
+      "badges": [
+        "新",
+        "音频"
+      ],
+      "description": "高质量视频，原生音频——极速生成",
+      "capabilities": [
+        "8s",
+        "150+",
+        "尾帧",
+        "多图"
+      ]
+    },
+    "veo-3-premium": {
+      "badges": [
+        "高级版",
+        "音频"
+      ],
+      "description": "沉浸式音效与超写实视觉效果",
+      "capabilities": [
+        "8s",
+        "150+",
+        "文本和图片"
+      ]
+    },
+    "veo-3-basic": {
+      "badges": [
+        "热门",
+        "音频"
+      ],
+      "description": "专业视频创作，配备自然音频与高质量视觉效果",
+      "capabilities": [
+        "8s",
+        "100+",
+        "文本和图片"
+      ]
+    },
+    "wan-3-0-prime": {
+      "badges": [
+        "PRIME",
+        "音频"
+      ],
+      "description": "阿里巴巴高级 Wan 3.0 多模态视频模型，提供更强的原生音频能力和丰富的参考控制。",
+      "capabilities": [
+        "30s",
+        "20+",
+        "HD",
+        "尾帧",
+        "文本、首尾帧与多模态参考"
+      ]
+    },
+    "wan-3-0": {
+      "badges": [
+        "新",
+        "音频"
+      ],
+      "description": "阿里巴巴全能多模态视频模型，支持文本、关键帧、图片、视频、音频、网页和文档参考。",
+      "capabilities": [
+        "30s",
+        "16+",
+        "HD",
+        "尾帧",
+        "文本、首尾帧与多模态参考"
+      ]
+    },
+    "wan-2-5": {
+      "badges": [
+        "新",
+        "音频"
+      ],
+      "description": "阿里巴巴的先进视频模型支持原生音画同步，并提供高级运动与镜头控制功能，带来更丰富的视频动态效果",
+      "capabilities": [
+        "10s",
+        "100+",
+        "HD",
+        "文本和图片"
+      ]
+    },
+    "kling-2-5": {
+      "badges": [
+        "新"
+      ],
+      "description": "业界领先的运动动态与时序控制",
+      "capabilities": [
+        "10s",
+        "100+",
+        "文本和图片"
+      ]
+    },
+    "kling-2-1-master": {
+      "badges": [
+        "MASTER"
+      ],
+      "description": "业界领先的运动真实感，配备精准的时间控制",
+      "capabilities": [
+        "10s",
+        "200+",
+        "文本和图片"
+      ]
+    },
+    "kling-2-1-pro": {
+      "badges": [
+        "专业版"
+      ],
+      "description": "支持精细的镜头控制、稳定的主体与连贯性、灵活的风格/光效设置，并可通过尾帧图像引导视频结尾。",
+      "capabilities": [
+        "10s",
+        "120+",
+        "尾帧",
+        "仅图片"
+      ]
+    },
+    "grok-imagine-video": {
+      "badges": [
+        "新"
+      ],
+      "description": "xAI 的多模态视频生成，具备连贯动态与同步音频",
+      "capabilities": [
+        "~5s",
+        "40+",
+        "文本和图片"
+      ]
+    }
+  }
+}

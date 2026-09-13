@@ -46,6 +46,18 @@ const DEFAULT_PROMPT =
 
 type Mode = 'image' | 'video';
 
+export interface PromptShowcaseConfig {
+  prompt: string;
+  mode: Mode;
+  model: string;
+  ratio: string;
+  duration: number;
+  resolution: string;
+  quality: string;
+  imageCount: number;
+  referenceImage: string | null;
+}
+
 function OptionChip({
   active,
   children,
@@ -190,7 +202,16 @@ function SelectDropdown({
   );
 }
 
-export function PromptShowcase({ className }: { className?: string }) {
+export function PromptShowcase({
+  className,
+  variant = 'page',
+  onGenerate,
+}: {
+  className?: string;
+  variant?: 'page' | 'panel';
+  onGenerate?: (config: PromptShowcaseConfig) => void;
+}) {
+  const isPanel = variant === 'panel';
   const [value, setValue] = useState(DEFAULT_PROMPT);
   const [activeModel, setActiveModel] = useState('Seedance');
   const [mode, setMode] = useState<Mode>('image');
@@ -213,6 +234,7 @@ export function PromptShowcase({ className }: { className?: string }) {
   const floatingRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (isPanel) return;
     const el = containerRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
@@ -286,6 +308,28 @@ export function PromptShowcase({ className }: { className?: string }) {
       : `${imageRatio} | ...`;
   const durationPercent = ((duration - 4) / (15 - 4)) * 100;
 
+  const handleGenerate = () => {
+    const config: PromptShowcaseConfig = {
+      prompt: value,
+      mode,
+      model,
+      ratio: currentRatio,
+      duration,
+      resolution,
+      quality,
+      imageCount,
+      referenceImage: uploadedImage,
+    };
+
+    if (onGenerate) {
+      onGenerate(config);
+    } else {
+      window.dispatchEvent(
+        new CustomEvent('prompt-showcase:generate', { detail: config })
+      );
+    }
+  };
+
   const renderPromptBox = (forceExpanded: boolean, isFloating = false) => {
     const boxExpanded = forceExpanded || expanded;
     return (
@@ -319,6 +363,10 @@ export function PromptShowcase({ className }: { className?: string }) {
             {!boxExpanded ? (
               <button
                 type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  handleGenerate();
+                }}
                 className="flex h-10 shrink-0 items-center gap-2 rounded-full bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)] px-5 text-[15px] font-semibold text-[#2b2410] transition-opacity hover:opacity-90"
               >
                 <Sparkles className="size-4" />
@@ -475,6 +523,10 @@ export function PromptShowcase({ className }: { className?: string }) {
 
               <button
                 type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  handleGenerate();
+                }}
                 className="ml-auto flex h-8 shrink-0 items-center gap-1.5 rounded-full bg-[linear-gradient(135deg,#f0c46a_0%,#ddb04f_100%)] px-4 text-[13px] font-semibold text-[#2b2410] transition-opacity hover:opacity-90"
               >
                 <Sparkles className="size-4" />
@@ -486,6 +538,14 @@ export function PromptShowcase({ className }: { className?: string }) {
       </div>
     );
   };
+
+  if (isPanel) {
+    return (
+      <div ref={containerRef} className={cn('w-full', className)}>
+        {renderPromptBox(true)}
+      </div>
+    );
+  }
 
   return (
     <div

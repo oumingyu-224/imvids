@@ -2,42 +2,35 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
-  CreditCard,
+  CloudUpload,
+  Coins,
   Download,
+  Film,
   Loader2,
   Sparkles,
-  User,
   Video,
+  X,
 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 
-import { Link } from '@/core/i18n/navigation';
 import { AIMediaType, AITaskStatus } from '@/extensions/ai/types';
-import { ImageUploader, ImageUploaderValue } from '@/shared/blocks/common';
-import { Button } from '@/shared/components/ui/button';
 import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/shared/components/ui/card';
-import { Label } from '@/shared/components/ui/label';
-import { Progress } from '@/shared/components/ui/progress';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/shared/components/ui/select';
-import { Tabs, TabsList, TabsTrigger } from '@/shared/components/ui/tabs';
+  getModelsByMode,
+  RATIO_OPTIONS,
+  VIDEO_DURATION,
+  VIDEO_RESOLUTION_OPTIONS,
+} from '@/shared/blocks/generator/models';
+import { ModelSelect } from '@/shared/blocks/generator/model-select';
+import { Switch } from '@/shared/components/ui/switch';
 import { Textarea } from '@/shared/components/ui/textarea';
 import { useAppContext } from '@/shared/contexts/app';
+import { cn } from '@/shared/lib/utils';
 
 interface VideoGeneratorProps {
   maxSizeMB?: number;
   srOnlyTitle?: string;
+  onSwitchToImage?: () => void;
 }
 
 interface GeneratedVideo {
@@ -116,20 +109,47 @@ const MODEL_OPTIONS = [
   },
 ];
 
-const PROVIDER_OPTIONS = [
-  {
-    value: 'replicate',
-    label: 'Replicate',
+// seevideo 展示模型 id -> 后端可用模型（provider/value）映射
+const SEEVIDEO_VIDEO_MODEL_MAP: Record<
+  string,
+  { value: string; provider: string }
+> = {
+  'veo-3-1-premium': { value: 'google/veo-3.1', provider: 'replicate' },
+  'veo-3-1-lite': { value: 'google/veo-3.1', provider: 'replicate' },
+  'veo-3-1-basic': { value: 'google/veo-3.1', provider: 'replicate' },
+  'veo-3-premium': { value: 'fal-ai/veo3', provider: 'fal' },
+  'veo-3-basic': { value: 'fal-ai/veo3', provider: 'fal' },
+  'gemini-omni-flash-1-1': { value: 'openai/sora-2', provider: 'replicate' },
+  'gemini-omni': { value: 'openai/sora-2', provider: 'replicate' },
+  'minimax-h3': { value: 'openai/sora-2', provider: 'replicate' },
+  'minimax-h3-max-turbo': { value: 'openai/sora-2', provider: 'replicate' },
+  'ltx-2-5-fast': { value: 'fal-ai/veo3', provider: 'fal' },
+  'seedance-2-5': { value: 'openai/sora-2', provider: 'replicate' },
+  'seedance-2-0': { value: 'openai/sora-2', provider: 'replicate' },
+  'seedance-2-0-fast': { value: 'openai/sora-2', provider: 'replicate' },
+  'seedance-2-0-mini': { value: 'openai/sora-2', provider: 'replicate' },
+  'seedance-1-5-pro': { value: 'openai/sora-2', provider: 'replicate' },
+  'pixverse-v6': { value: 'fal-ai/veo3', provider: 'fal' },
+  'wan-3-0-prime': {
+    value: 'fal-ai/wan-pro/image-to-video',
+    provider: 'fal',
   },
-  {
-    value: 'fal',
-    label: 'Fal',
+  'wan-3-0': { value: 'fal-ai/wan-pro/image-to-video', provider: 'fal' },
+  'wan-2-5': { value: 'fal-ai/wan-pro/image-to-video', provider: 'fal' },
+  'kling-2-5': {
+    value: 'fal-ai/kling-video/o1/video-to-video/edit',
+    provider: 'fal',
   },
-  {
-    value: 'kie',
-    label: 'Kie',
+  'kling-2-1-master': {
+    value: 'fal-ai/kling-video/o1/video-to-video/edit',
+    provider: 'fal',
   },
-];
+  'kling-2-1-pro': {
+    value: 'fal-ai/kling-video/o1/video-to-video/edit',
+    provider: 'fal',
+  },
+  'grok-imagine-video': { value: 'openai/sora-2', provider: 'replicate' },
+};
 
 function parseTaskResult(taskResult: string | null): any {
   if (!taskResult) {
@@ -206,6 +226,7 @@ function extractVideoUrls(result: any): string[] {
 export function VideoGenerator({
   maxSizeMB = 50,
   srOnlyTitle,
+  onSwitchToImage,
 }: VideoGeneratorProps) {
   const t = useTranslations('ai.video.generator');
 
@@ -213,14 +234,23 @@ export function VideoGenerator({
     useState<VideoGeneratorTab>('text-to-video');
 
   const [costCredits, setCostCredits] = useState<number>(textToVideoCredits);
-  const [provider, setProvider] = useState(PROVIDER_OPTIONS[0]?.value ?? '');
-  const [model, setModel] = useState(MODEL_OPTIONS[0]?.value ?? '');
+  const [model, setModel] = useState(
+    () => getModelsByMode('video').find((m) => !m.locked)?.id ?? ''
+  );
   const [prompt, setPrompt] = useState('');
-  const [referenceImageItems, setReferenceImageItems] = useState<
-    ImageUploaderValue[]
-  >([]);
-  const [referenceImageUrls, setReferenceImageUrls] = useState<string[]>([]);
-  const [referenceVideoUrl, setReferenceVideoUrl] = useState<string>('');
+  const [aspectRatio, setAspectRatio] = useState('16:9');
+  const [aspectRatioOpen, setAspectRatioOpen] = useState(false);
+  const [videoDuration, setVideoDuration] = useState(VIDEO_DURATION.default);
+  const [videoResolution, setVideoResolution] = useState('720p');
+  const [generateAudio, setGenerateAudio] = useState(false);
+  const [publicVisible, setPublicVisible] = useState(false);
+  const [endFrameEnabled, setEndFrameEnabled] = useState(false);
+  const [singleVideoImage, setSingleVideoImage] = useState<{
+    url: string;
+    preview: string;
+  } | null>(null);
+  const [isReferenceUploading, setIsReferenceUploading] = useState(false);
+  const [referenceUploadError, setReferenceUploadError] = useState(false);
   const [generatedVideos, setGeneratedVideos] = useState<GeneratedVideo[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -246,21 +276,10 @@ export function VideoGenerator({
   const isPromptTooLong = promptLength > MAX_PROMPT_LENGTH;
   const isTextToVideoMode = activeTab === 'text-to-video';
   const isImageToVideoMode = activeTab === 'image-to-video';
-  const isVideoToVideoMode = activeTab === 'video-to-video';
 
   const handleTabChange = (value: string) => {
     const tab = value as VideoGeneratorTab;
     setActiveTab(tab);
-
-    const availableModels = MODEL_OPTIONS.filter(
-      (option) => option.scenes.includes(tab) && option.provider === provider
-    );
-
-    if (availableModels.length > 0) {
-      setModel(availableModels[0].value);
-    } else {
-      setModel('');
-    }
 
     if (tab === 'text-to-video') {
       setCostCredits(textToVideoCredits);
@@ -268,20 +287,6 @@ export function VideoGenerator({
       setCostCredits(imageToVideoCredits);
     } else if (tab === 'video-to-video') {
       setCostCredits(videoToVideoCredits);
-    }
-  };
-
-  const handleProviderChange = (value: string) => {
-    setProvider(value);
-
-    const availableModels = MODEL_OPTIONS.filter(
-      (option) => option.scenes.includes(activeTab) && option.provider === value
-    );
-
-    if (availableModels.length > 0) {
-      setModel(availableModels[0].value);
-    } else {
-      setModel('');
     }
   };
 
@@ -304,25 +309,57 @@ export function VideoGenerator({
     }
   }, [taskStatus]);
 
-  const handleReferenceImagesChange = useCallback(
-    (items: ImageUploaderValue[]) => {
-      setReferenceImageItems(items);
-      const uploadedUrls = items
-        .filter((item) => item.status === 'uploaded' && item.url)
-        .map((item) => item.url as string);
-      setReferenceImageUrls(uploadedUrls);
+  // 单图上传：本地预览 + 上传到 /api/upload 换取 url
+  const uploadReferenceFile = useCallback(async (file: File) => {
+    const reader = new FileReader();
+    const preview = await new Promise<string>((resolve, reject) => {
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    setIsReferenceUploading(true);
+    setReferenceUploadError(false);
+
+    try {
+      const resp = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      if (!resp.ok) {
+        throw new Error(`upload failed with status: ${resp.status}`);
+      }
+      const result = await resp.json();
+      if (!result.success || !result.url) {
+        throw new Error(result.error || 'Upload failed');
+      }
+      return { url: result.url as string, preview };
+    } catch (error) {
+      console.error('Failed to upload reference image:', error);
+      toast.error(t('workbench.upload_failed'));
+      setReferenceUploadError(true);
+      return null;
+    } finally {
+      setIsReferenceUploading(false);
+    }
+  }, []);
+
+  const handleSingleVideoImageChange = useCallback(
+    async (files: FileList | null) => {
+      const file = files?.[0];
+      if (!file || !file.type.startsWith('image/')) {
+        return;
+      }
+      const uploaded = await uploadReferenceFile(file);
+      if (!uploaded) {
+        return;
+      }
+      setSingleVideoImage(uploaded);
     },
-    []
-  );
-
-  const isReferenceUploading = useMemo(
-    () => referenceImageItems.some((item) => item.status === 'uploading'),
-    [referenceImageItems]
-  );
-
-  const hasReferenceUploadError = useMemo(
-    () => referenceImageItems.some((item) => item.status === 'error'),
-    [referenceImageItems]
+    [uploadReferenceFile, t]
   );
 
   const resetTaskState = useCallback(() => {
@@ -492,18 +529,25 @@ export function VideoGenerator({
       return;
     }
 
-    if (!provider || !model) {
+    const mapped = SEEVIDEO_VIDEO_MODEL_MAP[model];
+    const backendModel = mapped
+      ? MODEL_OPTIONS.find(
+          (option) =>
+            option.value === mapped.value &&
+            option.provider === mapped.provider &&
+            option.scenes.includes(activeTab)
+        )
+      : undefined;
+    const targetModel =
+      backendModel ?? MODEL_OPTIONS.find((o) => o.scenes.includes(activeTab));
+
+    if (!targetModel) {
       toast.error('Provider or model is not configured correctly.');
       return;
     }
 
-    if (isImageToVideoMode && referenceImageUrls.length === 0) {
+    if (isImageToVideoMode && !singleVideoImage) {
       toast.error('Please upload a reference image before generating.');
-      return;
-    }
-
-    if (isVideoToVideoMode && !referenceVideoUrl) {
-      toast.error('Please provide a reference video URL before generating.');
       return;
     }
 
@@ -516,13 +560,18 @@ export function VideoGenerator({
     try {
       const options: any = {};
 
-      if (isImageToVideoMode) {
-        options.image_input = referenceImageUrls;
+      if (isImageToVideoMode && singleVideoImage) {
+        options.image_input = [singleVideoImage.url];
+        if (endFrameEnabled) {
+          options.last_frame_image = singleVideoImage.url;
+        }
       }
 
-      if (isVideoToVideoMode) {
-        options.video_input = [referenceVideoUrl];
-      }
+      options.aspect_ratio = aspectRatio;
+      options.resolution = videoResolution;
+      options.video_duration = videoDuration;
+      options.generate_audio = generateAudio;
+      options.public_visible = publicVisible;
 
       const resp = await fetch('/api/ai/generate', {
         method: 'POST',
@@ -532,8 +581,8 @@ export function VideoGenerator({
         body: JSON.stringify({
           mediaType: AIMediaType.VIDEO,
           scene: activeTab,
-          provider,
-          model,
+          provider: targetModel.provider,
+          model: targetModel.value,
           prompt: trimmedPrompt,
           options,
         }),
@@ -562,8 +611,8 @@ export function VideoGenerator({
             videoUrls.map((url, index) => ({
               id: `${newTaskId}-${index}`,
               url,
-              provider,
-              model,
+              provider: targetModel.provider,
+              model: targetModel.value,
               prompt: trimmedPrompt,
             }))
           );
@@ -620,286 +669,542 @@ export function VideoGenerator({
   };
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="container">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <Card>
-              <CardHeader>
-                {srOnlyTitle && <h2 className="sr-only">{srOnlyTitle}</h2>}
-                <CardTitle className="flex items-center gap-2 text-xl font-semibold">
-                  {t('title')}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6 pb-8">
-                <Tabs value={activeTab} onValueChange={handleTabChange}>
-                  <TabsList className="bg-primary/10 grid w-full grid-cols-3">
-                    <TabsTrigger value="text-to-video">
-                      {t('tabs.text-to-video')}
-                    </TabsTrigger>
-                    <TabsTrigger value="image-to-video">
-                      {t('tabs.image-to-video')}
-                    </TabsTrigger>
-                    <TabsTrigger value="video-to-video">
-                      {t('tabs.video-to-video')}
-                    </TabsTrigger>
-                  </TabsList>
-                </Tabs>
+    <section className={cn('w-full', srOnlyTitle ? 'has-sr-title' : '')}>
+      {srOnlyTitle && <h2 className="sr-only">{srOnlyTitle}</h2>}
+      <div className="flex w-full max-w-[100vw] overflow-hidden bg-background pt-16 transition-[padding] duration-300 md:h-screen">
+        <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
+          <main
+            className="workbench-main custom-scrollbar-thin flex flex-col overflow-y-auto overflow-x-hidden bg-background p-2 pb-20 md:pb-2 lg:overflow-hidden"
+          >
+            {/* 标题行 */}
+            <div className="mb-2">
+              <div className="flex items-center gap-3">
+                <h1 className="flex items-baseline gap-1.5 text-lg font-bold leading-tight text-foreground sm:text-xl md:text-xl lg:text-2xl">
+                  <span className="text-foreground">
+                    {t('workbench.title_prefix')}
+                  </span>
+                  <span className="inline-block bg-gradient-to-r from-[hsl(var(--highlight))] to-[hsl(46,55%,80%)] bg-clip-text font-extrabold italic text-transparent">
+                    {t('workbench.title_highlight')}
+                  </span>
+                  <span className="text-foreground">
+                    {t('workbench.title_suffix')}
+                  </span>
+                </h1>
+                <span className="hidden items-center gap-1 rounded-full border border-[hsl(var(--highlight))]/30 bg-[hsl(var(--highlight))]/10 px-2.5 py-0.5 text-xs font-medium text-[hsl(var(--highlight))] sm:inline-flex">
+                  <Sparkles className="h-3 w-3" />
+                  {t('workbench.badge')}
+                </span>
+              </div>
+              <p className="mt-1 text-xs text-foreground/40">
+                {t('workbench.subtitle')}
+              </p>
+            </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label>{t('form.provider')}</Label>
-                    <Select
-                      value={provider}
-                      onValueChange={handleProviderChange}
-                    >
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder={t('form.select_provider')} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {PROVIDER_OPTIONS.map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label>{t('form.model')}</Label>
-                    <Select value={model} onValueChange={setModel}>
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder={t('form.select_model')} />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {MODEL_OPTIONS.filter(
-                          (option) =>
-                            option.scenes.includes(activeTab) &&
-                            option.provider === provider
-                        ).map((option) => (
-                          <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                {isImageToVideoMode && (
-                  <div className="space-y-4">
-                    <ImageUploader
-                      title={t('form.reference_image')}
-                      allowMultiple={true}
-                      maxImages={3}
-                      maxSizeMB={maxSizeMB}
-                      onChange={handleReferenceImagesChange}
-                      emptyHint={t('form.reference_image_placeholder')}
-                    />
-
-                    {hasReferenceUploadError && (
-                      <p className="text-destructive text-xs">
-                        {t('form.some_images_failed_to_upload')}
-                      </p>
-                    )}
-                  </div>
-                )}
-
-                {isVideoToVideoMode && (
-                  <div className="space-y-2">
-                    <Label htmlFor="video-url">
-                      {t('form.reference_video')}
-                    </Label>
-                    <Textarea
-                      id="video-url"
-                      value={referenceVideoUrl}
-                      onChange={(e) => setReferenceVideoUrl(e.target.value)}
-                      placeholder={t('form.reference_video_placeholder')}
-                      className="min-h-20"
-                    />
-                  </div>
-                )}
-
-                <div className="space-y-2">
-                  <Label htmlFor="video-prompt">{t('form.prompt')}</Label>
-                  <Textarea
-                    id="video-prompt"
-                    value={prompt}
-                    onChange={(e) => setPrompt(e.target.value)}
-                    placeholder={t('form.prompt_placeholder')}
-                    className="min-h-32"
-                  />
-                  <div className="text-muted-foreground flex items-center justify-between text-xs">
-                    <span>
-                      {promptLength} / {MAX_PROMPT_LENGTH}
-                    </span>
-                    {isPromptTooLong && (
-                      <span className="text-destructive">
-                        {t('form.prompt_too_long')}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {!isMounted ? (
-                  <Button className="w-full" disabled size="lg">
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    {t('loading')}
-                  </Button>
-                ) : isCheckSign ? (
-                  <Button className="w-full" disabled size="lg">
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    {t('checking_account')}
-                  </Button>
-                ) : user ? (
-                  <Button
-                    size="lg"
-                    className="w-full"
-                    onClick={handleGenerate}
-                    disabled={
-                      isGenerating ||
-                      (isTextToVideoMode && !prompt.trim()) ||
-                      isPromptTooLong ||
-                      isReferenceUploading ||
-                      hasReferenceUploadError ||
-                      (isImageToVideoMode && referenceImageUrls.length === 0) ||
-                      (isVideoToVideoMode && !referenceVideoUrl)
-                    }
-                  >
-                    {isGenerating ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        {t('generating')}
-                      </>
-                    ) : (
-                      <>
-                        <Sparkles className="mr-2 h-4 w-4" />
-                        {t('generate')}
-                      </>
-                    )}
-                  </Button>
-                ) : (
-                  <Button
-                    size="lg"
-                    className="w-full"
-                    onClick={() => setIsShowSignModal(true)}
-                  >
-                    <User className="mr-2 h-4 w-4" />
-                    {t('sign_in_to_generate')}
-                  </Button>
-                )}
-
-                {!isMounted ? (
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-primary">
-                      {t('credits_cost', { credits: costCredits })}
-                    </span>
-                    <span>{t('credits_remaining', { credits: 0 })}</span>
-                  </div>
-                ) : user && remainingCredits > 0 ? (
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-primary">
-                      {t('credits_cost', { credits: costCredits })}
-                    </span>
-                    <span>
-                      {t('credits_remaining', { credits: remainingCredits })}
-                    </span>
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-primary">
-                        {t('credits_cost', { credits: costCredits })}
-                      </span>
-                      <span>
-                        {t('credits_remaining', { credits: remainingCredits })}
-                      </span>
+            <div className="flex flex-1 flex-col gap-4 md:gap-6 lg:flex-row lg:overflow-hidden">
+              {/* 左栏：生成操作 */}
+              <div className="w-full flex-shrink-0 lg:w-[380px] xl:w-[420px]">
+                <div className="flex h-full flex-col rounded-xl border border-border/50 bg-form-background shadow-lg">
+                  {/* 顶部：模式切换 + 模型选择 */}
+                  <div className="flex-shrink-0 p-6 pb-2">
+                    <div className="flex flex-col gap-3 sm:mb-2 sm:flex-row sm:items-center sm:justify-between">
+                      <div className="grid h-8 w-full grid-cols-2 items-center rounded-full border border-white/[0.06] bg-black/40 p-0.5 sm:flex sm:h-9 sm:w-auto sm:flex-shrink-0">
+                        <button
+                          type="button"
+                          className="relative flex h-7 items-center justify-center whitespace-nowrap rounded-full text-xs transition-all sm:h-8 sm:px-4 sm:text-sm font-medium text-white"
+                        >
+                          <span className="absolute inset-0 rounded-full bg-white/[0.12]" />
+                          <span className="relative z-10">
+                            {t('workbench.mode_video')}
+                          </span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={onSwitchToImage}
+                          className="relative flex h-7 items-center justify-center whitespace-nowrap rounded-full text-xs transition-all sm:h-8 sm:px-4 sm:text-sm text-gray-500 hover:text-gray-300"
+                        >
+                          <span className="relative z-10">
+                            {t('workbench.mode_image')}
+                          </span>
+                        </button>
+                      </div>
+                      <ModelSelect
+                        mode="video"
+                        value={model}
+                        onChange={setModel}
+                      />
                     </div>
-                    <Link href="/pricing">
-                      <Button variant="outline" className="w-full" size="lg">
-                        <CreditCard className="mr-2 h-4 w-4" />
-                        {t('buy_credits')}
-                      </Button>
-                    </Link>
                   </div>
-                )}
 
-                {isGenerating && (
-                  <div className="space-y-2 rounded-lg border p-4">
-                    <div className="flex items-center justify-between text-sm">
-                      <span>{t('progress')}</span>
-                      <span>{progress}%</span>
+                  <div className="flex min-h-0 flex-1 flex-col p-6 pt-2">
+                    {/* 文本转 / 图片转 tab */}
+                    <div className="mb-4 flex-shrink-0">
+                      <div className="relative flex w-full border-b border-border/40">
+                        <button
+                          type="button"
+                          onClick={() => handleTabChange('text-to-video')}
+                          className={cn(
+                            'relative whitespace-nowrap py-2.5 text-center text-sm font-medium transition-colors flex-1',
+                            isTextToVideoMode
+                              ? 'text-foreground'
+                              : 'text-muted-foreground hover:text-foreground/70'
+                          )}
+                        >
+                          {t('workbench.tab_text')}
+                          {isTextToVideoMode ? (
+                            <span className="absolute inset-x-0 bottom-0 h-[2px] rounded-full bg-[hsl(var(--highlight))]" />
+                          ) : null}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleTabChange('image-to-video')}
+                          className={cn(
+                            'relative whitespace-nowrap py-2.5 text-center text-sm font-medium transition-colors flex-1',
+                            isImageToVideoMode
+                              ? 'text-foreground'
+                              : 'text-muted-foreground hover:text-foreground/70'
+                          )}
+                        >
+                          {t('workbench.tab_image')}
+                          {isImageToVideoMode ? (
+                            <span className="absolute inset-x-0 bottom-0 h-[2px] rounded-full bg-[hsl(var(--highlight))]" />
+                          ) : null}
+                        </button>
+                      </div>
                     </div>
-                    <Progress value={progress} />
-                    {taskStatusLabel && (
-                      <p className="text-muted-foreground text-center text-xs">
-                        {taskStatusLabel}
-                      </p>
-                    )}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl font-semibold">
-                  <Video className="h-5 w-5" />
-                  {t('generated_videos')}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pb-8">
-                {generatedVideos.length > 0 ? (
-                  <div className="space-y-6">
-                    {generatedVideos.map((video) => (
-                      <div key={video.id} className="space-y-3">
-                        <div className="relative overflow-hidden rounded-lg border">
-                          <video
-                            src={video.url}
-                            controls
-                            className="h-auto w-full"
-                            preload="metadata"
-                          />
-
-                          <div className="absolute right-2 bottom-2 flex justify-end text-sm">
-                            <Button
-                              size="sm"
-                              variant="ghost"
-                              className="ml-auto"
-                              onClick={() => handleDownloadVideo(video)}
-                              disabled={downloadingVideoId === video.id}
-                            >
-                              {downloadingVideoId === video.id ? (
-                                <>
-                                  <Loader2 className="h-4 w-4 animate-spin" />
-                                </>
+                    {/* 滚动表单区 */}
+                    <div className="custom-scrollbar mb-4 min-h-0 flex-1 space-y-4 overflow-y-auto">
+                      {/* 图片转视频：上传图片 */}
+                      {isImageToVideoMode ? (
+                        <div className="space-y-1">
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between">
+                              <label className="font-medium text-sm text-foreground">
+                                {t('workbench.upload_image')}
+                              </label>
+                              <div className="flex items-center gap-2">
+                                <span className="text-sm text-muted-foreground">
+                                  {t('workbench.end_frame')}
+                                </span>
+                                <Switch
+                                  checked={endFrameEnabled}
+                                  onCheckedChange={setEndFrameEnabled}
+                                />
+                              </div>
+                            </div>
+                            <label className="media-card-surface media-card-surface-hover group relative block cursor-pointer rounded-xl border-2 border-dashed transition-all duration-300">
+                              <input
+                                type="file"
+                                accept="image/jpeg,image/png,image/webp"
+                                className="hidden"
+                                onChange={(event) => {
+                                  handleSingleVideoImageChange(
+                                    event.target.files
+                                  );
+                                  event.target.value = '';
+                                }}
+                              />
+                              {singleVideoImage ? (
+                                <div className="relative">
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img
+                                    src={singleVideoImage.preview}
+                                    alt=""
+                                    className="h-40 w-full rounded-[inherit] object-cover"
+                                  />
+                                  <button
+                                    type="button"
+                                    className="absolute right-2 top-2 rounded-full bg-black/60 p-1 text-white transition-colors hover:bg-black/80"
+                                    onClick={(event) => {
+                                      event.preventDefault();
+                                      setSingleVideoImage(null);
+                                    }}
+                                  >
+                                    <X className="h-4 w-4" />
+                                  </button>
+                                </div>
                               ) : (
-                                <>
-                                  <Download className="h-4 w-4" />
-                                </>
+                                <div className="flex flex-col items-center gap-4 p-8">
+                                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(var(--highlight))]/10 transition-colors group-hover:bg-[hsl(var(--highlight))]/20">
+                                    <CloudUpload className="h-8 w-8 text-[hsl(var(--highlight))] transition-colors group-hover:text-[hsl(var(--highlight-hover))]" />
+                                  </div>
+                                  <div className="text-center">
+                                    <p className="text-sm font-medium text-foreground">
+                                      {t('workbench.drop_image')}
+                                    </p>
+                                    <p className="mt-1 text-xs text-muted-foreground">
+                                      {t('workbench.image_format', {
+                                        size: maxSizeMB,
+                                      })}
+                                    </p>
+                                  </div>
+                                </div>
                               )}
-                            </Button>
+                            </label>
+                            {referenceUploadError ? (
+                              <p className="text-destructive text-xs">
+                                {t('workbench.upload_failed')}
+                              </p>
+                            ) : null}
+                          </div>
+                        </div>
+                      ) : null}
+
+                      {/* 提示词 */}
+                      <div className="space-y-1">
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-2">
+                              <label className="font-medium text-sm text-foreground">
+                                {t('workbench.prompt')}
+                              </label>
+                            </div>
+                          </div>
+                          <Textarea
+                            id="video-prompt"
+                            value={prompt}
+                            onChange={(e) => setPrompt(e.target.value)}
+                            placeholder={t('workbench.prompt_placeholder')}
+                            maxLength={MAX_PROMPT_LENGTH}
+                            className="min-h-[100px] resize-y border-border/50 bg-card pr-10 md:min-h-[140px]"
+                          />
+                        </div>
+                        <div className="flex justify-end text-xs">
+                          <span className="text-muted-foreground">
+                            {promptLength}/{MAX_PROMPT_LENGTH}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* 宽高比 */}
+                      <div className="space-y-1">
+                        <div className="space-y-2">
+                          <label className="font-semibold text-sm text-foreground">
+                            {t('workbench.aspect_ratio')}
+                          </label>
+                          <div className="relative">
+                            <button
+                              type="button"
+                              onClick={() => setAspectRatioOpen((prev) => !prev)}
+                              aria-expanded={aspectRatioOpen}
+                              className="flex min-h-[64px] w-full items-center justify-between rounded-xl border border-border/10 bg-card/45 px-4 py-3 text-left transition-colors hover:bg-card/60"
+                            >
+                              <div className="flex min-w-0 items-center gap-3">
+                                <div className="ratio-preview-box-wide shrink-0 rounded border-2 border-muted-foreground" />
+                                <div className="min-w-0">
+                                  <p className="text-xs font-semibold text-muted-foreground">
+                                    {t('workbench.aspect_ratio')}
+                                  </p>
+                                  <p className="truncate text-sm font-bold text-foreground">
+                                    {aspectRatio}
+                                  </p>
+                                </div>
+                              </div>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className={cn(
+                                  'h-4 w-4 rotate-90 text-muted-foreground transition-transform',
+                                  aspectRatioOpen && 'rotate-[-90deg]'
+                                )}
+                              >
+                                <path d="m9 18 6-6-6-6" />
+                              </svg>
+                            </button>
+                            {aspectRatioOpen ? (
+                              <div className="absolute inset-x-0 top-full z-30 mt-1 grid grid-cols-4 gap-2 rounded-xl border border-border/40 bg-card p-3 shadow-lg">
+                                {RATIO_OPTIONS.map((option) => (
+                                  <button
+                                    key={option.value}
+                                    type="button"
+                                    onClick={() => {
+                                      setAspectRatio(option.value);
+                                      setAspectRatioOpen(false);
+                                    }}
+                                    className={cn(
+                                      'flex flex-col items-center gap-1.5 rounded-lg border px-2 py-2 transition-colors',
+                                      aspectRatio === option.value
+                                        ? 'border-[hsl(var(--highlight))] bg-[hsl(var(--highlight))]/10'
+                                        : 'border-transparent hover:bg-muted/50'
+                                    )}
+                                  >
+                                    <span
+                                      className="rounded border-2 border-muted-foreground"
+                                      style={{
+                                        width: `${option.box.w * 0.5}rem`,
+                                        height: `${option.box.h * 0.5}rem`,
+                                      }}
+                                    />
+                                    <span className="text-[11px] font-medium text-foreground">
+                                      {option.value}
+                                    </span>
+                                  </button>
+                                ))}
+                              </div>
+                            ) : null}
                           </div>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="flex flex-col items-center justify-center py-16 text-center">
-                    <div className="bg-muted mb-4 flex h-16 w-16 items-center justify-center rounded-full">
-                      <Video className="text-muted-foreground h-10 w-10" />
+
+                      {/* 视频时长滑块 */}
+                      <div className="space-y-1">
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between">
+                            <label className="font-semibold text-sm text-foreground">
+                              {t('workbench.video_duration')}
+                            </label>
+                            <span className="text-sm font-bold text-foreground">
+                              {videoDuration}s
+                            </span>
+                          </div>
+                          <div className="relative px-2 pb-1">
+                            <input
+                              type="range"
+                              min={VIDEO_DURATION.min}
+                              max={VIDEO_DURATION.max}
+                              step={1}
+                              value={videoDuration}
+                              onChange={(event) =>
+                                setVideoDuration(Number(event.target.value))
+                              }
+                              className="duration-slider w-full cursor-pointer"
+                              aria-label={t('workbench.video_duration')}
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* 分辨率 */}
+                      <div className="space-y-1">
+                        <div className="mb-2 flex items-center gap-1">
+                          <label className="font-medium text-sm text-foreground">
+                            {t('workbench.resolution')}
+                          </label>
+                        </div>
+                        <div className="grid grid-cols-3 gap-2 px-1">
+                          {VIDEO_RESOLUTION_OPTIONS.map((option) => {
+                            const active = videoResolution === option;
+                            return (
+                              <button
+                                key={option}
+                                type="button"
+                                onClick={() => setVideoResolution(option)}
+                                className={cn(
+                                  'relative overflow-hidden rounded-md px-4 py-2 font-medium transition-all',
+                                  active
+                                    ? 'gradient-border border-2 border-transparent bg-clip-padding'
+                                    : 'border border-muted text-muted-foreground hover:border-primary hover:text-foreground'
+                                )}
+                                style={
+                                  active
+                                    ? {
+                                        borderImage:
+                                          'linear-gradient(90deg, hsl(var(--gradient-start)), hsl(var(--gradient-end))) 1',
+                                      }
+                                    : undefined
+                                }
+                              >
+                                <span
+                                  className={cn(
+                                    'relative z-10',
+                                    active && 'gradient-text'
+                                  )}
+                                >
+                                  {option}
+                                </span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* 生成音频 */}
+                      <div className="space-y-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="flex items-center gap-1 text-sm font-medium">
+                            {t('workbench.generate_audio')}
+                          </span>
+                          <Switch
+                            checked={generateAudio}
+                            onCheckedChange={setGenerateAudio}
+                          />
+                        </div>
+                      </div>
+
+                      {/* 公开可见性 */}
+                      <div className="mt-4 pt-2">
+                        <div className="mb-1 flex items-center justify-between gap-2">
+                          <span className="flex items-center gap-1 text-sm font-medium">
+                            {t('workbench.public_visibility')}
+                          </span>
+                          <div className="flex items-center gap-2">
+                            <span>
+                              <Coins className="h-4 w-4 cursor-help text-highlight" />
+                            </span>
+                            <Switch
+                              checked={publicVisible}
+                              onCheckedChange={setPublicVisible}
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* 生成进度 */}
+                      {isGenerating ? (
+                        <div className="space-y-2 rounded-lg border p-4">
+                          <div className="flex items-center justify-between text-sm">
+                            <span>{t('workbench.generating')}</span>
+                            <span>{progress}%</span>
+                          </div>
+                          <div className="h-1.5 w-full overflow-hidden rounded-full bg-muted">
+                            <div
+                              className="h-full rounded-full bg-[hsl(var(--highlight))] transition-all"
+                              style={{ width: `${progress}%` }}
+                            />
+                          </div>
+                          {taskStatusLabel ? (
+                            <p className="text-muted-foreground text-center text-xs">
+                              {taskStatusLabel}
+                            </p>
+                          ) : null}
+                        </div>
+                      ) : null}
                     </div>
-                    <p className="text-muted-foreground">
-                      {isGenerating
-                        ? t('ready_to_generate')
-                        : t('no_videos_generated')}
-                    </p>
+
+                    {/* 底部固定区：积分 + 生成按钮 */}
+                    <div className="flex-shrink-0 border-t border-border pt-4">
+                      <div className="space-y-4">
+                        <div className="rounded-lg border border-[hsl(var(--highlight))]/10 bg-[hsl(var(--highlight-light))]/10 transition-all duration-200">
+                          <div className="flex items-center justify-between p-3">
+                            <div className="flex items-center gap-2">
+                              <Coins className="h-4 w-4 text-[hsl(var(--highlight))]" />
+                              <span className="text-sm font-medium">
+                                {t('workbench.credits_required')}
+                              </span>
+                            </div>
+                            <span className="text-md font-bold text-[hsl(var(--highlight))]">
+                              {costCredits}
+                            </span>
+                          </div>
+                        </div>
+                        {!isMounted || isCheckSign ? (
+                          <button
+                            type="button"
+                            disabled
+                            className="gradient-button inline-flex h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:opacity-90 disabled:pointer-events-none disabled:opacity-50"
+                          >
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            {t('workbench.loading')}
+                          </button>
+                        ) : user ? (
+                          <button
+                            type="button"
+                            onClick={handleGenerate}
+                            disabled={
+                              isGenerating ||
+                              (isTextToVideoMode && !prompt.trim()) ||
+                              isPromptTooLong ||
+                              isReferenceUploading ||
+                              referenceUploadError ||
+                              (isImageToVideoMode && !singleVideoImage)
+                            }
+                            className="gradient-button inline-flex h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:opacity-90 disabled:pointer-events-none disabled:opacity-50"
+                          >
+                            {isGenerating ? (
+                              <>
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                                {t('workbench.generating')}
+                              </>
+                            ) : (
+                              <>
+                                <Sparkles className="h-4 w-4" />
+                                {t('workbench.generate')}
+                              </>
+                            )}
+                          </button>
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => setIsShowSignModal(true)}
+                            className="gradient-button inline-flex h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:opacity-90"
+                          >
+                            <Sparkles className="h-4 w-4" />
+                            Upgrade to Generate
+                          </button>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                )}
-              </CardContent>
-            </Card>
-          </div>
+                </div>
+              </div>
+
+              {/* 右栏：预览区 */}
+              <div className="w-full min-w-0">
+                <div className="flex h-full gap-2 md:gap-4">
+                  <div className="flex h-full min-w-0 flex-1 flex-col rounded-xl border border-border/30 bg-form-background shadow backdrop-blur-md">
+                    <div className="flex-shrink-0 p-6 pb-2">
+                      <div className="flex items-center gap-2 font-semibold leading-none tracking-tight">
+                        <Film className="h-5 w-5 text-primary" />
+                        <span className="gradient-text">
+                          {t('workbench.my_videos')}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex-1 overflow-hidden p-6 pt-0">
+                      {generatedVideos.length > 0 ? (
+                        <div className="custom-scrollbar h-full space-y-6 overflow-y-auto pr-2 md:pr-4">
+                          {generatedVideos.map((video) => (
+                            <div key={video.id} className="space-y-3">
+                              <div className="relative overflow-hidden rounded-lg border">
+                                <video
+                                  src={video.url}
+                                  controls
+                                  className="h-auto w-full"
+                                  preload="metadata"
+                                />
+                                <button
+                                  type="button"
+                                  className="absolute right-2 top-2 rounded-full bg-black/60 p-2 text-white transition-colors hover:bg-black/80"
+                                  onClick={() => handleDownloadVideo(video)}
+                                  disabled={downloadingVideoId === video.id}
+                                >
+                                  {downloadingVideoId === video.id ? (
+                                    <Loader2 className="h-4 w-4 animate-spin" />
+                                  ) : (
+                                    <Download className="h-4 w-4" />
+                                  )}
+                                </button>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center">
+                          <div className="flex h-full w-full flex-col items-center justify-center text-center">
+                            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[hsl(var(--highlight))]/10">
+                              <Video className="h-10 w-10 text-[hsl(var(--highlight))]" />
+                            </div>
+                            <p className="text-sm text-muted-foreground">
+                              {isGenerating
+                                ? t('workbench.generating_video_hint')
+                                : t('workbench.empty_video_hint')}
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
         </div>
       </div>
     </section>

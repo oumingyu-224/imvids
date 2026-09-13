@@ -1,0 +1,418 @@
+{
+  "ui": {
+    "select_model": "Select model",
+    "search_placeholder": "Search models...",
+    "no_match": "No matching models",
+    "locked_label": "Premium feature",
+    "locked_action": "Upgrade",
+    "recommended": "Recommended"
+  },
+  "models": {
+    "gpt-images-2-5-flare": {
+      "badges": [
+        "New",
+        "Best"
+      ],
+      "description": "Create and edit images with precise prompts and reference control.",
+      "capabilities": [
+        "5+",
+        "HD",
+        "Multi-image",
+        "Text & image"
+      ]
+    },
+    "seedream-5-lite": {
+      "badges": [
+        "New"
+      ],
+      "description": "ByteDance unified multimodal image model with reasoning, deep understanding and controllable visual creation",
+      "capabilities": [
+        "40+",
+        "Text & image"
+      ]
+    },
+    "seedream-4": {
+      "badges": [
+        "New"
+      ],
+      "description": "ByteDance advanced image model combining superb quality with strong creative control",
+      "capabilities": [
+        "30+",
+        "Text & image"
+      ]
+    },
+    "nano-banana": {
+      "badges": [
+        "New"
+      ],
+      "description": "Advanced AI image editing powered by Google",
+      "capabilities": [
+        "30+",
+        "Text & image"
+      ]
+    },
+    "nano-banana-pro": {
+      "badges": [
+        "Pro"
+      ],
+      "description": "Professional AI image editing powered by Google",
+      "capabilities": [
+        "40+",
+        "HD",
+        "Text & image"
+      ]
+    },
+    "nano-banana-2": {
+      "badges": [
+        "New"
+      ],
+      "description": "Next-generation Flash-speed image model driven by Google",
+      "capabilities": [
+        "40+",
+        "HD",
+        "Text & image"
+      ]
+    },
+    "qwen-image-edit": {
+      "badges": [
+        "New"
+      ],
+      "description": "Advanced image editing with precise control of style and detail",
+      "capabilities": [
+        "30+",
+        "Image only"
+      ]
+    },
+    "grok-imagine-image": {
+      "badges": [
+        "New"
+      ],
+      "description": "xAI image generation with stunning quality — text to image",
+      "capabilities": [
+        "30+",
+        "Text & image"
+      ]
+    },
+    "gpt-4o-image": {
+      "badges": [
+        "Standard"
+      ],
+      "description": "AI-powered image generation and editing",
+      "capabilities": [
+        "30+",
+        "Text & image"
+      ]
+    },
+    "flux-kontext-pro": {
+      "badges": [
+        "Pro"
+      ],
+      "description": "Rich, realistic scene generation for illustration creation",
+      "capabilities": [
+        "30+",
+        "Text & image"
+      ]
+    },
+    "flux-kontext-max": {
+      "badges": [
+        "MAX"
+      ],
+      "description": "Highly detailed, complex generation for premium art and design projects",
+      "capabilities": [
+        "40+",
+        "Text & image"
+      ]
+    },
+    "gemini-omni-flash-1-1": {
+      "badges": [
+        "New",
+        "MULTI",
+        "Best"
+      ],
+      "description": "Fast multimodal video generation with first/last frame, images, video and audio",
+      "capabilities": [
+        "4-10s",
+        "55+",
+        "Text, frames, video, audio & character"
+      ]
+    },
+    "gemini-omni": {
+      "badges": [
+        "New",
+        "MULTI",
+        "Best"
+      ],
+      "description": "Multimodal video generation with images, video, reusable Audio ID and more",
+      "capabilities": [
+        "4-10s",
+        "55+",
+        "Text, image, video, audio & character"
+      ]
+    },
+    "minimax-h3": {
+      "badges": [
+        "Best",
+        "Audio"
+      ],
+      "description": "Native-audio video generation with rich motion",
+      "capabilities": [
+        "15s",
+        "20/s+",
+        "End frame",
+        "Multi-image",
+        "Text, frames & reference"
+      ]
+    },
+    "minimax-h3-max-turbo": {
+      "badges": [
+        "Audio",
+        "New"
+      ],
+      "description": "High-throughput native-audio video generation",
+      "capabilities": [
+        "5-15s",
+        "10/s+",
+        "End frame",
+        "Text & frames"
+      ]
+    },
+    "ltx-2-5-fast": {
+      "badges": [
+        "New",
+        "Audio"
+      ],
+      "description": "Fast video generation with strong temporal consistency",
+      "capabilities": [
+        "2-20s",
+        "8/s+",
+        "End frame",
+        "Text & image"
+      ]
+    },
+    "seedance-2-5": {
+      "badges": [
+        "New",
+        "Audio"
+      ],
+      "description": "Next-gen multimodal video generation from text, images, video and audio",
+      "capabilities": [
+        "30s",
+        "160+",
+        "Text, image, video & audio"
+      ]
+    },
+    "seedance-2-0": {
+      "badges": [
+        "Ultra",
+        "Audio"
+      ],
+      "description": "Top-tier multimodal video generation from text, images and video",
+      "capabilities": [
+        "15s",
+        "80+",
+        "Text, image & video"
+      ]
+    },
+    "seedance-2-0-fast": {
+      "badges": [
+        "FAST",
+        "Audio"
+      ],
+      "description": "Fast multimodal video generation from text, images and video",
+      "capabilities": [
+        "15s",
+        "65+",
+        "Text, image & video"
+      ]
+    },
+    "seedance-2-0-mini": {
+      "badges": [
+        "FAST",
+        "Audio",
+        "New"
+      ],
+      "description": "Lightweight, fast multimodal video generation from text, images and video",
+      "capabilities": [
+        "15s",
+        "11/s+",
+        "Text, image & video"
+      ]
+    },
+    "pixverse-v6": {
+      "badges": [
+        "New",
+        "Audio"
+      ],
+      "description": "Create 1-15 second videos with rich effects and templates",
+      "capabilities": [
+        "1-15s",
+        "10/s+",
+        "HD",
+        "End frame",
+        "Multi-image",
+        "Multi-shot"
+      ]
+    },
+    "seedance-1-5-pro": {
+      "badges": [
+        "Audio"
+      ],
+      "description": "Next-gen multi-scene storytelling with audio generation and enhanced transitions",
+      "capabilities": [
+        "8s",
+        "40+",
+        "End frame",
+        "Text & image"
+      ]
+    },
+    "veo-3-1-premium": {
+      "badges": [
+        "Ultra",
+        "Audio"
+      ],
+      "description": "Ultimate video quality with native audio — by Google",
+      "capabilities": [
+        "8s",
+        "200+",
+        "End frame",
+        "Text & image"
+      ]
+    },
+    "veo-3-1-lite": {
+      "badges": [
+        "New",
+        "Audio"
+      ],
+      "description": "Cost-effective video generation with native audio — great for bulk",
+      "capabilities": [
+        "8s",
+        "75",
+        "End frame",
+        "Multi-image"
+      ]
+    },
+    "veo-3-1-basic": {
+      "badges": [
+        "New",
+        "Audio"
+      ],
+      "description": "High-quality video with native audio — ultra fast generation",
+      "capabilities": [
+        "8s",
+        "150+",
+        "End frame",
+        "Multi-image"
+      ]
+    },
+    "veo-3-premium": {
+      "badges": [
+        "Premium",
+        "Audio"
+      ],
+      "description": "Immersive sound design and hyper-realistic visuals",
+      "capabilities": [
+        "8s",
+        "150+",
+        "Text & image"
+      ]
+    },
+    "veo-3-basic": {
+      "badges": [
+        "Hot",
+        "Audio"
+      ],
+      "description": "Professional video creation with natural audio and high-quality visuals",
+      "capabilities": [
+        "8s",
+        "100+",
+        "Text & image"
+      ]
+    },
+    "wan-3-0-prime": {
+      "badges": [
+        "PRIME",
+        "Audio"
+      ],
+      "description": "Alibaba advanced Wan 3.0 multimodal video model",
+      "capabilities": [
+        "30s",
+        "20+",
+        "HD",
+        "End frame",
+        "Text, frames & multimodal reference"
+      ]
+    },
+    "wan-3-0": {
+      "badges": [
+        "New",
+        "Audio"
+      ],
+      "description": "Alibaba all-round multimodal video model supporting text, keyframes and more",
+      "capabilities": [
+        "30s",
+        "16+",
+        "HD",
+        "End frame",
+        "Text, frames & multimodal reference"
+      ]
+    },
+    "wan-2-5": {
+      "badges": [
+        "New",
+        "Audio"
+      ],
+      "description": "Alibaba advanced video model with native audio-visual sync",
+      "capabilities": [
+        "10s",
+        "100+",
+        "HD",
+        "Text & image"
+      ]
+    },
+    "kling-2-5": {
+      "badges": [
+        "New"
+      ],
+      "description": "Industry-leading motion dynamics and temporal control",
+      "capabilities": [
+        "10s",
+        "100+",
+        "Text & image"
+      ]
+    },
+    "kling-2-1-master": {
+      "badges": [
+        "MASTER"
+      ],
+      "description": "Industry-leading motion realism with precise temporal control",
+      "capabilities": [
+        "10s",
+        "200+",
+        "Text & image"
+      ]
+    },
+    "kling-2-1-pro": {
+      "badges": [
+        "Pro"
+      ],
+      "description": "Fine camera control, stable subjects and consistency, image to video",
+      "capabilities": [
+        "10s",
+        "120+",
+        "End frame",
+        "Image only"
+      ]
+    },
+    "grok-imagine-video": {
+      "badges": [
+        "New"
+      ],
+      "description": "xAI multimodal video generation with coherent motion",
+      "capabilities": [
+        "~5s",
+        "40+",
+        "Text & image"
+      ]
+    }
+  }
+}

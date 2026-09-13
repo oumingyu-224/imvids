@@ -1,8 +1,8 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getThemePage } from '@/core/theme';
-import { ImageGenerator } from '@/shared/blocks/generator';
 import { PromptShowcase } from '@/shared/blocks/common/prompt-showcase';
+import { LandingGeneratorToggle } from './landing-generator-toggle';
 import {
   getCurrentSubscription,
   type Subscription,
@@ -53,7 +53,6 @@ export default async function LandingPage({
   const showSections = [
     'hero',
     'prompt-showcase',
-    // 'generator',
     'showcases-flow',
     'logos',
     'introduce',
@@ -95,17 +94,6 @@ export default async function LandingPage({
             </div>
           ),
         };
-      } else if (section === 'generator') {
-        acc[section] = {
-          component: (
-            <div className="pt-0 pb-12 md:pb-14" key="generator">
-              <ImageGenerator
-                srOnlyTitle={createT.raw('generator.title')}
-                promptKey={promptKey}
-              />
-            </div>
-          ),
-        };
       } else if (section === 'pricing') {
         const { sr_only_title, ...pricing } = pricingT.raw('pricing');
         acc[section] = {
@@ -133,5 +121,11 @@ export default async function LandingPage({
   // load page component
   const Page = await getThemePage('dynamic-page');
 
-  return <Page locale={locale} page={page} />;
+  return (
+    <LandingGeneratorToggle
+      landing={<Page locale={locale} page={page} />}
+      generatorSrOnlyTitle={createT.raw('generator.title')}
+      promptKey={promptKey}
+    />
+  );
 }

@@ -41,7 +41,37 @@
     "generated_videos": "视频预览",
     "ready_to_generate": "准备生成",
     "ready_for_generating": "准备生成",
-    "no_videos_generated": "没有生成视频"
+    "no_videos_generated": "没有生成视频",
+    "workbench": {
+      "title_prefix": "生成",
+      "title_highlight": "电影级运镜",
+      "title_suffix": "秒内",
+      "badge": "AI 工作空间",
+      "subtitle": "将任何想法转化为电影级高质量视频——只需描述、生成并下载。",
+      "mode_video": "视频",
+      "mode_image": "图片",
+      "tab_text": "文本转 视频",
+      "tab_image": "图片转 视频",
+      "upload_image": "上传图片",
+      "end_frame": "添加结尾帧",
+      "drop_image": "拖放图片或点击选择图片",
+      "image_format": "JPG/PNG（最大 {size}MB）",
+      "upload_failed": "图片上传失败，请重试",
+      "prompt": "提示词",
+      "prompt_placeholder": "描述您想要生成的视频…",
+      "aspect_ratio": "宽高比",
+      "video_duration": "视频时长",
+      "resolution": "分辨率",
+      "generate_audio": "生成音频",
+      "public_visibility": "公开可见性",
+      "credits_required": "所需积分",
+      "loading": "加载中…",
+      "generating": "生成中…",
+      "generate": "生成 视频",
+      "upgrade_to_generate": "Upgrade to Generate",
+      "my_videos": "我的视频",
+      "generating_video_hint": "正在生成你的视频…",
+      "empty_video_hint": "生成的视频会展示在这里"
+    }
   }
 }
-

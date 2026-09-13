@@ -1,3 +1,83 @@
+/* ===== 工作台主题变量与工具类（补齐 seevideo 引用） ===== */
+:root {
+  --form-background: 234 12% 16%;
+  --surface-2: 240 10% 12%;
+  --surface-4: 240 10% 20%;
+  --border-hover: 240 6% 40%;
+  --gradient-start: 42 78% 60%;
+  --gradient-end: 50 90% 72%;
+  --highlight: 46 85% 65%;
+  --highlight-light: 46 55% 90%;
+  --highlight-hover: 42 78% 68%;
+}
+
+.dark {
+  --form-background: 234 12% 16%;
+  --surface-2: 240 10% 12%;
+  --surface-4: 240 10% 20%;
+  --border-hover: 240 6% 40%;
+  --gradient-start: 54 95% 45%;
+  --gradient-end: 54 95% 60%;
+  --highlight: 46 85% 65%;
+  --highlight-light: 54 60% 91%;
+  --highlight-hover: 47 85% 58%;
+}
+
+.gradient-button {
+  border-radius: calc(var(--radius) - 2px);
+  background-image: linear-gradient(to right, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: all .15s cubic-bezier(.4, 0, .2, 1);
+}
+
+.gradient-button:hover {
+  opacity: .9;
+}
+
+.gradient-border {
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  border-image-slice: 1;
+}
+
+.media-card-surface {
+  border-color: hsl(var(--border) / .6);
+  background-color: hsl(var(--surface-2) / .7);
+}
+
+.media-card-surface-hover:hover {
+  border-color: hsl(var(--border-hover) / .7);
+  background-color: hsl(var(--surface-2) / .85);
+}
+
+.gradient-glow-text {
+  background-image: linear-gradient(to right, #fff, hsl(var(--highlight)));
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.interactive-surface {
+  border-color: hsl(var(--border) / .6);
+  background-color: hsl(var(--surface-4) / .7);
+}
+
+.interactive-surface-hover:hover {
+  border-color: hsl(var(--border-hover) / .8);
+  background-color: hsl(var(--surface-4) / .85);
+}
+
+.bg-form-background {
+  background-color: hsl(var(--form-background));
+}
+
+/* ===== 原有内容 ===== */
 /* 从 seevideo.css 机械提取：项目缺失的自定义类规则 + 相关 CSS 变量定义，未做任何修改 */
 
 
@@ -534,4 +614,27 @@ border-color:hsl(var(--highlight) / .5)
   --gradient-end:54 95% 60%;
   --highlight-hover:47 85% 58%;
   --highlight-light:54 60% 91%;
+}
+
+/* generator 工作台内联样式归拢 */
+.workbench-main {
+  height: calc(100dvh - 4rem);
+}
+
+.prompt-textarea-resize {
+  resize: vertical;
+}
+
+.ratio-preview-box {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.ratio-preview-box-wide {
+  width: 1.75rem;
+  height: 1rem;
+}
+
+.duration-slider {
+  accent-color: hsl(var(--highlight));
 }

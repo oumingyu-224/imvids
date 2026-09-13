@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,758298,e=>{"use strict";var o=e.i(843476),t=e.i(271645);e.s(["default",0,function({error:e,reset:r}){return(0,t.useEffect)(()=>{console.error(e)},[e]),(0,o.jsx)("div",{children:"not found"})}])}]);

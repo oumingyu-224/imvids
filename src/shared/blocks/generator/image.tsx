@@ -2,44 +2,31 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  CreditCard,
-  Download,
-  ChevronLeft,
+  ChevronDown,
   ChevronRight,
-  Check,
-  Copy,
+  CloudUpload,
+  Coins,
+  Download,
+  Film,
+  Images,
+  Info,
   ImageIcon,
   Loader2,
-  Lock,
+  LockKeyhole,
   RefreshCw,
-  Settings2,
   Sparkles,
-  User,
-  Wand,
   X,
 } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import { toast } from 'sonner';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import enPricingMessages from '@/config/locale/messages/en/pages/pricing.json';
 import zhPricingMessages from '@/config/locale/messages/zh/pages/pricing.json';
-import { Link } from '@/core/i18n/navigation';
 import { ROLES } from '@/shared/constants/rbac';
 import { AIMediaType, AITaskStatus } from '@/extensions/ai/types';
 import { Pricing as PricingBlock } from '@/themes/default/blocks/pricing';
-import {
-  ImageUploader,
-  ImageUploaderValue,
-  LazyImage,
-} from '@/shared/blocks/common';
 import { Button } from '@/shared/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/shared/components/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -47,18 +34,18 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/shared/components/ui/dialog';
-import { Label } from '@/shared/components/ui/label';
-import { Progress } from '@/shared/components/ui/progress';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/shared/components/ui/select';
-import { Tabs, TabsList, TabsTrigger } from '@/shared/components/ui/tabs';
+import { Switch } from '@/shared/components/ui/switch';
 import { Textarea } from '@/shared/components/ui/textarea';
-import { GENERATOR_FEATURED_SHOWCASES } from '@/shared/constants/generator-featured-showcases';
+import {
+  getModelsByMode,
+  IMAGE_COUNT_OPTIONS,
+  QUALITY_OPTIONS,
+  RATIO_OPTIONS,
+  type GeneratorMode,
+} from '@/shared/blocks/generator/models';
+import { ModelSelect } from '@/shared/blocks/generator/model-select';
+import { VideoGenerator } from '@/shared/blocks/generator/video';
+import type { PromptShowcaseConfig } from '@/shared/blocks/common/prompt-showcase';
 import { useAppContext } from '@/shared/contexts/app';
 import { cn } from '@/shared/lib/utils';
 import { Pricing as PricingData } from '@/shared/types/blocks/pricing';
@@ -71,6 +58,7 @@ interface ImageGeneratorProps {
   className?: string;
   promptKey?: string;
   defaultModel?: string;
+  initialConfig?: PromptShowcaseConfig | null;
 }
 
 interface GeneratedImage {
@@ -80,15 +68,6 @@ interface GeneratedImage {
   model?: string;
   prompt?: string;
 }
-
-type FeaturedShowcaseItem = {
-  id: string;
-  title: string;
-  description?: string;
-  prompt?: string;
-  image: string;
-  tags?: string;
-};
 
 interface BackendTask {
   id: string;
@@ -104,7 +83,6 @@ type ImageGeneratorTab = 'text-to-image' | 'image-to-image';
 
 const POLL_INTERVAL = 5000;
 const GENERATION_TIMEOUT = 180000;
-const MAX_PROMPT_LENGTH = 2000;
 
 const MODEL_OPTIONS = [
   {
@@ -206,30 +184,7 @@ const PROVIDER_OPTIONS = [
   },
 ];
 
-// 宽高比选项
-const ASPECT_RATIO_OPTIONS = [
-  { value: '1:1', label: '1:1 (Square)' },
-  { value: '16:9', label: '16:9 (Landscape)' },
-  { value: '9:16', label: '9:16 (Portrait)' },
-  { value: '4:3', label: '4:3 (Standard)' },
-  { value: '3:4', label: '3:4 (Vertical)' },
-  { value: '3:2', label: '3:2 (Classic)' },
-  { value: '2:3', label: '2:3 (Portrait Classic)' },
-  { value: '21:9', label: '21:9 (Ultrawide)' },
-];
 
-// 分辨率选项 - 必须与 Kie API 要求完全匹配（大写 K，且只有 1K 和 2K）
-const RESOLUTION_OPTIONS = [
-  { value: '1K', label: '1K' },
-  { value: '2K', label: '2K' },
-];
-
-const OUTPUT_COUNT_OPTIONS = ['1', '2', '3', '4'];
-const QUALITY_OPTIONS = [
-  { value: 'standard', labelKey: 'settings.quality_standard', badge: '1K' },
-  { value: 'hd', labelKey: 'settings.quality_hd', badge: '2K' },
-  { value: 'ultra', labelKey: 'settings.quality_ultra', badge: '4K' },
-];
 
 function getImageBaseCredits(hasReferenceImages: boolean) {
   return hasReferenceImages ? 6 : 4;
@@ -319,28 +274,33 @@ export function ImageGenerator({
   className,
   promptKey,
   defaultModel,
+  initialConfig,
 }: ImageGeneratorProps) {
   const locale = useLocale();
   const t = useTranslations('ai.image.generator');
 
-  const [activeTab, setActiveTab] =
-    useState<ImageGeneratorTab>('text-to-image');
+  const [mediaMode, setMediaMode] = useState<GeneratorMode>('image');
+  const [workTab, setWorkTab] = useState<'text' | 'image'>('text');
+  const [aspectRatioOpen, setAspectRatioOpen] = useState(false);
+  const [publicVisible, setPublicVisible] = useState(true);
+  const [showAllReferenceSlots, setShowAllReferenceSlots] = useState(false);
+  const [referenceUploads, setReferenceUploads] = useState<
+    { url: string; preview: string }[]
+  >([]);
 
   const [provider, setProvider] = useState(PROVIDER_OPTIONS[0]?.value ?? '');
   const [model, setModel] = useState(MODEL_OPTIONS[0]?.value ?? '');
   const [aspectRatio, setAspectRatio] = useState<string>('16:9'); // 默认宽高比
   const [resolution, setResolution] = useState<string>('2K'); // 默认分辨率（大写 K）
   const [qualityStyle, setQualityStyle] = useState<string>('standard');
+  const [qualityLabel, setQualityLabel] = useState<string>('基础');
   const [outputCountStyle, setOutputCountStyle] = useState<string>('1');
-  const [prompt, setPrompt] = useState('');
+  const [prompt, setPrompt] = useState(initialConfig?.prompt ?? '');
   const [previewImage, setPreviewImage] = useState<string>(
     promptKey
       ? ''
       : 'https://kie.ai/cdn-cgi/image/width=1920,quality=85,fit=scale-down,format=webp/https://static.aiquickdraw.com/tools/example/1764234173157_0nmhDbXC.png'
   );
-  const [referenceImageItems, setReferenceImageItems] = useState<
-    ImageUploaderValue[]
-  >([]);
   const [referenceImageUrls, setReferenceImageUrls] = useState<string[]>([]);
   const [generatedImages, setGeneratedImages] = useState<GeneratedImage[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -359,17 +319,13 @@ export function ImageGenerator({
   const [availableProviders, setAvailableProviders] = useState<string[]>([]);
   const [isLoadingProviders, setIsLoadingProviders] = useState(true);
   const hasLoadedCreditsRef = useRef(false);
-  const [activeFeaturedIndex, setActiveFeaturedIndex] = useState(0);
-  const [selectedShowcaseIndex, setSelectedShowcaseIndex] = useState<number | null>(
-    null
-  );
-  const [copiedShowcaseId, setCopiedShowcaseId] = useState<string | null>(null);
   const [showPricingDialog, setShowPricingDialog] = useState(false);
+  const [submittedConfig, setSubmittedConfig] =
+    useState<PromptShowcaseConfig | null>(null);
 
   const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } =
     useAppContext();
 
-  const featuredShowcases = GENERATOR_FEATURED_SHOWCASES;
   const pricingConfig = useMemo(
     () =>
       (locale.startsWith('zh')
@@ -377,15 +333,6 @@ export function ImageGenerator({
         : enPricingMessages.pricing) as PricingData,
     [locale]
   );
-  const activeFeaturedItem =
-    featuredShowcases[activeFeaturedIndex] ?? featuredShowcases[0] ?? null;
-  const selectedShowcaseItem =
-    selectedShowcaseIndex !== null
-      ? featuredShowcases[selectedShowcaseIndex] ?? null
-      : null;
-  const visibleFeaturedShowcases = useMemo(() => {
-    return featuredShowcases.slice(0, 4);
-  }, [featuredShowcases]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -407,7 +354,7 @@ export function ImageGenerator({
             // Find first available model for this provider
             const availableModel = MODEL_OPTIONS.find(
               (option) =>
-                option.scenes.includes(activeTab) &&
+                option.scenes.includes('text-to-image') &&
                 option.provider === firstProvider
             );
 
@@ -453,10 +400,26 @@ export function ImageGenerator({
     }
   }, [user?.id, user?.credits, fetchUserCredits]);
 
+  const appliedInitialConfigRef = useRef(false);
+
+  useEffect(() => {
+    if (initialConfig && !appliedInitialConfigRef.current) {
+      appliedInitialConfigRef.current = true;
+      setPrompt(initialConfig.prompt);
+      if (initialConfig.ratio) {
+        setAspectRatio(initialConfig.ratio);
+      }
+      setMediaMode('image');
+      setWorkTab('text');
+      setSubmittedConfig(initialConfig);
+    }
+  }, [initialConfig]);
+
   useEffect(() => {
     if (promptKey) {
       setPrompt(promptKey);
-      setActiveTab('text-to-image');
+      setMediaMode('image');
+      setWorkTab('text');
 
       if (availableProviders.length > 0) {
         const firstProvider = availableProviders[0];
@@ -473,11 +436,15 @@ export function ImageGenerator({
         }
       }
     } else {
+      if (appliedInitialConfigRef.current) {
+        return;
+      }
       setPrompt('');
       setPreviewImage(
         'https://kie.ai/cdn-cgi/image/width=1920,quality=85,fit=scale-down,format=webp/https://static.aiquickdraw.com/tools/example/1767778245494_Yf0asfLH.png'
       );
-      setActiveTab('text-to-image');
+      setMediaMode('image');
+      setWorkTab('text');
 
       // Reset to default provider and model for text-to-image
       if (availableProviders.length > 0) {
@@ -500,8 +467,6 @@ export function ImageGenerator({
   const promptLength = prompt.trim().length;
   const remainingCredits = user?.credits?.remainingCredits ?? 0;
   const hasActiveSubscription = !!user?.currentSubscription;
-  const isPromptTooLong = promptLength > MAX_PROMPT_LENGTH;
-  const isTextToImageMode = activeTab === 'text-to-image';
   const hasReferenceImages = referenceImageUrls.length > 0;
   const costCredits = useMemo(
     () =>
@@ -512,170 +477,126 @@ export function ImageGenerator({
       }),
     [hasReferenceImages, qualityStyle, outputCountStyle]
   );
-  const promptNote = t('form.prompt_note');
-  const optionalLabel = t('form.optional');
+  const currentModelPricing = useMemo(
+    () => getModelsByMode(mediaMode).find((m) => m.id === model)?.pricing ?? null,
+    [mediaMode, model]
+  );
+  const displayCredits = useMemo(() => {
+    const base = currentModelPricing?.credits ?? 40;
+    return base * Math.max(1, Number.parseInt(outputCountStyle, 10) || 1);
+  }, [currentModelPricing, outputCountStyle]);
+  const promptMaxLength = workTab === 'image' ? 2996 : 2995;
+  const promptPlaceholder =
+    workTab === 'image'
+      ? t('workbench.prompt_placeholder_edit')
+      : t('workbench.prompt_placeholder');
+  const visibleReferenceSlots = showAllReferenceSlots
+    ? maxImages
+    : Math.min(6, maxImages);
   const canSaveShowcase = useMemo(
     () => user?.roles?.some((role) => role.name === ROLES.SUPER_ADMIN) ?? false,
     [user?.roles]
   );
 
-  const focusPromptInput = useCallback(() => {
-    const promptInput = document.getElementById('image-prompt');
-    promptInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    window.setTimeout(() => promptInput?.focus(), 320);
-  }, []);
-
-  const handleTryShowcasePrompt = useCallback(() => {
-    if (selectedShowcaseItem?.prompt) {
-      setPrompt(selectedShowcaseItem.prompt);
-    }
-    setSelectedShowcaseIndex(null);
-    window.setTimeout(focusPromptInput, 80);
-  }, [focusPromptInput, selectedShowcaseItem?.prompt]);
-
-  const handlePreviousFeatured = useCallback(() => {
-    setActiveFeaturedIndex((prev) =>
-      prev === 0 ? featuredShowcases.length - 1 : prev - 1
-    );
-  }, [featuredShowcases.length]);
-
-  const handleNextFeatured = useCallback(() => {
-    setActiveFeaturedIndex((prev) =>
-      prev === featuredShowcases.length - 1 ? 0 : prev + 1
-    );
-  }, [featuredShowcases.length]);
-
-  const copyShowcasePrompt = useCallback(
-    async (item?: FeaturedShowcaseItem | null) => {
-      if (!item?.prompt) {
-        toast.error(t('errors.no_prompt'));
-        return;
-      }
-
-      try {
-        await navigator.clipboard.writeText(item.prompt);
-        setCopiedShowcaseId(item.id);
-        toast.success(t('featured.copied_prompt'));
-        window.setTimeout(() => {
-          setCopiedShowcaseId((current) => (current === item.id ? null : current));
-        }, 1600);
-      } catch (error) {
-        toast.error(t('featured.copy_failed'));
-      }
-    },
-    [t]
-  );
-
-  const handleQualitySelect = useCallback(
-    (value: string, badge: string) => {
-      if (badge === '4K' && !hasActiveSubscription) {
+  // 质量按钮（中文标签） -> 内部 qualityStyle/resolution
+  const handleQualityLabelSelect = useCallback(
+    (label: string) => {
+      setQualityLabel(label);
+      const nextStyle =
+        label === '高清' ? 'hd' : label === '超清' ? 'ultra' : 'standard';
+      if (nextStyle === 'ultra' && !hasActiveSubscription) {
         setShowPricingDialog(true);
         return;
       }
-
-      setQualityStyle(value);
-      if (badge === '2K') setResolution('2K');
-      if (badge === '1K') setResolution('1K');
-      if (badge === '4K') setResolution('4K');
+      setQualityStyle(nextStyle);
+      setResolution(
+        nextStyle === 'hd' ? '2K' : nextStyle === 'ultra' ? '4K' : '1K'
+      );
     },
     [hasActiveSubscription]
   );
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (selectedShowcaseIndex === null) return;
-      if (e.key === 'Escape') setSelectedShowcaseIndex(null);
-      if (e.key === 'ArrowLeft') {
-        setSelectedShowcaseIndex((prev) =>
-          prev !== null ? (prev === 0 ? featuredShowcases.length - 1 : prev - 1) : null
-        );
-      }
-      if (e.key === 'ArrowRight') {
-        setSelectedShowcaseIndex((prev) =>
-          prev !== null ? (prev === featuredShowcases.length - 1 ? 0 : prev + 1) : null
-        );
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [featuredShowcases.length, selectedShowcaseIndex]);
-
-  const handleTabChange = (value: string) => {
-    const tab = value as ImageGeneratorTab;
-    setActiveTab(tab);
-
-    const availableModels = MODEL_OPTIONS.filter(
-      (option) =>
-        option.scenes.includes(tab) &&
-        option.provider === provider &&
-        availableProviders.includes(option.provider)
-    );
-
-    if (availableModels.length > 0) {
-      setModel(availableModels[0].value);
-    } else {
-      setModel('');
-    }
-
-  };
-
-  const handleProviderChange = (value: string) => {
-    setProvider(value);
-
-    const availableModels = MODEL_OPTIONS.filter(
-      (option) =>
-        option.scenes.includes(activeTab) &&
-        option.provider === value &&
-        availableProviders.includes(option.provider)
-    );
-
-    if (availableModels.length > 0) {
-      setModel(availableModels[0].value);
-    } else {
-      setModel('');
-    }
-  };
-
-  const taskStatusLabel = useMemo(() => {
-    if (!taskStatus) {
-      return '';
-    }
-
-    switch (taskStatus) {
-      case AITaskStatus.PENDING:
-        return t('progress_pending');
-      case AITaskStatus.PROCESSING:
-        return t('progress_processing');
-      case AITaskStatus.SUCCESS:
-        return t('progress_success');
-      case AITaskStatus.FAILED:
-        return t('progress_failed');
-      default:
-        return '';
-    }
-  }, [taskStatus, t]);
-
-  const handleReferenceImagesChange = useCallback(
-    (items: ImageUploaderValue[]) => {
-      setReferenceImageItems(items);
-      const uploadedUrls = items
-        .filter((item) => item.status === 'uploaded' && item.url)
-        .map((item) => item.url as string);
-      setReferenceImageUrls(uploadedUrls);
+  // 选择 JSON 模型：直接把 id 写入 model state（后端接入时再做 id -> provider/model 映射）
+  const handleModelSelect = useCallback(
+    (id: string) => {
+      setModel(id);
     },
     []
   );
 
-  const isReferenceUploading = useMemo(
-    () => referenceImageItems.some((item) => item.status === 'uploading'),
-    [referenceImageItems]
+  // 模型切换时同步宽高比默认值
+  const handleMediaModeChange = useCallback((next: GeneratorMode) => {
+    setMediaMode(next);
+    const models = getModelsByMode(next);
+    const firstAvailable = models.find((m) => !m.locked);
+    if (firstAvailable) {
+      setModel(firstAvailable.id);
+    }
+  }, []);
+
+  // 参考图上传：本地预览 + 上传到 /api/upload 换取 url
+  const uploadReferenceFile = useCallback(async (file: File) => {
+    const reader = new FileReader();
+    const preview = await new Promise<string>((resolve, reject) => {
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const resp = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      if (!resp.ok) {
+        throw new Error(`upload failed with status: ${resp.status}`);
+      }
+      const result = await resp.json();
+      if (!result.success || !result.url) {
+        throw new Error(result.error || 'Upload failed');
+      }
+      return { url: result.url as string, preview };
+    } catch (error) {
+      console.error('Failed to upload reference image:', error);
+      toast.error(t('workbench.upload_failed'));
+      return null;
+    }
+  }, []);
+
+  const handleReferenceFilesChange = useCallback(
+    async (files: FileList | null) => {
+      if (!files || files.length === 0) {
+        return;
+      }
+
+      let currentCount = referenceUploads.length;
+      for (const file of Array.from(files)) {
+        if (!file.type.startsWith('image/')) {
+          continue;
+        }
+        if (currentCount + 1 > maxImages) {
+          toast.error(t('workbench.max_images', { count: maxImages }));
+          break;
+        }
+        const uploaded = await uploadReferenceFile(file);
+        if (!uploaded) {
+          continue;
+        }
+        currentCount += 1;
+        setReferenceUploads((prev) => [...prev, uploaded]);
+        setReferenceImageUrls((prev) => [...prev, uploaded.url]);
+      }
+    },
+    [maxImages, referenceUploads.length, uploadReferenceFile, t]
   );
 
-  const hasReferenceUploadError = useMemo(
-    () => referenceImageItems.some((item) => item.status === 'error'),
-    [referenceImageItems]
-  );
+  const removeReferenceUpload = useCallback((url: string) => {
+    setReferenceUploads((prev) => prev.filter((item) => item.url !== url));
+    setReferenceImageUrls((prev) => prev.filter((item) => item !== url));
+  }, []);
 
   const resetTaskState = useCallback(() => {
     setIsGenerating(false);
@@ -981,7 +902,7 @@ export function ImageGenerator({
       return;
     }
 
-    if (!isTextToImageMode && referenceImageUrls.length === 0) {
+    if (workTab === 'image' && referenceImageUrls.length === 0) {
       toast.error(t('errors.no_reference_image'));
       return;
     }
@@ -1001,6 +922,7 @@ export function ImageGenerator({
 
       options.quality_style = qualityStyle;
       options.output_count = outputCountStyle;
+      options.public_visible = publicVisible;
 
       // 添加宽高比参数
       if (aspectRatio) {
@@ -1019,7 +941,7 @@ export function ImageGenerator({
         },
         body: JSON.stringify({
           mediaType: AIMediaType.IMAGE,
-          scene: hasReferenceImages ? 'image-to-image' : 'text-to-image',
+          scene: workTab === 'image' ? 'image-to-image' : 'text-to-image',
           provider,
           model,
           prompt: trimmedPrompt,
@@ -1128,566 +1050,670 @@ export function ImageGenerator({
     }
   };
 
+  if (mediaMode === 'video') {
+    return (
+      <VideoGenerator
+        maxSizeMB={50}
+        srOnlyTitle={srOnlyTitle}
+        onSwitchToImage={() => handleMediaModeChange('image')}
+      />
+    );
+  }
+
   return (
-    <section className={cn('py-0', className)}>
-      <div className="container">
-        <div className="mx-auto max-w-6xl">
-          {srOnlyTitle && <h2 className="sr-only">{srOnlyTitle}</h2>}
-          <div className="landing-panel overflow-hidden rounded-[24px] border">
-            <div className="landing-panel-inner overflow-hidden rounded-[23px]">
-              <div className="grid grid-cols-1 gap-0 lg:grid-cols-[1fr_1.08fr]">
-                <div className="landing-divider-soft border-b p-5 sm:p-6 lg:border-r lg:border-b-0">
-                  <div className="space-y-6">
-                    <div className="space-y-2">
-                      <div className="flex items-end justify-between gap-3">
-                        <div>
-                          <div className="landing-title text-[18px] font-semibold tracking-[-0.03em] sm:text-[20px]">
-                            {t('form.prompt')}
-                            <span className="landing-muted ml-1 text-[12px] font-normal">
-                              ({promptNote})
-                            </span>
-                          </div>
-                          <p className="landing-body mt-1 text-[12px] leading-5">
-                            {t('form.prompt_placeholder')}
-                          </p>
-                        </div>
-                      </div>
+    <section className={cn('w-full', className)}>
+      {srOnlyTitle && <h2 className="sr-only">{srOnlyTitle}</h2>}
+      <div className="flex w-full max-w-[100vw] overflow-hidden bg-background pt-16 transition-[padding] duration-300 md:h-screen">
+        <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
+          <main
+            className="workbench-main custom-scrollbar-thin flex flex-col overflow-y-auto overflow-x-hidden bg-background p-2 pb-20 md:pb-2 lg:overflow-hidden"
+          >
+            {/* 标题行 */}
+            <div className="mb-2">
+              <div className="flex items-center gap-3">
+                <h1 className="flex items-baseline gap-1.5 text-lg font-bold leading-tight text-foreground sm:text-xl md:text-xl lg:text-2xl">
+                  <span className="text-foreground">
+                    {t('workbench.title_prefix')}
+                  </span>
+                  <span className="inline-block bg-gradient-to-r from-[hsl(var(--highlight))] to-[hsl(46,55%,80%)] bg-clip-text font-extrabold italic text-transparent">
+                    {t('workbench.title_highlight')}
+                  </span>
+                  <span className="text-foreground">
+                    {t('workbench.title_suffix')}
+                  </span>
+                </h1>
+                <span className="hidden items-center gap-1 rounded-full border border-[hsl(var(--highlight))]/30 bg-[hsl(var(--highlight))]/10 px-2.5 py-0.5 text-xs font-medium text-[hsl(var(--highlight))] sm:inline-flex">
+                  <Sparkles className="h-3 w-3" />
+                  {t('workbench.badge')}
+                </span>
+              </div>
+              <p className="mt-1 text-xs text-foreground/40">
+                {t('workbench.subtitle')}
+              </p>
+            </div>
 
-                      <Textarea
-                        id="image-prompt"
-                        value={prompt}
-                        onChange={(e) => setPrompt(e.target.value)}
-                        placeholder={t('form.prompt_placeholder')}
-                        className="landing-input-surface landing-generator-accent-border-hover mt-3 min-h-[124px] rounded-[16px] px-4 py-4 text-[13px] leading-6 shadow-none placeholder:text-[var(--landing-input-placeholder)] focus-visible:ring-0"
-                      />
-
-                      <div className="landing-muted flex items-center justify-between text-xs">
-                        <span>
-                          {isPromptTooLong ? t('form.prompt_too_long') : ' '}
-                        </span>
-                        <span>
-                          {promptLength} / {MAX_PROMPT_LENGTH}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <div className="landing-title text-[18px] font-semibold tracking-[-0.03em] sm:text-[20px]">
-                        {t('form.reference_image')}
-                        <span className="landing-muted ml-1 text-[12px] font-normal">
-                          ({optionalLabel})
-                        </span>
-                      </div>
-                      <p className="landing-body text-[12px] leading-5">
-                        {t('form.reference_image_placeholder')}
-                      </p>
-                      <ImageUploader
-                        title=""
-                        allowMultiple={allowMultipleImages}
-                        maxImages={allowMultipleImages ? maxImages : 1}
-                        maxSizeMB={maxSizeMB}
-                        onChange={handleReferenceImagesChange}
-                        emptyHint={t('form.reference_image_hint')}
-                        compactMetaHint={t('form.reference_image_format', {
-                          maxImages: allowMultipleImages ? maxImages : 1,
-                          maxSizeMB,
-                        })}
-                        compact
-                      />
-
-                      {hasReferenceUploadError && (
-                        <p className="text-xs text-[#ef4444]">
-                          {t('form.some_images_failed_to_upload')}
-                        </p>
-                      )}
-                    </div>
-
-                    <div className="space-y-3">
-                      <div className="landing-title flex items-center gap-2 text-[18px] font-semibold tracking-[-0.03em] sm:text-[20px]">
-                        <Settings2 className="landing-soft-text h-5 w-5" />
-                        <span>{t('settings.title')}</span>
-                      </div>
-
-                      <div className="space-y-4">
-                        {/*
-                        <div className="grid gap-3 sm:grid-cols-[90px_minmax(0,1fr)] sm:items-center">
-                          <Label className="landing-soft-text text-[13px] font-medium">
-                            {t('form.output_number')}
-                          </Label>
-                          <div className="grid grid-cols-4 gap-2">
-                            {OUTPUT_COUNT_OPTIONS.map((option) => {
-                              const active = outputCountStyle === option;
-                              return (
-                                <button
-                                  key={option}
-                                  type="button"
-                                  onClick={() => setOutputCountStyle(option)}
-                                  className={cn(
-                                    'landing-generator-accent-border-hover flex h-9 items-center justify-center rounded-xl border text-[13px] font-medium transition-colors',
-                                    active
-                                      ? 'landing-generator-selected'
-                                      : 'landing-generator-secondary'
-                                  )}
-                                >
-                                  {option}
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                        */}
-
-                        <div className="grid gap-3 sm:grid-cols-[90px_minmax(0,1fr)] sm:items-center">
-                          <Label className="landing-soft-text text-[13px] font-medium">
-                            {t('form.quality')}
-                          </Label>
-                          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
-                            {QUALITY_OPTIONS.map((option) => {
-                              const active = qualityStyle === option.value;
-                              return (
-                                <button
-                                  key={option.value}
-                                  type="button"
-                                  onClick={() =>
-                                    handleQualitySelect(
-                                      option.value,
-                                      option.badge
-                                    )
-                                  }
-                                  className={cn(
-                                    'landing-generator-accent-border-hover flex h-10 items-center justify-center gap-1 rounded-xl border px-3 text-[13px] font-medium transition-colors',
-                                    active
-                                      ? 'landing-generator-selected'
-                                      : 'landing-generator-secondary'
-                                  )}
-                                >
-                                  <span>{t(option.labelKey)}</span>
-                                  {option.badge === '4K' &&
-                                    !hasActiveSubscription && (
-                                      <Lock className="h-3.5 w-3.5 text-[#ff9b21]" />
-                                    )}
-                                  <span
-                                    className={cn(
-                                      'rounded-full px-1.5 py-0.5 text-[10px] font-semibold',
-                                      option.value === 'ultra'
-                                        ? 'bg-[#fff3e4] text-[#ff9b21]'
-                                        : active
-                                          ? 'landing-generator-selected-badge'
-                                          : 'bg-[#edf2ff] text-[#7a86a7]'
-                                    )}
-                                  >
-                                    {option.badge}
-                                  </span>
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-
-                        <div className="grid gap-3 sm:grid-cols-[90px_minmax(0,1fr)] sm:items-center">
-                          <Label className="landing-soft-text text-[13px] font-medium">
-                            {t('form.aspect_ratio')}
-                          </Label>
-                          <div className="grid grid-cols-3 gap-2 sm:grid-cols-5">
-                            {['1:1', '2:3', '3:2', '9:16', '16:9'].map(
-                              (option) => {
-                                const active = aspectRatio === option;
-                                return (
-                                  <button
-                                    key={option}
-                                    type="button"
-                                    onClick={() => setAspectRatio(option)}
-                                    className={cn(
-                                      'landing-generator-accent-border-hover flex h-9 items-center justify-center rounded-xl border text-[13px] font-medium transition-colors',
-                                      active
-                                        ? 'landing-generator-selected'
-                                        : 'landing-generator-secondary'
-                                    )}
-                                  >
-                                    {option}
-                                  </button>
-                                );
-                              }
+            <div className="flex flex-1 flex-col gap-4 md:gap-6 lg:flex-row lg:overflow-hidden">
+              {/* 左栏：生成操作 */}
+              <div className="w-full flex-shrink-0 lg:w-[380px] xl:w-[420px]">
+                <motion.div
+                  initial={
+                    initialConfig ? { opacity: 0, y: -28, scale: 0.97 } : false
+                  }
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.45, ease: 'easeOut' }}
+                  className="h-full"
+                >
+                  <div className="flex h-full flex-col rounded-xl border border-border/50 bg-form-background shadow-lg">
+                    {/* 顶部：模式切换 + 模型选择 */}
+                    <div className="flex-shrink-0 p-6 pb-2">
+                      <div className="flex flex-col gap-3 sm:mb-2 sm:flex-row sm:items-center sm:justify-between">
+                        <div className="grid h-8 w-full grid-cols-2 items-center rounded-full border border-white/[0.06] bg-black/40 p-0.5 sm:flex sm:h-9 sm:w-auto sm:flex-shrink-0">
+                          <button
+                            type="button"
+                            onClick={() => handleMediaModeChange('video')}
+                            className={cn(
+                              'relative flex h-7 items-center justify-center whitespace-nowrap rounded-full text-xs transition-all sm:h-8 sm:px-4 sm:text-sm',
+                              mediaMode === 'video'
+                                ? 'font-medium text-white'
+                                : 'text-gray-500 hover:text-gray-300'
                             )}
-                          </div>
-                        </div>
-
-                        <div className="hidden">
-                          <Select
-                            value={provider}
-                            onValueChange={handleProviderChange}
                           >
-                            <SelectTrigger className="w-full">
-                              <SelectValue
-                                placeholder={t('form.select_provider')}
-                              />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {PROVIDER_OPTIONS.filter((option) =>
-                                availableProviders.includes(option.value)
-                              ).map((option) => (
-                                <SelectItem
-                                  key={option.value}
-                                  value={option.value}
-                                >
-                                  {option.label}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-
-                          <Select value={model} onValueChange={setModel}>
-                            <SelectTrigger className="w-full">
-                              <SelectValue
-                                placeholder={t('form.select_model')}
-                              />
-                            </SelectTrigger>
-                            <SelectContent>
-                              {MODEL_OPTIONS.filter(
-                                (option) =>
-                                  option.provider === provider &&
-                                  option.scenes.includes(activeTab) &&
-                                  availableProviders.includes(option.provider)
-                              ).map((option) => (
-                                <SelectItem
-                                  key={option.value}
-                                  value={option.value}
-                                >
-                                  {option.label}
-                                </SelectItem>
-                              ))}
-                            </SelectContent>
-                          </Select>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3 pt-1">
-                      {!isMounted ? (
-                        <Button
-                          className="h-12 w-full rounded-[14px] bg-[linear-gradient(90deg,#b897f8_0%,#f0a0ea_52%,#ffca76_100%)] text-[15px] font-semibold text-white shadow-none hover:opacity-95"
-                          disabled
-                        >
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          {t('loading')}
-                        </Button>
-                      ) : isCheckSign ? (
-                        <Button
-                          className="h-12 w-full rounded-[14px] bg-[linear-gradient(90deg,#b897f8_0%,#f0a0ea_52%,#ffca76_100%)] text-[15px] font-semibold text-white shadow-none hover:opacity-95"
-                          disabled
-                        >
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          {t('checking_account')}
-                        </Button>
-                      ) : user ? (
-                        <Button
-                          className="h-12 w-full rounded-[14px] bg-[linear-gradient(90deg,#b897f8_0%,#f0a0ea_52%,#ffca76_100%)] text-[15px] font-semibold text-white shadow-none hover:opacity-95"
-                          onClick={handleGenerate}
-                          disabled={
-                            isGenerating ||
-                            isLoadingCredits ||
-                            isLoadingProviders ||
-                            !prompt.trim() ||
-                            isPromptTooLong ||
-                            isReferenceUploading ||
-                            hasReferenceUploadError ||
-                            (!isLoadingCredits &&
-                              remainingCredits < costCredits)
-                          }
-                        >
-                          {isGenerating ? (
-                            <>
-                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                              {t('generating')}
-                            </>
-                          ) : (
-                            <>
-                              <Sparkles className="mr-2 h-4 w-4" />
-                              {t('generate')}
-                            </>
-                          )}
-                        </Button>
-                      ) : (
-                        <Button
-                          className="h-12 w-full rounded-[14px] bg-[linear-gradient(90deg,#b897f8_0%,#f0a0ea_52%,#ffca76_100%)] text-[15px] font-semibold text-white shadow-none hover:opacity-95"
-                          onClick={() => setIsShowSignModal(true)}
-                        >
-                          <User className="mr-2 h-4 w-4" />
-                          {t('sign_in_to_generate')}
-                        </Button>
-                      )}
-
-                      <div className="landing-muted text-center text-[11px]">
-                        <span className="mr-1 text-[#f1b759]">💡</span>
-                        {t('tip_message')}
-                      </div>
-
-                      {!isMounted || isLoadingCredits || isLoadingProviders ? (
-                        <div className="landing-soft-text flex items-center justify-between text-[13px]">
-                          <span>
-                            {t('credits_cost', { credits: costCredits })}
-                          </span>
-                          <span className="flex items-center gap-2">
-                            <Loader2 className="h-3 w-3 animate-spin" />
-                            {t('credits_remaining', { credits: 0 })}
-                          </span>
-                        </div>
-                      ) : user && remainingCredits > 0 ? (
-                      <div className="landing-soft-text flex items-center justify-between text-[13px]">
-                          <span>
-                            {t('credits_cost', { credits: costCredits })}
-                          </span>
-                          <span>
-                            {t('credits_remaining', {
-                              credits: remainingCredits,
-                            })}
-                          </span>
-                        </div>
-                      ) : (
-                        <div className="space-y-3">
-                          <div className="landing-soft-text flex items-center justify-between text-[13px]">
-                            <span>
-                              {t('credits_cost', { credits: costCredits })}
+                            {mediaMode === 'video' ? (
+                              <span className="absolute inset-0 rounded-full bg-white/[0.12]" />
+                            ) : null}
+                            <span className="relative z-10">
+                              {t('workbench.mode_video')}
                             </span>
-                            <span>
-                              {t('credits_remaining', {
-                                credits: remainingCredits,
-                              })}
-                            </span>
-                          </div>
-                          <Button
-                            variant="outline"
-                            className="landing-input-surface h-11 w-full rounded-[14px] text-[14px] hover:opacity-90"
-                            onClick={() => setShowPricingDialog(true)}
-                          >
-                            <CreditCard className="mr-2 h-4 w-4" />
-                            {t('buy_credits')}
-                          </Button>
-                        </div>
-                      )}
-
-                      {isGenerating && (
-                        <div className="landing-generator-preview rounded-[16px] border p-4">
-                          <div className="landing-soft-text mb-2 flex items-center justify-between text-[13px]">
-                            <span>{t('progress')}</span>
-                            <span>{progress}%</span>
-                          </div>
-                          <Progress value={progress} />
-                          {taskStatusLabel && (
-                            <p className="mt-2 text-center text-[11px] text-[#8f96a3]">
-                              {taskStatusLabel}
-                            </p>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex h-full min-h-0 self-stretch p-5 sm:p-6">
-                  <div className="flex h-full min-h-0 w-full flex-col">
-                    <div className="space-y-2">
-                      <div className="flex items-end justify-between gap-3">
-                        <div>
-                          <div className="flex items-center gap-2">
-                            {generatedImages.length > 0 ? (
-                              <Sparkles className="h-4 w-4 text-emerald-600" />
-                            ) : (
-                              <Wand className="h-4 w-4 text-[#d44dff]" />
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => handleMediaModeChange('image')}
+                            className={cn(
+                              'relative flex h-7 items-center justify-center whitespace-nowrap rounded-full text-xs transition-all sm:h-8 sm:px-4 sm:text-sm',
+                              mediaMode === 'image'
+                                ? 'font-medium text-white'
+                                : 'text-gray-500 hover:text-gray-300'
                             )}
-                            <div className="landing-title text-[18px] font-semibold tracking-[-0.03em] sm:text-[20px]">
-                              {generatedImages.length > 0
-                                ? t('result.ready')
-                                : t('featured.title')}
-                            </div>
-                          </div>
-                          {generatedImages.length === 0 ? (
-                            <p className="landing-body mt-1 text-[12px] leading-5">
-                              {t('featured.description')}
-                            </p>
-                          ) : null}
-                        </div>
-                        {generatedImages.length === 0 ? (
-                          <Link
-                            href="/showcases"
-                            className="hidden self-start pt-1 text-[12px] font-semibold text-[#d570ff] md:inline-flex"
                           >
-                            {t('featured.more_examples')} →
-                          </Link>
-                        ) : null}
+                            {mediaMode === 'image' ? (
+                              <span className="absolute inset-0 rounded-full bg-white/[0.12]" />
+                            ) : null}
+                            <span className="relative z-10">
+                              {t('workbench.mode_image')}
+                            </span>
+                          </button>
+                        </div>
+                        <ModelSelect
+                          mode={mediaMode}
+                          value={model}
+                          onChange={handleModelSelect}
+                        />
                       </div>
                     </div>
 
-                    <div className="mt-3 flex min-h-0 min-w-0 flex-1 overflow-hidden rounded-[18px]">
-                      {generatedImages.length > 0 ? (
-                        <div className="flex h-full min-h-[420px] w-full flex-col overflow-hidden rounded-[22px] border-2 border-emerald-400 bg-white p-4 shadow-[0_18px_50px_rgba(16,185,129,0.14)] dark:bg-white">
-                          <div className="relative min-h-0 flex-1 overflow-hidden rounded-[18px] bg-white">
-                            <img
-                              src={generatedImages[0].url}
-                              alt=""
-                              aria-hidden="true"
-                              className="absolute inset-0 h-full w-full scale-110 object-cover opacity-45 blur-2xl saturate-110"
-                            />
-                            <div className="absolute inset-0 bg-white/35" />
-                            <div className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-[inherit]">
-                              <img
-                                src={generatedImages[0].url}
-                                alt={generatedImages[0].prompt || 'Generated image'}
-                                className="block h-full max-h-full w-full max-w-full object-contain"
-                              />
-                            </div>
-                          </div>
-
-                          <div className="mt-4 flex shrink-0 items-center justify-center gap-3">
-                            <Button
-                              size="sm"
-                              className="h-9 rounded-full bg-[#0874e8] px-6 text-white shadow-[0_8px_24px_rgba(8,116,232,0.28)] hover:bg-[#0767cf]"
-                              onClick={() => handleDownloadImage(generatedImages[0])}
-                              disabled={downloadingImageId === generatedImages[0].id}
-                            >
-                              {downloadingImageId === generatedImages[0].id ? (
-                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                              ) : (
-                                <Download className="mr-2 h-4 w-4" />
-                              )}
-                              {t('result.download')}
-                            </Button>
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              className="h-9 rounded-full border-slate-200 bg-white px-6 text-slate-900 shadow-none hover:bg-slate-50"
-                              onClick={handleGenerate}
-                              disabled={isGenerating}
-                            >
-                              <RefreshCw className="mr-2 h-4 w-4" />
-                              {t('result.retry')}
-                            </Button>
-                          </div>
-                        </div>
-                      ) : activeFeaturedItem ? (
-                        <div className="flex h-full w-full flex-col">
-                          <div
-                            role="button"
-                            tabIndex={0}
-                            className="group relative min-h-[320px] flex-1 cursor-zoom-in overflow-hidden rounded-[22px] border border-slate-200 bg-white text-left dark:border-white/10 dark:bg-white"
-                            onClick={() => setSelectedShowcaseIndex(activeFeaturedIndex)}
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter' || e.key === ' ') {
-                                e.preventDefault();
-                                setSelectedShowcaseIndex(activeFeaturedIndex);
-                              }
-                            }}
+                    <div className="flex min-h-0 flex-1 flex-col p-6 pt-2">
+                      {/* 文本转 / 图片转 tab */}
+                      <div className="mb-4 flex-shrink-0">
+                        <div className="relative flex w-full border-b border-border/40">
+                          <button
+                            type="button"
+                            onClick={() => setWorkTab('text')}
+                            className={cn(
+                              'relative whitespace-nowrap py-2.5 text-center text-sm font-medium transition-colors flex-1',
+                              workTab === 'text'
+                                ? 'text-foreground'
+                                : 'text-muted-foreground hover:text-foreground/70'
+                            )}
                           >
-                            <div className="absolute inset-0 overflow-hidden rounded-[inherit]">
-                              <img
-                                src={activeFeaturedItem.image}
-                                alt=""
-                                aria-hidden="true"
-                                className="h-full w-full scale-110 object-cover opacity-55 blur-2xl saturate-115"
-                              />
-                              <div className="absolute inset-0 bg-white/18 dark:bg-white/6" />
-                            </div>
-                            <div className="absolute inset-0 flex items-center justify-center overflow-hidden rounded-[inherit]">
-                              <img
-                                src={activeFeaturedItem.image}
-                                alt={activeFeaturedItem.title}
-                                className="block h-full max-h-full w-full max-w-full object-contain"
-                              />
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/62 via-black/10 to-transparent" />
-                            <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                              <button
-                                type="button"
-                                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/22 text-white/92 opacity-0 backdrop-blur-md transition-all duration-200 group-hover:opacity-100 hover:bg-black/34"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handlePreviousFeatured();
-                                }}
-                              >
-                                <ChevronLeft className="size-5" />
-                              </button>
-                            </div>
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-                              <button
-                                type="button"
-                                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/22 text-white/92 opacity-0 backdrop-blur-md transition-all duration-200 group-hover:opacity-100 hover:bg-black/34"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  handleNextFeatured();
-                                }}
-                              >
-                                <ChevronRight className="size-5" />
-                              </button>
-                            </div>
-                            <div className="absolute right-3 bottom-3 rounded-full border border-white/28 bg-black/30 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-md">
-                              {activeFeaturedIndex + 1}/{featuredShowcases.length}
-                            </div>
-                            <div className="absolute right-0 bottom-0 left-0 p-4 sm:p-5">
-                              <div className="max-w-[78%]">
-                                <p className="line-clamp-2 text-[15px] font-semibold text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.28)] sm:text-[17px]">
-                                  {activeFeaturedItem.title}
-                                </p>
+                            {t('workbench.tab_text')}
+                            {workTab === 'text' ? (
+                              <span className="absolute inset-x-0 bottom-0 h-[2px] rounded-full bg-[hsl(var(--highlight))]" />
+                            ) : null}
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setWorkTab('image')}
+                            className={cn(
+                              'relative whitespace-nowrap py-2.5 text-center text-sm font-medium transition-colors flex-1',
+                              workTab === 'image'
+                                ? 'text-foreground'
+                                : 'text-muted-foreground hover:text-foreground/70'
+                            )}
+                          >
+                            {t('workbench.tab_image')}
+                            {workTab === 'image' ? (
+                              <span className="absolute inset-x-0 bottom-0 h-[2px] rounded-full bg-[hsl(var(--highlight))]" />
+                            ) : null}
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* 滚动表单区 */}
+                      <div className="custom-scrollbar mb-4 min-h-0 flex-1 space-y-4 overflow-y-auto">
+                        {/* 图片转图片：参考图网格 */}
+                        {mediaMode === 'image' && workTab === 'image' ? (
+                          <div className="space-y-1">
+                            <div className="space-y-2">
+                              <label className="font-medium text-sm text-foreground">
+                                {t('workbench.upload_reference')}
+                              </label>
+                              <label className="hidden">
+                                <input
+                                  type="file"
+                                  accept="image/jpeg,image/png,image/webp"
+                                  multiple
+                                  onChange={(event) => {
+                                    handleReferenceFilesChange(
+                                      event.target.files
+                                    );
+                                    event.target.value = '';
+                                  }}
+                                />
+                              </label>
+                              <div className="space-y-4">
+                                <div className="grid grid-cols-3 gap-4">
+                                  {Array.from({
+                                    length: visibleReferenceSlots,
+                                  }).map((_, index) => {
+                                    const upload = referenceUploads[index];
+                                    if (upload) {
+                                      return (
+                                        <div key={upload.url}>
+                                          <div className="media-card-surface relative overflow-hidden rounded-xl border-2 border-dashed">
+                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                            <img
+                                              src={upload.preview}
+                                              alt=""
+                                              className="aspect-square w-full object-cover"
+                                            />
+                                            <button
+                                              type="button"
+                                              className="absolute right-1.5 top-1.5 rounded-full bg-black/60 p-1 text-white transition-colors hover:bg-black/80"
+                                              onClick={() =>
+                                                removeReferenceUpload(upload.url)
+                                              }
+                                            >
+                                              <X className="h-3.5 w-3.5" />
+                                            </button>
+                                          </div>
+                                        </div>
+                                      );
+                                    }
+                                    return (
+                                      <div key={`empty-${index}`}>
+                                        <label className="media-card-surface media-card-surface-hover group relative block cursor-pointer rounded-xl border-2 border-dashed transition-all duration-300">
+                                          <input
+                                            type="file"
+                                            accept="image/jpeg,image/png,image/webp"
+                                            className="hidden"
+                                            onChange={(event) => {
+                                              handleReferenceFilesChange(
+                                                event.target.files
+                                              );
+                                              event.target.value = '';
+                                            }}
+                                          />
+                                          <div className="flex aspect-square flex-col items-center justify-center gap-2 p-1">
+                                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[hsl(var(--highlight))]/10 transition-colors group-hover:bg-[hsl(var(--highlight))]/20">
+                                              <CloudUpload className="h-5 w-5 text-[hsl(var(--highlight))] transition-colors group-hover:text-[hsl(var(--highlight-hover))]" />
+                                            </div>
+                                            <div className="text-center">
+                                              <p className="text-xs font-medium text-foreground">
+                                                {t('workbench.upload_image')}
+                                              </p>
+                                              <p className="text-[10px] text-muted-foreground">
+                                                {t('workbench.or_choose_from')}
+                                                <button
+                                                  type="button"
+                                                  className="gradient-glow-text underline decoration-[hsl(var(--highlight))]/30 underline-offset-2 transition-all hover:scale-105 hover:decoration-[hsl(var(--highlight))]"
+                                                >
+                                                  {t('workbench.asset_library')}
+                                                </button>
+                                              </p>
+                                              <p className="text-[10px] text-muted-foreground/70">
+                                                {index === 0
+                                                  ? '\u00a0'
+                                                  : `（${t('workbench.optional')}）`}
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </label>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                                {maxImages > 6 ? (
+                                  <div className="flex justify-center">
+                                    <button
+                                      type="button"
+                                      onClick={() =>
+                                        setShowAllReferenceSlots(
+                                          (prev) => !prev
+                                        )
+                                      }
+                                      className="interactive-surface interactive-surface-hover flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200"
+                                    >
+                                      <span>
+                                        {showAllReferenceSlots
+                                          ? t('workbench.collapse')
+                                          : t('workbench.show_all', {
+                                              count: maxImages,
+                                            })}
+                                      </span>
+                                      <ChevronDown
+                                        className={cn(
+                                          'h-4 w-4 transition-transform',
+                                          showAllReferenceSlots && 'rotate-180'
+                                        )}
+                                      />
+                                    </button>
+                                  </div>
+                                ) : null}
                               </div>
                             </div>
                           </div>
+                        ) : null}
 
-                          <div className="mt-3 grid shrink-0 grid-cols-4 gap-2.5">
-                            {visibleFeaturedShowcases.map((item) => {
-                              const index = featuredShowcases.findIndex(
-                                (showcase) => showcase.id === item.id
-                              );
-                              const isActive = index === activeFeaturedIndex;
-
-                              return (
+                        {/* 提示词 */}
+                        <div className="space-y-1">
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between gap-2">
+                              <label className="font-medium text-sm text-foreground">
+                                {t('workbench.prompt')}
+                              </label>
+                            </div>
+                            <div className="relative">
+                              <Textarea
+                                value={prompt}
+                                onChange={(event) =>
+                                  setPrompt(event.target.value)
+                                }
+                                placeholder={promptPlaceholder}
+                                maxLength={promptMaxLength}
+                                className="prompt-textarea-resize relative z-10 min-h-[100px] resize-y border-border/50 bg-card pb-9 pr-10 caret-foreground placeholder:text-muted-foreground md:min-h-[140px]"
+                              />
+                              <div className="absolute bottom-2 left-2 z-20 flex items-center gap-1">
                                 <button
-                                  key={item.id}
                                   type="button"
-                                  className="space-y-1.5 text-left"
-                                  onClick={() => {
-                                    setActiveFeaturedIndex(index);
-                                  }}
+                                  className="rounded-sm p-1 text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+                                  aria-label={t('workbench.ai_prompt_hint')}
                                 >
-                                  <div
-                                    className={cn(
-                                      'relative aspect-square overflow-hidden rounded-[14px] border border-transparent bg-white p-0 transition-all dark:bg-white',
-                                      isActive
-                                        ? 'border-[#1773ea] shadow-[0_0_0_2px_rgba(23,115,234,0.18)]'
-                                        : 'hover:border-[#1773ea]'
-                                    )}
-                                  >
-                                    <img
-                                      src={item.image}
-                                      alt={item.title}
-                                      className="h-full w-full rounded-[inherit] object-cover object-top"
-                                    />
-                                    {isActive ? (
-                                      <div className="absolute top-2 right-2 flex h-5 w-5 items-center justify-center rounded-full bg-[#1773ea] text-white shadow-[0_6px_18px_rgba(23,115,234,0.35)]">
-                                        <Check className="h-3 w-3" />
-                                      </div>
-                                    ) : null}
-                                  </div>
-                                  <p className="landing-body line-clamp-1 px-0.5 text-center text-[10px] leading-4 sm:text-[11px]">
-                                    {item.title}
-                                  </p>
+                                  <Sparkles className="h-4 w-4" />
                                 </button>
-                              );
-                            })}
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex justify-end text-xs">
+                            <span className="text-muted-foreground">
+                              {promptLength}/{promptMaxLength}
+                            </span>
                           </div>
                         </div>
-                      ) : (
-                        <div className="flex h-full min-h-[320px] w-full items-center justify-center">
-                          <div className="landing-muted text-center">
-                            <ImageIcon className="mx-auto mb-3 h-8 w-8" />
-                            <p>{t('no_images_generated')}</p>
+
+                        {/* 图片模式：宽高比 */}
+                        {mediaMode === 'image' ? (
+                          <div className="space-y-1">
+                            <div className="space-y-2">
+                              <label className="font-semibold text-sm text-foreground">
+                                {t('workbench.aspect_ratio')}
+                              </label>
+                              <div className="relative">
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    setAspectRatioOpen((prev) => !prev)
+                                  }
+                                  aria-expanded={aspectRatioOpen}
+                                  className="flex min-h-[64px] w-full items-center justify-between rounded-xl border border-border/10 bg-card/45 px-4 py-3 text-left transition-colors hover:bg-card/60"
+                                >
+                                  <div className="flex min-w-0 items-center gap-3">
+                                    <div
+                                      className="ratio-preview-box shrink-0 rounded border-2 border-muted-foreground"
+                                    />
+                                    <div className="min-w-0">
+                                      <p className="text-xs font-semibold text-muted-foreground">
+                                        {t('workbench.aspect_ratio')}
+                                      </p>
+                                      <p className="truncate text-sm font-bold text-foreground">
+                                        {aspectRatio}
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <ChevronRight
+                                    className={cn(
+                                      'h-4 w-4 text-muted-foreground transition-transform rotate-90',
+                                      aspectRatioOpen && 'rotate-[-90deg]'
+                                    )}
+                                  />
+                                </button>
+                                {aspectRatioOpen ? (
+                                  <div className="absolute inset-x-0 top-full z-30 mt-1 grid grid-cols-4 gap-2 rounded-xl border border-border/40 bg-card p-3 shadow-lg">
+                                    {RATIO_OPTIONS.map((option) => (
+                                      <button
+                                        key={option.value}
+                                        type="button"
+                                        onClick={() => {
+                                          setAspectRatio(option.value);
+                                          setAspectRatioOpen(false);
+                                        }}
+                                        className={cn(
+                                          'flex flex-col items-center gap-1.5 rounded-lg border px-2 py-2 transition-colors',
+                                          aspectRatio === option.value
+                                            ? 'border-[hsl(var(--highlight))] bg-[hsl(var(--highlight))]/10'
+                                            : 'border-transparent hover:bg-muted/50'
+                                        )}
+                                      >
+                                        <span
+                                          className="rounded border-2 border-muted-foreground"
+                                          style={{
+                                            width: `${option.box.w * 0.5}rem`,
+                                            height: `${option.box.h * 0.5}rem`,
+                                          }}
+                                        />
+                                        <span className="text-[11px] font-medium text-foreground">
+                                          {option.value}
+                                        </span>
+                                      </button>
+                                    ))}
+                                  </div>
+                                ) : null}
+                              </div>
+                            </div>
+                          </div>
+                        ) : null}
+
+                        {/* 图片模式：质量 + 图片数量 */}
+                        {mediaMode === 'image' ? (
+                          <>
+                            <div className="space-y-1">
+                              <div className="mb-2 flex items-center gap-1">
+                                <label className="font-medium text-sm text-foreground">
+                                  {t('workbench.quality')}
+                                </label>
+                                <Info className="h-4 w-4 cursor-help text-muted-foreground" />
+                              </div>
+                              <div className="grid grid-cols-3 gap-2 px-1">
+                                {QUALITY_OPTIONS.map((option) => {
+                                  const active = qualityLabel === option;
+                                  return (
+                                    <button
+                                      key={option}
+                                      type="button"
+                                      onClick={() => handleQualityLabelSelect(option)}
+                                      className={cn(
+                                        'relative overflow-hidden rounded-md px-4 py-2 font-medium transition-all',
+                                        active
+                                          ? 'gradient-border border-2 border-transparent bg-clip-padding'
+                                          : 'border border-muted text-muted-foreground hover:border-primary hover:text-foreground'
+                                      )}
+                                      style={
+                                        active
+                                          ? {
+                                              borderImage:
+                                                'linear-gradient(90deg, hsl(var(--gradient-start)), hsl(var(--gradient-end))) 1',
+                                            }
+                                          : undefined
+                                      }
+                                    >
+                                      <span
+                                        className={cn(
+                                          'relative z-10',
+                                          active && 'gradient-text'
+                                        )}
+                                      >
+                                        {option}
+                                      </span>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                            <div className="space-y-1">
+                              <div className="mb-2 flex items-center gap-1">
+                                <label className="font-medium text-sm text-foreground">
+                                  {t('workbench.image_count')}
+                                </label>
+                                <Info className="h-4 w-4 cursor-help text-muted-foreground" />
+                              </div>
+                              <div className="grid grid-cols-4 gap-2 px-1">
+                                {IMAGE_COUNT_OPTIONS.map((option) => {
+                                  const active =
+                                    outputCountStyle === option;
+                                  return (
+                                    <button
+                                      key={option}
+                                      type="button"
+                                      onClick={() =>
+                                        setOutputCountStyle(option)
+                                      }
+                                      className={cn(
+                                        'relative overflow-hidden rounded-md px-4 py-2 font-medium transition-all',
+                                        active
+                                          ? 'gradient-border border-2 border-transparent bg-clip-padding'
+                                          : 'border border-muted text-muted-foreground hover:border-primary hover:text-foreground'
+                                      )}
+                                      style={
+                                        active
+                                          ? {
+                                              borderImage:
+                                                'linear-gradient(90deg, hsl(var(--gradient-start)), hsl(var(--gradient-end))) 1',
+                                            }
+                                          : undefined
+                                      }
+                                    >
+                                      <span
+                                        className={cn(
+                                          'relative z-10',
+                                          active && 'gradient-text'
+                                        )}
+                                      >
+                                        {option}
+                                      </span>
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          </>
+                        ) : null}
+
+                        {/* 公开可见性 */}
+                        <div className="mt-4 pt-2">
+                          <div className="mb-1 flex items-center justify-between gap-2">
+                            <span className="flex items-center gap-1 text-sm font-medium">
+                              {t('workbench.public_visibility')}
+                              <Info className="h-4 w-4 cursor-help text-muted-foreground" />
+                            </span>
+                            <div className="flex items-center gap-2">
+                              <span>
+                                <Coins className="h-4 w-4 cursor-help text-highlight" />
+                              </span>
+                              <Switch
+                                checked={publicVisible}
+                                onCheckedChange={setPublicVisible}
+                              />
+                            </div>
                           </div>
                         </div>
-                      )}
+                      </div>
+
+                      {/* 底部固定：积分 + 生成按钮 */}
+                      <div className="flex-shrink-0 border-t border-border pt-4">
+                        <div className="space-y-4">
+                          <div className="rounded-lg border border-[hsl(var(--highlight))]/10 bg-[hsl(var(--highlight-light))]/10 transition-all duration-200">
+                            <div className="flex items-center justify-between p-3">
+                              <div className="flex items-center gap-2">
+                                <Coins className="h-4 w-4 text-[hsl(var(--highlight))]" />
+                                <span className="text-sm font-medium">
+                                  {t('workbench.credits_required')}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <span className="text-md font-bold text-[hsl(var(--highlight))]">
+                                  {displayCredits}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={handleGenerate}
+                            disabled={isGenerating}
+                            className="gradient-button inline-flex h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:bg-primary/90 hover:opacity-90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                          >
+                            {isGenerating ? (
+                              <>
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                                <span>{t('workbench.generating')}</span>
+                              </>
+                            ) : !user ? (
+                              <>
+                                <LockKeyhole className="h-4 w-4" />
+                                <span>{t('workbench.upgrade_to_generate')}</span>
+                              </>
+                            ) : (
+                              <span>{t('workbench.generate')}</span>
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* 右栏：预览区 */}
+              <div className="w-full min-w-0">
+                <div className="flex h-full gap-2 md:gap-4">
+                  <div className="flex h-full min-w-0 flex-1 flex-col rounded-xl border border-border/30 bg-form-background shadow backdrop-blur-md">
+                    <div className="flex-shrink-0 p-6">
+                      <div className="flex items-center gap-2 font-semibold leading-none tracking-tight">
+                        <Images className="h-5 w-5 text-primary" />
+                        <span className="gradient-text">
+                          {t('workbench.my_images')}
+                        </span>
+                      </div>
+                    </div>
+                    {submittedConfig ? (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeOut' }}
+                        className="mx-6 mb-4 shrink-0 rounded-[16px] border border-white/10 bg-white/[0.04] p-4"
+                      >
+                        <p className="text-[12px] font-medium uppercase tracking-wide text-white/45">
+                          Ready to generate
+                        </p>
+                        <p className="mt-1.5 line-clamp-3 text-[14px] leading-6 text-white/85">
+                          {submittedConfig.prompt}
+                        </p>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {[
+                            submittedConfig.mode,
+                            submittedConfig.model,
+                            submittedConfig.ratio,
+                            ...(submittedConfig.mode === 'video'
+                              ? [
+                                  `${submittedConfig.duration}s`,
+                                  submittedConfig.resolution,
+                                ]
+                              : [
+                                  submittedConfig.quality,
+                                  `x${submittedConfig.imageCount}`,
+                                ]),
+                          ].map((chip, chipIndex) => (
+                            <motion.span
+                              key={`${chip}-${chipIndex}`}
+                              initial={{ opacity: 0, y: 4 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{
+                                delay: 0.1 + chipIndex * 0.06,
+                                duration: 0.25,
+                                ease: 'easeOut',
+                              }}
+                              className="rounded-full bg-white/[0.07] px-3 py-1 text-[12px] font-medium text-white/70"
+                            >
+                              {chip}
+                            </motion.span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    ) : null}
+                    <div className="flex-1 overflow-hidden p-6 pt-0">
+                      <div className="relative h-full pr-2 md:pr-4">
+                        <div className="flex h-full w-full items-center justify-center">
+                          <div className="h-full w-full md:h-[calc(100vh-250px)]">
+                            {generatedImages.length > 0 ? (
+                              <div className="flex h-full flex-col">
+                                <div className="min-h-0 flex-1">
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img
+                                    src={generatedImages[0].url}
+                                    alt={
+                                      generatedImages[0].prompt ||
+                                      'Generated image'
+                                    }
+                                    className="h-full w-full rounded-lg object-contain shadow-lg"
+                                  />
+                                </div>
+                                <div className="mt-3 flex shrink-0 items-center justify-center gap-3">
+                                  <Button
+                                    size="sm"
+                                    className="h-9 rounded-full bg-primary px-6 text-primary-foreground"
+                                    onClick={() =>
+                                      handleDownloadImage(generatedImages[0])
+                                    }
+                                    disabled={
+                                      downloadingImageId ===
+                                      generatedImages[0].id
+                                    }
+                                  >
+                                    {downloadingImageId ===
+                                    generatedImages[0].id ? (
+                                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                    ) : (
+                                      <Download className="mr-2 h-4 w-4" />
+                                    )}
+                                    {t('result.download')}
+                                  </Button>
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    className="h-9 rounded-full px-6"
+                                    onClick={handleGenerate}
+                                    disabled={isGenerating}
+                                  >
+                                    <RefreshCw className="mr-2 h-4 w-4" />
+                                    {t('result.retry')}
+                                  </Button>
+                                </div>
+                              </div>
+                            ) : previewImage ? (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img
+                                src={previewImage}
+                                alt="Sample image"
+                                className="h-full w-full rounded-lg object-contain shadow-lg"
+                              />
+                            ) : (
+                              <div className="flex h-full w-full items-center justify-center">
+                                <div className="text-center text-muted-foreground">
+                                  <ImageIcon className="mx-auto mb-3 h-8 w-8" />
+                                  <p className="text-sm">
+                                    {t('workbench.no_preview')}
+                                  </p>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </main>
         </div>
       </div>
 
@@ -1714,138 +1740,6 @@ export function ImageGenerator({
           </div>
         </DialogContent>
       </Dialog>
-
-      <AnimatePresence>
-        {selectedShowcaseIndex !== null && selectedShowcaseItem && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-md md:p-8"
-            onClick={() => setSelectedShowcaseIndex(null)}
-          >
-            <button
-              className="absolute top-4 right-4 z-50 rounded-full bg-black/10 p-1 text-white/70 transition-colors hover:bg-black/20 hover:text-white dark:bg-white/10 dark:hover:bg-white/20"
-              onClick={() => setSelectedShowcaseIndex(null)}
-            >
-              <X className="size-8" />
-            </button>
-
-            <button
-              className="absolute top-1/2 left-4 z-50 -translate-y-1/2 rounded-full bg-white/85 p-2 text-slate-500 shadow-lg transition-colors hover:bg-white hover:text-[#1773ea] dark:bg-[#111827]/85 dark:text-slate-300 dark:hover:bg-[#111827] dark:hover:text-sky-300"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedShowcaseIndex((prev) =>
-                  prev !== null
-                    ? prev === 0
-                      ? featuredShowcases.length - 1
-                      : prev - 1
-                    : null
-                );
-              }}
-            >
-              <ChevronLeft className="size-8 md:size-12" />
-            </button>
-
-            <button
-              className="absolute top-1/2 right-4 z-50 -translate-y-1/2 rounded-full bg-white/85 p-2 text-slate-500 shadow-lg transition-colors hover:bg-white hover:text-[#1773ea] dark:bg-[#111827]/85 dark:text-slate-300 dark:hover:bg-[#111827] dark:hover:text-sky-300"
-              onClick={(e) => {
-                e.stopPropagation();
-                setSelectedShowcaseIndex((prev) =>
-                  prev !== null
-                    ? prev === featuredShowcases.length - 1
-                      ? 0
-                      : prev + 1
-                    : null
-                );
-              }}
-            >
-              <ChevronRight className="size-8 md:size-12" />
-            </button>
-
-            <motion.div
-              key={selectedShowcaseItem.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-              className="relative flex h-full w-full items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="grid h-[min(88vh,860px)] w-full max-w-[1440px] overflow-hidden rounded-[28px] bg-white shadow-[0_28px_80px_rgba(15,23,42,0.26)] md:grid-cols-[minmax(0,1.5fr)_minmax(360px,0.78fr)] dark:bg-[#0f172a]">
-                <div className="relative h-full min-h-[320px] overflow-hidden bg-white dark:bg-white">
-                  <div className="absolute inset-0 overflow-hidden">
-                    <img
-                      src={selectedShowcaseItem.image}
-                      alt=""
-                      aria-hidden="true"
-                      className="h-full w-full scale-110 object-cover opacity-55 blur-2xl saturate-115"
-                    />
-                    <div className="absolute inset-0 bg-white/18 dark:bg-white/6" />
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-                    <img
-                      src={selectedShowcaseItem.image}
-                      alt={selectedShowcaseItem.title}
-                      className="block h-full max-h-full w-full max-w-full object-contain"
-                    />
-                  </div>
-                </div>
-
-                <div className="flex min-h-0 flex-col border-t border-slate-200 bg-white md:border-t-0 md:border-l dark:border-white/10 dark:bg-[#0f172a]">
-                  <div className="flex items-start gap-4 px-7 pt-7 pb-5">
-                    <div className="min-w-0 flex-1">
-                      <h3 className="text-2xl font-semibold text-slate-900 dark:text-white">
-                        {selectedShowcaseItem.title}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <div className="min-h-0 flex-1 overflow-y-auto px-7 pb-6">
-                    {selectedShowcaseItem.prompt ? (
-                      <p className="text-[17px] leading-9 whitespace-pre-wrap text-slate-700 dark:text-slate-200">
-                        {selectedShowcaseItem.prompt}
-                      </p>
-                    ) : (
-                      <div className="text-[15px] text-slate-500 dark:text-slate-400">
-                        {t('errors.no_prompt')}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="border-t border-slate-200 px-7 py-5 dark:border-white/10">
-                    <div className="flex flex-col gap-3 sm:flex-row">
-                      <Button
-                        type="button"
-                        variant="outline"
-                        onClick={() => copyShowcasePrompt(selectedShowcaseItem)}
-                        disabled={!selectedShowcaseItem.prompt}
-                        className="h-13 flex-1 rounded-2xl border-slate-200 bg-white text-base font-medium text-slate-700 hover:border-sky-200 hover:bg-sky-500/10 hover:text-[#1773ea] dark:border-white/10 dark:bg-transparent dark:text-slate-200 dark:hover:border-sky-400/20 dark:hover:bg-sky-400/10 dark:hover:text-sky-300"
-                      >
-                        {copiedShowcaseId === selectedShowcaseItem.id ? (
-                          <Check className="size-5" />
-                        ) : (
-                          <Copy className="size-5" />
-                        )}
-                        {t('featured.copy_prompt')}
-                      </Button>
-
-                      <Button
-                        type="button"
-                        onClick={handleTryShowcasePrompt}
-                        className="h-13 flex-1 rounded-2xl bg-[#1773ea] text-base font-semibold text-white hover:bg-[#1569d5] dark:bg-[#1773ea] dark:text-white dark:hover:bg-[#1569d5]"
-                      >
-                        <Wand className="size-5" />
-                        {t('featured.try_now')}
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

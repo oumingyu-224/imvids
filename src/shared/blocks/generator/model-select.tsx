@@ -21,6 +21,24 @@ interface ModelSelectProps {
   className?: string;
 }
 
+interface ModelMessage {
+  badges: string[];
+  description: string;
+  capabilities: string[];
+}
+
+interface ModelMessages {
+  ui: {
+    select_model: string;
+    search_placeholder: string;
+    no_match: string;
+    locked_label: string;
+    locked_action: string;
+    recommended: string;
+  };
+  models: Record<string, ModelMessage>;
+}
+
 export function ModelSelect({ mode, value, onChange, className }: ModelSelectProps) {
   const locale = useLocale();
   const [open, setOpen] = useState(false);
@@ -28,7 +46,10 @@ export function ModelSelect({ mode, value, onChange, className }: ModelSelectPro
   const containerRef = useRef<HTMLDivElement>(null);
 
   const dict = useMemo(
-    () => (locale.startsWith('zh') ? zhModelMessages : enModelMessages),
+    () =>
+      (locale.startsWith('zh')
+        ? zhModelMessages
+        : enModelMessages) as unknown as ModelMessages,
     [locale]
   );
 

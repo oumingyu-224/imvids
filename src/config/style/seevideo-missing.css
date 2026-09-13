@@ -42,6 +42,7 @@
   border-width: 2px;
   border-style: solid;
   border-color: transparent;
+  border-image-source: linear-gradient(90deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
   border-image-slice: 1;
 }
 
@@ -82,11 +83,20 @@
 
 
 .gradient-text {
-background-image:linear-gradient(to right, var(--tw-gradient-stops));--tw-gradient-from:hsl(var(--gradient-start)) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--gradient-end)) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to);color:#0000;-webkit-background-clip:text;background-clip:text;font-weight:700
+  background-image: linear-gradient(90deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  color: #0000;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 700;
 }
 
 .gradient-text-glow {
-background-image:linear-gradient(to right, var(--tw-gradient-stops));--tw-gradient-from:hsl(var(--gradient-start)) var(--tw-gradient-from-position);--tw-gradient-to:hsl(var(--gradient-end)) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to);color:#0000;filter:drop-shadow(0 0 6px hsl(var(--gradient-start) / .5));-webkit-background-clip:text;background-clip:text;font-weight:700
+  background-image: linear-gradient(90deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  color: #0000;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 0 6px hsl(var(--gradient-start) / .5));
+  font-weight: 700;
 }
 
 .highlight-button {
@@ -590,8 +600,8 @@ border-color:hsl(var(--highlight) / .5)
 }
 
 :root {
-  --border:240 6% 32%;
-  --border-subtle:240 6% 24%;
+  --border:hsl(240 6% 32%);
+  --border-subtle:hsl(240 6% 24%);
   --border-hover:240 6% 40%;
   --gradient-start:42 78% 60%;
   --gradient-end:50 90% 72%;
@@ -607,8 +617,8 @@ border-color:hsl(var(--highlight) / .5)
 
 .dark {
   --muted-foreground:240 5% 65%;
-  --border:240 6% 32%;
-  --border-subtle:240 6% 24%;
+  --border:hsl(240 6% 32%);
+  --border-subtle:hsl(240 6% 24%);
   --border-hover:240 6% 40%;
   --gradient-start:54 95% 45%;
   --gradient-end:54 95% 60%;
@@ -642,4 +652,14 @@ border-color:hsl(var(--highlight) / .5)
 /* generator 工作台态：隐藏布局 Footer */
 body.generator-workbench-active footer {
   display: none;
+}
+
+/* 标题高亮词：金 -> 浅金 渐变文字（纯 CSS，不依赖 Tailwind 内部变量） */
+.title-gradient-text {
+  background-image: linear-gradient(90deg, hsl(var(--highlight)), hsl(46 55% 80%));
+  color: #0000;
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 800;
+  font-style: italic;
 }

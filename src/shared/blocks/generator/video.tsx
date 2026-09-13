@@ -681,7 +681,7 @@ export function VideoGenerator({
                   <span className="text-foreground">
                     {t('workbench.title_prefix')}
                   </span>
-                  <span className="inline-block bg-gradient-to-r from-[hsl(var(--highlight))] to-[hsl(46,55%,80%)] bg-clip-text font-extrabold italic text-transparent">
+                  <span className="title-gradient-text inline-block">
                     {t('workbench.title_highlight')}
                   </span>
                   <span className="text-foreground">

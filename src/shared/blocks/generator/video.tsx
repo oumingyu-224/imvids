@@ -864,7 +864,7 @@ export function VideoGenerator({
                             onChange={(e) => setPrompt(e.target.value)}
                             placeholder={t('workbench.prompt_placeholder')}
                             maxLength={MAX_PROMPT_LENGTH}
-                            className="min-h-[100px] resize-y border-border/50 bg-card pr-10 md:min-h-[140px]"
+                            className="min-h-[100px] resize-y border-border/50 bg-card pr-10 transition-colors duration-200 focus-visible:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 md:min-h-[140px]"
                           />
                         </div>
                         <div className="flex justify-end text-xs">

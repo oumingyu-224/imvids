@@ -1310,7 +1310,7 @@ export function ImageGenerator({
                                 }
                                 placeholder={promptPlaceholder}
                                 maxLength={promptMaxLength}
-                                className="prompt-textarea-resize relative z-10 min-h-[100px] resize-y border-border/50 bg-card pb-9 pr-10 caret-foreground placeholder:text-muted-foreground md:min-h-[140px]"
+                                className="prompt-textarea-resize relative z-10 min-h-[100px] resize-y border-border/50 bg-card pb-9 pr-10 caret-foreground placeholder:text-muted-foreground transition-colors duration-200 focus-visible:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 md:min-h-[140px]"
                               />
                               <div className="absolute bottom-2 left-2 z-20 flex items-center gap-1">
                                 <button
@@ -1415,6 +1415,12 @@ export function ImageGenerator({
                               <div className="grid grid-cols-3 gap-2 px-1">
                                 {QUALITY_OPTIONS.map((option) => {
                                   const active = qualityLabel === option;
+                                  const qualityKey =
+                                    option === '高清'
+                                      ? 'quality_hd'
+                                      : option === '超清'
+                                        ? 'quality_ultra'
+                                        : 'quality_standard';
                                   return (
                                     <button
                                       key={option}
@@ -1441,7 +1447,7 @@ export function ImageGenerator({
                                           active && 'gradient-text'
                                         )}
                                       >
-                                        {option}
+                                        {t(`workbench.${qualityKey}`)}
                                       </span>
                                     </button>
                                   );

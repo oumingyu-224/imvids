@@ -145,7 +145,10 @@
       "or_choose_from": "or choose from",
       "asset_library": "Asset library",
       "collapse": "Collapse",
-      "no_preview": "No preview"
+      "no_preview": "No preview",
+      "quality_standard": "Basic",
+      "quality_hd": "High",
+      "quality_ultra": "Ultra"
     }
   }
 }

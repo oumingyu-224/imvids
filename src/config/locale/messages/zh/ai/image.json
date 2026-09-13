@@ -145,7 +145,10 @@
       "or_choose_from": "或从以下选择",
       "asset_library": "素材库",
       "collapse": "收起",
-      "no_preview": "暂无预览"
+      "no_preview": "暂无预览",
+      "quality_standard": "基础",
+      "quality_hd": "高清",
+      "quality_ultra": "超清"
     }
   }
 }

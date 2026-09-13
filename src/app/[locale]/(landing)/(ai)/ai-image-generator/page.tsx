@@ -32,7 +32,7 @@ export default async function AiImageGeneratorPage({
         description: t.raw('page.description'),
       },
       generator: {
-        component: <ImageGenerator srOnlyTitle={t.raw('generator.title')} />,
+        component: <ImageGenerator srOnlyTitle={t.raw('generator.title')} modeLocked />,
       },
       faq: tl.raw('faq'),
       cta: tl.raw('cta'),

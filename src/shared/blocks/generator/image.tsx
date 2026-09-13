@@ -59,6 +59,8 @@ interface ImageGeneratorProps {
   promptKey?: string;
   defaultModel?: string;
   initialConfig?: PromptShowcaseConfig | null;
+  /** 锁定模式（内页直接嵌入时）：模式区渲染为纯文字标识，不提供切换 */
+  modeLocked?: boolean;
 }
 
 interface GeneratedImage {
@@ -275,6 +277,7 @@ export function ImageGenerator({
   promptKey,
   defaultModel,
   initialConfig,
+  modeLocked = false,
 }: ImageGeneratorProps) {
   const locale = useLocale();
   const t = useTranslations('ai.image.generator');
@@ -1102,6 +1105,16 @@ export function ImageGenerator({
                     {/* 顶部：模式切换 + 模型选择 */}
                     <div className="flex-shrink-0 p-6 pb-2">
                       <div className="flex flex-col gap-3 sm:mb-2 sm:flex-row sm:items-center sm:justify-between">
+                        {modeLocked ? (
+                          <div className="grid h-8 w-full items-center rounded-full border border-white/[0.06] bg-black/40 p-0.5 sm:flex sm:h-9 sm:w-auto sm:flex-shrink-0">
+                            <span className="relative flex h-7 items-center justify-center whitespace-nowrap rounded-full px-4 text-xs font-medium text-white sm:h-8 sm:px-4 sm:text-sm">
+                              <span className="absolute inset-0 rounded-full bg-white/[0.12]" />
+                              <span className="relative z-10">
+                                {t('workbench.mode_image')}
+                              </span>
+                            </span>
+                          </div>
+                        ) : (
                         <div className="grid h-8 w-full grid-cols-2 items-center rounded-full border border-white/[0.06] bg-black/40 p-0.5 sm:flex sm:h-9 sm:w-auto sm:flex-shrink-0">
                           <button
                             type="button"
@@ -1123,6 +1136,7 @@ export function ImageGenerator({
                             </span>
                           </button>
                         </div>
+                        )}
                         <ModelSelect
                           mode={mediaMode}
                           value={model}

@@ -36,7 +36,7 @@ export default async function AiVideoGeneratorPage({
         },
       },
       generator: {
-        component: <VideoGenerator srOnlyTitle={t.raw('generator.title')} />,
+        component: <VideoGenerator srOnlyTitle={t.raw('generator.title')} modeLocked />,
       },
       faq: tl.raw('faq'),
       cta: tl.raw('cta'),

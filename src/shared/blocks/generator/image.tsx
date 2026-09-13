@@ -1111,16 +1111,8 @@ export function ImageGenerator({
                           <button
                             type="button"
                             onClick={() => handleMediaModeChange('video')}
-                            className={cn(
-                              'relative flex h-7 items-center justify-center whitespace-nowrap rounded-full text-xs transition-all sm:h-8 sm:px-4 sm:text-sm',
-                              mediaMode === 'video'
-                                ? 'font-medium text-white'
-                                : 'text-gray-500 hover:text-gray-300'
-                            )}
+                            className="relative flex h-7 items-center justify-center whitespace-nowrap rounded-full text-xs text-gray-500 transition-all hover:text-gray-300 sm:h-8 sm:px-4 sm:text-sm"
                           >
-                            {mediaMode === 'video' ? (
-                              <span className="absolute inset-0 rounded-full bg-white/[0.12]" />
-                            ) : null}
                             <span className="relative z-10">
                               {t('workbench.mode_video')}
                             </span>
@@ -1128,16 +1120,9 @@ export function ImageGenerator({
                           <button
                             type="button"
                             onClick={() => handleMediaModeChange('image')}
-                            className={cn(
-                              'relative flex h-7 items-center justify-center whitespace-nowrap rounded-full text-xs transition-all sm:h-8 sm:px-4 sm:text-sm',
-                              mediaMode === 'image'
-                                ? 'font-medium text-white'
-                                : 'text-gray-500 hover:text-gray-300'
-                            )}
+                            className="relative flex h-7 items-center justify-center whitespace-nowrap rounded-full text-xs font-medium text-white transition-all sm:h-8 sm:px-4 sm:text-sm"
                           >
-                            {mediaMode === 'image' ? (
-                              <span className="absolute inset-0 rounded-full bg-white/[0.12]" />
-                            ) : null}
+                            <span className="absolute inset-0 rounded-full bg-white/[0.12]" />
                             <span className="relative z-10">
                               {t('workbench.mode_image')}
                             </span>

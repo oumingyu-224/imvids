@@ -320,8 +320,6 @@ export function ImageGenerator({
   const [isLoadingProviders, setIsLoadingProviders] = useState(true);
   const hasLoadedCreditsRef = useRef(false);
   const [showPricingDialog, setShowPricingDialog] = useState(false);
-  const [submittedConfig, setSubmittedConfig] =
-    useState<PromptShowcaseConfig | null>(null);
 
   const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } =
     useAppContext();
@@ -411,7 +409,6 @@ export function ImageGenerator({
       }
       setMediaMode('image');
       setWorkTab('text');
-      setSubmittedConfig(initialConfig);
     }
   }, [initialConfig]);
 
@@ -1065,9 +1062,7 @@ export function ImageGenerator({
       {srOnlyTitle && <h2 className="sr-only">{srOnlyTitle}</h2>}
       <div className="flex w-full max-w-[100vw] overflow-hidden bg-background pt-16 transition-[padding] duration-300 md:h-screen">
         <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
-          <main
-            className="workbench-main custom-scrollbar-thin flex flex-col overflow-y-auto overflow-x-hidden bg-background p-2 pb-20 md:pb-2 lg:overflow-hidden"
-          >
+          <main className="workbench-main custom-scrollbar-thin flex h-full flex-col overflow-y-auto overflow-x-hidden bg-background p-2 pb-20 md:pb-2 lg:overflow-hidden">
             {/* 标题行 */}
             <div className="mb-2">
               <div className="flex items-center gap-3">
@@ -1579,51 +1574,6 @@ export function ImageGenerator({
                         </span>
                       </div>
                     </div>
-                    {submittedConfig ? (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, ease: 'easeOut' }}
-                        className="mx-6 mb-4 shrink-0 rounded-[16px] border border-white/10 bg-white/[0.04] p-4"
-                      >
-                        <p className="text-[12px] font-medium uppercase tracking-wide text-white/45">
-                          Ready to generate
-                        </p>
-                        <p className="mt-1.5 line-clamp-3 text-[14px] leading-6 text-white/85">
-                          {submittedConfig.prompt}
-                        </p>
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {[
-                            submittedConfig.mode,
-                            submittedConfig.model,
-                            submittedConfig.ratio,
-                            ...(submittedConfig.mode === 'video'
-                              ? [
-                                  `${submittedConfig.duration}s`,
-                                  submittedConfig.resolution,
-                                ]
-                              : [
-                                  submittedConfig.quality,
-                                  `x${submittedConfig.imageCount}`,
-                                ]),
-                          ].map((chip, chipIndex) => (
-                            <motion.span
-                              key={`${chip}-${chipIndex}`}
-                              initial={{ opacity: 0, y: 4 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{
-                                delay: 0.1 + chipIndex * 0.06,
-                                duration: 0.25,
-                                ease: 'easeOut',
-                              }}
-                              className="rounded-full bg-white/[0.07] px-3 py-1 text-[12px] font-medium text-white/70"
-                            >
-                              {chip}
-                            </motion.span>
-                          ))}
-                        </div>
-                      </motion.div>
-                    ) : null}
                     <div className="flex-1 overflow-hidden p-6 pt-0">
                       <div className="relative h-full pr-2 md:pr-4">
                         <div className="flex h-full w-full items-center justify-center">

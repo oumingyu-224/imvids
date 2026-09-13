@@ -673,9 +673,7 @@ export function VideoGenerator({
       {srOnlyTitle && <h2 className="sr-only">{srOnlyTitle}</h2>}
       <div className="flex w-full max-w-[100vw] overflow-hidden bg-background pt-16 transition-[padding] duration-300 md:h-screen">
         <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
-          <main
-            className="workbench-main custom-scrollbar-thin flex flex-col overflow-y-auto overflow-x-hidden bg-background p-2 pb-20 md:pb-2 lg:overflow-hidden"
-          >
+          <main className="workbench-main custom-scrollbar-thin flex h-full flex-col overflow-y-auto overflow-x-hidden bg-background p-2 pb-20 md:pb-2 lg:overflow-hidden">
             {/* 标题行 */}
             <div className="mb-2">
               <div className="flex items-center gap-3">

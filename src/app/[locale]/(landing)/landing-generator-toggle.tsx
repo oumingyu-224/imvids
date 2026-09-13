@@ -25,6 +25,14 @@ export function LandingGeneratorToggle({
   );
 
   useEffect(() => {
+    document.body.classList.toggle(
+      'generator-workbench-active',
+      showGenerator
+    );
+    return () => document.body.classList.remove('generator-workbench-active');
+  }, [showGenerator]);
+
+  useEffect(() => {
     const handler = (event: Event) => {
       const config = (event as CustomEvent<PromptShowcaseConfig>).detail;
       if (!config) return;
@@ -47,7 +55,7 @@ export function LandingGeneratorToggle({
           exit={{ opacity: 0, y: -16 }}
           transition={{ duration: 0.35, ease: 'easeOut' }}
         >
-          <div className="pt-0 pb-12 md:pb-14">
+          <div className="pt-0">
             <ImageGenerator
               srOnlyTitle={generatorSrOnlyTitle}
               promptKey={promptKey}

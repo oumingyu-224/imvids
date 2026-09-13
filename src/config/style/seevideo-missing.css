@@ -638,3 +638,8 @@ border-color:hsl(var(--highlight) / .5)
 .duration-slider {
   accent-color: hsl(var(--highlight));
 }
+
+/* generator 工作台态：隐藏布局 Footer */
+body.generator-workbench-active footer {
+  display: none;
+}

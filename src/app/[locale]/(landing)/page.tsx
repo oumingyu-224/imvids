@@ -1,16 +1,8 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
-import { getThemePage } from '@/core/theme';
-import { PromptShowcase } from '@/shared/blocks/common/prompt-showcase';
-import { LandingGeneratorToggle } from './landing-generator-toggle';
-import {
-  getCurrentSubscription,
-  type Subscription,
-} from '@/shared/models/subscription';
-import { getLatestShowcases } from '@/shared/models/showcase';
-import { getUserInfo } from '@/shared/models/user';
-import { DynamicPage, Section } from '@/shared/types/blocks/landing';
-import { ShowcasesFlowDynamic } from '@/themes/default/blocks/showcases-flow-dynamic';
+import { homeLandingPageConfig } from '@/config/landing-pages';
+
+import { LandingPageRenderer } from './landing-page-renderer';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -26,108 +18,10 @@ export default async function LandingPage({
   const { prompt: promptKey } = await searchParams;
   setRequestLocale(locale);
 
-  const t = await getTranslations('landing');
-  const createT = await getTranslations('pages.create');
-  const pricingT = await getTranslations('pages.pricing');
-
-  let currentSubscription: Subscription | undefined;
-  try {
-    const user = await getUserInfo();
-    if (user) {
-      currentSubscription = await getCurrentSubscription(user.id);
-    }
-  } catch {}
-
-  // Fetch showcases data server-side for faster initial render
-  const rawShowcases = await getLatestShowcases({
-    excludeTags: 'hairstyles',
-    sortOrder: 'desc',
-    limit: 20,
-  });
-
-  const initialShowcases = rawShowcases.map((item) => ({
-    ...item,
-    createdAt: item.createdAt.toISOString(),
-  }));
-
-  const showSections = [
-    'hero',
-    'prompt-showcase',
-    'showcases-flow',
-    'logos',
-    'introduce',
-    'benefits',
-    'usage',
-    'features',
-    'stats',
-    'testimonials',
-    'pricing',
-    'subscribe',
-    'faq',
-    'cta',
-  ];
-
-  // build page sections
-  const page: DynamicPage = {
-    sections: showSections.reduce<Record<string, Section>>((acc, section) => {
-      if (section === 'showcases-flow') {
-        const sectionData = t.raw(section) as Section;
-        acc[section] = {
-          ...sectionData,
-          component: (
-            <ShowcasesFlowDynamic
-              key="showcases-flow"
-              id={sectionData.id}
-              title={sectionData.title}
-              description={sectionData.description}
-              excludeTags="hairstyles"
-              sortOrder="desc"
-              initialItems={initialShowcases}
-            />
-          ),
-        };
-      } else if (section === 'prompt-showcase') {
-        acc[section] = {
-          component: (
-            <div className="pt-0 pb-0" key="prompt-showcase">
-              <PromptShowcase className="mt-12" />
-            </div>
-          ),
-        };
-      } else if (section === 'pricing') {
-        const { sr_only_title, ...pricing } = pricingT.raw('pricing');
-        acc[section] = {
-          block: 'pricing',
-          data: {
-            pricing,
-            currentSubscription,
-            hidePromo: true,
-            hideWhyYearly: true,
-            hideCompareTable: true,
-          },
-        };
-      } else {
-        const sectionData = t.raw(section) as Section;
-        // Skip sections that are explicitly hidden, null, or undefined
-        if (
-          sectionData &&
-          typeof sectionData === 'object' &&
-          sectionData.hidden !== true
-        ) {
-          acc[section] = sectionData;
-        }
-      }
-      return acc;
-    }, {}),
-  };
-
-  // load page component
-  const Page = await getThemePage('dynamic-page');
-
   return (
-    <LandingGeneratorToggle
-      landing={<Page locale={locale} page={page} />}
-      generatorSrOnlyTitle={createT.raw('generator.title')}
+    <LandingPageRenderer
+      locale={locale}
+      config={homeLandingPageConfig}
       promptKey={promptKey}
     />
   );

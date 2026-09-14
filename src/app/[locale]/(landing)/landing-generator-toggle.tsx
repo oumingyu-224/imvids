@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
-import { ImageGenerator } from '@/shared/blocks/generator';
+import { ImageGenerator, VideoGenerator } from '@/shared/blocks/generator';
 import {
   type PromptShowcaseConfig,
 } from '@/shared/blocks/common/prompt-showcase';
@@ -12,10 +12,12 @@ const GENERATE_EVENT = 'prompt-showcase:generate';
 
 export function LandingGeneratorToggle({
   landing,
+  generator = 'image',
   generatorSrOnlyTitle,
   promptKey,
 }: {
   landing: React.ReactNode;
+  generator?: 'image' | 'video';
   generatorSrOnlyTitle?: string;
   promptKey?: string;
 }) {
@@ -56,11 +58,15 @@ export function LandingGeneratorToggle({
           transition={{ duration: 0.35, ease: 'easeOut' }}
         >
           <div className="pt-0">
-            <ImageGenerator
-              srOnlyTitle={generatorSrOnlyTitle}
-              promptKey={promptKey}
-              initialConfig={initialConfig}
-            />
+            {generator === 'video' ? (
+              <VideoGenerator srOnlyTitle={generatorSrOnlyTitle} />
+            ) : (
+              <ImageGenerator
+                srOnlyTitle={generatorSrOnlyTitle}
+                promptKey={promptKey}
+                initialConfig={initialConfig}
+              />
+            )}
           </div>
         </motion.div>
       ) : (

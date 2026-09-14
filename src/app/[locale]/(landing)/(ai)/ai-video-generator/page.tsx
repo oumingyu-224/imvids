@@ -1,9 +1,9 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
-import { getThemePage } from '@/core/theme';
-import { VideoGenerator } from '@/shared/blocks/generator';
+import { aiVideoGeneratorPageConfig } from '@/config/landing-pages';
 import { getMetadata } from '@/shared/lib/seo';
-import { DynamicPage } from '@/shared/types/blocks/landing';
+
+import { LandingPageRenderer } from '../../landing-page-renderer';
 
 export const generateMetadata = getMetadata({
   metadataKey: 'ai.video.metadata',
@@ -12,39 +12,20 @@ export const generateMetadata = getMetadata({
 
 export default async function AiVideoGeneratorPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ prompt?: string }>;
 }) {
   const { locale } = await params;
+  const { prompt: promptKey } = await searchParams;
   setRequestLocale(locale);
 
-  // get ai video data
-  const t = await getTranslations('ai.video');
-
-  // get landing page data
-  const tl = await getTranslations('landing');
-
-  // build page sections
-  const page: DynamicPage = {
-    sections: {
-      hero: {
-        title: t.raw('page.title'),
-        description: t.raw('page.description'),
-        background_image: {
-          src: '/imgs/bg/tree.jpg',
-          alt: 'hero background',
-        },
-      },
-      generator: {
-        component: <VideoGenerator srOnlyTitle={t.raw('generator.title')} modeLocked />,
-      },
-      faq: tl.raw('faq'),
-      cta: tl.raw('cta'),
-    },
-  };
-
-  // load page component
-  const Page = await getThemePage('dynamic-page');
-
-  return <Page locale={locale} page={page} />;
+  return (
+    <LandingPageRenderer
+      locale={locale}
+      config={aiVideoGeneratorPageConfig}
+      promptKey={promptKey}
+    />
+  );
 }

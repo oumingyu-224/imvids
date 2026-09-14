@@ -150,5 +150,74 @@
       "quality_hd": "High",
       "quality_ultra": "Ultra"
     }
+  },
+  "hero": {
+    "id": "hero",
+    "title": "",
+    "description": "",
+    "trust_items": [],
+    "buttons": [],
+    "show_avatars": false,
+    "avatars_tip": "",
+    "show_award": false,
+    "background_image": ""
+  },
+  "showcases-flow": {
+    "id": "showcases-flow",
+    "title": "",
+    "description": "",
+    "items": []
+  },
+  "logos": {
+    "hidden": true
+  },
+  "introduce": {
+    "hidden": true
+  },
+  "benefits": {
+    "hidden": true
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "",
+    "description": "",
+    "image": {
+      "src": "",
+      "alt": ""
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": []
+  },
+  "features": {
+    "id": "features",
+    "title": "",
+    "description": "",
+    "items": []
+  },
+  "stats": {
+    "hidden": true
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "",
+    "description": "",
+    "items": []
+  },
+  "subscribe": {
+    "hidden": true
+  },
+  "faq": {
+    "id": "faq",
+    "title": "",
+    "items": []
+  },
+  "cta": {
+    "id": "cta",
+    "title": "",
+    "description": "",
+    "buttons": [],
+    "className": "landing-cta-band"
   }
 }

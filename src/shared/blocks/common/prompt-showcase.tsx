@@ -223,17 +223,26 @@ function ModelDropdown({
 export function PromptShowcase({
   className,
   variant = 'page',
+  lockedMode = false,
+  defaultMode = 'image',
   onGenerate,
 }: {
   className?: string;
   variant?: 'page' | 'panel';
+  /** 锁定模式（内页）：隐藏 image/video 切换胶囊，固定为 defaultMode */
+  lockedMode?: boolean;
+  defaultMode?: Mode;
   onGenerate?: (config: PromptShowcaseConfig) => void;
 }) {
   const isPanel = variant === 'panel';
   const [value, setValue] = useState(DEFAULT_PROMPT);
   const [activeModel, setActiveModel] = useState('Seedance');
-  const [mode, setMode] = useState<Mode>('image');
-  const [model, setModel] = useState(GEN_IMAGE_MODELS[0].name);
+  const [mode, setMode] = useState<Mode>(defaultMode);
+  const [model, setModel] = useState(
+    defaultMode === 'video'
+      ? GEN_VIDEO_MODELS[0].name
+      : GEN_IMAGE_MODELS[0].name
+  );
   const [videoRatio, setVideoRatio] = useState('16:9');
   const [imageRatio, setImageRatio] = useState('1:1');
   const [duration, setDuration] = useState(5);
@@ -403,7 +412,12 @@ export function PromptShowcase({
 
           {boxExpanded ? (
             <div className="prompt-toolbar-in mt-4 flex flex-wrap items-center gap-2">
-              <div className="flex h-9 items-center gap-1 rounded-full bg-white/[0.07] p-1">
+              <div
+              className={cn(
+                'flex h-9 items-center gap-1 rounded-full bg-white/[0.07] p-1',
+                lockedMode && 'hidden'
+              )}
+            >
                 <button
                   type="button"
                   onClick={() => handleModeChange('image')}

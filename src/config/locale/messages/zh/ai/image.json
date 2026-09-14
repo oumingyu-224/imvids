@@ -118,8 +118,8 @@
       "title_suffix": "秒内",
       "badge": "AI 工作空间",
       "subtitle": "将任何想法转化为精美的印刷级图像——只需描述、生成并下载。",
-      "mode_video": "AI视频生成",
-      "mode_image": "AI图片生成",
+      "mode_video": "视频",
+      "mode_image": "图片",
       "tab_text": "文本转 图片",
       "tab_image": "图片转 图片",
       "upload_reference": "上传参考图片",
@@ -148,7 +148,9 @@
       "no_preview": "暂无预览",
       "quality_standard": "基础",
       "quality_hd": "高清",
-      "quality_ultra": "超清"
+      "quality_ultra": "超清",
+      "mode_locked_video": "AI视频生成",
+      "mode_locked_image": "AI图片生成"
     }
   },
   "hero": {

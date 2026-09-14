@@ -1106,13 +1106,8 @@ export function ImageGenerator({
                     <div className="flex-shrink-0 p-6 pb-2">
                       <div className="flex flex-col gap-3 sm:mb-2 sm:flex-row sm:items-center sm:justify-between">
                         {modeLocked ? (
-                          <div className="grid h-8 w-full items-center rounded-full border border-white/[0.06] bg-black/40 p-0.5 sm:flex sm:h-9 sm:w-auto sm:flex-shrink-0">
-                            <span className="relative flex h-7 items-center justify-center whitespace-nowrap rounded-full px-4 text-xs font-medium text-white sm:h-8 sm:px-4 sm:text-sm">
-                              <span className="absolute inset-0 rounded-full bg-white/[0.12]" />
-                              <span className="relative z-10">
-                                {t('workbench.mode_image')}
-                              </span>
-                            </span>
+                          <div className="tracking-tight text-xl font-bold">
+                            {t('workbench.mode_locked_image')}
                           </div>
                         ) : (
                         <div className="grid h-8 w-full grid-cols-2 items-center rounded-full border border-white/[0.06] bg-black/40 p-0.5 sm:flex sm:h-9 sm:w-auto sm:flex-shrink-0">

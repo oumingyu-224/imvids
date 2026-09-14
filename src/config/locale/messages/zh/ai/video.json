@@ -71,7 +71,9 @@
       "upgrade_to_generate": "Upgrade to Generate",
       "my_videos": "我的视频",
       "generating_video_hint": "正在生成你的视频…",
-      "empty_video_hint": "生成的视频会展示在这里"
+      "empty_video_hint": "生成的视频会展示在这里",
+      "mode_locked_video": "AI视频生成",
+      "mode_locked_image": "AI图片生成"
     }
   },
   "hero": {

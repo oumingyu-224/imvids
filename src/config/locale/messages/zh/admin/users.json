@@ -25,7 +25,8 @@
       "view": "查看用户",
       "delete": "删除用户",
       "edit_roles": "编辑角色",
-      "grant_credits": "授予积分"
+      "grant_credits": "授予积分",
+      "set_plan": "设置套餐"
     },
     "search": {
       "email": {
@@ -72,6 +73,22 @@
       "valid_days_tip": "0 表示永久有效",
       "description": "积分授予描述",
       "description_placeholder": "管理员授予积分"
+    }
+  },
+  "set_plan": {
+    "title": "设置套餐",
+    "crumbs": {
+      "admin": "管理后台",
+      "users": "用户",
+      "set_plan": "设置套餐"
+    },
+    "buttons": {
+      "submit": "设置"
+    },
+    "fields": {
+      "plan": "选择套餐",
+      "description": "备注描述",
+      "description_placeholder": "手动设置套餐"
     }
   }
 }

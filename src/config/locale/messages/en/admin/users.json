@@ -25,7 +25,8 @@
       "view": "View User",
       "delete": "Delete User",
       "edit_roles": "Edit Roles",
-      "grant_credits": "Grant Credits"
+      "grant_credits": "Grant Credits",
+      "set_plan": "Set Plan"
     },
     "search": {
       "email": {
@@ -72,6 +73,22 @@
       "valid_days_tip": "0 means no expiration",
       "description": "Credits Grant Description",
       "description_placeholder": "Admin grant credits"
+    }
+  },
+  "set_plan": {
+    "title": "Set Plan",
+    "crumbs": {
+      "admin": "Admin",
+      "users": "Users",
+      "set_plan": "Set Plan"
+    },
+    "buttons": {
+      "submit": "Set Plan"
+    },
+    "fields": {
+      "plan": "Select Plan",
+      "description": "Description",
+      "description_placeholder": "Manually set plan"
     }
   }
 }

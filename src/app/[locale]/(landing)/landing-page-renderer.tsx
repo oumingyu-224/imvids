@@ -126,6 +126,7 @@ export async function LandingPageRenderer({
       landing={<Page locale={locale} page={page} />}
       generatorSrOnlyTitle={t.raw('generator.title')}
       promptKey={promptKey}
+      modeLocked={config.lockedMode}
     />
   );
 }

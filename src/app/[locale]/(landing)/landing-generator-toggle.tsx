@@ -15,11 +15,13 @@ export function LandingGeneratorToggle({
   generator = 'image',
   generatorSrOnlyTitle,
   promptKey,
+  modeLocked = false,
 }: {
   landing: React.ReactNode;
   generator?: 'image' | 'video';
   generatorSrOnlyTitle?: string;
   promptKey?: string;
+  modeLocked?: boolean;
 }) {
   const [showGenerator, setShowGenerator] = useState(false);
   const [initialConfig, setInitialConfig] = useState<PromptShowcaseConfig | null>(
@@ -59,12 +61,16 @@ export function LandingGeneratorToggle({
         >
           <div className="pt-0">
             {generator === 'video' ? (
-              <VideoGenerator srOnlyTitle={generatorSrOnlyTitle} />
+              <VideoGenerator
+                srOnlyTitle={generatorSrOnlyTitle}
+                modeLocked={modeLocked}
+              />
             ) : (
               <ImageGenerator
                 srOnlyTitle={generatorSrOnlyTitle}
                 promptKey={promptKey}
                 initialConfig={initialConfig}
+                modeLocked={modeLocked}
               />
             )}
           </div>

@@ -124,6 +124,12 @@ export default async function AdminUsersPage({
             icon: 'Coins',
             url: `/admin/users/${item.id}/grant-credits`,
           },
+          {
+            name: 'set-plan',
+            title: t('list.buttons.set_plan'),
+            icon: 'PackageCheck',
+            url: `/admin/users/${item.id}/set-plan`,
+          },
         ],
       },
     ],

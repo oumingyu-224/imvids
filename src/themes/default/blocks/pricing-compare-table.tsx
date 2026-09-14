@@ -1,6 +1,8 @@
 'use client';
 
+import { ChevronDown } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 
 import { cn } from '@/shared/lib/utils';
 
@@ -161,6 +163,7 @@ const COMPARE_GROUP_CLASS =
 
 export function PricingCompareTable() {
   const t = useTranslations('pages.pricing.messages');
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
   const compareColumns = [
     {
       title: t('compare_starter'),
@@ -229,7 +232,7 @@ export function PricingCompareTable() {
           {t('compare_title')}
         </span>
       </h2>
-      <div className="overflow-x-auto">
+      <div className="hidden overflow-x-auto lg:block">
         <table className="w-full min-w-[1100px] border-collapse">
           <thead>
             <tr className="border-b border-[hsl(var(--border))]">
@@ -442,6 +445,102 @@ export function PricingCompareTable() {
             ))}
           </tbody>
         </table>
+      </div>
+      {/* 移动端：每套餐一张折叠卡片，只显示权益，不显示模型 */}
+      <div className="space-y-3 lg:hidden">
+        {compareColumns.map((col, colIdx) => {
+          const priceCell = COMPARE_META_ROWS[0].cells[colIdx];
+          const benefitRows = COMPARE_META_ROWS.slice(1);
+          const isOpen = openIdx === colIdx;
+          return (
+            <div
+              key={colIdx}
+              className="overflow-hidden rounded-xl border-2 border-[hsl(var(--border))] bg-[hsl(var(--surface-1))] transition-all"
+            >
+              <button
+                type="button"
+                onClick={() => setOpenIdx(isOpen ? null : colIdx)}
+                className="flex w-full items-center justify-between p-4 text-left transition-colors hover:bg-[hsl(var(--surface-2))]"
+              >
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <h3
+                      className="text-lg font-bold"
+                      style={{
+                        background: col.gradient,
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text',
+                      }}
+                    >
+                      {col.title}
+                    </h3>
+                    {col.highlight && (
+                      <span className="rounded-md border border-primary bg-black px-1.5 py-0.5 text-[10px] font-semibold text-primary shadow-[0_0_4px_hsl(var(--primary)/0.6)]">
+                        {t('compare_badge')}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    {col.subtitle}
+                  </p>
+                  <div className="mt-2">
+                    <span className="text-xl font-bold text-foreground">
+                      {priceCell === 'X'
+                        ? '—'
+                        : priceCell.p.startsWith('compare_')
+                          ? t(priceCell.p)
+                          : priceCell.p}
+                    </span>
+                    {priceCell !== 'X' &&
+                      priceCell.sub?.map((line, lineIdx) => (
+                        <span
+                          key={lineIdx}
+                          className="text-sm text-muted-foreground"
+                        >
+                          {line.startsWith('compare_') ? t(line) : line}
+                        </span>
+                      ))}
+                  </div>
+                </div>
+                <ChevronDown
+                  className={cn(
+                    'h-5 w-5 shrink-0 text-muted-foreground transition-transform',
+                    isOpen && 'rotate-180'
+                  )}
+                />
+              </button>
+              {isOpen && (
+                <div className="border-t border-[hsl(var(--border))] p-4">
+                  <ul className="space-y-2">
+                    {benefitRows.map((row, rowIdx) => {
+                      const cell = row.cells[colIdx];
+                      return (
+                        <li
+                          key={rowIdx}
+                          className="flex items-center justify-between gap-4 text-sm"
+                        >
+                          <span className="text-muted-foreground">
+                            {t(row.labelKey)}
+                          </span>
+                          {cell === 'X' ? (
+                            <span className="text-muted-foreground">❌</span>
+                          ) : (
+                            <span className="font-medium text-foreground">
+                              {cell.p.startsWith('compare_')
+                                ? t(cell.p)
+                                : cell.p}
+                            </span>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </section>
   );

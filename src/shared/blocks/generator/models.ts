@@ -448,6 +448,18 @@ export const VIDEO_MODELS: GeneratorModel[] = [
     recommended: false,
     pricing: { credits: 25, tierAnchor: 'pro' },
   },
+  {
+    id: 'runway-gen-4',
+    name: 'Runway Gen 4',
+    icon: '/model_icon/runway-icon.svg',
+    badges: ['新'],
+    description: 'Runway 的新一代视频生成模型，具备稳定的角色一致性与精细的动态控制',
+    capabilities: ['10s', '100+', '文本和图片'],
+    locked: false,
+    lockedTier: null,
+    recommended: false,
+    pricing: { credits: 100, tierAnchor: 'pro' },
+  },
 ];
 
 export function getModelsByMode(mode: GeneratorMode): GeneratorModel[] {

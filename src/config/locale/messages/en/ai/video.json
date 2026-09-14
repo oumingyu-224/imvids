@@ -78,20 +78,123 @@
   },
   "hero": {
     "id": "hero",
-    "title": "",
-    "description": "",
-    "trust_items": [],
-    "buttons": [],
+    "title": "AI Video Generator",
+    "description": "imvids brings together leading AI video models including Seedance 2.5 and MiniMax H3, supporting text-to-video, image-to-video, and start/end frame control. Switch between models in one workspace and turn a single prompt into cinematic short videos.",
+    "trust_items": [
+      "Free credits to get started",
+      "Seedance 2.5 · MiniMax H3",
+      "Text-to-video & image-to-video"
+    ],
+    "buttons": [
+      {
+        "title": "Generate Video Now",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      },
+      {
+        "title": "View Showcases",
+        "icon": "BookOpenText",
+        "url": "/ai-video-generator#showcases-flow",
+        "target": "_self",
+        "variant": "outline"
+      }
+    ],
     "show_avatars": false,
-    "avatars_tip": "",
+    "avatars_tip": "999+ creators are making AI videos with imvids",
     "show_award": false,
-    "background_image": ""
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
   },
   "showcases-flow": {
     "id": "showcases-flow",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "AI Video Showcases",
+    "description": "Representative videos generated with Seedance 2.5 and MiniMax H3, covering camera moves, transitions, and multi-subject scenes.",
+    "items": [
+      {
+        "title": "Seedance 2.5 Showcase 1",
+        "description": "Cinematic camera moves and multi-shot transitions",
+        "image": {
+          "src": "/imgs/showcases/1.jpeg",
+          "alt": "Seedance 2.5 showcase 1"
+        }
+      },
+      {
+        "title": "Seedance 2.5 Showcase 2",
+        "description": "Complex action and physical motion",
+        "image": {
+          "src": "/imgs/showcases/2.jpeg",
+          "alt": "Seedance 2.5 showcase 2"
+        }
+      },
+      {
+        "title": "MiniMax H3 Showcase 1",
+        "description": "Natural and fluid character performance",
+        "image": {
+          "src": "/imgs/showcases/3.jpeg",
+          "alt": "MiniMax H3 showcase 1"
+        }
+      },
+      {
+        "title": "MiniMax H3 Showcase 2",
+        "description": "High-consistency scene recreation",
+        "image": {
+          "src": "/imgs/showcases/4.jpeg",
+          "alt": "MiniMax H3 showcase 2"
+        }
+      },
+      {
+        "title": "Image-to-Video Showcase 1",
+        "description": "Turn a still image into motion",
+        "image": {
+          "src": "/imgs/showcases/5.jpeg",
+          "alt": "Image-to-video showcase 1"
+        }
+      },
+      {
+        "title": "Image-to-Video Showcase 2",
+        "description": "Start/end frame controlled transitions",
+        "image": {
+          "src": "/imgs/showcases/6.jpeg",
+          "alt": "Image-to-video showcase 2"
+        }
+      },
+      {
+        "title": "Product Video Showcase",
+        "description": "360° product display with lighting effects",
+        "image": {
+          "src": "/imgs/showcases/7.jpeg",
+          "alt": "Product video showcase"
+        }
+      },
+      {
+        "title": "Ad Creative Showcase",
+        "description": "Brand spots and marketing assets",
+        "image": {
+          "src": "/imgs/showcases/8.jpeg",
+          "alt": "Ad creative showcase"
+        }
+      },
+      {
+        "title": "Atmosphere Video Showcase",
+        "description": "Lighting mood and ambient motion",
+        "image": {
+          "src": "/imgs/showcases/9.jpeg",
+          "alt": "Atmosphere video showcase"
+        }
+      },
+      {
+        "title": "Character Video Showcase",
+        "description": "Character motion and emotional expression",
+        "image": {
+          "src": "/imgs/showcases/10.jpeg",
+          "alt": "Character video showcase"
+        }
+      }
+    ]
   },
   "logos": {
     "hidden": true
@@ -105,44 +208,209 @@
   "usage": {
     "block": "features-step",
     "id": "usage",
-    "title": "",
-    "description": "",
+    "title": "How to Create AI Videos with imvids",
+    "description": "Three steps from idea to final cut:",
     "image": {
-      "src": "",
-      "alt": ""
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
     },
     "image_position": "left",
     "text_align": "center",
-    "items": []
+    "items": [
+      {
+        "title": "Pick a Model",
+        "description": "Switch between Seedance 2.5 and MiniMax H3 as needed: choose Seedance 2.5 for cinematic camera language and multi-shot storytelling, or MiniMax H3 for natural performance and scene consistency.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Write a Prompt or Upload an Image",
+        "description": "Describe the scene, action, camera, and style in words, or upload a reference image to run image-to-video with start/end frame control.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Generate and Download",
+        "description": "Choose aspect ratio, duration, and resolution, then generate in one click. Preview and download directly for social media, ads, or short films.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      }
+    ]
   },
   "features": {
     "id": "features",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "imvids AI Video Generation Capabilities",
+    "description": "A multi-model AI video workspace — get the best of Seedance 2.5 and MiniMax H3 on a single page.",
+    "items": [
+      {
+        "title": "Seedance 2.5: Cinematic Camera Work",
+        "description": "Excels at multi-shot storytelling, complex camera moves, and physical action — one prompt produces video with real cinematic language.",
+        "icon": "RiMovieLine"
+      },
+      {
+        "title": "MiniMax H3: Natural, Believable Performance",
+        "description": "Fluid character motion and high scene consistency, ideal for narrative videos and character-driven content.",
+        "icon": "RiUserStarLine"
+      },
+      {
+        "title": "Switch Models in One Workspace",
+        "description": "imvids aggregates top video models — no more jumping between sites. Switch freely and compare results in the same interface.",
+        "icon": "RiExchangeLine"
+      },
+      {
+        "title": "Text-to-Video & Image-to-Video",
+        "description": "Start from pure text, or upload a still image and animate it instantly. Start/end frame control enables precise transitions.",
+        "icon": "RiImageEditLine"
+      },
+      {
+        "title": "Flexible Duration & Resolution",
+        "description": "Multiple aspect ratio and resolution combinations cover vertical short videos, horizontal promos, and every publishing channel.",
+        "icon": "RiAspectRatioLine"
+      },
+      {
+        "title": "Built for Commercial Output",
+        "description": "Results are watermark-free and ready for ads, social content, and brand films — pay as you go with credits.",
+        "icon": "RiFlashlightLine"
+      }
+    ]
   },
   "stats": {
     "hidden": true
   },
   "testimonials": {
     "id": "testimonials",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "What Creators Say About imvids AI Video",
+    "description": "Feedback from video creators, marketing teams, and designers in real projects.",
+    "items": [
+      {
+        "name": "Short-Video Team",
+        "role": "Social Media Production",
+        "quote": "We used to open several sites to try different models. Now one imvids workspace lets us switch between Seedance 2.5 and MiniMax H3 — output speed has doubled.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "short video team"
+        }
+      },
+      {
+        "name": "Ad Director",
+        "role": "Brand Film Creative",
+        "quote": "Seedance 2.5's camera control lets me design shot language directly through prompts, cutting storyboard previsualization costs dramatically.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "ad director"
+        }
+      },
+      {
+        "name": "E-commerce Operator",
+        "role": "Product Video Assets",
+        "quote": "Upload one product photo and get a dynamic showcase video. The image-to-video results look natural — assets go live the same day.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "ecommerce operator"
+        }
+      },
+      {
+        "name": "Maria Santos",
+        "role": "Marketing Director",
+        "quote": "We produce marketing videos at scale with imvids. Multi-model switching lets us pick by budget and style with total flexibility.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Maria Santos"
+        }
+      },
+      {
+        "name": "Jason Park",
+        "role": "Motion Designer",
+        "quote": "MiniMax H3 delivers the most natural character performance I've used — emotions and body motion are spot on.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Jason Park"
+        }
+      },
+      {
+        "name": "Amelia Chen",
+        "role": "Content Strategist",
+        "quote": "With a clear prompt describing scene and action, the first result is usually usable — iteration cost is much lower.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Amelia Chen"
+        }
+      },
+      {
+        "name": "Olivia Brooks",
+        "role": "Brand Visual Lead",
+        "quote": "Start/end frame control is extremely practical for brand transition shots — the generated clips cut straight into the final edit.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Olivia Brooks"
+        }
+      },
+      {
+        "name": "Kevin Miller",
+        "role": "Independent Creator",
+        "quote": "Free credits were enough to start, and the quality exceeded expectations. It's now my default tool for video first drafts.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Kevin Miller"
+        }
+      }
+    ]
   },
   "subscribe": {
     "hidden": true
   },
   "faq": {
     "id": "faq",
-    "title": "",
-    "items": []
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Which AI video models does imvids support?",
+        "answer": "imvids currently features Seedance 2.5 and MiniMax H3, two leading video generation models, and keeps adding more — all switchable from one workspace."
+      },
+      {
+        "question": "What are Seedance 2.5's strengths?",
+        "answer": "Seedance 2.5 excels at cinematic camera work and multi-shot storytelling with stable physical motion — ideal for short videos and ads that need shot language and complex scene transitions."
+      },
+      {
+        "question": "What are MiniMax H3's strengths?",
+        "answer": "MiniMax H3 stands out in character performance and scene consistency, with natural, fluid motion — great for narrative videos and projects demanding character consistency."
+      },
+      {
+        "question": "Does it support image-to-video?",
+        "answer": "Yes. Upload a still image to animate it, or set start and end frames for precise transition control — perfect for product showcases and poster animations."
+      },
+      {
+        "question": "Can I switch between multiple models?",
+        "answer": "Yes. The imvids video workspace lets you switch between models freely — run the same prompt through different models, compare results, and pick the best version."
+      },
+      {
+        "question": "Can I use generated videos commercially?",
+        "answer": "Generated videos are watermark-free and downloadable for social content, ad assets, and more. Please follow each model provider's terms of use and avoid infringing or prohibited content."
+      },
+      {
+        "question": "How do I get started?",
+        "answer": "Sign up to receive free credits, then start generating in the video workspace with a prompt or an uploaded image. Credits are pay-as-you-go — no subscription required."
+      }
+    ]
   },
   "cta": {
     "id": "cta",
-    "title": "",
-    "description": "",
-    "buttons": [],
+    "title": "Start Creating with imvids AI Video",
+    "description": "Powered by Seedance 2.5 and MiniMax H3, with text-to-video and image-to-video in one place — turn a single prompt into your next short film.",
+    "buttons": [
+      {
+        "title": "Start for Free",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
     "className": "landing-cta-band"
   }
 }

@@ -78,20 +78,123 @@
   },
   "hero": {
     "id": "hero",
-    "title": "",
-    "description": "",
-    "trust_items": [],
-    "buttons": [],
+    "title": "AI 视频生成器",
+    "description": "imvids 汇聚 Seedance 2.5 与 MiniMax H3 等领先的 AI 视频模型，支持文生视频、图生视频与首尾帧控制。一个工作台切换多个模型，用一段提示词生成电影级画质的短视频。",
+    "trust_items": [
+      "免费积分可直接开始",
+      "Seedance 2.5 · MiniMax H3",
+      "支持文生视频与图生视频"
+    ],
+    "buttons": [
+      {
+        "title": "立即生成视频",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      },
+      {
+        "title": "查看案例",
+        "icon": "BookOpenText",
+        "url": "/ai-video-generator#showcases-flow",
+        "target": "_self",
+        "variant": "outline"
+      }
+    ],
     "show_avatars": false,
-    "avatars_tip": "",
+    "avatars_tip": "999+ 创作者正在用 imvids 生成 AI 视频",
     "show_award": false,
-    "background_image": ""
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
   },
   "showcases-flow": {
     "id": "showcases-flow",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "AI 视频案例展示",
+    "description": "由 Seedance 2.5 与 MiniMax H3 生成的代表性视频案例，涵盖运镜、转场与多主体场景。",
+    "items": [
+      {
+        "title": "Seedance 2.5 案例 1",
+        "description": "电影级运镜与多镜头切换",
+        "image": {
+          "src": "/imgs/showcases/1.jpeg",
+          "alt": "Seedance 2.5 案例 1"
+        }
+      },
+      {
+        "title": "Seedance 2.5 案例 2",
+        "description": "复杂动作与物理表现",
+        "image": {
+          "src": "/imgs/showcases/2.jpeg",
+          "alt": "Seedance 2.5 案例 2"
+        }
+      },
+      {
+        "title": "MiniMax H3 案例 1",
+        "description": "自然流畅的人物表演",
+        "image": {
+          "src": "/imgs/showcases/3.jpeg",
+          "alt": "MiniMax H3 案例 1"
+        }
+      },
+      {
+        "title": "MiniMax H3 案例 2",
+        "description": "高一致性场景还原",
+        "image": {
+          "src": "/imgs/showcases/4.jpeg",
+          "alt": "MiniMax H3 案例 2"
+        }
+      },
+      {
+        "title": "图生视频案例 1",
+        "description": "一张静态图变成动态视频",
+        "image": {
+          "src": "/imgs/showcases/5.jpeg",
+          "alt": "图生视频案例 1"
+        }
+      },
+      {
+        "title": "图生视频案例 2",
+        "description": "首尾帧控制生成转场",
+        "image": {
+          "src": "/imgs/showcases/6.jpeg",
+          "alt": "图生视频案例 2"
+        }
+      },
+      {
+        "title": "产品展示视频案例",
+        "description": "商品 360 度展示与光效演绎",
+        "image": {
+          "src": "/imgs/showcases/7.jpeg",
+          "alt": "产品展示视频案例"
+        }
+      },
+      {
+        "title": "广告创意视频案例",
+        "description": "品牌短片与营销素材",
+        "image": {
+          "src": "/imgs/showcases/8.jpeg",
+          "alt": "广告创意视频案例"
+        }
+      },
+      {
+        "title": "场景氛围视频案例",
+        "description": "光影氛围与环境动态",
+        "image": {
+          "src": "/imgs/showcases/9.jpeg",
+          "alt": "场景氛围视频案例"
+        }
+      },
+      {
+        "title": "角色演绎视频案例",
+        "description": "角色动作与情绪表达",
+        "image": {
+          "src": "/imgs/showcases/10.jpeg",
+          "alt": "角色演绎视频案例"
+        }
+      }
+    ]
   },
   "logos": {
     "hidden": true
@@ -105,44 +208,209 @@
   "usage": {
     "block": "features-step",
     "id": "usage",
-    "title": "",
-    "description": "",
+    "title": "如何用 imvids 生成 AI 视频",
+    "description": "三步把想法变成成片：",
     "image": {
-      "src": "",
-      "alt": ""
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
     },
     "image_position": "left",
     "text_align": "center",
-    "items": []
+    "items": [
+      {
+        "title": "选择模型",
+        "description": "在 Seedance 2.5 与 MiniMax H3 之间按需切换：要强运镜和多镜头叙事选 Seedance 2.5，要自然表演和画面一致性选 MiniMax H3。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "写提示词或上传图片",
+        "description": "用文字描述场景、动作、镜头与风格；也可以上传参考图，走图生视频或首尾帧控制流程。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "生成并下载",
+        "description": "选择宽高比、时长与分辨率后一键生成，预览满意即可直接下载，用于社媒、广告或短片制作。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      }
+    ]
   },
   "features": {
     "id": "features",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "imvids AI 视频生成核心能力",
+    "description": "多模型聚合的 AI 视频工作台，一个页面用尽 Seedance 2.5 与 MiniMax H3 的全部优势。",
+    "items": [
+      {
+        "title": "Seedance 2.5：电影级运镜",
+        "description": "擅长多镜头叙事、复杂运镜与物理动作表现，一段提示词即可生成有镜头语言的短视频。",
+        "icon": "RiMovieLine"
+      },
+      {
+        "title": "MiniMax H3：自然逼真的表演",
+        "description": "人物动作流畅自然，场景与角色保持高一致性，适合叙事类与人物向视频内容。",
+        "icon": "RiUserStarLine"
+      },
+      {
+        "title": "一个工作台切换多个模型",
+        "description": "imvids 聚合多家顶级视频模型，无需在多个网站间跳转，同一界面自由切换、对比效果。",
+        "icon": "RiExchangeLine"
+      },
+      {
+        "title": "文生视频与图生视频",
+        "description": "从纯文字开始创作，或上传静态图一键驱动成动态视频，也支持首尾帧精准控制转场。",
+        "icon": "RiImageEditLine"
+      },
+      {
+        "title": "灵活的时长与分辨率",
+        "description": "支持多种宽高比与分辨率组合，覆盖竖屏短视频、横屏宣传片等不同发布渠道需求。",
+        "icon": "RiAspectRatioLine"
+      },
+      {
+        "title": "面向商用场景的产出",
+        "description": "生成结果可直接用于广告素材、社媒内容与品牌短片，配合积分制按需付费、无水印下载。",
+        "icon": "RiFlashlightLine"
+      }
+    ]
   },
   "stats": {
     "hidden": true
   },
   "testimonials": {
     "id": "testimonials",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "创作者对 imvids AI 视频生成的评价",
+    "description": "来自视频创作者、营销团队与设计师在真实项目中的反馈。",
+    "items": [
+      {
+        "name": "短视频团队",
+        "role": "社媒内容制作",
+        "quote": "以前要开好几个网站分别试不同模型，现在 imvids 一个工作台就能在 Seedance 2.5 和 MiniMax H3 之间切换，出片效率翻倍。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "short video team"
+        }
+      },
+      {
+        "name": "广告导演",
+        "role": "品牌短片创意",
+        "quote": "Seedance 2.5 的运镜能力让我能直接用提示词设计镜头语言，预演分镜的成本大幅下降。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "ad director"
+        }
+      },
+      {
+        "name": "电商运营",
+        "role": "商品视频素材",
+        "quote": "上传一张商品图就能生成动态展示视频，图生视频的效果自然，素材当天就能上线投放。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "ecommerce operator"
+        }
+      },
+      {
+        "name": "Maria Santos",
+        "role": "市场总监",
+        "quote": "我们用 imvids 批量产出营销短视频，多模型切换让我们能按预算和风格灵活选型。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Maria Santos"
+        }
+      },
+      {
+        "name": "Jason Park",
+        "role": "动态设计师",
+        "quote": "MiniMax H3 的人物表演是目前用过的模型里最自然的，情绪和肢体动作都很到位。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Jason Park"
+        }
+      },
+      {
+        "name": "Amelia Chen",
+        "role": "内容策略师",
+        "quote": "提示词写清楚场景和动作，基本一次就能得到可用的结果，迭代成本低很多。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Amelia Chen"
+        }
+      },
+      {
+        "name": "Olivia Brooks",
+        "role": "品牌视觉负责人",
+        "quote": "首尾帧控制对品牌转场镜头特别实用，生成的片段可以直接剪进正片。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Olivia Brooks"
+        }
+      },
+      {
+        "name": "Kevin Miller",
+        "role": "独立创作者",
+        "quote": "免费积分就能开始试，生成质量超出预期，现在已经是我做视频初稿的默认工具。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Kevin Miller"
+        }
+      }
+    ]
   },
   "subscribe": {
     "hidden": true
   },
   "faq": {
     "id": "faq",
-    "title": "",
-    "items": []
+    "title": "常见问题",
+    "items": [
+      {
+        "question": "imvids 支持哪些 AI 视频模型？",
+        "answer": "imvids 目前主打 Seedance 2.5 与 MiniMax H3 两款领先的视频生成模型，并持续接入更多新模型，一个工作台即可切换使用。"
+      },
+      {
+        "question": "Seedance 2.5 有什么优势？",
+        "answer": "Seedance 2.5 擅长电影级运镜与多镜头叙事，动作与物理表现稳定，适合需要镜头语言和复杂场景切换的短视频与广告内容。"
+      },
+      {
+        "question": "MiniMax H3 有什么优势？",
+        "answer": "MiniMax H3 在人物表演与画面一致性上表现出色，动作自然流畅，适合人物向叙事视频和对角色一致性要求较高的创作。"
+      },
+      {
+        "question": "支持图生视频吗？",
+        "answer": "支持。你可以上传静态图片生成动态视频，也可以设置首尾帧来精准控制镜头转场，适合产品展示、海报动效等场景。"
+      },
+      {
+        "question": "可以在多个模型之间切换吗？",
+        "answer": "可以。imvids 的视频工作台支持在多个模型之间自由切换，同一份提示词可以分别用不同模型生成并对比效果，选出最满意的版本。"
+      },
+      {
+        "question": "生成的视频可以商用吗？",
+        "answer": "生成的视频无水印，可下载后用于社媒内容、广告素材等用途。请遵守各模型服务商的使用条款，避免生成侵权或违规内容。"
+      },
+      {
+        "question": "如何开始使用？",
+        "answer": "注册后即可获得免费积分，直接在视频工作台输入提示词或上传图片开始生成，按量消耗积分，无需订阅也可使用。"
+      }
+    ]
   },
   "cta": {
     "id": "cta",
-    "title": "",
-    "description": "",
-    "buttons": [],
+    "title": "立即体验 imvids AI 视频生成",
+    "description": "Seedance 2.5 与 MiniMax H3 双模型加持，文生视频、图生视频一站完成，用一段提示词生成你的下一支短片。",
+    "buttons": [
+      {
+        "title": "免费开始生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
     "className": "landing-cta-band"
   }
 }

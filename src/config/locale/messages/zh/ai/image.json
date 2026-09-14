@@ -155,20 +155,123 @@
   },
   "hero": {
     "id": "hero",
-    "title": "",
-    "description": "",
-    "trust_items": [],
-    "buttons": [],
+    "title": "AI 图片生成器",
+    "description": "imvids 汇聚 GPT Images 2.5 等领先的 AI 图像模型，支持文生图与图生图。一个工作台切换多个模型，用一段提示词生成海报级、可商用的精美图片。",
+    "trust_items": [
+      "免费积分可直接开始",
+      "GPT Images 2.5 加持",
+      "支持文生图与图生图"
+    ],
+    "buttons": [
+      {
+        "title": "立即生成图片",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      },
+      {
+        "title": "查看案例",
+        "icon": "BookOpenText",
+        "url": "/ai-image-generator#showcases-flow",
+        "target": "_self",
+        "variant": "outline"
+      }
+    ],
     "show_avatars": false,
-    "avatars_tip": "",
+    "avatars_tip": "999+ 创作者正在用 imvids 生成 AI 图片",
     "show_award": false,
-    "background_image": ""
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
   },
   "showcases-flow": {
     "id": "showcases-flow",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "AI 图片案例展示",
+    "description": "由 GPT Images 2.5 生成的代表性图片案例，涵盖海报、商品图、插画与图中文字场景。",
+    "items": [
+      {
+        "title": "GPT Images 2.5 案例 1",
+        "description": "高保真提示词遵循与构图控制",
+        "image": {
+          "src": "/imgs/showcases/1.jpeg",
+          "alt": "GPT Images 2.5 案例 1"
+        }
+      },
+      {
+        "title": "GPT Images 2.5 案例 2",
+        "description": "图中文字渲染与版式设计",
+        "image": {
+          "src": "/imgs/showcases/2.jpeg",
+          "alt": "GPT Images 2.5 案例 2"
+        }
+      },
+      {
+        "title": "图生图编辑案例 1",
+        "description": "参考图保真的局部精修",
+        "image": {
+          "src": "/imgs/showcases/3.jpeg",
+          "alt": "图生图编辑案例 1"
+        }
+      },
+      {
+        "title": "图生图编辑案例 2",
+        "description": "风格迁移与商品图重绘",
+        "image": {
+          "src": "/imgs/showcases/4.jpeg",
+          "alt": "图生图编辑案例 2"
+        }
+      },
+      {
+        "title": "电商商品图案例",
+        "description": "主图与营销素材快速产出",
+        "image": {
+          "src": "/imgs/showcases/5.jpeg",
+          "alt": "电商商品图案例"
+        }
+      },
+      {
+        "title": "社媒海报案例",
+        "description": "带文字的社媒传播图",
+        "image": {
+          "src": "/imgs/showcases/6.jpeg",
+          "alt": "社媒海报案例"
+        }
+      },
+      {
+        "title": "插画风格案例",
+        "description": "多风格插画与概念设计",
+        "image": {
+          "src": "/imgs/showcases/7.jpeg",
+          "alt": "插画风格案例"
+        }
+      },
+      {
+        "title": "品牌视觉案例",
+        "description": "Logo 辅助图与贴纸素材",
+        "image": {
+          "src": "/imgs/showcases/8.jpeg",
+          "alt": "品牌视觉案例"
+        }
+      },
+      {
+        "title": "透明背景案例",
+        "description": "可直接用于设计的透明底输出",
+        "image": {
+          "src": "/imgs/showcases/9.jpeg",
+          "alt": "透明背景案例"
+        }
+      },
+      {
+        "title": "多尺寸输出案例",
+        "description": "适配各渠道的尺寸组合",
+        "image": {
+          "src": "/imgs/showcases/10.jpeg",
+          "alt": "多尺寸输出案例"
+        }
+      }
+    ]
   },
   "logos": {
     "hidden": true
@@ -182,44 +285,209 @@
   "usage": {
     "block": "features-step",
     "id": "usage",
-    "title": "",
-    "description": "",
+    "title": "如何用 imvids 生成 AI 图片",
+    "description": "三步得到可用成品：",
     "image": {
-      "src": "",
-      "alt": ""
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
     },
     "image_position": "left",
     "text_align": "center",
-    "items": []
+    "items": [
+      {
+        "title": "选择模型",
+        "description": "在 GPT Images 2.5 等多个模型之间按需切换：要强提示词遵循和图中文字渲染，GPT Images 2.5 是首选。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "写提示词或上传参考图",
+        "description": "描述主体、构图、光线、材质和图中文字需求；需要保留商品结构或风格时，上传参考图走图生图流程。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "生成并下载",
+        "description": "选择宽高比、质量与数量后一键生成，迭代到满意即可下载，用于电商、社媒与品牌发布。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      }
+    ]
   },
   "features": {
     "id": "features",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "imvids AI 图片生成核心能力",
+    "description": "多模型聚合的 AI 图像工作台，一个页面用尽 GPT Images 2.5 的全部优势。",
+    "items": [
+      {
+        "title": "GPT Images 2.5：更强的提示词遵循",
+        "description": "对构图控制、局部修改和复杂指令理解更稳定，写什么就能更准确地画出什么。",
+        "icon": "RiMagicLine"
+      },
+      {
+        "title": "图中文字与透明背景",
+        "description": "GPT Images 2.5 支持可靠的图中文字渲染与透明底输出，海报、贴纸、Logo 辅助图直接可用。",
+        "icon": "Layers"
+      },
+      {
+        "title": "一个工作台切换多个模型",
+        "description": "imvids 聚合多家顶级图像模型，无需在多个网站间跳转，同一界面自由切换、对比效果。",
+        "icon": "RiExchangeLine"
+      },
+      {
+        "title": "参考图保真的图生图",
+        "description": "上传参考图保留商品结构、角色细节与品牌元素，在原图基础上精准重绘与编辑。",
+        "icon": "RiImageEditLine"
+      },
+      {
+        "title": "多尺寸与高质量输出",
+        "description": "支持多种宽高比与质量档位，覆盖电商主图、社媒内容、印刷物料等商用场景。",
+        "icon": "RiAspectRatioLine"
+      },
+      {
+        "title": "按需付费、无水印下载",
+        "description": "积分制按量消耗，免费积分即可开始，成品无水印直接下载使用。",
+        "icon": "RiFlashlightLine"
+      }
+    ]
   },
   "stats": {
     "hidden": true
   },
   "testimonials": {
     "id": "testimonials",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "创作者对 imvids AI 图片生成的评价",
+    "description": "来自设计师、电商卖家与内容团队在真实工作流中的反馈。",
+    "items": [
+      {
+        "name": "设计团队",
+        "role": "品牌与创意运营",
+        "quote": "GPT Images 2.5 的提示词遵循能力让美术方向落地更准，imvids 一个页面就完成了我们大部分视觉产出。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "design team"
+        }
+      },
+      {
+        "name": "电商卖家",
+        "role": "商品图与广告素材",
+        "quote": "参考图保真度很高，商品结构不会跑偏，生成的素材可以直接上架使用。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "ecommerce seller"
+        }
+      },
+      {
+        "name": "内容创作者",
+        "role": "社媒与视觉发布",
+        "quote": "图中文字渲染终于靠谱了，海报式社媒图基本一次出稿，不用再反复修。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "content creator"
+        }
+      },
+      {
+        "name": "Maria Santos",
+        "role": "市场总监",
+        "quote": "我们用 imvids 做活动视觉方向和快速创意落地，多模型对比让选型更高效。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Maria Santos"
+        }
+      },
+      {
+        "name": "Jason Park",
+        "role": "产品视觉设计师",
+        "quote": "版式要求执行得很到位，输出足够成品化，可以直接拿去提案。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Jason Park"
+        }
+      },
+      {
+        "name": "Amelia Chen",
+        "role": "创意策略师",
+        "quote": "透明背景输出省去了抠图环节，做贴纸和素材包的效率提升非常明显。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Amelia Chen"
+        }
+      },
+      {
+        "name": "Olivia Brooks",
+        "role": "品牌设计师",
+        "quote": "图生图在保留品牌元素的同时优化构图，这是我们一直想要的工作流。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Olivia Brooks"
+        }
+      },
+      {
+        "name": "Kevin Miller",
+        "role": "内容负责人",
+        "quote": "免费积分就能试全部功能，现在团队的所有配图需求都先在 imvids 上出稿。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Kevin Miller"
+        }
+      }
+    ]
   },
   "subscribe": {
     "hidden": true
   },
   "faq": {
     "id": "faq",
-    "title": "",
-    "items": []
+    "title": "常见问题",
+    "items": [
+      {
+        "question": "imvids 支持哪些 AI 图片模型？",
+        "answer": "imvids 目前主打 GPT Images 2.5，并支持多个领先的 AI 图像模型，持续接入新模型，一个工作台即可切换使用。"
+      },
+      {
+        "question": "GPT Images 2.5 有什么优势？",
+        "answer": "GPT Images 2.5 拥有更强的提示词遵循能力、更高的参考图保真度，支持图中文字渲染与透明背景输出，特别适合海报、电商素材、贴纸和品牌内容等商用场景。"
+      },
+      {
+        "question": "支持图生图编辑吗？",
+        "answer": "支持。你可以上传一张或多张参考图，在保留商品结构、风格与角色细节的基础上，通过详细指令进行重绘和局部修改。"
+      },
+      {
+        "question": "可以生成带文字的图片吗？",
+        "answer": "可以。GPT Images 2.5 支持可靠的图中文字渲染，适合社媒海报、宣传图、贴纸等需要文字排版的场景。"
+      },
+      {
+        "question": "可以在多个模型之间切换吗？",
+        "answer": "可以。imvids 的图片工作台支持在多个模型之间自由切换，同一份提示词可以分别用不同模型生成并对比效果，选出最满意的版本。"
+      },
+      {
+        "question": "生成的图片可以商用吗？",
+        "answer": "生成的图片无水印，可下载后用于电商、社媒、广告等用途。请遵守各模型服务商的使用条款，避免生成侵权或违规内容。"
+      },
+      {
+        "question": "如何开始使用？",
+        "answer": "注册后即可获得免费积分，直接在图片工作台输入提示词或上传参考图开始生成，按量消耗积分，无需订阅也可使用。"
+      }
+    ]
   },
   "cta": {
     "id": "cta",
-    "title": "",
-    "description": "",
-    "buttons": [],
+    "title": "立即体验 imvids AI 图片生成",
+    "description": "GPT Images 2.5 加持，文生图、图生图一站完成，用一段提示词生成可商用的精美视觉内容。",
+    "buttons": [
+      {
+        "title": "免费开始生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
     "className": "landing-cta-band"
   }
 }

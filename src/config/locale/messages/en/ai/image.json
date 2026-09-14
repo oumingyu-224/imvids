@@ -155,20 +155,123 @@
   },
   "hero": {
     "id": "hero",
-    "title": "",
-    "description": "",
-    "trust_items": [],
-    "buttons": [],
+    "title": "AI Image Generator",
+    "description": "imvids brings together leading AI image models including GPT Images 2.5, supporting text-to-image and image-to-image. Switch between models in one workspace and turn a single prompt into poster-grade, commercially ready visuals.",
+    "trust_items": [
+      "Free credits to get started",
+      "Powered by GPT Images 2.5",
+      "Text-to-image & image-to-image"
+    ],
+    "buttons": [
+      {
+        "title": "Generate Images Now",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      },
+      {
+        "title": "View Showcases",
+        "icon": "BookOpenText",
+        "url": "/ai-image-generator#showcases-flow",
+        "target": "_self",
+        "variant": "outline"
+      }
+    ],
     "show_avatars": false,
-    "avatars_tip": "",
+    "avatars_tip": "999+ creators are making AI images with imvids",
     "show_award": false,
-    "background_image": ""
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
   },
   "showcases-flow": {
     "id": "showcases-flow",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "AI Image Showcases",
+    "description": "Representative images generated with GPT Images 2.5, covering posters, product shots, illustrations, and in-image text.",
+    "items": [
+      {
+        "title": "GPT Images 2.5 Showcase 1",
+        "description": "High-fidelity prompt adherence and composition control",
+        "image": {
+          "src": "/imgs/showcases/1.jpeg",
+          "alt": "GPT Images 2.5 showcase 1"
+        }
+      },
+      {
+        "title": "GPT Images 2.5 Showcase 2",
+        "description": "In-image text rendering and layout design",
+        "image": {
+          "src": "/imgs/showcases/2.jpeg",
+          "alt": "GPT Images 2.5 showcase 2"
+        }
+      },
+      {
+        "title": "Image-to-Image Showcase 1",
+        "description": "Reference-faithful detail refinement",
+        "image": {
+          "src": "/imgs/showcases/3.jpeg",
+          "alt": "Image-to-image showcase 1"
+        }
+      },
+      {
+        "title": "Image-to-Image Showcase 2",
+        "description": "Style transfer and product image redrawing",
+        "image": {
+          "src": "/imgs/showcases/4.jpeg",
+          "alt": "Image-to-image showcase 2"
+        }
+      },
+      {
+        "title": "E-commerce Product Showcase",
+        "description": "Fast output for hero images and marketing assets",
+        "image": {
+          "src": "/imgs/showcases/5.jpeg",
+          "alt": "E-commerce product showcase"
+        }
+      },
+      {
+        "title": "Social Poster Showcase",
+        "description": "Shareable visuals with rendered text",
+        "image": {
+          "src": "/imgs/showcases/6.jpeg",
+          "alt": "Social poster showcase"
+        }
+      },
+      {
+        "title": "Illustration Style Showcase",
+        "description": "Multi-style illustrations and concept art",
+        "image": {
+          "src": "/imgs/showcases/7.jpeg",
+          "alt": "Illustration style showcase"
+        }
+      },
+      {
+        "title": "Brand Visual Showcase",
+        "description": "Logo support graphics and sticker assets",
+        "image": {
+          "src": "/imgs/showcases/8.jpeg",
+          "alt": "Brand visual showcase"
+        }
+      },
+      {
+        "title": "Transparent Background Showcase",
+        "description": "Design-ready transparent output",
+        "image": {
+          "src": "/imgs/showcases/9.jpeg",
+          "alt": "Transparent background showcase"
+        }
+      },
+      {
+        "title": "Multi-Size Output Showcase",
+        "description": "Size combinations for every channel",
+        "image": {
+          "src": "/imgs/showcases/10.jpeg",
+          "alt": "Multi-size output showcase"
+        }
+      }
+    ]
   },
   "logos": {
     "hidden": true
@@ -182,44 +285,209 @@
   "usage": {
     "block": "features-step",
     "id": "usage",
-    "title": "",
-    "description": "",
+    "title": "How to Create AI Images with imvids",
+    "description": "Three steps to a usable result:",
     "image": {
-      "src": "",
-      "alt": ""
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
     },
     "image_position": "left",
     "text_align": "center",
-    "items": []
+    "items": [
+      {
+        "title": "Pick a Model",
+        "description": "Switch between GPT Images 2.5 and other models as needed: for strong prompt adherence and in-image text rendering, GPT Images 2.5 is the top choice.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Write a Prompt or Upload References",
+        "description": "Describe the subject, composition, lighting, materials, and text needs. Upload reference images when you need to preserve product structure or style.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Generate and Download",
+        "description": "Choose aspect ratio, quality, and count, then generate in one click. Iterate until satisfied and download for e-commerce, social, or brand use.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      }
+    ]
   },
   "features": {
     "id": "features",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "imvids AI Image Generation Capabilities",
+    "description": "A multi-model AI image workspace — get the best of GPT Images 2.5 on a single page.",
+    "items": [
+      {
+        "title": "GPT Images 2.5: Stronger Prompt Adherence",
+        "description": "More stable understanding of composition control, partial edits, and complex instructions — what you write is what you get.",
+        "icon": "RiMagicLine"
+      },
+      {
+        "title": "In-Image Text & Transparent Backgrounds",
+        "description": "GPT Images 2.5 renders reliable in-image text and transparent output — posters, stickers, and logo graphics ready to use.",
+        "icon": "Layers"
+      },
+      {
+        "title": "Switch Models in One Workspace",
+        "description": "imvids aggregates top image models — no more jumping between sites. Switch freely and compare results in the same interface.",
+        "icon": "RiExchangeLine"
+      },
+      {
+        "title": "Reference-Faithful Image-to-Image",
+        "description": "Upload references to preserve product structure, character details, and brand elements, then redraw and edit with precision.",
+        "icon": "RiImageEditLine"
+      },
+      {
+        "title": "Multi-Size, High-Quality Output",
+        "description": "Multiple aspect ratios and quality tiers cover e-commerce hero images, social content, and print materials.",
+        "icon": "RiAspectRatioLine"
+      },
+      {
+        "title": "Pay As You Go, Watermark-Free",
+        "description": "Credit-based consumption with free credits to start — download final results watermark-free.",
+        "icon": "RiFlashlightLine"
+      }
+    ]
   },
   "stats": {
     "hidden": true
   },
   "testimonials": {
     "id": "testimonials",
-    "title": "",
-    "description": "",
-    "items": []
+    "title": "What Creators Say About imvids AI Images",
+    "description": "Feedback from designers, e-commerce sellers, and content teams in real workflows.",
+    "items": [
+      {
+        "name": "Design Team",
+        "role": "Brand & Creative Operations",
+        "quote": "GPT Images 2.5's prompt adherence makes art direction land far more accurately — one imvids page now covers most of our visual output.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "design team"
+        }
+      },
+      {
+        "name": "E-commerce Seller",
+        "role": "Product Images & Ad Assets",
+        "quote": "Reference fidelity is excellent — product structure never drifts, and generated assets go straight to listings.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "ecommerce seller"
+        }
+      },
+      {
+        "name": "Content Creator",
+        "role": "Social Media Publishing",
+        "quote": "In-image text rendering finally works. Poster-style social graphics come out right on the first pass.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "content creator"
+        }
+      },
+      {
+        "name": "Maria Santos",
+        "role": "Marketing Director",
+        "quote": "We use imvids for campaign visuals and rapid creative iterations. Multi-model comparison makes selection far more efficient.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Maria Santos"
+        }
+      },
+      {
+        "name": "Jason Park",
+        "role": "Product Visual Designer",
+        "quote": "Layout requirements are executed precisely, and outputs are polished enough to present to clients directly.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Jason Park"
+        }
+      },
+      {
+        "name": "Amelia Chen",
+        "role": "Creative Strategist",
+        "quote": "Transparent background output removes the cutout step entirely — sticker and asset pack production is dramatically faster.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Amelia Chen"
+        }
+      },
+      {
+        "name": "Olivia Brooks",
+        "role": "Brand Designer",
+        "quote": "Image-to-image keeps brand elements intact while improving composition — exactly the workflow we wanted.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Olivia Brooks"
+        }
+      },
+      {
+        "name": "Kevin Miller",
+        "role": "Content Lead",
+        "quote": "Free credits unlock every feature. All of our team's image needs now start as drafts in imvids.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Kevin Miller"
+        }
+      }
+    ]
   },
   "subscribe": {
     "hidden": true
   },
   "faq": {
     "id": "faq",
-    "title": "",
-    "items": []
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Which AI image models does imvids support?",
+        "answer": "imvids currently features GPT Images 2.5 along with multiple leading AI image models, and keeps adding more — all switchable from one workspace."
+      },
+      {
+        "question": "What are GPT Images 2.5's strengths?",
+        "answer": "GPT Images 2.5 offers stronger prompt adherence, higher reference-image fidelity, and supports in-image text rendering and transparent backgrounds — ideal for posters, e-commerce assets, stickers, and brand content."
+      },
+      {
+        "question": "Does it support image-to-image editing?",
+        "answer": "Yes. Upload one or more reference images and redraw or make partial edits via detailed instructions while preserving product structure, style, and character details."
+      },
+      {
+        "question": "Can it generate images with text?",
+        "answer": "Yes. GPT Images 2.5 renders reliable in-image text, perfect for social posters, promos, and stickers that need typography."
+      },
+      {
+        "question": "Can I switch between multiple models?",
+        "answer": "Yes. The imvids image workspace lets you switch between models freely — run the same prompt through different models, compare results, and pick the best version."
+      },
+      {
+        "question": "Can I use generated images commercially?",
+        "answer": "Generated images are watermark-free and downloadable for e-commerce, social, and advertising use. Please follow each model provider's terms of use and avoid infringing or prohibited content."
+      },
+      {
+        "question": "How do I get started?",
+        "answer": "Sign up to receive free credits, then start generating in the image workspace with a prompt or uploaded references. Credits are pay-as-you-go — no subscription required."
+      }
+    ]
   },
   "cta": {
     "id": "cta",
-    "title": "",
-    "description": "",
-    "buttons": [],
+    "title": "Start Creating with imvids AI Images",
+    "description": "Powered by GPT Images 2.5, with text-to-image and image-to-image in one place — turn a single prompt into commercially ready visuals.",
+    "buttons": [
+      {
+        "title": "Start for Free",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
     "className": "landing-cta-band"
   }
 }

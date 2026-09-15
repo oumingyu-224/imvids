@@ -435,6 +435,10 @@ export function ImageGenerator({
   const hasActiveSubscription = !!user?.currentSubscription;
   const hasReferenceImages = referenceImageUrls.length > 0;
   const currentProductId = user?.currentSubscription?.productId ?? '';
+  const currentModelPricing = useMemo(
+    () => getModelsByMode(mediaMode).find((m) => m.id === model)?.pricing ?? null,
+    [mediaMode, model]
+  );
   const { costCredits, creditsFree } = useMemo(() => {
     const baseCredits =
       getBaseCredits(model) ?? currentModelPricing?.credits ?? 40;
@@ -449,10 +453,6 @@ export function ImageGenerator({
       ? { costCredits: 0, creditsFree: true }
       : { costCredits: applied, creditsFree: false };
   }, [model, currentProductId, qualityStyle, outputCountStyle, currentModelPricing]);
-  const currentModelPricing = useMemo(
-    () => getModelsByMode(mediaMode).find((m) => m.id === model)?.pricing ?? null,
-    [mediaMode, model]
-  );
   // 当前模型的差异参数配置（控件支持范围 + 提交字段名）
   const currentModelParams = useMemo(
     () => getModelsByMode(mediaMode).find((m) => m.id === model)?.params ?? null,

@@ -25,6 +25,11 @@ import { ModelSelect } from '@/shared/blocks/generator/model-select';
 import { Switch } from '@/shared/components/ui/switch';
 import { Textarea } from '@/shared/components/ui/textarea';
 import { useAppContext } from '@/shared/contexts/app';
+import {
+  applyPlanDiscount,
+  getBaseCredits,
+  getResolutionMultiplier,
+} from '@/shared/lib/plan-credits';
 import { cn } from '@/shared/lib/utils';
 
 interface VideoGeneratorProps {
@@ -58,10 +63,6 @@ type VideoGeneratorTab = 'text-to-video' | 'image-to-video' | 'video-to-video';
 const POLL_INTERVAL = 15000;
 const GENERATION_TIMEOUT = 600000; // 10 minutes for video
 const MAX_PROMPT_LENGTH = 2000;
-
-const textToVideoCredits = 6;
-const imageToVideoCredits = 8;
-const videoToVideoCredits = 10;
 
 const MODEL_OPTIONS = [
   // Replicate models
@@ -236,7 +237,6 @@ export function VideoGenerator({
   const [activeTab, setActiveTab] =
     useState<VideoGeneratorTab>('text-to-video');
 
-  const [costCredits, setCostCredits] = useState<number>(textToVideoCredits);
   const [model, setModel] = useState(
     () => getModelsByMode('video').find((m) => !m.locked)?.id ?? ''
   );
@@ -280,17 +280,67 @@ export function VideoGenerator({
   const isTextToVideoMode = activeTab === 'text-to-video';
   const isImageToVideoMode = activeTab === 'image-to-video';
 
-  const handleTabChange = (value: string) => {
-    const tab = value as VideoGeneratorTab;
-    setActiveTab(tab);
+  // 当前模型的差异参数配置（控件支持范围 + 提交字段名）
+  const currentModelParams = useMemo(
+    () => getModelsByMode('video').find((m) => m.id === model)?.params ?? null,
+    [model]
+  );
+  // 当前模型支持的宽高比选项
+  const availableRatioOptions = useMemo(
+    () =>
+      RATIO_OPTIONS.filter(
+        (option) =>
+          !currentModelParams?.ratioOptions ||
+          currentModelParams.ratioOptions.includes(option.value)
+      ),
+    [currentModelParams]
+  );
+  // 当前模型的分辨率档位
+  const availableResolutionOptions = useMemo(
+    () =>
+      currentModelParams?.resolutionOptions ?? VIDEO_RESOLUTION_OPTIONS,
+    [currentModelParams]
+  );
+  // 控件显隐：有差异配置时按配置，未配置的模型走现有通用行为
+  const showAspectRatio = currentModelParams
+    ? !!currentModelParams.ratioField
+    : true;
+  const showDuration = currentModelParams
+    ? !!currentModelParams.durationField
+    : true;
+  const showResolution = currentModelParams
+    ? !!currentModelParams.resolutionField
+    : true;
+  const showGenerateAudio = currentModelParams
+    ? !!currentModelParams.audioField
+    : true;
 
-    if (tab === 'text-to-video') {
-      setCostCredits(textToVideoCredits);
-    } else if (tab === 'image-to-video') {
-      setCostCredits(imageToVideoCredits);
-    } else if (tab === 'video-to-video') {
-      setCostCredits(videoToVideoCredits);
-    }
+  // 积分：json 基准（5 秒价）÷5 × ceil(时长) × 2^分辨率档 × 套餐折扣
+  const currentProductId = user?.currentSubscription?.productId ?? '';
+  const { costCredits, creditsFree } = useMemo(() => {
+    const baseCredits = getBaseCredits(model) ?? 40;
+    const baseResolution = availableResolutionOptions[0] ?? '480p';
+    const resMultiplier = showResolution
+      ? getResolutionMultiplier(videoResolution, baseResolution)
+      : 1;
+    const seconds = showDuration ? Math.ceil(videoDuration) : 5;
+    const raw = (baseCredits / 5) * seconds * resMultiplier;
+    const applied = applyPlanDiscount(model, currentProductId, raw);
+    return applied === 'free'
+      ? { costCredits: 0, creditsFree: true }
+      : { costCredits: applied, creditsFree: false };
+  }, [
+    model,
+    currentProductId,
+    videoDuration,
+    videoResolution,
+    availableResolutionOptions,
+    showResolution,
+    showDuration,
+  ]);
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value as VideoGeneratorTab);
   };
 
   const taskStatusLabel = useMemo(() => {
@@ -532,17 +582,31 @@ export function VideoGenerator({
       return;
     }
 
-    const mapped = SEEVIDEO_VIDEO_MODEL_MAP[model];
-    const backendModel = mapped
-      ? MODEL_OPTIONS.find(
-          (option) =>
-            option.value === mapped.value &&
-            option.provider === mapped.provider &&
-            option.scenes.includes(activeTab)
-        )
-      : undefined;
-    const targetModel =
-      backendModel ?? MODEL_OPTIONS.find((o) => o.scenes.includes(activeTab));
+    // 按当前模型差异配置选择提交渠道与 model 值；未配置的模型走现有渠道映射
+    const scene: 'text-to-video' | 'image-to-video' = isImageToVideoMode
+      ? 'image-to-video'
+      : 'text-to-video';
+
+    let targetModel: { value: string; provider: string } | undefined;
+
+    if (currentModelParams?.apiModels?.[scene]) {
+      targetModel = {
+        value: currentModelParams.apiModels[scene]!,
+        provider: currentModelParams.provider ?? 'kie',
+      };
+    } else {
+      const mapped = SEEVIDEO_VIDEO_MODEL_MAP[model];
+      const backendModel = mapped
+        ? MODEL_OPTIONS.find(
+            (option) =>
+              option.value === mapped.value &&
+              option.provider === mapped.provider &&
+              option.scenes.includes(activeTab)
+          )
+        : undefined;
+      targetModel =
+        backendModel ?? MODEL_OPTIONS.find((o) => o.scenes.includes(activeTab));
+    }
 
     if (!targetModel) {
       toast.error('Provider or model is not configured correctly.');
@@ -551,6 +615,17 @@ export function VideoGenerator({
 
     if (isImageToVideoMode && !singleVideoImage) {
       toast.error('Please upload a reference image before generating.');
+      return;
+    }
+
+    // 图生视频：配置了 params 但未配置参考图字段名 → 报错终止
+    if (
+      isImageToVideoMode &&
+      currentModelParams &&
+      !currentModelParams.imageInputField &&
+      !currentModelParams.firstFrameField
+    ) {
+      toast.error('该模型参考图提交字段未配置，已取消本次提交');
       return;
     }
 
@@ -563,18 +638,51 @@ export function VideoGenerator({
     try {
       const options: any = {};
 
+      // 参考图：按模型的字段名提交（单张/多张），尾帧开启时提交尾帧字段
       if (isImageToVideoMode && singleVideoImage) {
-        options.image_input = [singleVideoImage.url];
+        const inputField =
+          currentModelParams?.imageInputField ??
+          currentModelParams?.firstFrameField ??
+          'image_input';
+        options[inputField] = currentModelParams?.imageInputMultiple
+          ? [singleVideoImage.url]
+          : singleVideoImage.url;
         if (endFrameEnabled) {
-          options.last_frame_image = singleVideoImage.url;
+          options[currentModelParams?.lastFrameField ?? 'last_frame_image'] =
+            singleVideoImage.url;
         }
       }
 
-      options.aspect_ratio = aspectRatio;
-      options.resolution = videoResolution;
-      options.video_duration = videoDuration;
-      options.generate_audio = generateAudio;
+      // 宽高比：按模型的字段名与枚举映射提交
+      if (showAspectRatio && aspectRatio) {
+        options[currentModelParams?.ratioField ?? 'aspect_ratio'] =
+          currentModelParams?.ratioValueMap?.[aspectRatio] ?? aspectRatio;
+      }
+
+      // 分辨率：按模型的字段名提交
+      if (showResolution) {
+        options[currentModelParams?.resolutionField ?? 'resolution'] =
+          videoResolution;
+      }
+
+      // 时长：按模型的字段名提交
+      if (showDuration) {
+        options[currentModelParams?.durationField ?? 'video_duration'] =
+          videoDuration;
+      }
+
+      // 生成音频：按模型的字段名提交
+      if (showGenerateAudio) {
+        options[currentModelParams?.audioField ?? 'generate_audio'] =
+          generateAudio;
+      }
+
       options.public_visible = publicVisible;
+
+      // 按场景附加固定字段（如 veo3 的 generation_type）
+      if (currentModelParams?.sceneExtraFields?.[scene]) {
+        Object.assign(options, currentModelParams.sceneExtraFields[scene]);
+      }
 
       const resp = await fetch('/api/ai/generate', {
         method: 'POST',
@@ -883,7 +991,8 @@ export function VideoGenerator({
                         </div>
                       </div>
 
-                      {/* 宽高比 */}
+                      {/* 宽高比（模型不支持时隐藏） */}
+                      {showAspectRatio ? (
                       <div className="space-y-1">
                         <div className="space-y-2">
                           <label className="font-semibold text-sm text-foreground">
@@ -927,7 +1036,7 @@ export function VideoGenerator({
                             </button>
                             {aspectRatioOpen ? (
                               <div className="absolute inset-x-0 top-full z-30 mt-1 grid grid-cols-4 gap-2 rounded-xl border border-border/40 bg-card p-3 shadow-lg">
-                                {RATIO_OPTIONS.map((option) => (
+                                {availableRatioOptions.map((option) => (
                                   <button
                                     key={option.value}
                                     type="button"
@@ -959,8 +1068,10 @@ export function VideoGenerator({
                           </div>
                         </div>
                       </div>
+                      ) : null}
 
-                      {/* 视频时长滑块 */}
+                      {/* 视频时长（档位 / 滑块，模型不支持时隐藏） */}
+                      {showDuration ? (
                       <div className="space-y-1">
                         <div className="space-y-3">
                           <div className="flex items-center justify-between">
@@ -971,24 +1082,66 @@ export function VideoGenerator({
                               {videoDuration}s
                             </span>
                           </div>
-                          <div className="relative px-2 pb-1">
-                            <input
-                              type="range"
-                              min={VIDEO_DURATION.min}
-                              max={VIDEO_DURATION.max}
-                              step={1}
-                              value={videoDuration}
-                              onChange={(event) =>
-                                setVideoDuration(Number(event.target.value))
-                              }
-                              className="duration-slider w-full cursor-pointer"
-                              aria-label={t('workbench.video_duration')}
-                            />
-                          </div>
+                          {currentModelParams?.durationOptions ? (
+                            <div className="grid grid-cols-4 gap-2 px-1">
+                              {currentModelParams.durationOptions.map(
+                                (option) => {
+                                  const active = videoDuration === option;
+                                  return (
+                                    <button
+                                      key={option}
+                                      type="button"
+                                      onClick={() => setVideoDuration(option)}
+                                      className={cn(
+                                        'relative overflow-hidden rounded-md px-4 py-2 font-medium transition-all',
+                                        active
+                                          ? 'gradient-border border-2 border-transparent bg-clip-padding'
+                                          : 'border border-muted text-muted-foreground hover:border-primary hover:text-foreground'
+                                      )}
+                                      style={
+                                        active
+                                          ? {
+                                              borderImage:
+                                                'linear-gradient(90deg, hsl(var(--gradient-start)), hsl(var(--gradient-end))) 1',
+                                            }
+                                          : undefined
+                                      }
+                                    >
+                                      <span
+                                        className={cn(
+                                          'relative z-10',
+                                          active && 'gradient-text'
+                                        )}
+                                      >
+                                        {option}s
+                                      </span>
+                                    </button>
+                                  );
+                                }
+                              )}
+                            </div>
+                          ) : (
+                            <div className="relative px-2 pb-1">
+                              <input
+                                type="range"
+                                min={VIDEO_DURATION.min}
+                                max={VIDEO_DURATION.max}
+                                step={1}
+                                value={videoDuration}
+                                onChange={(event) =>
+                                  setVideoDuration(Number(event.target.value))
+                                }
+                                className="duration-slider w-full cursor-pointer"
+                                aria-label={t('workbench.video_duration')}
+                              />
+                            </div>
+                          )}
                         </div>
                       </div>
+                      ) : null}
 
-                      {/* 分辨率 */}
+                      {/* 分辨率（模型不支持时隐藏） */}
+                      {showResolution ? (
                       <div className="space-y-1">
                         <div className="mb-2 flex items-center gap-1">
                           <label className="font-medium text-sm text-foreground">
@@ -996,7 +1149,7 @@ export function VideoGenerator({
                           </label>
                         </div>
                         <div className="grid grid-cols-3 gap-2 px-1">
-                          {VIDEO_RESOLUTION_OPTIONS.map((option) => {
+                          {availableResolutionOptions.map((option) => {
                             const active = videoResolution === option;
                             return (
                               <button
@@ -1031,8 +1184,10 @@ export function VideoGenerator({
                           })}
                         </div>
                       </div>
+                      ) : null}
 
-                      {/* 生成音频 */}
+                      {/* 生成音频（模型不支持时隐藏） */}
+                      {showGenerateAudio ? (
                       <div className="space-y-1">
                         <div className="flex items-center justify-between gap-2">
                           <span className="flex items-center gap-1 text-sm font-medium">
@@ -1044,6 +1199,7 @@ export function VideoGenerator({
                           />
                         </div>
                       </div>
+                      ) : null}
 
                       {/* 公开可见性 */}
                       <div className="mt-4 pt-2">
@@ -1097,7 +1253,7 @@ export function VideoGenerator({
                               </span>
                             </div>
                             <span className="text-md font-bold text-[hsl(var(--highlight))]">
-                              {costCredits}
+                              {creditsFree ? '免费' : costCredits}
                             </span>
                           </div>
                         </div>

@@ -47,6 +47,10 @@ import { ModelSelect } from '@/shared/blocks/generator/model-select';
 import { VideoGenerator } from '@/shared/blocks/generator/video';
 import type { PromptShowcaseConfig } from '@/shared/blocks/common/prompt-showcase';
 import { useAppContext } from '@/shared/contexts/app';
+import {
+  applyPlanDiscount,
+  getBaseCredits,
+} from '@/shared/lib/plan-credits';
 import { cn } from '@/shared/lib/utils';
 import { Pricing as PricingData } from '@/shared/types/blocks/pricing';
 
@@ -188,30 +192,10 @@ const PROVIDER_OPTIONS = [
 
 
 
-function getImageBaseCredits(hasReferenceImages: boolean) {
-  return hasReferenceImages ? 6 : 4;
-}
-
 function getQualityMultiplier(qualityStyle: string) {
   if (qualityStyle === 'hd') return 2;
   if (qualityStyle === 'ultra') return 4;
   return 1;
-}
-
-function calculateImageCredits({
-  hasReferenceImages,
-  qualityStyle,
-  outputCount,
-}: {
-  hasReferenceImages: boolean;
-  qualityStyle: string;
-  outputCount: string;
-}) {
-  const baseCredits = getImageBaseCredits(hasReferenceImages);
-  const qualityMultiplier = getQualityMultiplier(qualityStyle);
-  const quantityMultiplier = Math.max(1, Number.parseInt(outputCount, 10) || 1);
-
-  return baseCredits * qualityMultiplier * quantityMultiplier;
 }
 
 function parseTaskResult(taskResult: string | null): any {
@@ -468,23 +452,48 @@ export function ImageGenerator({
   const remainingCredits = user?.credits?.remainingCredits ?? 0;
   const hasActiveSubscription = !!user?.currentSubscription;
   const hasReferenceImages = referenceImageUrls.length > 0;
-  const costCredits = useMemo(
-    () =>
-      calculateImageCredits({
-        hasReferenceImages,
-        qualityStyle,
-        outputCount: outputCountStyle,
-      }),
-    [hasReferenceImages, qualityStyle, outputCountStyle]
-  );
+  const currentProductId = user?.currentSubscription?.productId ?? '';
+  const { costCredits, creditsFree } = useMemo(() => {
+    const baseCredits =
+      getBaseCredits(model) ?? currentModelPricing?.credits ?? 40;
+    const quantityMultiplier = Math.max(
+      1,
+      Number.parseInt(outputCountStyle, 10) || 1
+    );
+    const raw =
+      baseCredits * getQualityMultiplier(qualityStyle) * quantityMultiplier;
+    const applied = applyPlanDiscount(model, currentProductId, raw);
+    return applied === 'free'
+      ? { costCredits: 0, creditsFree: true }
+      : { costCredits: applied, creditsFree: false };
+  }, [model, currentProductId, qualityStyle, outputCountStyle, currentModelPricing]);
   const currentModelPricing = useMemo(
     () => getModelsByMode(mediaMode).find((m) => m.id === model)?.pricing ?? null,
     [mediaMode, model]
   );
-  const displayCredits = useMemo(() => {
-    const base = currentModelPricing?.credits ?? 40;
-    return base * Math.max(1, Number.parseInt(outputCountStyle, 10) || 1);
-  }, [currentModelPricing, outputCountStyle]);
+  // 当前模型的差异参数配置（控件支持范围 + 提交字段名）
+  const currentModelParams = useMemo(
+    () => getModelsByMode(mediaMode).find((m) => m.id === model)?.params ?? null,
+    [mediaMode, model]
+  );
+  // 当前模型不支持文生图（仅图生图）时隐藏 tab，固定显示图生图
+  const textToImageUnsupported = useMemo(
+    () =>
+      !!currentModelParams?.apiModels?.['image-to-image'] &&
+      !currentModelParams?.apiModels?.['text-to-image'],
+    [currentModelParams]
+  );
+  // 当前模型支持的宽高比选项
+  const availableRatioOptions = useMemo(
+    () =>
+      RATIO_OPTIONS.filter(
+        (option) =>
+          !currentModelParams?.ratioOptions ||
+          currentModelParams.ratioOptions.includes(option.value)
+      ),
+    [currentModelParams]
+  );
+  const displayCredits = creditsFree ? '免费' : costCredits;
   const promptMaxLength = workTab === 'image' ? 2996 : 2995;
   const promptPlaceholder =
     workTab === 'image'
@@ -516,12 +525,26 @@ export function ImageGenerator({
     [hasActiveSubscription]
   );
 
-  // 选择 JSON 模型：直接把 id 写入 model state（后端接入时再做 id -> provider/model 映射）
+  // 选择模型：写入 id，仅图生图的模型固定显示图生图（tab 隐藏），参数重置为默认
   const handleModelSelect = useCallback(
     (id: string) => {
       setModel(id);
+      const nextParams = getModelsByMode(mediaMode).find(
+        (m) => m.id === id
+      )?.params;
+      if (
+        nextParams?.apiModels &&
+        nextParams.apiModels['image-to-image'] &&
+        !nextParams.apiModels['text-to-image']
+      ) {
+        setWorkTab('image');
+      }
+      setQualityLabel('基础');
+      setQualityStyle('standard');
+      setResolution('1K');
+      setOutputCountStyle('1');
     },
-    []
+    [mediaMode]
   );
 
   // 模型切换时同步宽高比默认值
@@ -907,6 +930,26 @@ export function ImageGenerator({
       return;
     }
 
+    // 按当前模型的差异配置校验场景支持
+    const scene: 'text-to-image' | 'image-to-image' =
+      workTab === 'image' ? 'image-to-image' : 'text-to-image';
+
+    if (scene === 'image-to-image' && !currentModelParams?.imageInputField) {
+      toast.error('该模型不支持图生图，请切换模型或使用文生图');
+      return;
+    }
+    if (
+      scene === 'text-to-image' &&
+      currentModelParams?.apiModels &&
+      !currentModelParams.apiModels['text-to-image']
+    ) {
+      toast.error('该模型不支持文生图，请上传参考图使用图生图');
+      return;
+    }
+
+    // 该场景提交用的 model 值（kie/fal），未配置时用模型 id
+    const apiModel = currentModelParams?.apiModels?.[scene] ?? model;
+
     setIsGenerating(true);
     setProgress(15);
     setTaskStatus(AITaskStatus.PENDING);
@@ -916,22 +959,36 @@ export function ImageGenerator({
     try {
       const options: any = {};
 
-      if (hasReferenceImages) {
-        options.image_input = referenceImageUrls;
+      // 参考图：按模型的字段名提交（单张/多张）
+      if (hasReferenceImages && currentModelParams?.imageInputField) {
+        options[currentModelParams.imageInputField] =
+          currentModelParams.imageInputMultiple
+            ? referenceImageUrls
+            : referenceImageUrls[0];
       }
 
       options.quality_style = qualityStyle;
       options.output_count = outputCountStyle;
       options.public_visible = publicVisible;
 
-      // 添加宽高比参数
-      if (aspectRatio) {
-        options.aspect_ratio = aspectRatio;
+      // 宽高比：按模型的字段名与枚举映射提交
+      if (aspectRatio && currentModelParams?.ratioField) {
+        options[currentModelParams.ratioField] =
+          currentModelParams.ratioValueMap?.[aspectRatio] ?? aspectRatio;
       }
 
-      // 添加分辨率参数
-      if (resolution) {
-        options.resolution = resolution;
+      // 质量/分辨率：按模型的字段名与枚举映射提交
+      if (currentModelParams?.resolutionField) {
+        options[currentModelParams.resolutionField] =
+          currentModelParams.resolutionValueMap?.[qualityStyle] ?? resolution;
+      }
+
+      // 图片数量：按模型的字段名提交
+      if (currentModelParams?.countField) {
+        options[currentModelParams.countField] = Math.max(
+          1,
+          Number.parseInt(outputCountStyle, 10) || 1
+        );
       }
 
       const resp = await fetch('/api/ai/generate', {
@@ -941,9 +998,9 @@ export function ImageGenerator({
         },
         body: JSON.stringify({
           mediaType: AIMediaType.IMAGE,
-          scene: workTab === 'image' ? 'image-to-image' : 'text-to-image',
+          scene,
           provider,
-          model,
+          model: apiModel,
           prompt: trimmedPrompt,
           options,
         }),
@@ -1141,7 +1198,8 @@ export function ImageGenerator({
                     </div>
 
                     <div className="flex min-h-0 flex-1 flex-col p-6 pt-2">
-                      {/* 文本转 / 图片转 tab */}
+                      {/* 文本转 / 图片转 tab（仅图生图的模型直接隐藏，固定显示图生图） */}
+                      {textToImageUnsupported ? null : (
                       <div className="mb-4 flex-shrink-0">
                         <div className="relative flex w-full border-b border-border/40">
                           <button
@@ -1176,6 +1234,7 @@ export function ImageGenerator({
                           </button>
                         </div>
                       </div>
+                      )}
 
                       {/* 滚动表单区 */}
                       <div className="custom-scrollbar mb-4 min-h-0 flex-1 space-y-4 overflow-y-auto">
@@ -1339,8 +1398,8 @@ export function ImageGenerator({
                           </div>
                         </div>
 
-                        {/* 图片模式：宽高比 */}
-                        {mediaMode === 'image' ? (
+                        {/* 图片模式：宽高比（模型不支持时隐藏） */}
+                        {mediaMode === 'image' && currentModelParams?.ratioField ? (
                           <div className="space-y-1">
                             <div className="space-y-2">
                               <label className="font-semibold text-sm text-foreground">
@@ -1377,7 +1436,7 @@ export function ImageGenerator({
                                 </button>
                                 {aspectRatioOpen ? (
                                   <div className="absolute inset-x-0 top-full z-30 mt-1 grid grid-cols-4 gap-2 rounded-xl border border-border/40 bg-card p-3 shadow-lg">
-                                    {RATIO_OPTIONS.map((option) => (
+                                    {availableRatioOptions.map((option) => (
                                       <button
                                         key={option.value}
                                         type="button"
@@ -1414,6 +1473,7 @@ export function ImageGenerator({
                         {/* 图片模式：质量 + 图片数量 */}
                         {mediaMode === 'image' ? (
                           <>
+                            {currentModelParams?.resolutionField ? (
                             <div className="space-y-1">
                               <div className="mb-2 flex items-center gap-1">
                                 <label className="font-medium text-sm text-foreground">
@@ -1463,6 +1523,8 @@ export function ImageGenerator({
                                 })}
                               </div>
                             </div>
+                            ) : null}
+                            {currentModelParams?.countField ? (
                             <div className="space-y-1">
                               <div className="mb-2 flex items-center gap-1">
                                 <label className="font-medium text-sm text-foreground">
@@ -1509,6 +1571,7 @@ export function ImageGenerator({
                                 })}
                               </div>
                             </div>
+                            ) : null}
                           </>
                         ) : null}
 

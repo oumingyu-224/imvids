@@ -447,7 +447,9 @@ export function PromptShowcase({
               </div>
               <ModelDropdown
                 value={model}
-                models={mode === 'image' ? GEN_IMAGE_MODELS : GEN_VIDEO_MODELS}
+                models={(mode === 'image' ? GEN_IMAGE_MODELS : GEN_VIDEO_MODELS).filter(
+                  (m) => !m.hidden
+                )}
                 onChange={setModel}
               />
 

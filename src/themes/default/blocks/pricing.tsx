@@ -42,19 +42,6 @@ export function Pricing({
         id={pricing.id}
         className={cn(pricing.className, className)}
       >
-        {!hideHeader && (
-          <div className="flex flex-col items-center justify-start">
-            {pricing.sr_only_title && (
-              <h1 className="sr-only">{pricing.sr_only_title}</h1>
-            )}
-            <div className="mx-auto mb-8 flex max-w-3xl flex-col items-center sm:mb-10">
-              <h1 className="text-center text-2xl font-bold tracking-tight text-card-foreground sm:text-4xl lg:text-5xl">
-                {pricing.title}
-              </h1>
-            </div>
-          </div>
-        )}
-
         <div
           className={
             compact ? 'w-full px-0' : 'mx-auto w-full max-w-[1500px] px-2 md:px-4'

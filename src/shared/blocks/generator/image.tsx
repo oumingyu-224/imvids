@@ -21,19 +21,9 @@ import { useLocale, useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 
-import enPricingMessages from '@/config/locale/messages/en/pages/pricing.json';
-import zhPricingMessages from '@/config/locale/messages/zh/pages/pricing.json';
 import { ROLES } from '@/shared/constants/rbac';
 import { AIMediaType, AITaskStatus } from '@/extensions/ai/types';
-import { Pricing as PricingBlock } from '@/themes/default/blocks/pricing';
 import { Button } from '@/shared/components/ui/button';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/shared/components/ui/dialog';
 import { Switch } from '@/shared/components/ui/switch';
 import { Textarea } from '@/shared/components/ui/textarea';
 import {
@@ -44,6 +34,7 @@ import {
   type GeneratorMode,
 } from '@/shared/blocks/generator/models';
 import { ModelSelect } from '@/shared/blocks/generator/model-select';
+import { PricingDialog } from '@/shared/blocks/generator/pricing-dialog';
 import { VideoGenerator } from '@/shared/blocks/generator/video';
 import type { PromptShowcaseConfig } from '@/shared/blocks/common/prompt-showcase';
 import { useAppContext } from '@/shared/contexts/app';
@@ -52,7 +43,6 @@ import {
   getBaseCredits,
 } from '@/shared/lib/plan-credits';
 import { cn } from '@/shared/lib/utils';
-import { Pricing as PricingData } from '@/shared/types/blocks/pricing';
 
 interface ImageGeneratorProps {
   allowMultipleImages?: boolean;
@@ -310,14 +300,6 @@ export function ImageGenerator({
 
   const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } =
     useAppContext();
-
-  const pricingConfig = useMemo(
-    () =>
-      (locale.startsWith('zh')
-        ? zhPricingMessages.pricing
-        : enPricingMessages.pricing) as PricingData,
-    [locale]
-  );
 
   useEffect(() => {
     setIsMounted(true);
@@ -1730,32 +1712,10 @@ export function ImageGenerator({
         </div>
       </div>
 
-      <Dialog open={showPricingDialog} onOpenChange={setShowPricingDialog}>
-        <DialogContent
-          pageScroll
-          className="w-full !max-w-none rounded-[26px] p-0 sm:max-w-[1600px] sm:rounded-2xl sm:p-5 sm:pt-0"
-          overlayClassName="bg-black/25 backdrop-blur-sm"
-        >
-          <DialogHeader className="px-5 pt-4 pb-3 text-left sm:px-0 sm:pt-0 sm:pb-0">
-            <DialogTitle className="text-xl font-bold">
-              {t('pricing_dialog_title')}
-            </DialogTitle>
-            <DialogDescription className="sr-only">
-              {pricingConfig.description}
-            </DialogDescription>
-          </DialogHeader>
-          <div className="px-4 pb-4 pt-3 sm:px-0 sm:pb-0 sm:pt-0">
-            <PricingBlock
-              pricing={pricingConfig}
-              className="pt-0 sm:pt-2"
-              hideHeader
-              compact
-              hideWhyYearly
-              hideCompareTable
-            />
-          </div>
-        </DialogContent>
-      </Dialog>
+      <PricingDialog
+        open={showPricingDialog}
+        onOpenChange={setShowPricingDialog}
+      />
     </section>
   );
 }

@@ -4,15 +4,16 @@ import { useMemo, useRef, useState } from 'react';
 import { Check, ChevronDown, Lock, Search } from 'lucide-react';
 import { useLocale } from 'next-intl';
 
-import zhModelMessages from '@/config/locale/messages/zh/ai/models.json';
 import enModelMessages from '@/config/locale/messages/en/ai/models.json';
-import { Link } from '@/core/i18n/navigation';
+import zhModelMessages from '@/config/locale/messages/zh/ai/models.json';
+import { useAppContext } from '@/shared/contexts/app';
 import { cn } from '@/shared/lib/utils';
 import {
   getModelsByMode,
   type GeneratorMode,
   type GeneratorModel,
 } from './models';
+import { PricingDialog } from './pricing-dialog';
 
 interface ModelSelectProps {
   mode: GeneratorMode;
@@ -41,8 +42,10 @@ interface ModelMessages {
 
 export function ModelSelect({ mode, value, onChange, className }: ModelSelectProps) {
   const locale = useLocale();
+  const { user } = useAppContext();
   const [open, setOpen] = useState(false);
   const [keyword, setKeyword] = useState('');
+  const [showPricingDialog, setShowPricingDialog] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const dict = useMemo(
@@ -67,8 +70,25 @@ export function ModelSelect({ mode, value, onChange, className }: ModelSelectPro
 
   const currentModel = models.find((model) => model.id === value) ?? models[0];
 
+  // 有效锁定：指定套餐锁定模型按当前用户套餐判定，
+  // 仅 starter-monthly / starter 锁定，其余付费套餐一律可切换；
+  // 无套餐（free）用户沿用模型自身 locked 现状，其他模型不变
+  const isLocked = (model: GeneratorModel) => {
+    if (model.lockedProductIds?.length) {
+      const productId = user?.currentSubscription?.productId ?? '';
+      if (!productId) return model.locked;
+      return model.lockedProductIds.includes(productId);
+    }
+    return model.locked;
+  };
+
   const handleSelect = (model: GeneratorModel) => {
-    if (model.locked) return;
+    if (isLocked(model)) {
+      setOpen(false);
+      setKeyword('');
+      setShowPricingDialog(true);
+      return;
+    }
     onChange(model.id);
     setOpen(false);
     setKeyword('');
@@ -144,30 +164,31 @@ export function ModelSelect({ mode, value, onChange, className }: ModelSelectPro
                     onClick={() => handleSelect(model)}
                     className={cn(
                       'relative flex w-full flex-col border-b border-border/50 p-4 pr-2 text-left transition-all duration-200 hover:bg-[#222]',
-                      model.locked && 'cursor-pointer grayscale',
+                      isLocked(model) && 'cursor-pointer grayscale',
                       model.id === value &&
-                        !model.locked &&
+                        !isLocked(model) &&
                         'border-l-2 border-l-highlight bg-[#1a1a1a]'
                     )}
                   >
-                    {model.locked ? (
+                    {isLocked(model) ? (
                       <div className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center gap-2 bg-black/60 backdrop-blur-sm">
                         <Lock className="h-5 w-5 text-highlight" />
                         <span className="text-sm font-semibold text-highlight">
                           {dict.ui.locked_label}
                         </span>
                         <span className="text-xs text-muted-foreground">
-                          <Link
-                            href={`/pricing#${model.pricing.tierAnchor}`}
+                          <button
+                            type="button"
                             className="underline underline-offset-2 hover:text-highlight"
                             onClick={(event) => {
                               event.stopPropagation();
                               setOpen(false);
                               setKeyword('');
+                              setShowPricingDialog(true);
                             }}
                           >
                             {dict.ui.locked_action}
-                          </Link>
+                          </button>
                         </span>
                       </div>
                     ) : null}
@@ -186,7 +207,7 @@ export function ModelSelect({ mode, value, onChange, className }: ModelSelectPro
                         <span
                           className={cn(
                             'text-lg font-medium',
-                            model.id === value && !model.locked
+                            model.id === value && !isLocked(model)
                               ? 'text-highlight'
                               : 'text-white'
                           )}
@@ -204,7 +225,7 @@ export function ModelSelect({ mode, value, onChange, className }: ModelSelectPro
                           )
                         )}
                       </div>
-                      {model.id === value && !model.locked ? (
+                      {model.id === value && !isLocked(model) ? (
                         <Check className="ml-auto h-5 w-5 text-highlight" />
                       ) : null}
                     </div>
@@ -248,6 +269,11 @@ export function ModelSelect({ mode, value, onChange, className }: ModelSelectPro
           </div>
         </>
       ) : null}
+
+      <PricingDialog
+        open={showPricingDialog}
+        onOpenChange={setShowPricingDialog}
+      />
     </div>
   );
 }

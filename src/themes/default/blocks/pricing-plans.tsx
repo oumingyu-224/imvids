@@ -664,6 +664,18 @@ export function PricingPlans({
 
   return (
     <>
+      {!hideHeader && (
+        <div className="flex flex-col items-center justify-start">
+          {pricing.sr_only_title && (
+            <h1 className="sr-only">{pricing.sr_only_title}</h1>
+          )}
+          <div className="mx-auto mb-8 flex max-w-3xl flex-col items-center sm:mb-10">
+            <h1 className="text-center text-2xl font-bold tracking-tight text-card-foreground sm:text-4xl lg:text-5xl">
+              {pricing.title}
+            </h1>
+          </div>
+        </div>
+      )}
       {pricing.groups && pricing.groups.length > 0 && (
         <div
           id="pricing-plans"

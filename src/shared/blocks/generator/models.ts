@@ -15,6 +15,8 @@ export interface GeneratorModel {
   locked: boolean;
   /** 解锁所需定价页套餐（锚点 id），未锁定为 null */
   lockedTier: string | null;
+  /** 仅在这些套餐下锁定（free 用户沿用 locked 现状，其他套餐不锁定） */
+  lockedProductIds?: string[];
   /** 是否在前端隐藏（不渲染到模型选择列表） */
   hidden?: boolean;
   /** 按模型清单的差异参数配置（控件支持范围 + 提交字段名） */
@@ -195,6 +197,7 @@ export const IMAGE_MODELS: GeneratorModel[] = [
     },
     locked: true,
     lockedTier: 'pro',
+    lockedProductIds: ['starter-monthly', 'starter'],
     recommended: true,
     pricing: { credits: getBaseCredits('nano-banana-pro') ?? 40, tierAnchor: 'pro' },
   },
@@ -648,6 +651,7 @@ export const VIDEO_MODELS: GeneratorModel[] = [
     },
     locked: false,
     lockedTier: null,
+    lockedProductIds: ['starter-monthly', 'starter'],
     recommended: true,
     pricing: { credits: getBaseCredits('veo-3-1-premium') ?? 120, tierAnchor: 'max' },
   },
@@ -841,6 +845,7 @@ export const VIDEO_MODELS: GeneratorModel[] = [
     },
     locked: true,
     lockedTier: 'max',
+    lockedProductIds: ['starter-monthly', 'starter'],
     recommended: false,
     pricing: { credits: getBaseCredits('kling-2-1-master') ?? 100, tierAnchor: 'max' },
   },

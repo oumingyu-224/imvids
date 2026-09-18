@@ -137,12 +137,12 @@ export function Header({ header }: { header: HeaderType }) {
 
   return (
     <>
-      {/* 促销条显示时补偿其 40px 高度，避免 fixed 导航栏遮挡页面内容 */}
+      {/* 促销条显示时补偿其 40px 高度并额外留出 16px 间隙，避免 fixed 导航栏遮挡页面内容 */}
       <div
         aria-hidden="true"
         className={cn(
           'h-0',
-          !promoClosed && 'hidden md:block md:h-10'
+          !promoClosed && 'hidden md:block md:h-14'
         )}
       />
       <header
@@ -169,7 +169,7 @@ export function Header({ header }: { header: HeaderType }) {
             'bg-[var(--landing-header-bg)] lg:bg-transparent'
         )}
       >
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[100rem]">
           <div className="relative flex h-16 items-center justify-between gap-6">
             <div className="flex min-w-0 items-center">
               {header.brand ? <BrandLogo brand={header.brand} /> : null}

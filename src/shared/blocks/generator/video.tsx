@@ -851,6 +851,7 @@ export function VideoGenerator({
                         mode="video"
                         value={model}
                         onChange={setModel}
+                        currentProductId={currentProductId}
                       />
                     </div>
                   </div>

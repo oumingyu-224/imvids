@@ -20,6 +20,7 @@ interface ModelSelectProps {
   value: string;
   onChange: (id: string) => void;
   className?: string;
+  currentProductId?: string;
 }
 
 interface ModelMessage {
@@ -40,7 +41,13 @@ interface ModelMessages {
   models: Record<string, ModelMessage>;
 }
 
-export function ModelSelect({ mode, value, onChange, className }: ModelSelectProps) {
+export function ModelSelect({
+  mode,
+  value,
+  onChange,
+  className,
+  currentProductId,
+}: ModelSelectProps) {
   const locale = useLocale();
   const { user } = useAppContext();
   const [open, setOpen] = useState(false);
@@ -75,7 +82,8 @@ export function ModelSelect({ mode, value, onChange, className }: ModelSelectPro
   // 未配置 lockedProductIds 的模型一律不锁
   const isLocked = (model: GeneratorModel) => {
     if (model.lockedProductIds?.length) {
-      const productId = user?.currentSubscription?.productId ?? '';
+      const productId =
+        currentProductId ?? user?.currentSubscription?.productId ?? '';
       if (!productId) return model.locked;
       return model.lockedProductIds.includes(productId);
     }

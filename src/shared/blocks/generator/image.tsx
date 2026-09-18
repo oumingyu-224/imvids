@@ -1180,6 +1180,7 @@ export function ImageGenerator({
                           mode={mediaMode}
                           value={model}
                           onChange={handleModelSelect}
+                          currentProductId={currentProductId}
                         />
                       </div>
                     </div>

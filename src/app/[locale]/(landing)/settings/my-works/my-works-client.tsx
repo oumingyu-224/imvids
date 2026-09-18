@@ -27,6 +27,7 @@ export type MyWorkRow = {
   prompt?: string | null;
   inputImageUrl?: string;
   outputImageUrl?: string;
+  outputIsVideo?: boolean;
   model?: string | null;
   costCredits?: number | null;
   createdAt?: string | Date | null;
@@ -41,11 +42,13 @@ export type MyWorkRow = {
 function DetailImage({
   label,
   imageUrl,
+  isVideo,
   className,
   children,
 }: {
   label: string;
   imageUrl?: string;
+  isVideo?: boolean;
   className?: string;
   children?: React.ReactNode;
 }) {
@@ -54,11 +57,20 @@ function DetailImage({
       <div className="text-muted-foreground text-sm font-medium">{label}</div>
       <div className="relative flex min-h-[260px] items-center justify-center overflow-hidden bg-white py-2">
         {imageUrl ? (
-          <LazyImage
-            src={imageUrl}
-            alt={label}
-            className="block h-auto max-h-[min(58vh,560px)] w-auto max-w-full object-contain"
-          />
+          isVideo ? (
+            <video
+              src={imageUrl}
+              controls
+              playsInline
+              className="block max-h-[min(58vh,560px)] w-auto max-w-full"
+            />
+          ) : (
+            <LazyImage
+              src={imageUrl}
+              alt={label}
+              className="block h-auto max-h-[min(58vh,560px)] w-auto max-w-full object-contain"
+            />
+          )
         ) : (
           <span className="text-muted-foreground text-sm">-</span>
         )}
@@ -159,6 +171,18 @@ export function MyWorksClient({
         callback: (item: MyWorkRow) => {
           if (!item.outputImageUrl) {
             return <span className="text-slate-400">-</span>;
+          }
+
+          if (item.outputIsVideo) {
+            return (
+              <video
+                src={item.outputImageUrl}
+                muted
+                playsInline
+                style={{ width: '72px', height: '72px' }}
+                className="overflow-hidden rounded-md bg-black object-cover"
+              />
+            );
           }
 
           return (
@@ -292,6 +316,7 @@ export function MyWorksClient({
                     <DetailImage
                       label={fields.output}
                       imageUrl={selectedWork.outputImageUrl}
+                      isVideo={selectedWork.outputIsVideo}
                     >
                       <Button
                           type="button"

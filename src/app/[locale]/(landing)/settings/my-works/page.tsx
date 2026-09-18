@@ -76,7 +76,13 @@ function extractImageUrls(result: any): string[] {
         if (typeof item === 'string') return [item];
         if (typeof item === 'object') {
           const candidate =
-            item.url ?? item.uri ?? item.image ?? item.src ?? item.imageUrl;
+            item.url ??
+            item.videoUrl ??
+            item.video_url ??
+            item.uri ??
+            item.image ??
+            item.src ??
+            item.imageUrl;
           return typeof candidate === 'string' ? [candidate] : [];
         }
         return [];
@@ -86,7 +92,13 @@ function extractImageUrls(result: any): string[] {
 
   if (typeof output === 'object') {
     const candidate =
-      output.url ?? output.uri ?? output.image ?? output.src ?? output.imageUrl;
+      output.url ??
+      output.videoUrl ??
+      output.video_url ??
+      output.uri ??
+      output.image ??
+      output.src ??
+      output.imageUrl;
     if (typeof candidate === 'string') {
       return [candidate];
     }
@@ -185,7 +197,6 @@ export default async function MyWorksPage({
   const t = await getTranslations('settings.my_works');
   const tasks = await getAITasks({
     userId: user.id,
-    mediaType: 'image',
     status: taskStatus,
     page,
     limit,
@@ -194,6 +205,9 @@ export default async function MyWorksPage({
     ...task,
     inputImageUrl: getInputImageUrl(task),
     outputImageUrl: getOutputImageUrl(task),
+    outputIsVideo:
+      task.mediaType === 'video' ||
+      /\.(mp4|webm|mov|m3u8)(\?.*)?$/i.test(getOutputImageUrl(task)),
     quality: getQualityLabel(getImageQuality(task), t),
     size: getImageSize(task),
     statusLabel: getStatusLabel(task.status, t),
@@ -203,7 +217,6 @@ export default async function MyWorksPage({
   }));
   const total = await getAITasksCount({
     userId: user.id,
-    mediaType: 'image',
     status: taskStatus,
   });
 

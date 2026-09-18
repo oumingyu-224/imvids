@@ -69,3 +69,4 @@ src/config/db/migrations
 google-seo-skills 优化版/
 # Local diff reference files
 chatgptimage2-diff-files/
+.env*

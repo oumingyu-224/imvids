@@ -298,11 +298,14 @@ export function ImageGenerator({
   const hasLoadedCreditsRef = useRef(false);
   const [showPricingDialog, setShowPricingDialog] = useState(false);
 
-  const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } =
+  const { user, isCheckSign, setIsShowSignModal, fetchUserCredits, fetchUserInfo } =
     useAppContext();
 
   useEffect(() => {
     setIsMounted(true);
+
+    // 每次进入工作台重新拉取用户信息（含 currentSubscription），与 billing 页实时查库一致
+    fetchUserInfo();
 
     // Fetch available AI providers
     fetch('/api/ai/providers')

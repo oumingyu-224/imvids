@@ -16,6 +16,14 @@
  * Priority: --env argument > ENV_FILE env var > .env.{NODE_ENV} > .env.development (default)
  */
 import { execSync } from 'child_process';
+import path from 'path';
+
+// Intercept `import 'server-only'` in plain Node (tsx) scripts.
+// Next.js handles it at build time; Node must resolve it to an empty module.
+const serverOnlyShim = path.join(__dirname, 'shims', 'server-only.js');
+const nodeOptions = [process.env.NODE_OPTIONS, `--require ${serverOnlyShim}`]
+  .filter(Boolean)
+  .join(' ');
 
 // Parse command line arguments
 const args = process.argv.slice(2);
@@ -76,6 +84,7 @@ try {
   execSync(`dotenv -e ${envFile} -- ${command}`, {
     stdio: 'inherit',
     cwd: process.cwd(),
+    env: { ...process.env, NODE_OPTIONS: nodeOptions },
   });
 } catch (error) {
   process.exit(1);

@@ -168,6 +168,10 @@ export class KieProvider implements AIProvider {
           ? options.files_url
           : [options.files_url];
       }
+      // 4o-image 的比例字段为 size（文档必填）
+      if (options.size) {
+        payload.input.size = options.size;
+      }
       if (options.aspect_ratio) {
         payload.input.aspect_ratio = options.aspect_ratio;
       }

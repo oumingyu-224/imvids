@@ -72,14 +72,14 @@ export function ModelSelect({ mode, value, onChange, className }: ModelSelectPro
 
   // 有效锁定：指定套餐锁定模型按当前用户套餐判定，
   // 仅 starter-monthly / starter 锁定，其余付费套餐一律可切换；
-  // 无套餐（free）用户沿用模型自身 locked 现状，其他模型不变
+  // 未配置 lockedProductIds 的模型一律不锁
   const isLocked = (model: GeneratorModel) => {
     if (model.lockedProductIds?.length) {
       const productId = user?.currentSubscription?.productId ?? '';
       if (!productId) return model.locked;
       return model.lockedProductIds.includes(productId);
     }
-    return model.locked;
+    return false;
   };
 
   const handleSelect = (model: GeneratorModel) => {

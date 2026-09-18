@@ -41,35 +41,14 @@ function HeaderTopPromo({
   buttonText,
   href,
   target,
+  onClose,
 }: {
   text?: string;
   buttonText?: string;
   href?: string;
   target?: string;
+  onClose: () => void;
 }) {
-  const [closed, setClosed] = useState(false);
-
-  useLayoutEffect(() => {
-    try {
-      setClosed(
-        window.sessionStorage.getItem(HEADER_TOP_PROMO_SESSION_KEY) === '1'
-      );
-    } catch {
-      setClosed(false);
-    }
-  }, []);
-
-  const handleClose = () => {
-    try {
-      window.sessionStorage.setItem(HEADER_TOP_PROMO_SESSION_KEY, '1');
-    } catch {}
-    setClosed(true);
-  };
-
-  if (closed) {
-    return null;
-  }
-
   return (
     <div className="hidden h-10 bg-[linear-gradient(90deg,#0d7df2_0%,#7b3ff5_50%,#c600ff_100%)] text-white md:block">
       <div className="relative container flex h-full items-center justify-center px-4 text-center">
@@ -93,7 +72,7 @@ function HeaderTopPromo({
           type="button"
           className="absolute right-0 flex size-10 items-center justify-center text-white/90"
           aria-label="Close promo"
-          onClick={handleClose}
+          onClick={onClose}
         >
           <X className="size-4" />
         </button>
@@ -106,7 +85,25 @@ export function Header({ header }: { header: HeaderType }) {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [promoClosed, setPromoClosed] = useState(false);
   const scrollRafRef = useRef<number | null>(null);
+
+  useLayoutEffect(() => {
+    try {
+      setPromoClosed(
+        window.sessionStorage.getItem(HEADER_TOP_PROMO_SESSION_KEY) === '1'
+      );
+    } catch {
+      setPromoClosed(false);
+    }
+  }, []);
+
+  const handlePromoClose = () => {
+    try {
+      window.sessionStorage.setItem(HEADER_TOP_PROMO_SESSION_KEY, '1');
+    } catch {}
+    setPromoClosed(true);
+  };
   const navItems = useMemo(
     () => filterNavItems(header.nav?.items),
     [header.nav]
@@ -139,19 +136,31 @@ export function Header({ header }: { header: HeaderType }) {
   };
 
   return (
-    <header
-      className={cn(
-        'landing-surface-header fixed inset-x-0 top-0 z-50 border-b',
-        isScrolled &&
-          'landing-surface-header-scrolled shadow-[0_8px_28px_rgba(15,23,42,0.06)]'
-      )}
-    >
-      <HeaderTopPromo
-        text={header.topbanner?.text}
-        buttonText={header.topbanner?.buttonText}
-        href={header.topbanner?.href}
-        target={header.topbanner?.target}
+    <>
+      {/* 促销条显示时补偿其 40px 高度，避免 fixed 导航栏遮挡页面内容 */}
+      <div
+        aria-hidden="true"
+        className={cn(
+          'h-0',
+          !promoClosed && 'hidden md:block md:h-10'
+        )}
       />
+      <header
+        className={cn(
+          'landing-surface-header fixed inset-x-0 top-0 z-50 border-b',
+          isScrolled &&
+            'landing-surface-header-scrolled shadow-[0_8px_28px_rgba(15,23,42,0.06)]'
+        )}
+      >
+        {!promoClosed ? (
+          <HeaderTopPromo
+            text={header.topbanner?.text}
+            buttonText={header.topbanner?.buttonText}
+            href={header.topbanner?.href}
+            target={header.topbanner?.target}
+            onClose={handlePromoClose}
+          />
+        ) : null}
 
       <div
         className={cn(
@@ -160,7 +169,7 @@ export function Header({ header }: { header: HeaderType }) {
             'bg-[var(--landing-header-bg)] lg:bg-transparent'
         )}
       >
-        <div className="container">
+        <div className="mx-auto max-w-7xl">
           <div className="relative flex h-16 items-center justify-between gap-6">
             <div className="flex min-w-0 items-center">
               {header.brand ? <BrandLogo brand={header.brand} /> : null}
@@ -357,6 +366,7 @@ export function Header({ header }: { header: HeaderType }) {
           ) : null}
         </div>
       </div>
-    </header>
+      </header>
+    </>
   );
 }

@@ -701,6 +701,7 @@ export function VideoGenerator({
           model: targetModel.value,
           prompt: trimmedPrompt,
           options,
+          credits: costCredits,
         }),
       });
 

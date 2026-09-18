@@ -990,6 +990,7 @@ export function ImageGenerator({
           model: apiModel,
           prompt: trimmedPrompt,
           options,
+          credits: costCredits,
         }),
       });
 

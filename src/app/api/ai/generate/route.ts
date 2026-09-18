@@ -13,36 +13,17 @@ import {
   PROMPT_MODERATION_ERRORS,
 } from '@/shared/services/moderation';
 
-function getImageBaseCredits(hasReferenceImages: boolean) {
-  return hasReferenceImages ? 6 : 4;
-}
-
-function getQualityMultiplier(qualityStyle?: string) {
-  if (qualityStyle === 'hd') return 2;
-  if (qualityStyle === 'ultra') return 4;
-  return 1;
-}
-
-function calculateImageCredits(options: any) {
-  const hasReferenceImages =
-    Array.isArray(options?.image_input) && options.image_input.length > 0;
-  const baseCredits = getImageBaseCredits(hasReferenceImages);
-  const qualityMultiplier = getQualityMultiplier(options?.quality_style);
-  const quantityMultiplier = Math.max(
-    1,
-    Number.parseInt(options?.output_count || '1', 10) || 1
-  );
-
-  return baseCredits * qualityMultiplier * quantityMultiplier;
-}
-
 export async function POST(request: Request) {
   try {
-    let { provider, mediaType, model, prompt, options, scene } =
+    let { provider, mediaType, model, prompt, options, scene, credits } =
       await request.json();
 
     if (!provider || !mediaType || !model) {
       throw new Error('invalid params');
+    }
+
+    if (typeof credits !== 'number' || credits < 0) {
+      throw new Error('invalid credits');
     }
 
     if (!prompt && !options) {
@@ -68,29 +49,23 @@ export async function POST(request: Request) {
       throw new Error('no auth, please sign in');
     }
 
-    // todo: get cost credits from settings
-    let costCredits = 4;
+    // 前端按 pricing.json + 套餐折扣算好的积分，直接使用
+    const costCredits = credits;
 
     if (mediaType === AIMediaType.IMAGE) {
-      costCredits = calculateImageCredits(options);
       scene =
         Array.isArray(options?.image_input) && options.image_input.length > 0
           ? 'image-to-image'
           : 'text-to-image';
     } else if (mediaType === AIMediaType.VIDEO) {
-      // generate video
-      if (scene === 'text-to-video') {
-        costCredits = 6;
-      } else if (scene === 'image-to-video') {
-        costCredits = 8;
-      } else if (scene === 'video-to-video') {
-        costCredits = 10;
-      } else {
+      if (
+        scene !== 'text-to-video' &&
+        scene !== 'image-to-video' &&
+        scene !== 'video-to-video'
+      ) {
         throw new Error('invalid scene');
       }
     } else if (mediaType === AIMediaType.MUSIC) {
-      // generate music
-      costCredits = 10;
       scene = 'text-to-music';
     } else {
       throw new Error('invalid mediaType');

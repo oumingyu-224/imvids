@@ -251,11 +251,13 @@ export class KieProvider implements AIProvider {
       if (options.aspect_ratio) {
         payload.input.aspect_ratio = options.aspect_ratio;
       }
-      if (options.duration) {
-        payload.input.n_frames = options.duration;
+      // 时长：文档字段名为 duration（minimax-h3、gemini-omni 等均必填）
+      if (options.duration != null) {
+        payload.input.duration = options.duration;
       }
-      if (!payload.input.n_frames) {
-        payload.input.n_frames = '10';
+      // 分辨率：透传模型配置的分辨率枚举（如 768P/2K/1080p/4k）
+      if (options.resolution) {
+        payload.input.resolution = options.resolution;
       }
     }
 

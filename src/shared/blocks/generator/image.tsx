@@ -43,6 +43,7 @@ import {
   getBaseCredits,
 } from '@/shared/lib/plan-credits';
 import { cn } from '@/shared/lib/utils';
+import type { Subscription } from '@/shared/models/subscription';
 
 interface ImageGeneratorProps {
   allowMultipleImages?: boolean;
@@ -55,6 +56,8 @@ interface ImageGeneratorProps {
   initialConfig?: PromptShowcaseConfig | null;
   /** 锁定模式（内页直接嵌入时）：模式区渲染为纯文字标识，不提供切换 */
   modeLocked?: boolean;
+  /** 服务端查库得到的当前订阅（与 settings/billing 页同源） */
+  currentSubscription?: Subscription;
 }
 
 interface GeneratedImage {
@@ -252,6 +255,7 @@ export function ImageGenerator({
   defaultModel,
   initialConfig,
   modeLocked = false,
+  currentSubscription: serverSubscription,
 }: ImageGeneratorProps) {
   const locale = useLocale();
   const t = useTranslations('ai.image.generator');
@@ -298,14 +302,11 @@ export function ImageGenerator({
   const hasLoadedCreditsRef = useRef(false);
   const [showPricingDialog, setShowPricingDialog] = useState(false);
 
-  const { user, isCheckSign, setIsShowSignModal, fetchUserCredits, fetchUserInfo } =
+  const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } =
     useAppContext();
 
   useEffect(() => {
     setIsMounted(true);
-
-    // 每次进入工作台重新拉取用户信息（含 currentSubscription），与 billing 页实时查库一致
-    fetchUserInfo();
 
     // Fetch available AI providers
     fetch('/api/ai/providers')
@@ -435,9 +436,10 @@ export function ImageGenerator({
 
   const promptLength = prompt.trim().length;
   const remainingCredits = user?.credits?.remainingCredits ?? 0;
-  const hasActiveSubscription = !!user?.currentSubscription;
+  const activeSubscription = serverSubscription ?? user?.currentSubscription;
+  const hasActiveSubscription = !!activeSubscription;
   const hasReferenceImages = referenceImageUrls.length > 0;
-  const currentProductId = user?.currentSubscription?.productId ?? '';
+  const currentProductId = activeSubscription?.productId ?? '';
   const currentModelPricing = useMemo(
     () => getModelsByMode(mediaMode).find((m) => m.id === model)?.pricing ?? null,
     [mediaMode, model]

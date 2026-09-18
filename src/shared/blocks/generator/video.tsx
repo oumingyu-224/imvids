@@ -31,6 +31,7 @@ import {
   getResolutionMultiplier,
 } from '@/shared/lib/plan-credits';
 import { cn } from '@/shared/lib/utils';
+import type { Subscription } from '@/shared/models/subscription';
 
 interface VideoGeneratorProps {
   maxSizeMB?: number;
@@ -38,6 +39,8 @@ interface VideoGeneratorProps {
   onSwitchToImage?: () => void;
   /** 锁定模式（内页直接嵌入时）：模式区渲染为纯文字标识，不提供切换 */
   modeLocked?: boolean;
+  /** 服务端查库得到的当前订阅（与 settings/billing 页同源） */
+  currentSubscription?: Subscription;
 }
 
 interface GeneratedVideo {
@@ -231,6 +234,7 @@ export function VideoGenerator({
   srOnlyTitle,
   onSwitchToImage,
   modeLocked = false,
+  currentSubscription: serverSubscription,
 }: VideoGeneratorProps) {
   const t = useTranslations('ai.video.generator');
 
@@ -267,14 +271,11 @@ export function VideoGenerator({
   );
   const [isMounted, setIsMounted] = useState(false);
 
-  const { user, isCheckSign, setIsShowSignModal, fetchUserCredits, fetchUserInfo } =
+  const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } =
     useAppContext();
 
   useEffect(() => {
     setIsMounted(true);
-
-    // 每次进入工作台重新拉取用户信息（含 currentSubscription），与 billing 页实时查库一致
-    fetchUserInfo();
   }, []);
 
   const promptLength = prompt.trim().length;
@@ -319,7 +320,8 @@ export function VideoGenerator({
     : true;
 
   // 积分：json 基准（5 秒价）÷5 × ceil(时长) × 2^分辨率档 × 套餐折扣
-  const currentProductId = user?.currentSubscription?.productId ?? '';
+  const activeSubscription = serverSubscription ?? user?.currentSubscription;
+  const currentProductId = activeSubscription?.productId ?? '';
   const { costCredits, creditsFree } = useMemo(() => {
     const baseCredits = getBaseCredits(model) ?? 40;
     const baseResolution = availableResolutionOptions[0] ?? '480p';

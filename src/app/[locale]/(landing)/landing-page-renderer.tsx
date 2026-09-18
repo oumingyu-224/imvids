@@ -30,15 +30,14 @@ export async function LandingPageRenderer({
   const t = await getTranslations(config.namespace);
   const landingT = await getTranslations('landing');
 
+  // 与 settings/billing 页同源：服务端直接查库取当前订阅，供工作台档位判定使用
   let currentSubscription: Subscription | undefined;
-  if (config.showSections.includes('pricing')) {
-    try {
-      const user = await getUserInfo();
-      if (user) {
-        currentSubscription = await getCurrentSubscription(user.id);
-      }
-    } catch {}
-  }
+  try {
+    const user = await getUserInfo();
+    if (user) {
+      currentSubscription = await getCurrentSubscription(user.id);
+    }
+  } catch {}
 
   // Fetch showcases data server-side for faster initial render
   const rawShowcases = config.showSections.includes('showcases-flow')
@@ -127,6 +126,7 @@ export async function LandingPageRenderer({
       generatorSrOnlyTitle={t.raw('generator.title')}
       promptKey={promptKey}
       modeLocked={config.lockedMode}
+      currentSubscription={currentSubscription}
     />
   );
 }

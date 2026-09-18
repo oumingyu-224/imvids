@@ -7,6 +7,7 @@ import { ImageGenerator, VideoGenerator } from '@/shared/blocks/generator';
 import {
   type PromptShowcaseConfig,
 } from '@/shared/blocks/common/prompt-showcase';
+import { type Subscription } from '@/shared/models/subscription';
 
 const GENERATE_EVENT = 'prompt-showcase:generate';
 
@@ -16,12 +17,14 @@ export function LandingGeneratorToggle({
   generatorSrOnlyTitle,
   promptKey,
   modeLocked = false,
+  currentSubscription,
 }: {
   landing: React.ReactNode;
   generator?: 'image' | 'video';
   generatorSrOnlyTitle?: string;
   promptKey?: string;
   modeLocked?: boolean;
+  currentSubscription?: Subscription;
 }) {
   const [showGenerator, setShowGenerator] = useState(false);
   const [initialConfig, setInitialConfig] = useState<PromptShowcaseConfig | null>(
@@ -64,6 +67,7 @@ export function LandingGeneratorToggle({
               <VideoGenerator
                 srOnlyTitle={generatorSrOnlyTitle}
                 modeLocked={modeLocked}
+                currentSubscription={currentSubscription}
               />
             ) : (
               <ImageGenerator
@@ -71,6 +75,7 @@ export function LandingGeneratorToggle({
                 promptKey={promptKey}
                 initialConfig={initialConfig}
                 modeLocked={modeLocked}
+                currentSubscription={currentSubscription}
               />
             )}
           </div>

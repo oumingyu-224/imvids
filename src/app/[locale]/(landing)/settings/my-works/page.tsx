@@ -8,6 +8,9 @@ import { type Tab } from '@/shared/types/blocks/common';
 
 import { MyWorksClient } from './my-works-client';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 function parseTaskInfo(taskInfo?: string | null) {
   if (!taskInfo) return null;
 

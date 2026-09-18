@@ -137,14 +137,6 @@ export function Header({ header }: { header: HeaderType }) {
 
   return (
     <>
-      {/* 促销条显示时补偿其 40px 高度并额外留出 16px 间隙，避免 fixed 导航栏遮挡页面内容 */}
-      <div
-        aria-hidden="true"
-        className={cn(
-          'h-0',
-          !promoClosed && 'hidden md:block md:h-14'
-        )}
-      />
       <header
         className={cn(
           'landing-surface-header fixed inset-x-0 top-0 z-50 border-b',

@@ -181,6 +181,24 @@ export class KieProvider implements AIProvider {
       if (options.output_format) {
         payload.input.output_format = options.output_format;
       }
+      // 通用透传：模型配置的其余字段（如 image_size/quality/max_images 等）直达 KIE
+      const excludeKeys = [
+        'image_input',
+        'input_image',
+        'files_url',
+        'size',
+        'aspect_ratio',
+        'resolution',
+        'output_format',
+        'quality_style',
+        'output_count',
+        'public_visible',
+      ];
+      Object.keys(options).forEach((key) => {
+        if (!excludeKeys.includes(key) && options[key] != null) {
+          payload.input[key] = options[key];
+        }
+      });
     }
 
     const resp = await fetch(apiUrl, {
@@ -259,6 +277,21 @@ export class KieProvider implements AIProvider {
       if (options.resolution) {
         payload.input.resolution = options.resolution;
       }
+      // 通用透传：模型配置的其余字段（如 image_url/first_frame_url/quality/generate_audio 等）直达 KIE
+      const excludeKeys = [
+        'image_input',
+        'aspect_ratio',
+        'duration',
+        'resolution',
+        'quality_style',
+        'output_count',
+        'public_visible',
+      ];
+      Object.keys(options).forEach((key) => {
+        if (!excludeKeys.includes(key) && options[key] != null) {
+          payload.input[key] = options[key];
+        }
+      });
     }
 
     console.log('kie input', apiUrl, payload);

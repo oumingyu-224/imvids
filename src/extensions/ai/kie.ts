@@ -158,6 +158,16 @@ export class KieProvider implements AIProvider {
       if (options.image_input && Array.isArray(options.image_input)) {
         payload.input.image_input = options.image_input;
       }
+      // flux-kontext：单张参考图字段为 input_image
+      if (options.input_image) {
+        payload.input.input_image = options.input_image;
+      }
+      // 4o-image：参考图字段为 files_url（数组，最多 5 张）
+      if (options.files_url) {
+        payload.input.files_url = Array.isArray(options.files_url)
+          ? options.files_url
+          : [options.files_url];
+      }
       if (options.aspect_ratio) {
         payload.input.aspect_ratio = options.aspect_ratio;
       }

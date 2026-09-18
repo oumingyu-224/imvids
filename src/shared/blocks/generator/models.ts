@@ -281,8 +281,21 @@ export const IMAGE_MODELS: GeneratorModel[] = [
     description: 'AI 驱动的图像生成与编辑',
     capabilities: ['30+', '文本和图片'],
     params: {
+      apiModels: {
+        'text-to-image': '4o-image-api',
+        'image-to-image': '4o-image-api',
+      },
       imageInputField: 'files_url',
       imageInputMultiple: true,
+      ratioField: 'size',
+      ratioOptions: ['1:1', '3:2', '2:3'],
+      ratioValueMap: {
+        '16:9': '3:2',
+        '9:16': '2:3',
+        '21:9': '3:2',
+        '4:3': '3:2',
+        '3:4': '2:3',
+      },
     },
     locked: false,
     lockedTier: null,
@@ -319,11 +332,12 @@ export const IMAGE_MODELS: GeneratorModel[] = [
     capabilities: ['40+', '文本和图片'],
     params: {
       apiModels: {
-        'text-to-image': 'fal-ai/flux-pro/kontext/max/text-to-image',
-        'image-to-image': 'fal-ai/flux-pro/kontext/max',
+        'text-to-image': 'flux1-kontext',
+        'image-to-image': 'flux1-kontext',
       },
       ratioField: 'aspect_ratio',
       ratioOptions: ['21:9', '16:9', '4:3', '1:1', '3:4', '9:16'],
+      imageInputField: 'input_image',
     },
     locked: false,
     lockedTier: null,

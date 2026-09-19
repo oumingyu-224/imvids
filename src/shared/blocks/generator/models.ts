@@ -107,7 +107,6 @@ export const IMAGE_MODELS: GeneratorModel[] = [
     },
     locked: true,
     lockedTier: 'max',
-    lockedProductIds: ['starter-monthly', 'starter'],
     recommended: false,
     pricing: { credits: getBaseCredits('gpt-images-2-5-flare') ?? 60, tierAnchor: 'max' },
   },

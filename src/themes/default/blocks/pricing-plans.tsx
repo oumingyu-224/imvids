@@ -409,17 +409,12 @@ export function PricingPlans({
   } = useAppContext();
 
   const [group, setGroup] = useState(() => {
-    // find current pricing item
-    const currentItem = pricing.items?.find(
-      (i) => i.product_id === currentSubscription?.productId
-    );
-
+    // default to yearly billing
     const yearlyGroup = pricing.groups?.find((g) => g.name === 'yearly');
     // First look for a group with is_featured set to true
     const featuredGroup = pricing.groups?.find((g) => g.is_featured);
     // If no featured group exists, fall back to the first group
     return (
-      currentItem?.group ||
       yearlyGroup?.name ||
       featuredGroup?.name ||
       pricing.groups?.[0]?.name

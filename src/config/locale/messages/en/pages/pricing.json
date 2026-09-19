@@ -1330,6 +1330,27 @@
             "starter": 40,
             "standard": 40
           }
+        },
+        {
+          "name": "GPT Images 2.5 Flare",
+          "category": "image",
+          "description": "Default 70 credits (1K, single image). Credits vary with resolution and image count, normal image-model plan discounts apply, Unlimited plans are credit-free.",
+          "credits": {
+            "starter-monthly": 70,
+            "standard-monthly": 70,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "standard-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "premium-yearly": "free",
+            "starter": 70,
+            "standard": 70
+          }
         }
       ]
     },

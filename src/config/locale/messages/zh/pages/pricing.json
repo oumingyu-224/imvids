@@ -1362,6 +1362,27 @@
             "starter": 40,
             "standard": 40
           }
+        },
+        {
+          "name": "GPT Images 2.5 Flare",
+          "category": "image",
+          "description": "默认 70 积分（1K、单张图片）。积分随分辨率和生成数量变化，适用普通图片模型的套餐折扣，Unlimited 套餐免积分。",
+          "credits": {
+            "starter-monthly": 70,
+            "standard-monthly": 70,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "standard-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "premium-yearly": "free",
+            "starter": 70,
+            "standard": 70
+          }
         }
       ]
     },

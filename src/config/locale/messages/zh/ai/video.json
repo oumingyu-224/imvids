@@ -80,7 +80,7 @@
   "hero": {
     "id": "hero",
     "title": "AI 视频生成器",
-    "description": "imvids 汇聚 Seedance 2.5 与 MiniMax H3 等领先的 AI 视频模型，支持文生视频、图生视频与首尾帧控制。一个工作台切换多个模型，用一段提示词生成电影级画质的短视频。",
+    "description": "Oddbeam 汇聚 Seedance 2.5 与 MiniMax H3 等领先的 AI 视频模型，支持文生视频、图生视频与首尾帧控制。一个工作台切换多个模型，用一段提示词生成电影级画质的短视频。",
     "trust_items": [
       "免费积分可直接开始",
       "Seedance 2.5 · MiniMax H3",
@@ -103,7 +103,7 @@
       }
     ],
     "show_avatars": false,
-    "avatars_tip": "999+ 创作者正在用 imvids 生成 AI 视频",
+    "avatars_tip": "999+ 创作者正在用 Oddbeam 生成 AI 视频",
     "show_award": false,
     "background_image": {
       "src": "",
@@ -209,8 +209,8 @@
   "usage": {
     "block": "features-step",
     "id": "usage",
-    "title": "如何用 imvids 生成 AI 视频",
-    "description": "三步把想法变成成片：",
+    "title": "如何用 Oddbeam 生成 AI 视频",
+    "description": "四步把想法变成成片：",
     "image": {
       "src": "/imgs/features/1.png",
       "alt": "usage"
@@ -235,10 +235,18 @@
         }
       },
       {
-        "title": "生成并下载",
-        "description": "选择宽高比、时长与分辨率后一键生成，预览满意即可直接下载，用于社媒、广告或短片制作。",
+        "title": "生成并预览",
+        "description": "选择宽高比、时长与分辨率后一键生成，稍等片刻即可在预览区查看成片效果。",
         "image": {
           "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "下载并发布",
+        "description": "预览满意即可直接下载无水印成片，用于社媒、广告或短片；不满意可调整提示词重新生成。",
+        "image": {
+          "src": "/imgs/features/8.png",
           "alt": "usage"
         }
       }
@@ -246,7 +254,7 @@
   },
   "features": {
     "id": "features",
-    "title": "imvids AI 视频生成核心能力",
+    "title": "Oddbeam AI 视频生成核心能力",
     "description": "多模型聚合的 AI 视频工作台，一个页面用尽 Seedance 2.5 与 MiniMax H3 的全部优势。",
     "items": [
       {
@@ -261,7 +269,7 @@
       },
       {
         "title": "一个工作台切换多个模型",
-        "description": "imvids 聚合多家顶级视频模型，无需在多个网站间跳转，同一界面自由切换、对比效果。",
+        "description": "Oddbeam 聚合多家顶级视频模型，无需在多个网站间跳转，同一界面自由切换、对比效果。",
         "icon": "RiExchangeLine"
       },
       {
@@ -286,13 +294,13 @@
   },
   "testimonials": {
     "id": "testimonials",
-    "title": "创作者对 imvids AI 视频生成的评价",
+    "title": "创作者对 Oddbeam AI 视频生成的评价",
     "description": "来自视频创作者、营销团队与设计师在真实项目中的反馈。",
     "items": [
       {
         "name": "短视频团队",
         "role": "社媒内容制作",
-        "quote": "以前要开好几个网站分别试不同模型，现在 imvids 一个工作台就能在 Seedance 2.5 和 MiniMax H3 之间切换，出片效率翻倍。",
+        "quote": "以前要开好几个网站分别试不同模型，现在 Oddbeam 一个工作台就能在 Seedance 2.5 和 MiniMax H3 之间切换，出片效率翻倍。",
         "image": {
           "src": "/imgs/avatars/1.png",
           "alt": "short video team"
@@ -319,7 +327,7 @@
       {
         "name": "Maria Santos",
         "role": "市场总监",
-        "quote": "我们用 imvids 批量产出营销短视频，多模型切换让我们能按预算和风格灵活选型。",
+        "quote": "我们用 Oddbeam 批量产出营销短视频，多模型切换让我们能按预算和风格灵活选型。",
         "image": {
           "src": "/imgs/avatars/1.png",
           "alt": "Maria Santos"
@@ -371,8 +379,8 @@
     "title": "常见问题",
     "items": [
       {
-        "question": "imvids 支持哪些 AI 视频模型？",
-        "answer": "imvids 目前主打 Seedance 2.5 与 MiniMax H3 两款领先的视频生成模型，并持续接入更多新模型，一个工作台即可切换使用。"
+        "question": "Oddbeam 支持哪些 AI 视频模型？",
+        "answer": "Oddbeam 目前主打 Seedance 2.5 与 MiniMax H3 两款领先的视频生成模型，并持续接入更多新模型，一个工作台即可切换使用。"
       },
       {
         "question": "Seedance 2.5 有什么优势？",
@@ -388,7 +396,7 @@
       },
       {
         "question": "可以在多个模型之间切换吗？",
-        "answer": "可以。imvids 的视频工作台支持在多个模型之间自由切换，同一份提示词可以分别用不同模型生成并对比效果，选出最满意的版本。"
+        "answer": "可以。Oddbeam 的视频工作台支持在多个模型之间自由切换，同一份提示词可以分别用不同模型生成并对比效果，选出最满意的版本。"
       },
       {
         "question": "生成的视频可以商用吗？",
@@ -402,7 +410,7 @@
   },
   "cta": {
     "id": "cta",
-    "title": "立即体验 imvids AI 视频生成",
+    "title": "立即体验 Oddbeam AI 视频生成",
     "description": "Seedance 2.5 与 MiniMax H3 双模型加持，文生视频、图生视频一站完成，用一段提示词生成你的下一支短片。",
     "buttons": [
       {

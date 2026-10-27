@@ -159,7 +159,7 @@
   "hero": {
     "id": "hero",
     "title": "AI 图片生成器",
-    "description": "imvids 汇聚 GPT Images 2.5 等领先的 AI 图像模型，支持文生图与图生图。一个工作台切换多个模型，用一段提示词生成海报级、可商用的精美图片。",
+    "description": "Oddbeam 汇聚 GPT Images 2.5 等领先的 AI 图像模型，支持文生图与图生图。一个工作台切换多个模型，用一段提示词生成海报级、可商用的精美图片。",
     "trust_items": [
       "免费积分可直接开始",
       "GPT Images 2.5 加持",
@@ -182,7 +182,7 @@
       }
     ],
     "show_avatars": false,
-    "avatars_tip": "999+ 创作者正在用 imvids 生成 AI 图片",
+    "avatars_tip": "999+ 创作者正在用 Oddbeam 生成 AI 图片",
     "show_award": false,
     "background_image": {
       "src": "",
@@ -288,8 +288,8 @@
   "usage": {
     "block": "features-step",
     "id": "usage",
-    "title": "如何用 imvids 生成 AI 图片",
-    "description": "三步得到可用成品：",
+    "title": "如何用 Oddbeam 生成 AI 图片",
+    "description": "四步得到可用成品：",
     "image": {
       "src": "/imgs/features/1.png",
       "alt": "usage"
@@ -314,10 +314,18 @@
         }
       },
       {
-        "title": "生成并下载",
-        "description": "选择宽高比、质量与数量后一键生成，迭代到满意即可下载，用于电商、社媒与品牌发布。",
+        "title": "生成并迭代",
+        "description": "选择宽高比、质量与数量后一键生成，按方向调整提示词反复迭代，直到效果满意。",
         "image": {
           "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "下载并使用",
+        "description": "直接下载无水印成品图，用于电商、社媒与品牌发布，预览区即取即用。",
+        "image": {
+          "src": "/imgs/features/8.png",
           "alt": "usage"
         }
       }
@@ -325,7 +333,7 @@
   },
   "features": {
     "id": "features",
-    "title": "imvids AI 图片生成核心能力",
+    "title": "Oddbeam AI 图片生成核心能力",
     "description": "多模型聚合的 AI 图像工作台，一个页面用尽 GPT Images 2.5 的全部优势。",
     "items": [
       {
@@ -340,7 +348,7 @@
       },
       {
         "title": "一个工作台切换多个模型",
-        "description": "imvids 聚合多家顶级图像模型，无需在多个网站间跳转，同一界面自由切换、对比效果。",
+        "description": "Oddbeam 聚合多家顶级图像模型，无需在多个网站间跳转，同一界面自由切换、对比效果。",
         "icon": "RiExchangeLine"
       },
       {
@@ -365,13 +373,13 @@
   },
   "testimonials": {
     "id": "testimonials",
-    "title": "创作者对 imvids AI 图片生成的评价",
+    "title": "创作者对 Oddbeam AI 图片生成的评价",
     "description": "来自设计师、电商卖家与内容团队在真实工作流中的反馈。",
     "items": [
       {
         "name": "设计团队",
         "role": "品牌与创意运营",
-        "quote": "GPT Images 2.5 的提示词遵循能力让美术方向落地更准，imvids 一个页面就完成了我们大部分视觉产出。",
+        "quote": "GPT Images 2.5 的提示词遵循能力让美术方向落地更准，Oddbeam 一个页面就完成了我们大部分视觉产出。",
         "image": {
           "src": "/imgs/avatars/1.png",
           "alt": "design team"
@@ -398,7 +406,7 @@
       {
         "name": "Maria Santos",
         "role": "市场总监",
-        "quote": "我们用 imvids 做活动视觉方向和快速创意落地，多模型对比让选型更高效。",
+        "quote": "我们用 Oddbeam 做活动视觉方向和快速创意落地，多模型对比让选型更高效。",
         "image": {
           "src": "/imgs/avatars/1.png",
           "alt": "Maria Santos"
@@ -434,7 +442,7 @@
       {
         "name": "Kevin Miller",
         "role": "内容负责人",
-        "quote": "免费积分就能试全部功能，现在团队的所有配图需求都先在 imvids 上出稿。",
+        "quote": "免费积分就能试全部功能，现在团队的所有配图需求都先在 Oddbeam 上出稿。",
         "image": {
           "src": "/imgs/avatars/2.png",
           "alt": "Kevin Miller"
@@ -450,8 +458,8 @@
     "title": "常见问题",
     "items": [
       {
-        "question": "imvids 支持哪些 AI 图片模型？",
-        "answer": "imvids 目前主打 GPT Images 2.5，并支持多个领先的 AI 图像模型，持续接入新模型，一个工作台即可切换使用。"
+        "question": "Oddbeam 支持哪些 AI 图片模型？",
+        "answer": "Oddbeam 目前主打 GPT Images 2.5，并支持多个领先的 AI 图像模型，持续接入新模型，一个工作台即可切换使用。"
       },
       {
         "question": "GPT Images 2.5 有什么优势？",
@@ -467,7 +475,7 @@
       },
       {
         "question": "可以在多个模型之间切换吗？",
-        "answer": "可以。imvids 的图片工作台支持在多个模型之间自由切换，同一份提示词可以分别用不同模型生成并对比效果，选出最满意的版本。"
+        "answer": "可以。Oddbeam 的图片工作台支持在多个模型之间自由切换，同一份提示词可以分别用不同模型生成并对比效果，选出最满意的版本。"
       },
       {
         "question": "生成的图片可以商用吗？",
@@ -481,7 +489,7 @@
   },
   "cta": {
     "id": "cta",
-    "title": "立即体验 imvids AI 图片生成",
+    "title": "立即体验 Oddbeam AI 图片生成",
     "description": "GPT Images 2.5 加持，文生图、图生图一站完成，用一段提示词生成可商用的精美视觉内容。",
     "buttons": [
       {

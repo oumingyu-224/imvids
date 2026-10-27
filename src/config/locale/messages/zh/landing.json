@@ -31,8 +31,62 @@
           "url": "/ai-image-generator"
         },
         {
-          "title": "Seedance 提示词",
-          "url": "/seedance-prompts"
+          "title": "模型",
+          "children": [
+            {
+              "title": "Seedream 4.5",
+              "url": "/seedream4-5",
+              "target": "_self",
+              "description": "高质量 AI 图片生成，提示词遵循更强"
+            },
+            {
+              "title": "Nano Banana Pro",
+              "url": "/nano-banana-pro",
+              "target": "_self",
+              "description": "专业图片编辑与图中文字渲染"
+            },
+            {
+              "title": "Z-Image",
+              "url": "/z-image",
+              "target": "_self",
+              "description": "快速出图的高质量模型"
+            },
+            {
+              "title": "Seedance 2.0 Free",
+              "url": "/seedance-2-free",
+              "target": "_self",
+              "description": "免费 AI 视频生成，上手即用"
+            }
+          ]
+        },
+        {
+          "title": "玩法",
+          "children": [
+            {
+              "title": "AI 视频生成器",
+              "url": "/ai-video-generator",
+              "target": "_self",
+              "description": "文生视频与图生视频工作流"
+            },
+            {
+              "title": "AI 图片生成器",
+              "url": "/ai-image-generator",
+              "target": "_self",
+              "description": "文生图与图生图工作流"
+            },
+            {
+              "title": "AI 音乐生成器",
+              "url": "/ai-music-generator",
+              "target": "_self",
+              "description": "一段提示词生成 AI 音乐"
+            },
+            {
+              "title": "灵感案例",
+              "url": "/showcases",
+              "target": "_self",
+              "description": "社区真实图片与视频作品"
+            }
+          ]
         },
         {
           "title": "价格",

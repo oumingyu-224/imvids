@@ -80,7 +80,7 @@
   "hero": {
     "id": "hero",
     "title": "AI Video Generator",
-    "description": "imvids brings together leading AI video models including Seedance 2.5 and MiniMax H3, supporting text-to-video, image-to-video, and start/end frame control. Switch between models in one workspace and turn a single prompt into cinematic short videos.",
+    "description": "Oddbeam brings together leading AI video models including Seedance 2.5 and MiniMax H3, supporting text-to-video, image-to-video, and start/end frame control. Switch between models in one workspace and turn a single prompt into cinematic short videos.",
     "trust_items": [
       "Free credits to get started",
       "Seedance 2.5 · MiniMax H3",
@@ -103,7 +103,7 @@
       }
     ],
     "show_avatars": false,
-    "avatars_tip": "999+ creators are making AI videos with imvids",
+    "avatars_tip": "999+ creators are making AI videos with Oddbeam",
     "show_award": false,
     "background_image": {
       "src": "",
@@ -209,8 +209,8 @@
   "usage": {
     "block": "features-step",
     "id": "usage",
-    "title": "How to Create AI Videos with imvids",
-    "description": "Three steps from idea to final cut:",
+    "title": "How to Create AI Videos with Oddbeam",
+    "description": "Four steps from idea to final cut:",
     "image": {
       "src": "/imgs/features/1.png",
       "alt": "usage"
@@ -235,10 +235,18 @@
         }
       },
       {
-        "title": "Generate and Download",
-        "description": "Choose aspect ratio, duration, and resolution, then generate in one click. Preview and download directly for social media, ads, or short films.",
+        "title": "Generate and Preview",
+        "description": "Choose aspect ratio, duration, and resolution, then generate in one click. The result appears in the preview area within seconds.",
         "image": {
           "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Download and Publish",
+        "description": "Download the watermark-free video for social media, ads, or short films — or refine the prompt and regenerate until it is exactly right.",
+        "image": {
+          "src": "/imgs/features/8.png",
           "alt": "usage"
         }
       }
@@ -246,7 +254,7 @@
   },
   "features": {
     "id": "features",
-    "title": "imvids AI Video Generation Capabilities",
+    "title": "Oddbeam AI Video Generation Capabilities",
     "description": "A multi-model AI video workspace — get the best of Seedance 2.5 and MiniMax H3 on a single page.",
     "items": [
       {
@@ -261,7 +269,7 @@
       },
       {
         "title": "Switch Models in One Workspace",
-        "description": "imvids aggregates top video models — no more jumping between sites. Switch freely and compare results in the same interface.",
+        "description": "Oddbeam aggregates top video models — no more jumping between sites. Switch freely and compare results in the same interface.",
         "icon": "RiExchangeLine"
       },
       {
@@ -286,13 +294,13 @@
   },
   "testimonials": {
     "id": "testimonials",
-    "title": "What Creators Say About imvids AI Video",
+    "title": "What Creators Say About Oddbeam AI Video",
     "description": "Feedback from video creators, marketing teams, and designers in real projects.",
     "items": [
       {
         "name": "Short-Video Team",
         "role": "Social Media Production",
-        "quote": "We used to open several sites to try different models. Now one imvids workspace lets us switch between Seedance 2.5 and MiniMax H3 — output speed has doubled.",
+        "quote": "We used to open several sites to try different models. Now one Oddbeam workspace lets us switch between Seedance 2.5 and MiniMax H3 — output speed has doubled.",
         "image": {
           "src": "/imgs/avatars/1.png",
           "alt": "short video team"
@@ -319,7 +327,7 @@
       {
         "name": "Maria Santos",
         "role": "Marketing Director",
-        "quote": "We produce marketing videos at scale with imvids. Multi-model switching lets us pick by budget and style with total flexibility.",
+        "quote": "We produce marketing videos at scale with Oddbeam. Multi-model switching lets us pick by budget and style with total flexibility.",
         "image": {
           "src": "/imgs/avatars/1.png",
           "alt": "Maria Santos"
@@ -371,8 +379,8 @@
     "title": "FAQ",
     "items": [
       {
-        "question": "Which AI video models does imvids support?",
-        "answer": "imvids currently features Seedance 2.5 and MiniMax H3, two leading video generation models, and keeps adding more — all switchable from one workspace."
+        "question": "Which AI video models does Oddbeam support?",
+        "answer": "Oddbeam currently features Seedance 2.5 and MiniMax H3, two leading video generation models, and keeps adding more — all switchable from one workspace."
       },
       {
         "question": "What are Seedance 2.5's strengths?",
@@ -388,7 +396,7 @@
       },
       {
         "question": "Can I switch between multiple models?",
-        "answer": "Yes. The imvids video workspace lets you switch between models freely — run the same prompt through different models, compare results, and pick the best version."
+        "answer": "Yes. The Oddbeam video workspace lets you switch between models freely — run the same prompt through different models, compare results, and pick the best version."
       },
       {
         "question": "Can I use generated videos commercially?",
@@ -402,7 +410,7 @@
   },
   "cta": {
     "id": "cta",
-    "title": "Start Creating with imvids AI Video",
+    "title": "Start Creating with Oddbeam AI Video",
     "description": "Powered by Seedance 2.5 and MiniMax H3, with text-to-video and image-to-video in one place — turn a single prompt into your next short film.",
     "buttons": [
       {

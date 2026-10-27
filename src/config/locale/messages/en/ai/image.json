@@ -159,7 +159,7 @@
   "hero": {
     "id": "hero",
     "title": "AI Image Generator",
-    "description": "imvids brings together leading AI image models including GPT Images 2.5, supporting text-to-image and image-to-image. Switch between models in one workspace and turn a single prompt into poster-grade, commercially ready visuals.",
+    "description": "Oddbeam brings together leading AI image models including GPT Images 2.5, supporting text-to-image and image-to-image. Switch between models in one workspace and turn a single prompt into poster-grade, commercially ready visuals.",
     "trust_items": [
       "Free credits to get started",
       "Powered by GPT Images 2.5",
@@ -182,7 +182,7 @@
       }
     ],
     "show_avatars": false,
-    "avatars_tip": "999+ creators are making AI images with imvids",
+    "avatars_tip": "999+ creators are making AI images with Oddbeam",
     "show_award": false,
     "background_image": {
       "src": "",
@@ -288,8 +288,8 @@
   "usage": {
     "block": "features-step",
     "id": "usage",
-    "title": "How to Create AI Images with imvids",
-    "description": "Three steps to a usable result:",
+    "title": "How to Create AI Images with Oddbeam",
+    "description": "Four steps to a usable result:",
     "image": {
       "src": "/imgs/features/1.png",
       "alt": "usage"
@@ -314,10 +314,18 @@
         }
       },
       {
-        "title": "Generate and Download",
-        "description": "Choose aspect ratio, quality, and count, then generate in one click. Iterate until satisfied and download for e-commerce, social, or brand use.",
+        "title": "Generate and Iterate",
+        "description": "Choose aspect ratio, quality, and count, then generate in one click. Refine the prompt and regenerate until the result matches your direction.",
         "image": {
           "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Download and Use",
+        "description": "Download the watermark-free image for e-commerce, social, or brand use — ready to publish straight from the preview area.",
+        "image": {
+          "src": "/imgs/features/8.png",
           "alt": "usage"
         }
       }
@@ -325,7 +333,7 @@
   },
   "features": {
     "id": "features",
-    "title": "imvids AI Image Generation Capabilities",
+    "title": "Oddbeam AI Image Generation Capabilities",
     "description": "A multi-model AI image workspace — get the best of GPT Images 2.5 on a single page.",
     "items": [
       {
@@ -340,7 +348,7 @@
       },
       {
         "title": "Switch Models in One Workspace",
-        "description": "imvids aggregates top image models — no more jumping between sites. Switch freely and compare results in the same interface.",
+        "description": "Oddbeam aggregates top image models — no more jumping between sites. Switch freely and compare results in the same interface.",
         "icon": "RiExchangeLine"
       },
       {
@@ -365,13 +373,13 @@
   },
   "testimonials": {
     "id": "testimonials",
-    "title": "What Creators Say About imvids AI Images",
+    "title": "What Creators Say About Oddbeam AI Images",
     "description": "Feedback from designers, e-commerce sellers, and content teams in real workflows.",
     "items": [
       {
         "name": "Design Team",
         "role": "Brand & Creative Operations",
-        "quote": "GPT Images 2.5's prompt adherence makes art direction land far more accurately — one imvids page now covers most of our visual output.",
+        "quote": "GPT Images 2.5's prompt adherence makes art direction land far more accurately — one Oddbeam page now covers most of our visual output.",
         "image": {
           "src": "/imgs/avatars/1.png",
           "alt": "design team"
@@ -398,7 +406,7 @@
       {
         "name": "Maria Santos",
         "role": "Marketing Director",
-        "quote": "We use imvids for campaign visuals and rapid creative iterations. Multi-model comparison makes selection far more efficient.",
+        "quote": "We use Oddbeam for campaign visuals and rapid creative iterations. Multi-model comparison makes selection far more efficient.",
         "image": {
           "src": "/imgs/avatars/1.png",
           "alt": "Maria Santos"
@@ -434,7 +442,7 @@
       {
         "name": "Kevin Miller",
         "role": "Content Lead",
-        "quote": "Free credits unlock every feature. All of our team's image needs now start as drafts in imvids.",
+        "quote": "Free credits unlock every feature. All of our team's image needs now start as drafts in Oddbeam.",
         "image": {
           "src": "/imgs/avatars/2.png",
           "alt": "Kevin Miller"
@@ -450,8 +458,8 @@
     "title": "FAQ",
     "items": [
       {
-        "question": "Which AI image models does imvids support?",
-        "answer": "imvids currently features GPT Images 2.5 along with multiple leading AI image models, and keeps adding more — all switchable from one workspace."
+        "question": "Which AI image models does Oddbeam support?",
+        "answer": "Oddbeam currently features GPT Images 2.5 along with multiple leading AI image models, and keeps adding more — all switchable from one workspace."
       },
       {
         "question": "What are GPT Images 2.5's strengths?",
@@ -467,7 +475,7 @@
       },
       {
         "question": "Can I switch between multiple models?",
-        "answer": "Yes. The imvids image workspace lets you switch between models freely — run the same prompt through different models, compare results, and pick the best version."
+        "answer": "Yes. The Oddbeam image workspace lets you switch between models freely — run the same prompt through different models, compare results, and pick the best version."
       },
       {
         "question": "Can I use generated images commercially?",
@@ -481,7 +489,7 @@
   },
   "cta": {
     "id": "cta",
-    "title": "Start Creating with imvids AI Images",
+    "title": "Start Creating with Oddbeam AI Images",
     "description": "Powered by GPT Images 2.5, with text-to-image and image-to-image in one place — turn a single prompt into commercially ready visuals.",
     "buttons": [
       {

@@ -79,7 +79,7 @@ export function Testimonials({
                   transform: translate3d(0, 0, 0);
                 }
                 to {
-                  transform: translate3d(calc(-50% - 0.75rem), 0, 0);
+                  transform: translate3d(calc(-100% - 1.5rem), 0, 0);
                 }
               }
             `}</style>
@@ -87,7 +87,7 @@ export function Testimonials({
               className="flex w-max gap-6 will-change-transform"
               style={{ animation: 'testimonials-marquee 48s linear infinite' }}
             >
-              {[...items, ...items].map((item, index) => (
+              {items.map((item, index) => (
                 <TestimonialCard
                   key={`${item.name || item.title || 'item'}-${index}`}
                   item={item}

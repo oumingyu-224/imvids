@@ -60,6 +60,35 @@ export async function LandingPageRenderer({
       (acc, section) => {
         if (section === 'showcases-flow') {
           const sectionData = (t.raw(section) || landingT.raw(section)) as Section;
+          // 展示区防空壳：DB 不足 8 条时回退静态 JSON 条目（内置 10 条）；
+          // 静态也不足 8 条则整节不渲染，绝不留 "No items found" 空态
+          const staticItems = Array.isArray(
+            (sectionData as Record<string, unknown>).items
+          )
+            ? ((sectionData as Record<string, unknown>).items as Array<{
+                title?: string;
+                description?: string;
+                image?: { src?: string; alt?: string };
+              }>)
+            : [];
+          const displayItems =
+            initialShowcases.length >= 8
+              ? initialShowcases
+              : staticItems
+                  .filter((item) => item.image?.src)
+                  .map((item, index) => ({
+                    id: `static-showcase-${index}`,
+                    title: item.title ?? '',
+                    description: item.description ?? '',
+                    prompt: '',
+                    image: item.image?.src ?? '',
+                    createdAt: new Date(0).toISOString(),
+                  }));
+
+          if (displayItems.length < 8) {
+            return acc;
+          }
+
           acc[section] = {
             ...sectionData,
             component: (
@@ -70,7 +99,7 @@ export async function LandingPageRenderer({
                 description={sectionData.description}
                 excludeTags="hairstyles"
                 sortOrder="desc"
-                initialItems={initialShowcases}
+                initialItems={displayItems}
               />
             ),
           };

@@ -2,17 +2,17 @@
   "header": {
     "id": "header",
     "topbanner": {
-      "text": "ChatGPT Image 2 Launch Special - Get 30% OFF all Pro plans for a limited time!",
+      "text": "Oddbeam Launch Special - Get 30% OFF all Pro plans for a limited time!",
       "buttonText": "Claim Now →",
       "href": "/pricing",
       "target": "_self",
       "dismissedExpiryDays": 1
     },
     "brand": {
-      "title": "ChatGPT Image 2",
+      "title": "Oddbeam",
       "logo": {
         "src": "/logo.png",
-        "alt": "ChatGPT Image 2"
+        "alt": "Oddbeam"
       },
       "url": "/"
     },
@@ -65,8 +65,8 @@
   },
   "hero": {
     "id": "hero",
-    "title": "ChatGPT Image 2",
-    "description": "A high-quality AI image generation and editing experience built around OpenAI's latest image capabilities. Create polished visuals with stronger prompt adherence, reference image fidelity, text rendering, and transparent backgrounds.",
+    "title": "All-in-One AI Video and Image Generator",
+    "description": "One workflow, from image to video. Generate images, animate them into video, and edit both — Seedance, Seedream, Veo, Wan, Kling, Nano Banana, Flux and Grok in one place.",
     "trust_items": [
       "Free credits to start",
       "Up to 4K",
@@ -89,7 +89,7 @@
       }
     ],
     "show_avatars": false,
-    "avatars_tip": "999+ users are creating with ChatGPT Image 2",
+    "avatars_tip": "999+ users are creating with Oddbeam",
     "show_award": false,
     "background_image": {
       "src": "",
@@ -98,87 +98,87 @@
   },
   "showcases-flow": {
     "id": "showcases",
-    "title": "ChatGPT Image 2 Showcases",
-    "description": "Representative examples for prompt-driven generation, image editing, and commercial visual creation.",
+    "title": "Community Showcases",
+    "description": "Real images and videos created with the ai image and video generator workflows on Oddbeam.",
     "items": [
       {
-        "title": "ChatGPT Image 2 Showcase 1",
+        "title": "Showcase 1",
         "description": "Prompt-based image generation example",
         "image": {
           "src": "/imgs/showcases/1.jpeg",
-          "alt": "ChatGPT Image 2 Showcase 1"
+          "alt": "Showcase 1"
         }
       },
       {
-        "title": "ChatGPT Image 2 Showcase 2",
+        "title": "Showcase 2",
         "description": "Prompt-based image generation example",
         "image": {
           "src": "/imgs/showcases/2.jpeg",
-          "alt": "ChatGPT Image 2 Showcase 2"
+          "alt": "Showcase 2"
         }
       },
       {
-        "title": "ChatGPT Image 2 Showcase 3",
+        "title": "Showcase 3",
         "description": "Prompt-based image generation example",
         "image": {
           "src": "/imgs/showcases/3.jpeg",
-          "alt": "ChatGPT Image 2 Showcase 3"
+          "alt": "Showcase 3"
         }
       },
       {
-        "title": "ChatGPT Image 2 Showcase 4",
+        "title": "Showcase 4",
         "description": "Prompt-based image generation example",
         "image": {
           "src": "/imgs/showcases/4.jpeg",
-          "alt": "ChatGPT Image 2 Showcase 4"
+          "alt": "Showcase 4"
         }
       },
       {
-        "title": "ChatGPT Image 2 Showcase 5",
+        "title": "Showcase 5",
         "description": "Prompt-based image generation example",
         "image": {
           "src": "/imgs/showcases/5.jpeg",
-          "alt": "ChatGPT Image 2 Showcase 5"
+          "alt": "Showcase 5"
         }
       },
       {
-        "title": "ChatGPT Image 2 Showcase 6",
+        "title": "Showcase 6",
         "description": "Prompt-based image generation example",
         "image": {
           "src": "/imgs/showcases/6.jpeg",
-          "alt": "ChatGPT Image 2 Showcase 6"
+          "alt": "Showcase 6"
         }
       },
       {
-        "title": "ChatGPT Image 2 Showcase 7",
+        "title": "Showcase 7",
         "description": "Prompt-based image generation example",
         "image": {
           "src": "/imgs/showcases/7.jpeg",
-          "alt": "ChatGPT Image 2 Showcase 7"
+          "alt": "Showcase 7"
         }
       },
       {
-        "title": "ChatGPT Image 2 Showcase 8",
+        "title": "Showcase 8",
         "description": "Prompt-based image generation example",
         "image": {
           "src": "/imgs/showcases/8.jpeg",
-          "alt": "ChatGPT Image 2 Showcase 8"
+          "alt": "Showcase 8"
         }
       },
       {
-        "title": "ChatGPT Image 2 Showcase 9",
+        "title": "Showcase 9",
         "description": "Prompt-based image generation example",
         "image": {
           "src": "/imgs/showcases/9.jpeg",
-          "alt": "ChatGPT Image 2 Showcase 9"
+          "alt": "Showcase 9"
         }
       },
       {
-        "title": "ChatGPT Image 2 Showcase 10",
+        "title": "Showcase 10",
         "description": "Prompt-based image generation example",
         "image": {
           "src": "/imgs/showcases/10.jpeg",
-          "alt": "ChatGPT Image 2 Showcase 10"
+          "alt": "Showcase 10"
         }
       }
     ]
@@ -195,8 +195,8 @@
   "usage": {
     "block": "features-step",
     "id": "usage",
-    "title": "How to create with ChatGPT Image 2",
-    "description": "A simple workflow for prompt-driven generation and editing:",
+    "title": "How it works",
+    "description": "A simple ai video and image generator workflow that takes you from prompt to image to video:",
     "image": {
       "src": "/imgs/features/1.png",
       "alt": "usage"
@@ -240,12 +240,12 @@
   },
   "features": {
     "id": "features",
-    "title": "Key Features of ChatGPT Image 2",
-    "description": "Everything you need for modern AI image generation and editing workflows centered around the keyword ChatGPT Image 2.",
+    "title": "Built for real creative workflows",
+    "description": "Everything you need for modern image generation, editing, and video creation in one studio.",
     "items": [
       {
         "title": "High-Quality Generation and Editing",
-        "description": "ChatGPT Image 2 is designed for both generating new images and editing existing ones, making it suitable for end-to-end creative workflows.",
+        "description": "Oddbeam is designed for both generating new images and editing existing ones, making it suitable for end-to-end creative workflows.",
         "icon": "RiMagicLine"
       },
       {
@@ -280,8 +280,8 @@
   },
   "testimonials": {
     "id": "testimonials",
-    "title": "What creators are saying about ChatGPT Image 2",
-    "description": "Real feedback from creators and teams using ChatGPT Image 2 in visual workflows.",
+    "title": "What creators are saying",
+    "description": "Real feedback from creators and teams using Oddbeam in visual workflows.",
     "items": [
       {
         "name": "Design Teams",
@@ -304,7 +304,7 @@
       {
         "name": "Content Creators",
         "role": "Social and visual publishing",
-        "quote": "Text in image, poster-style layouts, and controllable edits are the reasons we care about ChatGPT Image 2 as a keyword and workflow.",
+        "quote": "Text in image, poster-style layouts, and controllable edits are the reasons we keep Oddbeam in our daily workflow.",
         "image": {
           "src": "/imgs/avatars/3.png",
           "alt": "content creators"
@@ -313,7 +313,7 @@
       {
         "name": "Maria Santos",
         "role": "Marketing Director",
-        "quote": "We use ChatGPT Image 2 for ad visual direction, social campaigns, and quick concept-to-creative execution with far fewer revisions.",
+        "quote": "We use Oddbeam for ad visual direction, social campaigns, and quick concept-to-creative execution with far fewer revisions.",
         "image": {
           "src": "/imgs/avatars/1.png",
           "alt": "Maria Santos"
@@ -362,32 +362,32 @@
     "title": "Frequently Asked Questions",
     "items": [
       {
-        "question": "What is ChatGPT Image 2?",
-        "answer": "ChatGPT Image 2 is the product positioning used on this site for an image generation and editing experience built around OpenAI's latest image capabilities. In API-facing terms, the closest current model reference is gpt-image-2."
+        "question": "What is Oddbeam?",
+        "answer": "Oddbeam is an all-in-one AI studio for image and video creation. You can generate images from prompts, animate them into video, and edit both in a single workflow, with models like Seedance, Seedream, Veo, Wan, Kling, Nano Banana, Flux and Grok available in one place."
       },
       {
-        "question": "What can ChatGPT Image 2 do well?",
-        "answer": "It is well suited for text-to-image generation, image-to-image editing, reference-driven restyling, text rendering inside images, transparent background outputs, and commercial creative production."
+        "question": "What can Oddbeam do well?",
+        "answer": "It covers text-to-image generation, image-to-image editing, image-to-video animation, reference-driven restyling, text rendering inside images, transparent background outputs, and commercial creative production."
       },
       {
-        "question": "Why is ChatGPT Image 2 different from older image models?",
-        "answer": "Its practical strengths are stronger prompt adherence, better reference image fidelity, more reliable image editing, and improved support for use cases like posters, ecommerce assets, stickers, and branded content."
+        "question": "Why is Oddbeam different from single-model tools?",
+        "answer": "Instead of locking you into one model, Oddbeam brings multiple image and video models into one workflow, so you can pick the right model for each task without switching between separate tools."
       },
       {
         "question": "Can I upload images and edit them?",
-        "answer": "Yes. ChatGPT Image 2 supports image editing workflows, so you can upload one or more reference images and guide changes with detailed instructions."
+        "answer": "Yes. Oddbeam supports image editing workflows, so you can upload one or more reference images, guide changes with detailed instructions, and then animate the result into video."
       },
       {
-        "question": "Does ChatGPT Image 2 support text in image and transparent backgrounds?",
-        "answer": "Yes. These are two of the most useful characteristics highlighted in the current product positioning, especially for social graphics, product assets, logos, and sticker-like outputs."
+        "question": "Does Oddbeam support text in image and transparent backgrounds?",
+        "answer": "Yes. Several supported models handle text rendering and transparent background output, which is especially useful for social graphics, product assets, logos, and sticker-like outputs."
       },
       {
-        "question": "Is ChatGPT Image 2 optimized for speed?",
-        "answer": "It is better described as quality-first. Complex prompts or detailed edits can take longer, but the model is positioned for higher-quality generation and editing rather than minimum latency."
+        "question": "Is Oddbeam optimized for speed?",
+        "answer": "Quality comes first. Complex prompts or detailed edits can take longer, but the platform is positioned for higher-quality generation and editing rather than minimum latency."
       },
       {
-        "question": "Can ChatGPT Image 2 generate NSFW or explicit content?",
-        "answer": "No. ChatGPT Image 2 strictly prohibits generating any NSFW, pornographic, explicit, or harmful content. All requests are automatically reviewed under our safety policies and OpenAI usage guidelines. Attempts to generate prohibited content will be rejected, and repeated violations may result in account suspension. We are committed to maintaining a safe and responsible platform for all users."
+        "question": "Can Oddbeam generate NSFW or explicit content?",
+        "answer": "No. Oddbeam strictly prohibits generating any NSFW, pornographic, explicit, or harmful content. All requests are automatically reviewed under our safety policies and model provider usage guidelines. Attempts to generate prohibited content will be rejected, and repeated violations may result in account suspension. We are committed to maintaining a safe and responsible platform for all users."
       }
     ],
     "video_items": [
@@ -411,11 +411,11 @@
   },
   "cta": {
     "id": "cta",
-    "title": "Try ChatGPT Image 2 now",
-    "description": "Create high-quality visuals with better prompt control, reference image fidelity, text rendering, and editing flexibility.",
+    "title": "Start creating with Oddbeam",
+    "description": "Generate images, turn them into video, and edit both — all in one place.",
     "buttons": [
       {
-        "title": "Try ChatGPT Image 2",
+        "title": "Try Oddbeam",
         "url": "/create",
         "target": "_self",
         "icon": "Wand"
@@ -429,11 +429,11 @@
   "footer": {
     "id": "footer",
     "brand": {
-      "title": "ChatGPT Image 2",
-      "description": "ChatGPT Image 2 is an AI image generation and editing experience focused on high-quality outputs, stronger prompt adherence, reference image fidelity, and practical commercial use cases.",
+      "title": "Oddbeam",
+      "description": "Oddbeam is an all-in-one AI studio for image and video creation, bringing generation, editing, and image-to-video workflows together in one place.",
       "logo": {
         "src": "/logo.png",
-        "alt": "ChatGPT Image 2"
+        "alt": "Oddbeam"
       },
       "url": "/"
     },

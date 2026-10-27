@@ -19,8 +19,13 @@ if (
 
 export type ConfigMap = Record<string, string>;
 
+// 规范化站点域名：去掉尾部斜杠，避免拼接出 https://www.oddbeam.com// 这类双斜杠 URL
+const normalizeAppUrl = (url: string) => url.replace(/\/+$/, '');
+
 export const envConfigs: ConfigMap = {
-  app_url: process.env.NEXT_PUBLIC_APP_URL ?? 'https://www.chatgptimage2.app',
+  app_url: normalizeAppUrl(
+    process.env.NEXT_PUBLIC_APP_URL ?? 'https://www.chatgptimage2.app'
+  ),
   app_name: process.env.NEXT_PUBLIC_APP_NAME ?? 'chatgptimage2',
   app_description: process.env.NEXT_PUBLIC_APP_DESCRIPTION ?? '',
   app_logo: process.env.NEXT_PUBLIC_APP_LOGO ?? '/logo.png',
@@ -48,7 +53,10 @@ export const envConfigs: ConfigMap = {
     process.env.DB_MIGRATIONS_OUT ?? './src/config/db/migrations',
   db_singleton_enabled: process.env.DB_SINGLETON_ENABLED || 'false',
   db_max_connections: process.env.DB_MAX_CONNECTIONS || '1',
-  auth_url: process.env.AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || '',
+  auth_url:
+    normalizeAppUrl(
+      process.env.AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || ''
+    ) || '',
   auth_secret: process.env.AUTH_SECRET ?? '', // openssl rand -base64 32
   version: packageJson.version,
   locale_detect_enabled:

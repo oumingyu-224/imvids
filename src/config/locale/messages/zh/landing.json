@@ -2,17 +2,17 @@
   "header": {
     "id": "header",
     "topbanner": {
-      "text": "ChatGPT Image 2 限时特惠，全场 Pro 套餐限时 7 折！",
+      "text": "Oddbeam 限时特惠，全场 Pro 套餐限时 7 折！",
       "buttonText": "立即领取 →",
       "href": "/pricing",
       "target": "_self",
       "dismissedExpiryDays": 1
     },
     "brand": {
-      "title": "ChatGPT Image 2",
+      "title": "Oddbeam",
       "logo": {
         "src": "/logo.png",
-        "alt": "ChatGPT Image 2"
+        "alt": "Oddbeam"
       },
       "url": "/"
     },
@@ -65,8 +65,8 @@
   },
   "hero": {
     "id": "hero",
-    "title": "ChatGPT Image 2",
-    "description": "围绕 OpenAI 最新图像能力打造的高质量 AI 图像生成与编辑体验。通过更强的提示词遵循、参考图保真、图中文字渲染和透明背景能力，帮助你完成更专业的视觉创作。",
+    "title": "一站式 AI 视频与图片生成器",
+    "description": "一个工作流，从图片到视频。生成图片、把图片动起来变成视频，并对两者进行编辑 —— Seedance、Seedream、Veo、Wan、Kling、Nano Banana、Flux 和 Grok，全部在一个平台完成。",
     "trust_items": [
       "免费积分可直接开始",
       "最高支持 4K",
@@ -89,7 +89,7 @@
       }
     ],
     "show_avatars": false,
-    "avatars_tip": "999+ 用户正在使用 ChatGPT Image 2 创作",
+    "avatars_tip": "999+ 用户正在使用 Oddbeam 创作",
     "show_award": false,
     "background_image": {
       "src": "",
@@ -98,87 +98,87 @@
   },
   "showcases-flow": {
     "id": "showcases",
-    "title": "ChatGPT Image 2 案例展示",
-    "description": "用于提示词生成、图像编辑与商业视觉创作的代表性案例。",
+    "title": "社区案例展示",
+    "description": "使用 Oddbeam 的 AI 图片与视频生成工作流创作的真实作品。",
     "items": [
       {
-        "title": "ChatGPT Image 2 案例 1",
+        "title": "案例 1",
         "description": "提示词生成案例",
         "image": {
           "src": "/imgs/showcases/1.jpeg",
-          "alt": "ChatGPT Image 2 案例 1"
+          "alt": "案例 1"
         }
       },
       {
-        "title": "ChatGPT Image 2 案例 2",
+        "title": "案例 2",
         "description": "提示词生成案例",
         "image": {
           "src": "/imgs/showcases/2.jpeg",
-          "alt": "ChatGPT Image 2 案例 2"
+          "alt": "案例 2"
         }
       },
       {
-        "title": "ChatGPT Image 2 案例 3",
+        "title": "案例 3",
         "description": "提示词生成案例",
         "image": {
           "src": "/imgs/showcases/3.jpeg",
-          "alt": "ChatGPT Image 2 案例 3"
+          "alt": "案例 3"
         }
       },
       {
-        "title": "ChatGPT Image 2 案例 4",
+        "title": "案例 4",
         "description": "提示词生成案例",
         "image": {
           "src": "/imgs/showcases/4.jpeg",
-          "alt": "ChatGPT Image 2 案例 4"
+          "alt": "案例 4"
         }
       },
       {
-        "title": "ChatGPT Image 2 案例 5",
+        "title": "案例 5",
         "description": "提示词生成案例",
         "image": {
           "src": "/imgs/showcases/5.jpeg",
-          "alt": "ChatGPT Image 2 案例 5"
+          "alt": "案例 5"
         }
       },
       {
-        "title": "ChatGPT Image 2 案例 6",
+        "title": "案例 6",
         "description": "提示词生成案例",
         "image": {
           "src": "/imgs/showcases/6.jpeg",
-          "alt": "ChatGPT Image 2 案例 6"
+          "alt": "案例 6"
         }
       },
       {
-        "title": "ChatGPT Image 2 案例 7",
+        "title": "案例 7",
         "description": "提示词生成案例",
         "image": {
           "src": "/imgs/showcases/7.jpeg",
-          "alt": "ChatGPT Image 2 案例 7"
+          "alt": "案例 7"
         }
       },
       {
-        "title": "ChatGPT Image 2 案例 8",
+        "title": "案例 8",
         "description": "提示词生成案例",
         "image": {
           "src": "/imgs/showcases/8.jpeg",
-          "alt": "ChatGPT Image 2 案例 8"
+          "alt": "案例 8"
         }
       },
       {
-        "title": "ChatGPT Image 2 案例 9",
+        "title": "案例 9",
         "description": "提示词生成案例",
         "image": {
           "src": "/imgs/showcases/9.jpeg",
-          "alt": "ChatGPT Image 2 案例 9"
+          "alt": "案例 9"
         }
       },
       {
-        "title": "ChatGPT Image 2 案例 10",
+        "title": "案例 10",
         "description": "提示词生成案例",
         "image": {
           "src": "/imgs/showcases/10.jpeg",
-          "alt": "ChatGPT Image 2 案例 10"
+          "alt": "案例 10"
         }
       }
     ]
@@ -195,8 +195,8 @@
   "usage": {
     "block": "features-step",
     "id": "usage",
-    "title": "如何使用 ChatGPT Image 2 创作",
-    "description": "一个简单直接的生成与编辑工作流：",
+    "title": "使用流程",
+    "description": "一个简单直接的 AI 视频与图片生成器工作流，从提示词到图片再到视频：",
     "image": {
       "src": "/imgs/features/1.png",
       "alt": "usage"
@@ -240,12 +240,12 @@
   },
   "features": {
     "id": "features",
-    "title": "ChatGPT Image 2 核心特性",
-    "description": "围绕主关键词 ChatGPT Image 2 构建的现代 AI 图像生成与编辑工作流能力。",
+    "title": "为真实创作场景而生",
+    "description": "在一个平台内完成现代图像生成、编辑与视频创作所需的全部能力。",
     "items": [
       {
         "title": "高质量生成与编辑一体化",
-        "description": "ChatGPT Image 2 同时适合生成新图和编辑已有图片，适合从创意到精修的一体化工作流。",
+        "description": "Oddbeam 同时适合生成新图和编辑已有图片，适合从创意到精修的一体化工作流。",
         "icon": "RiMagicLine"
       },
       {
@@ -280,8 +280,8 @@
   },
   "testimonials": {
     "id": "testimonials",
-    "title": "创作者对 ChatGPT Image 2 的评价",
-    "description": "来自创作者与团队在真实视觉工作流中的反馈。",
+    "title": "创作者的真实评价",
+    "description": "来自创作者与团队在真实视觉工作流中使用 Oddbeam 的反馈。",
     "items": [
       {
         "name": "设计团队",
@@ -304,7 +304,7 @@
       {
         "name": "内容创作者",
         "role": "社媒与视觉发布",
-        "quote": "图中文字、海报式布局和更可控的编辑能力，正是我们关注 ChatGPT Image 2 的核心原因。",
+        "quote": "图中文字、海报式布局和更可控的编辑能力，正是我们每天使用 Oddbeam 的核心原因。",
         "image": {
           "src": "/imgs/avatars/3.png",
           "alt": "content creators"
@@ -313,7 +313,7 @@
       {
         "name": "Maria Santos",
         "role": "市场总监",
-        "quote": "我们会用 ChatGPT Image 2 做广告视觉方向、社媒活动图和快速创意落地，返工次数明显更少。",
+        "quote": "我们会用 Oddbeam 做广告视觉方向、社媒活动图和快速创意落地，返工次数明显更少。",
         "image": {
           "src": "/imgs/avatars/1.png",
           "alt": "Maria Santos"
@@ -362,32 +362,32 @@
     "title": "常见问题",
     "items": [
       {
-        "question": "ChatGPT Image 2 是什么？",
-        "answer": "ChatGPT Image 2 是本站对一套 AI 图像生成与编辑体验的产品命名，围绕 OpenAI 最新图像能力构建。在 API 语境中，当前最接近的模型参考是 gpt-image-2。"
+        "question": "Oddbeam 是什么？",
+        "answer": "Oddbeam 是一个面向图片与视频创作的一站式 AI 创作平台。你可以从提示词生成图片、把图片动起来变成视频，并在同一个工作流里完成编辑，Seedance、Seedream、Veo、Wan、Kling、Nano Banana、Flux 和 Grok 等模型都在一个平台内可用。"
       },
       {
-        "question": "ChatGPT Image 2 擅长哪些任务？",
-        "answer": "它适合文生图、图生图编辑、参考图重绘、图中文字生成、透明背景输出，以及面向商业场景的视觉内容生产。"
+        "question": "Oddbeam 擅长哪些任务？",
+        "answer": "它覆盖文生图、图生图编辑、图生视频动画、参考图重绘、图中文字生成、透明背景输出，以及面向商业场景的视觉内容生产。"
       },
       {
-        "question": "为什么 ChatGPT Image 2 和旧图像模型不同？",
-        "answer": "它的实际优势在于更强的提示词遵循、更好的参考图保真度、更可靠的图像编辑能力，以及更适合海报、电商素材、贴纸和品牌内容等场景。"
+        "question": "Oddbeam 和单模型工具有什么不同？",
+        "answer": "它不把你锁定在单一模型上，而是把多个图片和视频模型整合进同一个工作流，你可以为每个任务选择合适的模型，不用在多个工具之间来回切换。"
       },
       {
         "question": "我可以上传图片进行编辑吗？",
-        "answer": "可以。ChatGPT Image 2 支持图像编辑工作流，你可以上传一张或多张参考图，再通过详细指令引导修改。"
+        "answer": "可以。Oddbeam 支持图像编辑工作流，你可以上传一张或多张参考图，通过详细指令引导修改，再把结果动起来生成视频。"
       },
       {
-        "question": "ChatGPT Image 2 支持图中文字和透明背景吗？",
-        "answer": "支持。这正是当前产品定位里非常实用的两项能力，尤其适合社媒图、商品素材、Logo 辅助图和贴纸类输出。"
+        "question": "Oddbeam 支持图中文字和透明背景吗？",
+        "answer": "支持。多个可用模型都支持图中文字渲染和透明背景输出，特别适合社媒图、商品素材、Logo 辅助图和贴纸类输出。"
       },
       {
-        "question": "ChatGPT Image 2 是速度优先模型吗？",
-        "answer": "它更适合被理解为质量优先。复杂提示词或精细编辑可能耗时更久，但整体更偏向高质量生成和编辑结果。"
+        "question": "Oddbeam 是速度优先的吗？",
+        "answer": "质量优先。复杂提示词或精细编辑可能耗时更久，但平台整体更偏向高质量的生成和编辑结果，而不是最低延迟。"
       },
       {
-        "question": "ChatGPT Image 2 可以生成 NSFW 或露骨内容吗？",
-        "answer": "不可以。ChatGPT Image 2 严格禁止生成任何 NSFW（不适合工作场合）、色情、露骨或有害内容。所有请求均会自动经过我们的安全策略和 OpenAI 使用规范的审核。试图生成违禁内容的请求将被拒绝，多次违规可能导致账号封禁。我们致力于为所有用户维护一个安全、负责任的平台。"
+        "question": "Oddbeam 可以生成 NSFW 或露骨内容吗？",
+        "answer": "不可以。Oddbeam 严格禁止生成任何 NSFW（不适合工作场合）、色情、露骨或有害内容。所有请求均会自动经过我们的安全策略和模型服务商使用规范的审核。试图生成违禁内容的请求将被拒绝，多次违规可能导致账号封禁。我们致力于为所有用户维护一个安全、负责任的平台。"
       }
     ],
     "video_items": [
@@ -411,11 +411,11 @@
   },
   "cta": {
     "id": "cta",
-    "title": "立即体验 ChatGPT Image 2",
-    "description": "使用更强的提示词控制、参考图保真、图中文字渲染和灵活编辑能力，生成更高质量的视觉内容。",
+    "title": "立即开始使用 Oddbeam",
+    "description": "生成图片、把图片变成视频，并对两者进行编辑 —— 全部在一个平台完成。",
     "buttons": [
       {
-        "title": "体验 ChatGPT Image 2",
+        "title": "体验 Oddbeam",
         "url": "/create",
         "target": "_self",
         "icon": "Wand"
@@ -429,11 +429,11 @@
   "footer": {
     "id": "footer",
     "brand": {
-      "title": "ChatGPT Image 2",
-      "description": "ChatGPT Image 2 是面向高质量输出的 AI 图像生成与编辑体验，强调更强的提示词遵循、参考图保真与实用商业场景表现。",
+      "title": "Oddbeam",
+      "description": "Oddbeam 是一个面向图片与视频创作的一站式 AI 创作平台，把生成、编辑和图生视频工作流整合在同一个平台内。",
       "logo": {
         "src": "/logo.png",
-        "alt": "ChatGPT Image 2"
+        "alt": "Oddbeam"
       },
       "url": "/"
     },

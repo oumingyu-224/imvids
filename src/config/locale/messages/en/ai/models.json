@@ -5,7 +5,8 @@
     "no_match": "No matching models",
     "locked_label": "Premium feature",
     "locked_action": "Upgrade",
-    "recommended": "Recommended"
+    "recommended": "Recommended",
+    "credits_unit": "credits"
   },
   "models": {
     "gpt-images-2-5-flare": {
@@ -411,6 +412,17 @@
       "capabilities": [
         "~5s",
         "40+",
+        "Text & image"
+      ]
+    },
+    "runway-gen-4": {
+      "badges": [
+        "New"
+      ],
+      "description": "Runway's next-gen video model with consistent characters and fine-grained motion control",
+      "capabilities": [
+        "10s",
+        "100+",
         "Text & image"
       ]
     }

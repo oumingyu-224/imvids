@@ -681,7 +681,7 @@ export function PricingPlans({
         >
           <div
             className={cn(
-              'flex items-center rounded-full bg-card p-0.5',
+              'flex max-w-full items-center overflow-x-auto rounded-full bg-card p-0.5',
               compact ? '' : 'mb-4 sm:mb-10 sm:p-1'
             )}
           >
@@ -690,7 +690,7 @@ export function PricingPlans({
               return (
                 <div key={i} className="relative">
                   {item.label && (
-                    <div className="absolute -right-1 -top-2.5 z-10 sm:-right-2 sm:-top-3">
+                    <div className="absolute right-2 -top-2.5 z-10 hidden sm:block sm:-top-3">
                       <div className="rounded-full border border-primary bg-black px-2 py-1 text-[9px] font-bold text-primary sm:px-2.5 sm:text-[10px] md:px-3 md:text-xs">
                         {item.label}
                       </div>

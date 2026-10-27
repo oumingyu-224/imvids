@@ -270,7 +270,16 @@ export function ImageGenerator({
   >([]);
 
   const [provider, setProvider] = useState(PROVIDER_OPTIONS[0]?.value ?? '');
-  const [model, setModel] = useState(MODEL_OPTIONS[0]?.value ?? '');
+  const [model, setModel] = useState(() => {
+    // BUG-22：支持落地页指定默认模型（如 /seedream4-5 → seedream-5-lite）
+    if (defaultModel) {
+      const matched = getModelsByMode('image').find(
+        (m) => m.id === defaultModel
+      );
+      if (matched) return matched.id;
+    }
+    return MODEL_OPTIONS[0]?.value ?? '';
+  });
   const [aspectRatio, setAspectRatio] = useState<string>('16:9'); // 默认宽高比
   const [resolution, setResolution] = useState<string>('2K'); // 默认分辨率（大写 K）
   const [qualityStyle, setQualityStyle] = useState<string>('standard');
@@ -285,6 +294,10 @@ export function ImageGenerator({
   const [referenceImageUrls, setReferenceImageUrls] = useState<string[]>([]);
   const [generatedImages, setGeneratedImages] = useState<GeneratedImage[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
+  // BUG-14：AI 提示词优化按钮状态；服务未配置时自动隐藏按钮
+  const [isOptimizingPrompt, setIsOptimizingPrompt] = useState(false);
+  const [promptOptimizeAvailable, setPromptOptimizeAvailable] =
+    useState(true);
   const [progress, setProgress] = useState(0);
   const [taskId, setTaskId] = useState<string | null>(null);
   const [generationStartTime, setGenerationStartTime] = useState<number | null>(
@@ -350,6 +363,15 @@ export function ImageGenerator({
         setIsLoadingProviders(false);
       });
   }, []);
+
+  // BUG-12：广播当前生成模式，供页面级 FAQ 等区块随模式切换
+  useEffect(() => {
+    window.dispatchEvent(
+      new CustomEvent('generator:mode-change', {
+        detail: { mode: mediaMode },
+      })
+    );
+  }, [mediaMode]);
 
   // Track user ID to reset credits loading flag when user changes
   const userIdRef = useRef<string | null>(null);
@@ -862,6 +884,42 @@ export function ImageGenerator({
     };
   }, [taskId, isGenerating, pollTaskStatus]);
 
+  // BUG-14：AI 提示词优化——调用 /api/ai/prompt-optimize 改写输入框内容
+  const handleOptimizePrompt = async () => {
+    const current = prompt.trim();
+    if (!current || isOptimizingPrompt) {
+      return;
+    }
+    if (!user) {
+      setIsShowSignModal(true);
+      return;
+    }
+    setIsOptimizingPrompt(true);
+    try {
+      const resp = await fetch('/api/ai/prompt-optimize', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: current }),
+      });
+      const data = await resp.json();
+      if (data.code !== 0 || !data.data?.prompt) {
+        if (
+          typeof data.message === 'string' &&
+          data.message.includes('not configured')
+        ) {
+          setPromptOptimizeAvailable(false);
+          return;
+        }
+        throw new Error(data.message || 'optimize failed');
+      }
+      setPrompt(String(data.data.prompt).slice(0, promptMaxLength));
+    } catch (error) {
+      toast.error(t('errors.prompt_optimize_failed'));
+    } finally {
+      setIsOptimizingPrompt(false);
+    }
+  };
+
   const handleGenerate = async () => {
     console.log('=== Generate Debug Info ===');
     console.log('availableProviders:', availableProviders);
@@ -1152,6 +1210,7 @@ export function ImageGenerator({
                       <div className="flex flex-col gap-3 sm:mb-2 sm:flex-row sm:items-center sm:justify-between">
                         {modeLocked ? (
                           <div className="tracking-tight text-xl font-bold">
+                            {/* 切到 Video 后整树由上方 VideoGenerator 渲染，这里只会是图片模式 */}
                             {t('workbench.mode_locked_image')}
                           </div>
                         ) : (
@@ -1370,13 +1429,22 @@ export function ImageGenerator({
                                 className="prompt-textarea-resize relative z-10 min-h-[100px] resize-y border-border/50 bg-card pb-9 pr-10 caret-foreground placeholder:text-muted-foreground transition-colors duration-200 focus-visible:border-primary focus-visible:ring-0 focus-visible:ring-offset-0 md:min-h-[140px]"
                               />
                               <div className="absolute bottom-2 left-2 z-20 flex items-center gap-1">
-                                <button
-                                  type="button"
-                                  className="rounded-sm p-1 text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
-                                  aria-label={t('workbench.ai_prompt_hint')}
-                                >
-                                  <Sparkles className="h-4 w-4" />
-                                </button>
+                                {promptOptimizeAvailable && (
+                                  <button
+                                    type="button"
+                                    onClick={handleOptimizePrompt}
+                                    disabled={isOptimizingPrompt || !prompt.trim()}
+                                    className="rounded-sm p-1 text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-50"
+                                    aria-label={t('workbench.ai_prompt_hint')}
+                                    title={t('workbench.ai_prompt_hint')}
+                                  >
+                                    {isOptimizingPrompt ? (
+                                      <Loader2 className="h-4 w-4 animate-spin" />
+                                    ) : (
+                                      <Sparkles className="h-4 w-4" />
+                                    )}
+                                  </button>
+                                )}
                               </div>
                             </div>
                           </div>
@@ -1604,9 +1672,13 @@ export function ImageGenerator({
                           </div>
                           <button
                             type="button"
-                            onClick={handleGenerate}
+                            onClick={
+                              user && remainingCredits < costCredits
+                                ? () => setShowPricingDialog(true)
+                                : handleGenerate
+                            }
                             disabled={isGenerating}
-                            className="gradient-button inline-flex h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:bg-primary/90 hover:opacity-90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+                            className="gradient-button inline-flex h-11 md:h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:bg-primary/90 hover:opacity-90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
                           >
                             {isGenerating ? (
                               <>
@@ -1617,6 +1689,13 @@ export function ImageGenerator({
                               <>
                                 <LockKeyhole className="h-4 w-4" />
                                 <span>{t('workbench.upgrade_to_generate')}</span>
+                              </>
+                            ) : remainingCredits < costCredits ? (
+                              <>
+                                <LockKeyhole className="h-4 w-4" />
+                                <span>
+                                  {t('workbench.insufficient_credits_action')}
+                                </span>
                               </>
                             ) : (
                               <span>{t('workbench.generate')}</span>
@@ -1645,7 +1724,13 @@ export function ImageGenerator({
                       <div className="relative h-full pr-2 md:pr-4">
                         <div className="flex h-full w-full items-center justify-center">
                           <div className="h-full w-full md:h-[calc(100vh-250px)]">
-                            {generatedImages.length > 0 ? (
+                            {isGenerating ? (
+                              // BUG-17：生成中显示加载态，替代 No preview
+                              <GeneratingPlaceholder
+                                text={t('workbench.generating')}
+                                elapsedText={t('workbench.generating_elapsed')}
+                              />
+                            ) : generatedImages.length > 0 ? (
                               <div className="flex h-full flex-col">
                                 <div className="min-h-0 flex-1">
                                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -1724,5 +1809,41 @@ export function ImageGenerator({
         onOpenChange={setShowPricingDialog}
       />
     </section>
+  );
+}
+
+// BUG-17：生成中的结果区加载态（骨架屏 + 已等待秒数）
+function GeneratingPlaceholder({
+  text,
+  elapsedText,
+}: {
+  text: string;
+  elapsedText: string;
+}) {
+  const [elapsed, setElapsed] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setElapsed((prev) => prev + 1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="flex h-full w-full items-center justify-center">
+      <div className="w-full max-w-md space-y-4 px-6 text-center">
+        <div className="flex items-center justify-center gap-2 text-sm font-medium text-foreground">
+          <Loader2 className="h-4 w-4 animate-spin" />
+          <span>{text}</span>
+        </div>
+        <div className="flex gap-3">
+          <div className="h-40 flex-1 animate-pulse rounded-lg bg-muted" />
+          <div className="hidden h-40 flex-1 animate-pulse rounded-lg bg-muted sm:block" />
+        </div>
+        <p className="text-xs text-muted-foreground">
+          {elapsedText.replace('{count}', String(elapsed))}
+        </p>
+      </div>
+    </div>
   );
 }

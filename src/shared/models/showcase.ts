@@ -10,6 +10,7 @@ export interface Showcase {
   description?: string | null;
   prompt: string | null;
   image: string;
+  video?: string | null;
   tags: string | null;
   createdAt: Date;
 }
@@ -21,6 +22,7 @@ export interface NewShowcase {
   description?: string | null;
   prompt?: string | null;
   image: string;
+  video?: string | null;
   tags?: string | null;
 }
 

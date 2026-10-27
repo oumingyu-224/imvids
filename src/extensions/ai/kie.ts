@@ -54,7 +54,12 @@ export class KieProvider implements AIProvider {
       Authorization: `Bearer ${this.configs.apiKey}`,
     };
 
-    // todo: check model
+    // SEC-03：MUSIC 模型白名单，白名单外直接拒绝
+    const ALLOWED_MUSIC_MODELS = ['V5', 'V4_5PLUS', 'V4_5', 'V4', 'V3_5'];
+    if (params.model && !ALLOWED_MUSIC_MODELS.includes(params.model)) {
+      throw new Error(`model not allowed: ${params.model}`);
+    }
+
     if (!params.model) {
       params.model = 'V5';
     }
@@ -182,7 +187,12 @@ export class KieProvider implements AIProvider {
         payload.input.output_format = options.output_format;
       }
       // 通用透传：模型配置的其余字段（如 image_size/quality/max_images 等）直达 KIE
+      // SEC-07：排除已审文本字段（prompt/negative_prompt），防止用户在 options 里覆盖已审值；
+      // 参考图类字段（image_input/input_image/input_urls/image_urls/files_url 等）是各模型
+      // 参考图的提交通道，其内容审核由 SEC-06 上传侧承担，此处不排除以免破坏图生图流程
       const excludeKeys = [
+        'prompt',
+        'negative_prompt',
         'image_input',
         'input_image',
         'files_url',
@@ -278,7 +288,12 @@ export class KieProvider implements AIProvider {
         payload.input.resolution = options.resolution;
       }
       // 通用透传：模型配置的其余字段（如 image_url/first_frame_url/quality/generate_audio 等）直达 KIE
+      // SEC-07：排除已审文本字段（prompt/negative_prompt），防止用户在 options 里覆盖已审值；
+      // image_urls/first_frame_url/last_frame_url/image_url 等是 gemini/pixverse/seedance/minimax
+      // 参考图与首尾帧的提交通道，其内容审核由 SEC-06 上传侧承担，此处不排除以免破坏图生视频流程
       const excludeKeys = [
+        'prompt',
+        'negative_prompt',
         'image_input',
         'aspect_ratio',
         'duration',

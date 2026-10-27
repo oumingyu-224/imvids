@@ -85,6 +85,8 @@ export default async function UserGrantCreditsPage({
       handler: async (data, passby) => {
         'use server';
 
+        await requirePermission({ code: PERMISSIONS.USERS_WRITE });
+
         const { user } = passby;
 
         if (!user) {

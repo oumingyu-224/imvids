@@ -33,7 +33,13 @@ export default async function Seedream45Page({
         description: t.raw('page.description'),
       },
       generator: {
-        component: <ImageGenerator srOnlyTitle={t.raw('generator.title')} promptKey={promptKey} />,
+        component: (
+          <ImageGenerator
+            srOnlyTitle={t.raw('generator.title')}
+            promptKey={promptKey}
+            defaultModel="seedream-5-lite"
+          />
+        ),
       },
       faq: {
         block: 'faq',

@@ -29,6 +29,18 @@ export default async function PromptDeletePage({
     redirect('/admin/prompts');
   }
 
-  await deletePrompt(id);
-  redirect('/admin/prompts');
+  async function handleDelete() {
+    'use server';
+
+    await requirePermission({ code: PERMISSIONS.CATEGORIES_WRITE });
+
+    await deletePrompt(id);
+    redirect('/admin/prompts');
+  }
+
+  return (
+    <form action={handleDelete}>
+      <button type="submit">Confirm delete</button>
+    </form>
+  );
 }

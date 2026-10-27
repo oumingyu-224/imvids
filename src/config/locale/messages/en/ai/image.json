@@ -104,7 +104,8 @@
       "no_providers_configured": "No AI providers configured, please contact administrator",
       "download_fetch_failed": "Failed to fetch image",
       "prompt_blocked": "Prompt did not pass safety review. Please revise it and try again.",
-      "moderation_unavailable": "Content safety review is temporarily unavailable. Please try again later."
+      "moderation_unavailable": "Content safety review is temporarily unavailable. Please try again later.",
+      "prompt_optimize_failed": "Prompt optimization failed. Please try again later."
     },
     "moderation_dialog": {
       "title": "Prompt did not pass safety review",
@@ -137,8 +138,10 @@
       "public_visibility": "Public visibility",
       "credits_required": "Credits required",
       "generating": "Generating...",
+      "generating_elapsed": "Elapsed {count}s",
       "generate": "Generate Image",
-      "upgrade_to_generate": "Upgrade to Generate",
+      "upgrade_to_generate": "Sign in to Generate",
+      "insufficient_credits_action": "Insufficient Credits - Top Up",
       "my_images": "My Images",
       "upload_failed": "Image upload failed, please try again",
       "max_images": "Up to {count} reference images",

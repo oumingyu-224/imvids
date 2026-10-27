@@ -45,6 +45,10 @@ export default async function SettingsPage({
   const handleSubmit = async (data: FormData, passby: any) => {
     'use server';
 
+    await requireAllPermissions({
+      codes: [PERMISSIONS.SETTINGS_READ, PERMISSIONS.SETTINGS_WRITE],
+    });
+
     const user = await getUserInfo();
 
     if (!user) {

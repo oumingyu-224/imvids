@@ -381,6 +381,15 @@ export async function getSettings() {
       tip: 'description for initial credits',
     },
     {
+      name: 'initial_credits_max_accounts_per_ip',
+      title: 'Initial Credits Max Accounts Per IP',
+      type: 'number',
+      placeholder: '1',
+      group: 'credit',
+      tab: 'general',
+      tip: 'SEC-15: only the first N accounts registered from the same IP can receive initial credits',
+    },
+    {
       name: 'email_auth_enabled',
       title: 'Enabled',
       type: 'switch',

@@ -70,3 +70,6 @@ google-seo-skills 优化版/
 # Local diff reference files
 chatgptimage2-diff-files/
 .env*
+
+# WorkBuddy workspace data
+.workbuddy/

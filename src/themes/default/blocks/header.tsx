@@ -86,6 +86,8 @@ export function Header({ header }: { header: HeaderType }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [promoClosed, setPromoClosed] = useState(false);
+  // BUG-08：桌面端带子菜单的导航项支持点击展开（触屏无 hover）
+  const [openNavIdx, setOpenNavIdx] = useState<number | null>(null);
   const scrollRafRef = useRef<number | null>(null);
 
   useLayoutEffect(() => {
@@ -196,7 +198,11 @@ export function Header({ header }: { header: HeaderType }) {
                       <>
                         <button
                           type="button"
-                          className="landing-nav-text flex items-center gap-1.5 text-[15px] font-medium"
+                          onClick={() =>
+                            setOpenNavIdx((prev) => (prev === idx ? null : idx))
+                          }
+                          aria-expanded={openNavIdx === idx}
+                          className="landing-nav-text flex cursor-pointer items-center gap-1.5 text-[15px] font-medium"
                         >
                           {item.icon ? (
                             <SmartIcon
@@ -208,13 +214,17 @@ export function Header({ header }: { header: HeaderType }) {
                           <ChevronDown className="landing-soft-text size-3.5" />
                         </button>
 
-                        <div className="landing-popover invisible absolute top-full left-0 z-50 mt-3 w-72 rounded-2xl border p-2 opacity-0 shadow-[0_18px_48px_rgba(15,23,42,0.08)] transition-all group-hover:visible group-hover:opacity-100">
+                        <div className={cn(
+                          'landing-popover invisible absolute top-full left-0 z-50 mt-3 w-72 rounded-2xl border p-2 opacity-0 shadow-[0_18px_48px_rgba(15,23,42,0.08)] transition-all group-hover:visible group-hover:opacity-100',
+                          openNavIdx === idx && 'visible opacity-100'
+                        )}>
                           {item.children.map((subItem, subIdx) => (
                             <Link
                               key={subIdx}
                               href={subItem.url || ''}
                               target={subItem.target || '_self'}
                               className="landing-popover-hover block rounded-xl px-3 py-3"
+                              onClick={() => setOpenNavIdx(null)}
                             >
                               <div className="landing-strong flex items-center gap-2 text-sm font-medium">
                                 {subItem.icon ? (

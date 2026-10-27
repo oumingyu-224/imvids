@@ -7,6 +7,7 @@ import {
   Download,
   Film,
   Loader2,
+  LockKeyhole,
   Sparkles,
   Video,
   X,
@@ -22,6 +23,7 @@ import {
   VIDEO_RESOLUTION_OPTIONS,
 } from '@/shared/blocks/generator/models';
 import { ModelSelect } from '@/shared/blocks/generator/model-select';
+import { PricingDialog } from '@/shared/blocks/generator/pricing-dialog';
 import { Switch } from '@/shared/components/ui/switch';
 import { Textarea } from '@/shared/components/ui/textarea';
 import { useAppContext } from '@/shared/contexts/app';
@@ -41,6 +43,8 @@ interface VideoGeneratorProps {
   modeLocked?: boolean;
   /** 服务端查库得到的当前订阅（与 settings/billing 页同源） */
   currentSubscription?: Subscription;
+  /** BUG-24：指定默认选中模型（模型不存在或锁定时回退默认逻辑） */
+  defaultModel?: string;
 }
 
 interface GeneratedVideo {
@@ -235,6 +239,7 @@ export function VideoGenerator({
   onSwitchToImage,
   modeLocked = false,
   currentSubscription: serverSubscription,
+  defaultModel,
 }: VideoGeneratorProps) {
   const t = useTranslations('ai.video.generator');
 
@@ -242,7 +247,14 @@ export function VideoGenerator({
     useState<VideoGeneratorTab>('text-to-video');
 
   const [model, setModel] = useState(
-    () => getModelsByMode('video').find((m) => !m.locked)?.id ?? ''
+    () =>
+      // BUG-24：支持落地页指定默认模型
+      ((defaultModel &&
+        getModelsByMode('video').find(
+          (m) => m.id === defaultModel && !m.locked
+        )?.id) ||
+        getModelsByMode('video').find((m) => !m.locked)?.id) ??
+      ''
   );
   const [prompt, setPrompt] = useState('');
   const [aspectRatio, setAspectRatio] = useState('16:9');
@@ -270,6 +282,7 @@ export function VideoGenerator({
     null
   );
   const [isMounted, setIsMounted] = useState(false);
+  const [showPricingDialog, setShowPricingDialog] = useState(false);
 
   const { user, isCheckSign, setIsShowSignModal, fetchUserCredits } =
     useAppContext();
@@ -1268,7 +1281,7 @@ export function VideoGenerator({
                           <button
                             type="button"
                             disabled
-                            className="gradient-button inline-flex h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:opacity-90 disabled:pointer-events-none disabled:opacity-50"
+                            className="gradient-button inline-flex h-11 md:h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:opacity-90 disabled:pointer-events-none disabled:opacity-50"
                           >
                             <Loader2 className="h-4 w-4 animate-spin" />
                             {t('workbench.loading')}
@@ -1276,7 +1289,11 @@ export function VideoGenerator({
                         ) : user ? (
                           <button
                             type="button"
-                            onClick={handleGenerate}
+                            onClick={
+                              remainingCredits < costCredits
+                                ? () => setShowPricingDialog(true)
+                                : handleGenerate
+                            }
                             disabled={
                               isGenerating ||
                               (isTextToVideoMode && !prompt.trim()) ||
@@ -1285,12 +1302,17 @@ export function VideoGenerator({
                               referenceUploadError ||
                               (isImageToVideoMode && !singleVideoImage)
                             }
-                            className="gradient-button inline-flex h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:opacity-90 disabled:pointer-events-none disabled:opacity-50"
+                            className="gradient-button inline-flex h-11 md:h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:opacity-90 disabled:pointer-events-none disabled:opacity-50"
                           >
                             {isGenerating ? (
                               <>
                                 <Loader2 className="h-4 w-4 animate-spin" />
                                 {t('workbench.generating')}
+                              </>
+                            ) : remainingCredits < costCredits ? (
+                              <>
+                                <LockKeyhole className="h-4 w-4" />
+                                {t('workbench.insufficient_credits_action')}
                               </>
                             ) : (
                               <>
@@ -1303,10 +1325,10 @@ export function VideoGenerator({
                           <button
                             type="button"
                             onClick={() => setIsShowSignModal(true)}
-                            className="gradient-button inline-flex h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:opacity-90"
+                            className="gradient-button inline-flex h-11 md:h-9 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow transition-opacity hover:opacity-90"
                           >
                             <Sparkles className="h-4 w-4" />
-                            Upgrade to Generate
+                            {t('workbench.upgrade_to_generate')}
                           </button>
                         )}
                       </div>
@@ -1377,6 +1399,11 @@ export function VideoGenerator({
           </main>
         </div>
       </div>
+
+      <PricingDialog
+        open={showPricingDialog}
+        onOpenChange={setShowPricingDialog}
+      />
     </section>
   );
 }

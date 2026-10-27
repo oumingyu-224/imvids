@@ -12,6 +12,8 @@
     "no_prompt": "当前案例暂无可复制的提示词。",
     "loading": "加载中...",
     "no_showcases": "暂无案例",
+    "no_results_for": "没有与 “{term}” 匹配的结果",
+    "clear_search": "清空搜索",
     "load_more": "加载更多"
   },
   "showcases-flow": {

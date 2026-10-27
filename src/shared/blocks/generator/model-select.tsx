@@ -6,6 +6,7 @@ import { useLocale } from 'next-intl';
 
 import enModelMessages from '@/config/locale/messages/en/ai/models.json';
 import zhModelMessages from '@/config/locale/messages/zh/ai/models.json';
+import { getBaseCredits } from '@/shared/lib/plan-credits';
 import { useAppContext } from '@/shared/contexts/app';
 import { cn } from '@/shared/lib/utils';
 import {
@@ -37,6 +38,7 @@ interface ModelMessages {
     locked_label: string;
     locked_action: string;
     recommended: string;
+    credits_unit: string;
   };
   models: Record<string, ModelMessage>;
 }
@@ -97,9 +99,26 @@ export function ModelSelect({
       setShowPricingDialog(true);
       return;
     }
+    // BUG-21：余额不足的模型引导升级而不是报错
+    if (isInsufficient(model)) {
+      setOpen(false);
+      setKeyword('');
+      setShowPricingDialog(true);
+      return;
+    }
     onChange(model.id);
     setOpen(false);
     setKeyword('');
+  };
+
+  // BUG-21：模型所需基准积分与余额不足判定
+  const getRequiredCredits = (model: GeneratorModel) =>
+    model.pricing?.credits ?? getBaseCredits(model.id);
+
+  const isInsufficient = (model: GeneratorModel) => {
+    const required = getRequiredCredits(model);
+    if (!required || !user) return false;
+    return (user?.credits?.remainingCredits ?? 0) < required;
   };
 
   return (
@@ -172,7 +191,8 @@ export function ModelSelect({
                     onClick={() => handleSelect(model)}
                     className={cn(
                       'relative flex w-full flex-col border-b border-border/50 p-4 pr-2 text-left transition-all duration-200 hover:bg-[#222]',
-                      isLocked(model) && 'cursor-pointer grayscale',
+                      (isLocked(model) || isInsufficient(model)) &&
+                        'cursor-pointer grayscale',
                       model.id === value &&
                         !isLocked(model) &&
                         'border-l-2 border-l-highlight bg-[#1a1a1a]'
@@ -210,6 +230,13 @@ export function ModelSelect({
                             src={model.icon}
                             alt={model.name}
                             className="h-6 w-6"
+                            onError={(e) => {
+                              // BUG-15：图标加载失败时回退到通用占位图标
+                              const target = e.currentTarget;
+                              if (!target.src.endsWith('/model_icon/fallback-icon.svg')) {
+                                target.src = '/model_icon/fallback-icon.svg';
+                              }
+                            }}
                           />
                         </div>
                         <span
@@ -232,6 +259,15 @@ export function ModelSelect({
                             </span>
                           )
                         )}
+                        {/* BUG-21：展示模型所需积分，支持横向比价 */}
+                        {(() => {
+                          const required = getRequiredCredits(model);
+                          return required ? (
+                            <span className="rounded-full border border-border/50 bg-card px-2 py-1 text-xs font-medium text-muted-foreground">
+                              {required} {dict.ui.credits_unit}
+                            </span>
+                          ) : null;
+                        })()}
                       </div>
                       {model.id === value && !isLocked(model) ? (
                         <Check className="ml-auto h-5 w-5 text-highlight" />

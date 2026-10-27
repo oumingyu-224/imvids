@@ -54,6 +54,7 @@ export const localeMessagesPaths = [
   'pages/create',
   'pages/hairstyles',
   'pages/seedream45',
+  'pages/seedance2free',
   'pages/nanobananapro',
   'pages/zimage',
   'admin/prompts',

@@ -631,6 +631,14 @@ border-color:hsl(var(--highlight) / .5)
   height: calc(100dvh - 4rem);
 }
 
+/* 移动端：解除高度锁死与双层滚动，统一由 body 单层滚动（BUG-19/BUG-26） */
+@media (max-width: 767px) {
+  .workbench-main {
+    height: auto;
+    overflow: visible;
+  }
+}
+
 .prompt-textarea-resize {
   resize: vertical;
 }

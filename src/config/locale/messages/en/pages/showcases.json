@@ -12,6 +12,8 @@
     "no_prompt": "This showcase does not have a prompt to copy.",
     "loading": "Loading...",
     "no_showcases": "No showcases yet",
+    "no_results_for": "No results for \"{term}\"",
+    "clear_search": "Clear search",
     "load_more": "Load More"
   },
   "showcases-flow": {

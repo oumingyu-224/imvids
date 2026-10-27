@@ -2,7 +2,7 @@
 
 import { eq, and, gte, lte, desc, count } from 'drizzle-orm';
 import { db } from '@/core/db';
-import * as schema from '@/config/db/schema.sqlite'; // 修正导入路径
+import * as schema from '@/config/db/schema'; // SEC-08：改用 PostgreSQL schema（login_attempt/ip_blacklist 已迁入）
 import { getClientIp } from '@/shared/lib/ip';
 import { headers } from 'next/headers';
 
@@ -13,6 +13,47 @@ const RISK_CONTROL_CONFIG = {
   BLACKLIST_DURATION_HOURS: 24, // 黑名单持续时间（小时）
   FINGERPRINT_ENABLED: true, // 是否启用浏览器指纹
 };
+
+// SEC-08：DB 异常时的内存降级结构（避免 catch 后无条件放行）
+const MEMORY_WINDOW_MS = RISK_CONTROL_CONFIG.LOGIN_WINDOW_HOURS * 3600 * 1000;
+const memoryAttempts = new Map<string, number[]>(); // ip -> 尝试时间戳列表
+const memoryBlacklist = new Map<string, number>(); // ip -> 封禁截止时间戳
+
+function pruneMemoryAttempts(ip: string): number[] {
+  const now = Date.now();
+  const list = (memoryAttempts.get(ip) ?? []).filter(
+    (t) => now - t < MEMORY_WINDOW_MS
+  );
+  memoryAttempts.set(ip, list);
+  return list;
+}
+
+function recordMemoryAttempt(ip: string): void {
+  const list = pruneMemoryAttempts(ip);
+  list.push(Date.now());
+  memoryAttempts.set(ip, list);
+}
+
+function getMemoryAttempts(ip: string): number {
+  return pruneMemoryAttempts(ip).length;
+}
+
+function isMemoryBlocked(ip: string): boolean {
+  const until = memoryBlacklist.get(ip);
+  if (!until) return false;
+  if (Date.now() > until) {
+    memoryBlacklist.delete(ip);
+    return false;
+  }
+  return true;
+}
+
+function blockMemory(ip: string): void {
+  memoryBlacklist.set(
+    ip,
+    Date.now() + RISK_CONTROL_CONFIG.BLACKLIST_DURATION_HOURS * 3600 * 1000
+  );
+}
 
 /**
  * 生成浏览器指纹
@@ -54,7 +95,8 @@ export async function isIpBlocked(ipAddress: string): Promise<boolean> {
     return result.length > 0;
   } catch (error) {
     console.error('检查IP黑名单失败:', error);
-    return false; // 出错时允许登录
+    // SEC-08：DB 异常时降级为内存黑名单判断，不再无条件放行
+    return isMemoryBlocked(ipAddress);
   }
 }
 
@@ -86,7 +128,8 @@ export async function getLoginAttemptsCount(
     return result[0]?.count || 0;
   } catch (error) {
     console.error('获取登录尝试次数失败:', error);
-    return 0;
+    // SEC-08：DB 异常时降级为内存计数限频，不再返回 0 放行
+    return getMemoryAttempts(ipAddress);
   }
 }
 
@@ -105,6 +148,9 @@ export async function recordLoginAttempt(
     
     const h = await headers();
     const userAgent = h.get('user-agent') || '';
+
+    // SEC-08：内存计数始终记录，作为 DB 异常时的降级数据源
+    recordMemoryAttempt(ipAddress);
 
     await db().insert(schema.loginAttempt).values({
       ipAddress,
@@ -126,9 +172,9 @@ export async function checkLoginLimit(): Promise<{
   remainingAttempts: number;
   errorMessage?: string;
 }> {
+  // SEC-08：先取 IP（放 try 外，保证降级分支也能拿到）
+  const ipAddress = await getClientIp();
   try {
-    const ipAddress = await getClientIp();
-    
     // 检查IP是否被封禁
     const isBlocked = await isIpBlocked(ipAddress);
     if (isBlocked) {
@@ -163,10 +209,20 @@ export async function checkLoginLimit(): Promise<{
     };
   } catch (error) {
     console.error('检查登录限制失败:', error);
-    // 出错时允许登录，避免影响正常用户
+    // SEC-08：DB 异常时降级为内存计数限频（而非完全放行），避免 DB 抖动锁死全站也避免裸奔
+    const memoryCount = getMemoryAttempts(ipAddress);
+    if (memoryCount >= RISK_CONTROL_CONFIG.MAX_LOGIN_ATTEMPTS_PER_IP) {
+      blockMemory(ipAddress);
+      return {
+        allowed: false,
+        remainingAttempts: 0,
+        errorMessage: `登录次数已达上限 (${RISK_CONTROL_CONFIG.MAX_LOGIN_ATTEMPTS_PER_IP}次/24小时)`,
+      };
+    }
     return {
       allowed: true,
-      remainingAttempts: RISK_CONTROL_CONFIG.MAX_LOGIN_ATTEMPTS_PER_IP,
+      remainingAttempts:
+        RISK_CONTROL_CONFIG.MAX_LOGIN_ATTEMPTS_PER_IP - memoryCount,
     };
   }
 }
@@ -206,6 +262,8 @@ async function blockIpAddress(ipAddress: string, reason: string): Promise<void> 
     }
   } catch (error) {
     console.error('封禁IP地址失败:', error);
+    // SEC-08：DB 封禁失败时至少落到内存黑名单
+    blockMemory(ipAddress);
   }
 }
 

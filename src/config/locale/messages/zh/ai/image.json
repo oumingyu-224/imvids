@@ -104,7 +104,8 @@
       "no_providers_configured": "未配置 AI 服务商，请联系管理员",
       "download_fetch_failed": "获取图片失败",
       "prompt_blocked": "提示词未通过安全检查，请修改后再试",
-      "moderation_unavailable": "内容审核服务暂不可用，请稍后再试"
+      "moderation_unavailable": "内容审核服务暂不可用，请稍后再试",
+      "prompt_optimize_failed": "提示词优化失败，请稍后再试"
     },
     "moderation_dialog": {
       "title": "提示词未通过安全检查",
@@ -137,8 +138,10 @@
       "public_visibility": "公开可见性",
       "credits_required": "所需积分",
       "generating": "生成中...",
+      "generating_elapsed": "已等待 {count} 秒",
       "generate": "生成 图片",
-      "upgrade_to_generate": "Upgrade to Generate",
+      "upgrade_to_generate": "登录后开始生成",
+      "insufficient_credits_action": "积分不足，去充值",
       "my_images": "我的图片",
       "upload_failed": "图片上传失败，请重试",
       "max_images": "最多上传 {count} 张参考图",

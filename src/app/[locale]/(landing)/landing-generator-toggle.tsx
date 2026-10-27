@@ -30,6 +30,10 @@ export function LandingGeneratorToggle({
   const [initialConfig, setInitialConfig] = useState<PromptShowcaseConfig | null>(
     null
   );
+  // BUG-10：跟随首页提示词框选择的模式渲染对应生成器
+  const [generatorMode, setGeneratorMode] = useState<'image' | 'video'>(
+    generator
+  );
 
   useEffect(() => {
     document.body.classList.toggle(
@@ -44,6 +48,7 @@ export function LandingGeneratorToggle({
       const config = (event as CustomEvent<PromptShowcaseConfig>).detail;
       if (!config) return;
       setInitialConfig(config);
+      setGeneratorMode(config.mode === 'video' ? 'video' : 'image');
       setShowGenerator(true);
       window.scrollTo({ top: 0 });
     };
@@ -63,7 +68,7 @@ export function LandingGeneratorToggle({
           transition={{ duration: 0.35, ease: 'easeOut' }}
         >
           <div className="pt-0">
-            {generator === 'video' ? (
+            {generatorMode === 'video' ? (
               <VideoGenerator
                 srOnlyTitle={generatorSrOnlyTitle}
                 modeLocked={modeLocked}

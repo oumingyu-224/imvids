@@ -155,6 +155,22 @@ export async function handleCheckoutSuccess({
 
   // payment success
   if (session.paymentStatus === PaymentStatus.SUCCESS) {
+    // SEC-17：实付金额与订单金额一致性兜底，金额不符不发放并留告警
+    const paidAmount = Number(session.paymentInfo?.paymentAmount);
+    const orderAmount = Number(order.amount);
+    if (
+      Number.isFinite(paidAmount) &&
+      Number.isFinite(orderAmount) &&
+      paidAmount < orderAmount
+    ) {
+      console.error(
+        `SEC-17 amount mismatch: order ${orderNo} paid ${paidAmount} < expected ${orderAmount}, skip granting`
+      );
+      throw new Error(
+        `payment amount mismatch for order ${orderNo}: paid ${paidAmount}, expected ${orderAmount}`
+      );
+    }
+
     // update order status to be paid
     const updateOrder: UpdateOrder = {
       status: OrderStatus.PAID,
@@ -217,6 +233,11 @@ export async function handleCheckoutSuccess({
 
     // grant credit for order
     let newCredit: NewCredit | undefined = undefined;
+    if (!order.creditsAmount) {
+      console.log(
+        `warning: paid order ${order.orderNo} has no creditsAmount, credits not granted (BUG-28)`
+      );
+    }
     if (order.creditsAmount && order.creditsAmount > 0) {
       const credits = order.creditsAmount;
       const expiresAt =
@@ -354,6 +375,11 @@ export async function handlePaymentSuccess({
 
     // grant credit for order
     let newCredit: NewCredit | undefined = undefined;
+    if (!order.creditsAmount) {
+      console.log(
+        `warning: paid order ${order.orderNo} has no creditsAmount, credits not granted (BUG-28)`
+      );
+    }
     if (order.creditsAmount && order.creditsAmount > 0) {
       const credits = order.creditsAmount;
       const expiresAt =

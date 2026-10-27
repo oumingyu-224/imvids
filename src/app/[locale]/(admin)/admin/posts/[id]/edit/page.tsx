@@ -121,6 +121,8 @@ export default async function PostEditPage({
       handler: async (data, passby) => {
         'use server';
 
+        await requirePermission({ code: PERMISSIONS.POSTS_WRITE });
+
         const user = await getUserInfo();
         if (!user) {
           throw new Error('no auth');

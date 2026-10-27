@@ -26,6 +26,62 @@ export interface ReplicateConfigs extends AIConfigs {
   customStorage?: boolean; // use custom storage to save files
 }
 
+// SEC-03：Replicate 模型白名单（与前端 MODEL_OPTIONS / SEEVIDEO 映射保持一致），白名单外拒绝
+export const ALLOWED_REPLICATE_MODELS: string[] = [
+  'google/veo-3.1',
+  'openai/sora-2',
+  'google/nano-banana-pro',
+  'bytedance/seedream-4',
+  'black-forest-labs/flux-2-pro',
+];
+
+// SEC-03：每个模型声明可透传的 options 字段，未声明的字段一律过滤
+const ALLOWED_REPLICATE_OPTIONS: Record<string, string[]> = {
+  'google/veo-3.1': [
+    'aspect_ratio',
+    'resolution',
+    'duration',
+    'video_duration',
+    'generate_audio',
+    'image_input',
+    'first_frame_image',
+    'last_frame_image',
+    'first_frame_url',
+    'last_frame_url',
+    'generation_type',
+  ],
+  'openai/sora-2': [
+    'aspect_ratio',
+    'resolution',
+    'duration',
+    'video_duration',
+    'generate_audio',
+    'image_input',
+    'first_frame_image',
+    'last_frame_image',
+    'first_frame_url',
+    'last_frame_url',
+    'generation_type',
+  ],
+  'google/nano-banana-pro': [
+    'image_input',
+    'aspect_ratio',
+    'resolution',
+  ],
+  'bytedance/seedream-4': [
+    'image_input',
+    'image_urls',
+    'image_size',
+    'image_resolution',
+    'max_images',
+  ],
+  'black-forest-labs/flux-2-pro': [
+    'image_input',
+    'input_images',
+    'aspect_ratio',
+  ],
+};
+
 /**
  * Replicate provider
  * @docs https://replicate.com/
@@ -64,6 +120,11 @@ export class ReplicateProvider implements AIProvider {
 
     if (!prompt) {
       throw new Error('prompt is required');
+    }
+
+    // SEC-03：白名单外模型直接拒绝
+    if (!ALLOWED_REPLICATE_MODELS.includes(model)) {
+      throw new Error(`model not allowed: ${model}`);
     }
 
     // build request params
@@ -265,10 +326,19 @@ export class ReplicateProvider implements AIProvider {
       return input;
     }
 
-    // input with all custom options
+    // SEC-03：透传改白名单字段制，仅保留该模型声明的字段（prompt 不在白名单内，防覆盖）
+    const allowedKeys = ALLOWED_REPLICATE_OPTIONS[model] ?? [];
+    const filteredOptions: any = {};
+    for (const key of allowedKeys) {
+      if (options[key] !== undefined) {
+        filteredOptions[key] = options[key];
+      }
+    }
+
+    // input with allowed custom options
     input = {
       ...input,
-      ...options,
+      ...filteredOptions,
     };
 
     // default options

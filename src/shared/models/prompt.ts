@@ -1,4 +1,4 @@
-import { and, count, desc, eq } from 'drizzle-orm';
+import { and, count, desc, eq, ilike, or } from 'drizzle-orm';
 
 import { db } from '@/core/db';
 import { prompt } from '@/config/db/schema';
@@ -48,16 +48,30 @@ export async function getPrompts({
   page = 1,
   limit = 30,
   status,
+  searchTerm,
 }: {
   page?: number;
   limit?: number;
   status?: string;
+  searchTerm?: string;
 } = {}): Promise<Prompt[]> {
   const offset = (page - 1) * limit;
-  
+
   const conditions = [];
   if (status) {
     conditions.push(eq(prompt.status, status));
+  }
+  if (searchTerm && searchTerm.trim()) {
+    const keyword = `%${searchTerm.trim()}%`;
+    // BUG-16：搜索覆盖标题、描述与提示词正文
+    conditions.push(
+      or(
+        ilike(prompt.title, keyword),
+        ilike(prompt.description, keyword),
+        ilike(prompt.promptTitle, keyword),
+        ilike(prompt.promptDescription, keyword)
+      )
+    );
   }
 
   const where = conditions.length > 0 ? and(...conditions) : undefined;
@@ -75,12 +89,25 @@ export async function getPrompts({
 
 export async function getPromptsCount({
   status,
+  searchTerm,
 }: {
   status?: string;
+  searchTerm?: string;
 } = {}): Promise<number> {
   const conditions = [];
   if (status) {
     conditions.push(eq(prompt.status, status));
+  }
+  if (searchTerm && searchTerm.trim()) {
+    const keyword = `%${searchTerm.trim()}%`;
+    conditions.push(
+      or(
+        ilike(prompt.title, keyword),
+        ilike(prompt.description, keyword),
+        ilike(prompt.promptTitle, keyword),
+        ilike(prompt.promptDescription, keyword)
+      )
+    );
   }
 
   const where = conditions.length > 0 ? and(...conditions) : undefined;

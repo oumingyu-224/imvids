@@ -389,6 +389,24 @@
         "question": "Can ChatGPT Image 2 generate NSFW or explicit content?",
         "answer": "No. ChatGPT Image 2 strictly prohibits generating any NSFW, pornographic, explicit, or harmful content. All requests are automatically reviewed under our safety policies and OpenAI usage guidelines. Attempts to generate prohibited content will be rejected, and repeated violations may result in account suspension. We are committed to maintaining a safe and responsible platform for all users."
       }
+    ],
+    "video_items": [
+      {
+        "question": "How does AI video generation work here?",
+        "answer": "Enter a text prompt for text-to-video, or upload reference frames for image-to-video. Pick a model, aspect ratio, and duration, then generate — the result appears in the preview area and in your works library."
+      },
+      {
+        "question": "Which video models are supported?",
+        "answer": "You can generate videos with models such as Veo 3.1 (Premium/Lite), Kling 2.1, Seedance, Gemini, Pixverse, and MiniMax. Each model supports different durations, resolutions, and reference-image capabilities."
+      },
+      {
+        "question": "How are video credits calculated?",
+        "answer": "Credits depend on the model, duration, and resolution you choose. The exact credit cost is shown next to the generate button before you submit, so there are no surprises."
+      },
+      {
+        "question": "Can I use a reference image to control the video?",
+        "answer": "Yes. Models that support image-to-video accept one or more reference images (some also support first and last frames), and the generated video follows the composition and motion cues of your input."
+      }
     ]
   },
   "cta": {

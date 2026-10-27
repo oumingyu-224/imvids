@@ -10,14 +10,59 @@ import {
 
 import { envConfigs } from '@/config';
 
-const schemaName = (envConfigs.db_schema || 'public').trim();
 // Drizzle forbids pgSchema('public'); for public schema use pgTable().
 // For non-public schema (e.g. 'web'), use pgSchema(name).table() to generate "schema"."table".
+const schemaName = (envConfigs.db_schema || 'public').trim();
 const customSchema =
   schemaName && schemaName !== 'public' ? pgSchema(schemaName) : null;
 const table: typeof pgTable = customSchema
   ? (customSchema.table.bind(customSchema) as unknown as typeof pgTable)
   : pgTable;
+
+// SEC-08：风控相关表（自 SQLite schema 迁入，PostgreSQL 版本）
+
+// 登录尝试记录表 - 用于IP登录次数限制
+export const loginAttempt = table(
+  'login_attempt',
+  {
+    id: text('id').primaryKey(),
+    ipAddress: text('ip_address').notNull(),
+    fingerprint: text('fingerprint'), // 浏览器指纹
+    userId: text('user_id').references(() => user.id, { onDelete: 'set null' }),
+    attemptTime: timestamp('attempt_time').defaultNow().notNull(),
+    success: boolean('success').notNull(), // 是否登录成功
+    userAgent: text('user_agent'),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+  },
+  (t) => [
+    // 按IP地址查询登录尝试
+    index('idx_login_attempt_ip').on(t.ipAddress),
+    // 查询特定时间段内的登录尝试
+    index('idx_login_attempt_time').on(t.attemptTime),
+    // 复合索引：IP + 时间段，用于风控查询
+    index('idx_login_attempt_ip_time').on(t.ipAddress, t.attemptTime),
+  ]
+);
+
+// IP黑名单表
+export const ipBlacklist = table(
+  'ip_blacklist',
+  {
+    id: text('id').primaryKey(),
+    ipAddress: text('ip_address').notNull().unique(),
+    reason: text('reason'),
+    blockedUntil: timestamp('blocked_until'),
+    createdAt: timestamp('created_at').defaultNow().notNull(),
+    updatedAt: timestamp('updated_at')
+      .defaultNow()
+      .$onUpdate(() => /* @__PURE__ */ new Date())
+      .notNull(),
+  },
+  (t) => [
+    index('idx_ip_blacklist_ip').on(t.ipAddress),
+    index('idx_ip_blacklist_blocked_until').on(t.blockedUntil),
+  ]
+);
 
 export const user = table(
   'user',
@@ -592,6 +637,7 @@ export const showcase = table(
     title: text('title').notNull(),
     prompt: text('prompt'),
     image: text('image').notNull(),
+    video: text('video'),
     tags: text('tags'),
     description: text('description'),
     createdAt: timestamp('created_at').defaultNow().notNull(),

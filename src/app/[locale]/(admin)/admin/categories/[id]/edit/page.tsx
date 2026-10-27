@@ -75,6 +75,8 @@ export default async function CategoryEditPage({
       handler: async (data, passby) => {
         'use server';
 
+        await requirePermission({ code: PERMISSIONS.CATEGORIES_WRITE });
+
         const user = await getUserInfo();
         if (!user) {
           throw new Error('no auth');

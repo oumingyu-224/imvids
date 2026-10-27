@@ -5,6 +5,7 @@ import {
   type LandingPageConfig,
 } from '@/config/landing-pages';
 import { PromptShowcase } from '@/shared/blocks/common/prompt-showcase';
+import { GeneratorErrorBoundary } from '@/shared/blocks/common/generator-error-boundary';
 import {
   getCurrentSubscription,
   type Subscription,
@@ -120,13 +121,15 @@ export async function LandingPageRenderer({
   const Page = await getThemePage('dynamic-page');
 
   return (
-    <LandingGeneratorToggle
-      generator={config.workbenchGenerator}
-      landing={<Page locale={locale} page={page} />}
-      generatorSrOnlyTitle={t.raw('generator.title')}
-      promptKey={promptKey}
-      modeLocked={config.lockedMode}
-      currentSubscription={currentSubscription}
-    />
+    <GeneratorErrorBoundary>
+      <LandingGeneratorToggle
+        generator={config.workbenchGenerator}
+        landing={<Page locale={locale} page={page} />}
+        generatorSrOnlyTitle={t.raw('generator.title')}
+        promptKey={promptKey}
+        modeLocked={config.lockedMode}
+        currentSubscription={currentSubscription}
+      />
+    </GeneratorErrorBoundary>
   );
 }

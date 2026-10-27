@@ -5,7 +5,8 @@
     "no_match": "没有匹配的模型",
     "locked_label": "高级功能",
     "locked_action": "点击升级",
-    "recommended": "推荐"
+    "recommended": "推荐",
+    "credits_unit": "积分"
   },
   "models": {
     "gpt-images-2-5-flare": {
@@ -411,6 +412,17 @@
       "capabilities": [
         "~5s",
         "40+",
+        "文本和图片"
+      ]
+    },
+    "runway-gen-4": {
+      "badges": [
+        "新"
+      ],
+      "description": "Runway 的新一代视频生成模型，具备稳定的角色一致性与精细的动态控制",
+      "capabilities": [
+        "10s",
+        "100+",
         "文本和图片"
       ]
     }

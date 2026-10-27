@@ -8,6 +8,13 @@
       "when": 1789717496421,
       "tag": "0000_milky_blazing_skull",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793091291808,
+      "tag": "0001_cooing_silver_samurai",
+      "breakpoints": true
     }
   ]
 }

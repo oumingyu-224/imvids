@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Check, ChevronLeft, ChevronRight, Copy, Wand, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -17,6 +17,7 @@ export type ShowcaseItem = {
   title: string;
   prompt?: string | null;
   image: string;
+  video?: string | null;
   createdAt: string | Date;
 };
 
@@ -62,6 +63,8 @@ export function ShowcasesFlowDynamic({
   const [error, setError] = useState<string | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  // BUG-07：hover 播放视频用
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   // Track if this is the initial mount to possibly skip fetching
   const isInitialMount = useState(true);
@@ -240,6 +243,19 @@ export function ShowcasesFlowDynamic({
                 ease: [0.22, 1, 0.36, 1] as const,
               }}
               whileHover={{ scale: 1.02 }}
+              onMouseEnter={() => {
+                // BUG-07：hover 时播放视频预览
+                const video = videoRefs.current[index];
+                if (video) {
+                  video.play().catch(() => {});
+                }
+              }}
+              onMouseLeave={() => {
+                const video = videoRefs.current[index];
+                if (video) {
+                  video.pause();
+                }
+              }}
             >
               <LazyImage
                 src={item.image}
@@ -247,6 +263,20 @@ export function ShowcasesFlowDynamic({
                 className="h-auto w-full transition-transform duration-300 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
               />
+              {item.video ? (
+                <video
+                  ref={(el) => {
+                    videoRefs.current[index] = el;
+                  }}
+                  src={item.video}
+                  poster={item.image}
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                  className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                />
+              ) : null}
               <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/28 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 px-3 pb-3 opacity-0 transition-all duration-300 group-hover:pointer-events-auto group-hover:opacity-100">
                 <div className="translate-y-4 transition-transform duration-300 group-hover:translate-y-0">
@@ -298,7 +328,30 @@ export function ShowcasesFlowDynamic({
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
         >
-          No items found in this category.
+          {searchTerm ? (
+            // BUG-16：搜索态空结果与「库为空」区分展示
+            <div className="flex flex-col items-center gap-3">
+              <span>{t('no_results_for', { term: searchTerm })}</span>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    const url = new URL(window.location.href);
+                    url.searchParams.delete('searchTerm');
+                    window.location.replace(
+                      url.pathname + (url.searchParams.toString() ? `?${url.searchParams.toString()}` : '')
+                    );
+                  }
+                }}
+              >
+                {t('clear_search')}
+              </Button>
+            </div>
+          ) : (
+            'No items found in this category.'
+          )}
         </motion.div>
       )}
 

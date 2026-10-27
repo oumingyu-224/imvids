@@ -27,6 +27,7 @@ export async function GET(request: NextRequest) {
           page: 1,
           limit,
           status: PromptStatus.PUBLISHED,
+          searchTerm,
         });
         
         // Transform prompts to match showcase format

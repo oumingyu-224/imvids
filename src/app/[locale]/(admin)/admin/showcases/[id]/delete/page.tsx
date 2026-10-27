@@ -30,6 +30,18 @@ export default async function ShowcaseDeletePage({
     redirect('/admin/showcases');
   }
 
-  await deleteShowcase(id);
-  redirect('/admin/showcases');
+  async function handleDelete() {
+    'use server';
+
+    await requirePermission({ code: PERMISSIONS.CATEGORIES_WRITE });
+
+    await deleteShowcase(id);
+    redirect('/admin/showcases');
+  }
+
+  return (
+    <form action={handleDelete}>
+      <button type="submit">Confirm delete</button>
+    </form>
+  );
 }

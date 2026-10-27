@@ -248,6 +248,13 @@ export async function POST(req: Request) {
 
     const currentTime = new Date();
 
+    // 防御：套餐配置缺 credits 数值时拒绝下单，避免产生 credits_amount 为 NULL 的已支付订单（BUG-28）
+    if (!pricingItem.credits) {
+      throw new Error(
+        `pricing item ${pricingItem.product_id} has no credits amount`
+      );
+    }
+
     // build order info
     const order: NewOrder = {
       id: getUuid(),

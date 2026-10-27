@@ -2,9 +2,15 @@ import { envConfigs } from '@/config';
 import { AIMediaType } from '@/extensions/ai';
 import { getUuid } from '@/shared/lib/hash';
 import { respData, respErr } from '@/shared/lib/resp';
+import {
+  calcImageCostCredits,
+  calcMusicCostCredits,
+  calcVideoCostCredits,
+} from '@/shared/lib/server-credits';
 import { createAITask, NewAITask } from '@/shared/models/ai_task';
 import { getAllConfigs } from '@/shared/models/config';
 import { getRemainingCredits } from '@/shared/models/credit';
+import { getCurrentSubscription } from '@/shared/models/subscription';
 import { getUserInfo } from '@/shared/models/user';
 import { getAIService } from '@/shared/services/ai';
 import {
@@ -15,15 +21,11 @@ import {
 
 export async function POST(request: Request) {
   try {
-    let { provider, mediaType, model, prompt, options, scene, credits } =
+    let { provider, mediaType, model, prompt, options, scene } =
       await request.json();
 
     if (!provider || !mediaType || !model) {
       throw new Error('invalid params');
-    }
-
-    if (typeof credits !== 'number' || credits < 0) {
-      throw new Error('invalid credits');
     }
 
     if (!prompt && !options) {
@@ -49,8 +51,17 @@ export async function POST(request: Request) {
       throw new Error('no auth, please sign in');
     }
 
-    // 前端按 pricing.json + 套餐折扣算好的积分，直接使用
-    const costCredits = credits;
+    // SEC-02：服务端按 model + 参数独立计价，客户端传入的 credits 一律不信任
+    const subscription = await getCurrentSubscription(user.id);
+    const productId = subscription?.productId ?? '';
+    let costCredits: number;
+    if (mediaType === AIMediaType.IMAGE) {
+      costCredits = calcImageCostCredits(model, options, productId);
+    } else if (mediaType === AIMediaType.VIDEO) {
+      costCredits = calcVideoCostCredits(model, options, productId);
+    } else {
+      costCredits = calcMusicCostCredits();
+    }
 
     if (mediaType === AIMediaType.IMAGE) {
       scene =
@@ -73,7 +84,8 @@ export async function POST(request: Request) {
 
     const trimmedPrompt = typeof prompt === 'string' ? prompt.trim() : '';
 
-    if (mediaType === AIMediaType.IMAGE && trimmedPrompt) {
+    // SEC-05：IMAGE/VIDEO/MUSIC 的文字 prompt 统一送审，不再仅限图片
+    if (trimmedPrompt) {
       const configs = await getAllConfigs();
 
       if (isPromptModerationEnabled(configs)) {

@@ -667,7 +667,7 @@ export const VIDEO_MODELS: GeneratorModel[] = [
     lockedTier: null,
     lockedProductIds: ['starter-monthly', 'starter'],
     recommended: true,
-    pricing: { credits: getBaseCredits('veo-3-1-premium') ?? 120, tierAnchor: 'max' },
+    pricing: { credits: getBaseCredits('veo-3-1-premium') ?? 200, tierAnchor: 'max' },
   },
   {
     id: 'veo-3-1-lite',
@@ -861,7 +861,7 @@ export const VIDEO_MODELS: GeneratorModel[] = [
     lockedTier: 'max',
     lockedProductIds: ['starter-monthly', 'starter'],
     recommended: false,
-    pricing: { credits: getBaseCredits('kling-2-1-master') ?? 100, tierAnchor: 'max' },
+    pricing: { credits: getBaseCredits('kling-2-1-master') ?? 200, tierAnchor: 'max' },
   },
   {
     id: 'kling-2-1-pro',

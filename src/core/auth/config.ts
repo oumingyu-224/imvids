@@ -26,6 +26,46 @@ import { grantRoleForNewUser } from '@/shared/services/rbac';
 const recentVerificationEmailSentAt = new Map<string, number>();
 const VERIFICATION_EMAIL_MIN_INTERVAL_MS = 60_000;
 
+// SEC-09：发送验证邮件的公共实现（带 60s 节流），供 emailAndPassword 与 emailVerification 两处复用
+async function sendVerificationEmailMessage({
+  user,
+  url,
+  configs,
+}: {
+  user: any;
+  url: string;
+  configs: Record<string, string>;
+}): Promise<void> {
+  try {
+    const key = String(user?.email || '').toLowerCase();
+    const now = Date.now();
+    const last = recentVerificationEmailSentAt.get(key) || 0;
+    if (key && now - last < VERIFICATION_EMAIL_MIN_INTERVAL_MS) {
+      return;
+    }
+    if (key) {
+      recentVerificationEmailSentAt.set(key, now);
+    }
+
+    const emailService = await getEmailService(configs as any);
+    const logoUrl = envConfigs.app_logo?.startsWith('http')
+      ? envConfigs.app_logo
+      : `${envConfigs.app_url}${envConfigs.app_logo?.startsWith('/') ? '' : '/'}${envConfigs.app_logo || ''}`;
+    // Avoid blocking auth response on email sending.
+    await emailService.sendEmail({
+      to: user.email,
+      subject: `Verify your email - ${envConfigs.app_name}`,
+      react: VerifyEmail({
+        appName: envConfigs.app_name,
+        logoUrl,
+        url,
+      }),
+    });
+  } catch (e) {
+    console.log('send verification email failed:', e);
+  }
+}
+
 // Static auth options - NO database connection
 // This ensures zero database calls during build time
 const authOptions = {
@@ -119,9 +159,15 @@ export async function getAuthOptions(configs: Record<string, string>) {
           },
           after: async (user: any) => {
             try {
-              // 新用户注册后授予角色；同 IP 前 5 个账号才授予初始积分
+              // 新用户注册后授予角色；同 IP 前 N 个账号才授予初始积分
+              // SEC-15：阈值后台可配置（initial_credits_max_accounts_per_ip），默认 1
+              const maxAccountsPerIp =
+                parseInt(
+                  configs.initial_credits_max_accounts_per_ip as string,
+                  10
+                ) || 1;
               const ipRegisteredCount = await getUsersCountByIp(user.ip || '');
-              if (ipRegisteredCount <= 5) {
+              if (ipRegisteredCount <= maxAccountsPerIp) {
                 await grantCreditsForNewUser(user);
               }
               await grantRoleForNewUser(user.id);
@@ -178,37 +224,25 @@ export async function getAuthOptions(configs: Record<string, string>) {
         if (!emailVerificationEnabled) {
           return;
         }
-        
-        try {
-          const key = String(user?.email || '').toLowerCase();
-          const now = Date.now();
-          const last = recentVerificationEmailSentAt.get(key) || 0;
-          if (key && now - last < VERIFICATION_EMAIL_MIN_INTERVAL_MS) {
-            return;
-          }
-          if (key) {
-            recentVerificationEmailSentAt.set(key, now);
-          }
 
-          const emailService = await getEmailService(configs as any);
-          const logoUrl = envConfigs.app_logo?.startsWith('http')
-            ? envConfigs.app_logo
-            : `${envConfigs.app_url}${envConfigs.app_logo?.startsWith('/') ? '' : '/'}${envConfigs.app_logo || ''}`;
-          // Avoid blocking auth response on email sending.
-          await emailService.sendEmail({
-            to: user.email,
-            subject: `Verify your email - ${envConfigs.app_name}`,
-            react: VerifyEmail({
-              appName: envConfigs.app_name,
-              logoUrl,
-              url,
-            }),
-          });
-        } catch (e) {
-          console.log('send verification email failed:', e);
-        }
+        await sendVerificationEmailMessage({ user, url, configs });
       },
     },
+    // SEC-09：开启开关且配置了 resend key 时，注册即发送验证邮件（灰度第一步：只发送不强制拦截）
+    ...(emailVerificationEnabled
+      ? {
+          emailVerification: {
+            sendOnSignUp: true,
+            autoSignInAfterVerification: true,
+            async sendVerificationEmail(
+              { user, url }: { user: any; url: string },
+              _request: Request
+            ) {
+              await sendVerificationEmailMessage({ user, url, configs });
+            },
+          },
+        }
+      : {}),
     socialProviders: await getSocialProviders(configs),
     plugins:
       configs.google_client_id && configs.google_one_tap_enabled === 'true'

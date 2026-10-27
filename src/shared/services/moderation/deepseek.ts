@@ -30,6 +30,8 @@ export async function moderatePromptWithDeepSeek({
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
+      // SEC-12：审核服务挂起时 5 秒内超时，避免拖死 generate 接口
+      signal: AbortSignal.timeout(5000),
       headers: {
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
@@ -40,7 +42,7 @@ export async function moderatePromptWithDeepSeek({
           {
             role: 'system',
             content:
-              '你是图片生成提示词安全审核器。只判断用户提示词是否允许用于图片生成。请只返回 JSON 对象，不要返回 markdown。JSON 格式：{"allowed":boolean,"reason":string,"categories":string[]}。如果包含色情、裸露、未成年人性化、性暴力、露骨性行为、严重暴力血腥、违法仇恨或其他不适合图片生成的内容，allowed=false；否则 allowed=true。',
+              '你是 AI 生成内容的文本安全审核器。只判断用户输入的提示词是否允许用于生成图片、视频或音乐内容。请只返回 JSON 对象，不要返回 markdown。JSON 格式：{"allowed":boolean,"reason":string,"categories":string[]}。如果包含色情、裸露、未成年人性化、性暴力、露骨性行为、严重暴力血腥、违法仇恨或其他不适合生成的内容，allowed=false；否则 allowed=true。',
           },
           {
             role: 'user',

@@ -104,6 +104,8 @@ export default async function UserSetPlanPage({
       handler: async (data, passby) => {
         'use server';
 
+        await requirePermission({ code: PERMISSIONS.USERS_WRITE });
+
         const { user, pricingItems } = passby;
 
         if (!user) {

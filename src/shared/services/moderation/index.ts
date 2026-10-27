@@ -23,7 +23,18 @@ export async function moderatePrompt({
   const provider = configs.prompt_moderation_provider || 'deepseek';
 
   if (provider !== 'deepseek') {
+    console.warn(
+      'prompt_moderation_enabled=true but provider is unsupported:',
+      provider
+    );
     throw new Error(PROMPT_MODERATION_ERRORS.CONFIG_MISSING);
+  }
+
+  if (!configs.prompt_moderation_deepseek_api_key) {
+    // SEC-12：开关开启但审核 key 缺失时打告警（fail-closed，直接拒绝）
+    console.warn(
+      'prompt_moderation_enabled=true but prompt_moderation_deepseek_api_key is missing'
+    );
   }
 
   return moderatePromptWithDeepSeek({

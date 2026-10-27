@@ -689,6 +689,7 @@ export const showcase = table(
     title: text('title').notNull(),
     prompt: text('prompt'),
     image: text('image').notNull(),
+    video: text('video'),
     tags: text('tags'),
     description: text('description'),
     createdAt: integer('created_at', { mode: 'timestamp_ms' })

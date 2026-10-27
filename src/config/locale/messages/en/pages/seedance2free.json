@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "title": "Seedance 2 Free - Try AI Video Generation for Free",
+    "description": "Experience Seedance AI video generation for free. Turn text and images into dynamic videos with synchronized audio, fast rendering, and up to 720p output."
+  },
+  "page": {
+    "title": "Seedance 2 Free Video Generator",
+    "description": "Try AI video generation for free. Describe your idea or upload a reference frame and get a dynamic video with audio in seconds — no subscription required to start."
+  },
+  "generator": {
+    "title": "Seedance 2 Free Generator"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions about Seedance 2 Free",
+    "items": [
+      {
+        "question": "Is Seedance video generation really free to try?",
+        "answer": "New users receive free trial credits that can be used to generate videos. Each generation consumes credits, and you can top up or subscribe when you need more."
+      },
+      {
+        "question": "What can I create with Seedance 2?",
+        "answer": "Seedance 2 supports text-to-video and image-to-video workflows with synchronized audio, making it suitable for short social clips, product teasers, and creative storytelling."
+      },
+      {
+        "question": "How long does a generation take?",
+        "answer": "Most short videos finish within one to three minutes depending on duration, resolution, and current service load. The result area shows live progress while you wait."
+      },
+      {
+        "question": "Do the generated videos include audio?",
+        "answer": "Yes. Seedance 2 generates videos with synchronized audio by default, and you can adjust audio-related options before generating."
+      },
+      {
+        "question": "Can I use the generated videos commercially?",
+        "answer": "Generated videos can be used for your creative projects. Please review the content policy and applicable laws before commercial distribution."
+      },
+      {
+        "question": "Which model does this page use?",
+        "answer": "This experience page defaults to the fast lightweight Seedance model so you can try generation quickly. Advanced Seedance models are available to subscribers in the full generator."
+      }
+    ]
+  }
+}

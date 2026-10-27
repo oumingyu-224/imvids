@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Seedance 2.0 — 工作马价格的 4K 视频 | Oddbeam",
+    "description": "Seedance 2.0 在 Oddbeam 上以 80 积分渲染 15 秒、最高 4K 的片段——Unlimited 每条 40。支持视频/音频参考输入、原生音频开关、首尾帧控制。"
+  },
+  "generator": {
+    "title": "Seedance 2.0 视频生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Seedance 2.0 视频生成器",
+    "description": "字节旗舰系列里的走量档：Seedance 2.0 以 80 积分——旗舰的一半价——渲染 15 秒、最高 4K 的片段，关键工具一样不少：视频参考能指挥运镜，音频参考能定节奏，每档分辨率到 4K 都有原生音频开关。",
+    "trust_items": [
+      "最高 4K · 15 秒",
+      "80 积分 — Unlimited 40",
+      "文本/图片/视频/音频输入"
+    ],
+    "buttons": [
+      {
+        "title": "用 Seedance 2.0 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "给它看，而不是给它形容",
+    "description": "喂素材比堆形容词好用——Seedance 2.0 的工作流：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "用视频参考开路",
+        "description": "别用文字描述运镜了——上传一段参考视频，让模型跟它的走位、景别和节奏来。展示永远胜过解释。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "给每个输入派活",
+        "description": "一张图定角色和开场帧，一段视频驱动动作和运镜，一个音频文件控节拍。在提示词里写明每个素材的职责，别让它们抢控制权。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "低清打稿，高清定稿",
+        "description": "在 480p 或 720p 迭代，定稿再以 1080p 或 4K 重渲染——同样的提示词和参考，从草稿到广播四级分辨率任走。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "逐条决定声音",
+        "description": "generate_audio 开关按条控制：开着，对白音效直接烧进片子；关掉，出干净的纯画面母版交给声音团队。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Seedance 系列里的工作马",
+    "description": "80 积分能买到、旗舰价不必买的东西：",
+    "items": [
+      {
+        "title": "旗舰一半价格的 4K",
+        "description": "分辨率上限和 2.5 一样——480p/720p/1080p/4K 四档到顶 4K——每条只要 80 积分，Unlimited 月付降到 40。旗舰的画面，走量的价格。",
+        "icon": "Ri4KLine"
+      },
+      {
+        "title": "视频是导演工具",
+        "description": "参考视频引导复杂运动、走位、景别、节奏和镜头路径——编舞和镜头语言直接搬进新场景，不用从头逐个描述。",
+        "icon": "RiVideoLine"
+      },
+      {
+        "title": "声音自己做主",
+        "description": "每次生成一个音频开关：要成片就开着让对白音效烧进去，剪辑要干净素材就关掉出无声母版——两档都到 4K。",
+        "icon": "RiVolumeUpLine"
+      },
+      {
+        "title": "首尾帧与延展",
+        "description": "两帧之间锚定一个镜头、把现有片段延展到新时长、或在参考之间衔接场景——把 15 秒渲染变成更长片子的编辑工具箱。",
+        "icon": "RiFrameLine"
+      },
+      {
+        "title": "同参数批量跑",
+        "description": "同一套提示词和参考批量跑最多 10 条——A/B 变体、平台切版、本地化批次出来的结果互相一致，不会各跑各的。",
+        "icon": "RiStackLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "团队真正算账用的价格表",
+    "description": "架在 Seedance 2.0 上的走量工作流。",
+    "items": [
+      {
+        "name": "内容工作室经理",
+        "role": "社媒代运营",
+        "quote": "Unlimited 每条 40 积分，我们整年的内容排期都是按这个数做的价。720p 打稿、4K 出定稿——分辨率阶梯让账算得明白。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "内容工作室经理"
+        }
+      },
+      {
+        "name": "舞蹈频道制片",
+        "role": "创作者经济",
+        "quote": "编舞参考片段是我不知道自己需要的功能——模型跟着走位和运镜走，我的舞者只管在新场景里跳。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "舞蹈频道制片"
+        }
+      },
+      {
+        "name": "产品视频负责人",
+        "role": "电商品牌",
+        "quote": "逐条音频开关被低估了——剪辑室要无声母版，投流要带声版本，同一套提示词 80 积分两个都有。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "产品视频负责人"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Seedance 2.0 生成一条视频要多少积分？",
+        "answer": "在 Oddbeam 上 Seedance 2.0 每条 80 积分（Starter 和 Pro 套餐同价）。Unlimited 套餐每条 40 积分，年付 Unlimited 降到 32。Starter 套餐每月 2500 积分（$29.99），大约够生成 31 条。"
+      },
+      {
+        "question": "Seedance 2.0 支持哪些分辨率？",
+        "answer": "四档——480p、720p、1080p、最高 4K，4K 正是旗舰系列出名的那一档。480p 或 720p 打草稿，定稿用同样的提示词和参考重渲染 1080p 或 4K。"
+      },
+      {
+        "question": "Seedance 2.0 能拿视频当输入吗？",
+        "answer": "能——视频参考就是它的导演工具。参考片段引导复杂运动、走位、景别、节奏和镜头路径，编舞或运镜直接搬进新场景，不用逐个用文字描述。"
+      },
+      {
+        "question": "Seedance 2.0 会生成音频吗？",
+        "answer": "会，每次生成一个开关。generate_audio 打开，对白音效同步烧进渲染；关掉，出干净的纯画面母版，交给独立的声音工作流处理。"
+      },
+      {
+        "question": "Seedance 2.0 一条片子最长多久？",
+        "answer": "单次生成最长 15 秒，配首尾帧控制和片段延展做更长的内容——两帧之间锚定镜头、延长时长、或在参考之间衔接场景。"
+      },
+      {
+        "question": "Seedance 2.0 和 Seedance 2.5 怎么选？",
+        "answer": "要 4K 走量选 2.0：每条 80 积分、视频参考当导演工具、批量 10 条、Unlimited 40。要旗舰单跑选 2.5：30 秒一镜、50 个参考位、局部编辑，每条 160 积分。一个家族，两种分工。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "旗舰的画面。工作马的价格。",
+    "description": "15 秒、最高 4K、视频参考指挥运镜——Seedance 2.0 每条 80 积分起。",
+    "buttons": [
+      {
+        "title": "用 Seedance 2.0 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

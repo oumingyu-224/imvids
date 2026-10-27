@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Nano Banana Pro — 事实接地的 AI 图片，最高 4K | Oddbeam",
+    "description": "Nano Banana Pro（Gemini 3 Pro Image）在 Oddbeam 上以 Google 搜索接地、最多 14 张参考图与 4K 输出组成「准确优先」的设计台——信息图、本地化 campaign、品牌物料。40 积分，Unlimited 免费。"
+  },
+  "generator": {
+    "title": "Nano Banana Pro 图片生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Nano Banana Pro 图片生成器",
+    "description": "有些图必须是真的，不只是好看。Nano Banana Pro 是 Google 的 Gemini 3 Pro Image：渲染之前先推理，Google 搜索接地取实时事实，最多 14 张参考图稳住 5 个人物，图中文字清晰度全模型最佳——最高 4K。每张 40 积分，Unlimited 免费。",
+    "trust_items": [
+      "Google 搜索接地事实",
+      "14 张参考 · 5 个一致人物",
+      "1K / 2K / 4K 输出"
+    ],
+    "buttons": [
+      {
+        "title": "用 Nano Banana Pro 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "像工作室一样带着资料做图",
+    "description": "Nano Banana Pro 是为「要过事实核查」的工作而建的——工作流如下：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "先钉住品牌",
+        "description": "上传最多 14 张参考图——Logo、包装、主视觉、人脸——最多 5 个人物全程一致。品牌视觉在输入端就钉死，不用进评审再修补。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "用真实事实接地",
+        "description": "画面必须反映现实时——天气、赛事、食谱、产品参数——Nano Banana Pro 从 Google 搜索取数，信息图引用的是今天的世界。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "让它先规划再渲染",
+        "description": "基于 Gemini 3 的推理能力，模型先规划构图、光线和排版再动笔——交付前在循环里自检手势、招牌和物理，你看到帧之前它已经改过错。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "本地化并放大交付",
+        "description": "把图内文字翻译成新语言而不破版式，定稿再渲染最高 4K——一张母版资产变成多语言、可印刷的整组 campaign。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Oddbeam 上的「准确优先」设计台",
+    "description": "它与更快兄弟型号的分界线：",
+    "items": [
+      {
+        "title": "接在 Google 搜索上",
+        "description": "搜索的实时信息直接进画面——带今天数据的信息图、跟着天气走的创意、产品参数准确的视觉。当「搞错」是最贵的失败方式时，这个功能就是全部。",
+        "icon": "RiSearchEyeLine"
+      },
+      {
+        "title": "工作室级控制面板",
+        "description": "机位、焦点、调色、灯光全部可用指令驱动；局部编辑只改一个区域、画面其余纹丝不动。它像一个听得懂指挥的设计工具。",
+        "icon": "RiSlidersLine"
+      },
+      {
+        "title": "14 张参考，5 个一致人物",
+        "description": "同级别最大的参考面，让角色、包装、品牌元素在几十张输出里保持稳定——系列 campaign 不会再自己换演员。",
+        "icon": "RiTeamLine"
+      },
+      {
+        "title": "排版像设计做出来的",
+        "description": "多语言图内文字清晰可读，从短标语到整段文案，质感与字体多种多样——海报和包装在这个模型上成立的原因。",
+        "icon": "RiFontSize"
+      },
+      {
+        "title": "自带自纠错的推理",
+        "description": "基于 Gemini 3 Pro，每张图走一遍「规划-生成-检查」循环，手势、招牌、物理问题在交付前修正——每张可用图的重试次数更少。",
+        "icon": "RiBrainLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "为「要过审查」的工作而建",
+    "description": "图片要面对法务、品牌和 QA 审查的团队。",
+    "items": [
+      {
+        "name": "信息图设计师",
+        "role": "新闻媒体",
+        "quote": "搜索接地意味着图表里的数字就是今天的数字。我们的事实核查从纠错队列变成了扫一眼。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "信息图设计师"
+        }
+      },
+      {
+        "name": "品牌守护人",
+        "role": "快消品牌",
+        "quote": "14 个参考位把包装、吉祥物、配色钉满整季 campaign——法务审查终于不再标记我们的 AI 素材。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "品牌守护人"
+        }
+      },
+      {
+        "name": "全球 campaign 经理",
+        "role": "零售品牌",
+        "quote": "一张 4K 母版，然后按市场本地化图内文案、版式不破。Unlimited 免费额度让整张本地化矩阵做起来毫无痛感。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "全球 campaign 经理"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Nano Banana Pro 生成一张图要多少积分？",
+        "answer": "在 Oddbeam 上 Nano Banana Pro 每张 40 积分（Pro 套餐起可用），Unlimited 套餐免费生成，年付 Unlimited 降到 4 积分。Starter 套餐不可用——Pro 套餐每月 $89.99 含 10000 积分，大约够 250 张。"
+      },
+      {
+        "question": "Nano Banana Pro 底层是什么？",
+        "answer": "Nano Banana Pro 是 Google DeepMind 的 Gemini 3 Pro Image 模型——Nano Banana 家族里准确优先的档位。它把 Gemini 3 的推理和世界知识与图像生成结合，包括取实时事实的 Google 搜索接地。"
+      },
+      {
+        "question": "Nano Banana Pro 能放几张参考图？",
+        "answer": "每次生成最多 14 张，其中最多 5 个人物可跨输出保持一致——同级别最大的参考面，为品牌物料库、角色系列和包装体系而建。"
+      },
+      {
+        "question": "Nano Banana Pro 的图内文字准确吗？",
+        "answer": "准确——清晰可读的图内文字是它的招牌强项，覆盖多语言，从短标语到整段文案。它也是翻译和本地化已有图内文案而不破版式的正确工具。"
+      },
+      {
+        "question": "Nano Banana Pro 能用实时信息吗？",
+        "answer": "能。Google 搜索接地让模型把当前事实——天气、赛果、产品数据——拉进画面。信息图和讲解图渲染自今天真实存在的东西，而不是训练数据的记忆。"
+      },
+      {
+        "question": "Nano Banana Pro 和 Nano Banana 2 怎么选？",
+        "answer": "图必须完全正确选 Pro：搜索接地事实、14 张参考、工作室级控制、4K，每张 40 积分。速度和多轮对话式编辑优先选 Nano Banana 2，同价 40 积分且 Starter 可用。Pro 是工作室，2 是草稿本。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "这张图必须是对的。模型也是。",
+    "description": "搜索接地事实、14 张参考、4K 交付——Nano Banana Pro 每张 40 积分，Unlimited 免费。",
+    "buttons": [
+      {
+        "title": "用 Nano Banana Pro 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Seedream 4.0 — One Prompt, Nine Matching Images at 4K | Oddbeam",
+    "description": "Seedream 4.0 on Oddbeam returns coordinated sets of up to 9 matching images in a single run, holds characters across 6 references, and reaches 4K from a 1.8-second 2K engine. 30 credits per image, free on Unlimited."
+  },
+  "generator": {
+    "title": "Seedream 4.0 Image Generator"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Seedream 4.0 Image Generator",
+    "description": "One brief, nine matching assets, one run. Seedream 4.0 is ByteDance's unified generation-and-editing model: a single job can return up to 9 coordinated images that keep the same character, style, and layout — and every 2K frame lands in about 1.8 seconds, with 4K output at 30 credits per image.",
+    "trust_items": [
+      "Up to 9 matching images per run",
+      "2K in ~1.8s · 4K output",
+      "6 reference images for consistency"
+    ],
+    "buttons": [
+      {
+        "title": "Generate with Seedream 4.0",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "One Brief to a Full Set",
+    "description": "Seedream 4.0 treats a prompt like a campaign brief, not a single frame — here is the workflow:",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Brief It Like a Campaign",
+        "description": "Describe the series, not one picture: what the set is for, what must stay identical across frames — the character, the product, the palette — and what may vary.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Pin Up to 6 References",
+        "description": "Attach as many as 6 reference images so faces, packaging, and brand style carry over. The model fuses them into one consistent identity across the whole batch.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Pick Ratio and Resolution",
+        "description": "Choose from 8 aspect ratios from 21:9 cinematic to 9:16 vertical, and let the adaptive canvas match the composition — then render drafts at 2K speed or finish at 4K.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Ship the Whole Set",
+        "description": "One run returns up to 9 coordinated images that already look like a family. Keep the set, or re-roll only the frames that missed — at 30 credits per image, sets stay affordable.",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Why Teams Ship Sets with Seedream 4.0",
+    "description": "The capabilities that make it the volume engine on Oddbeam:",
+    "items": [
+      {
+        "title": "Nine matching images, one run",
+        "description": "Seedream 4.0 was the first model to generate coordinated sets in a single pass — every output holds the same cast, wardrobe, and composition logic, so a product line or storyboard arrives as a family, not nine strangers.",
+        "icon": "RiGalleryLine"
+      },
+      {
+        "title": "2K frames in about 1.8 seconds",
+        "description": "Built on ByteDance's MoE architecture with adversarial distillation, a 2K image lands in roughly 1.8 seconds — iteration happens at the pace of a conversation, not a coffee break.",
+        "icon": "RiFlashlightLine"
+      },
+      {
+        "title": "Consistency from up to 6 references",
+        "description": "Characters, products, and brand visuals each get pinned by a reference image, and the model keeps them stable across the entire batch — the fix for identity drift is applied at the input, not in post.",
+        "icon": "RiUserSmileLine"
+      },
+      {
+        "title": "Charts and formulas, not just photos",
+        "description": "Seedream 4.0 handles knowledge-dense layouts — statistics charts, tables, formulas, chemistry structures, and infographic annotations — which makes it usable for courseware and explainers, not just aesthetics.",
+        "icon": "RiBarChartLine"
+      },
+      {
+        "title": "Adaptive canvas up to 4K",
+        "description": "Eight aspect ratios from 21:9 to 9:16 adapt to what the scene needs instead of forcing a crop, and output scales to 4K for print-ready deliverables at the same 30-credit rate.",
+        "icon": "RiCropLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "Built for Set-Based Production",
+    "description": "How teams put the nine-image run to work.",
+    "items": [
+      {
+        "name": "Ecommerce Visual Lead",
+        "role": "DTC Brand",
+        "quote": "A seasonal drop used to mean briefing nine separate product shots. Now one run with 6 references gives us a matched set, and the Unlimited plan's free generations make daily drops routine.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Ecommerce Visual Lead"
+        }
+      },
+      {
+        "name": "Brand Designer",
+        "role": "Design Studio",
+        "quote": "I pin the logo and the mascot once and get nine coherent brand assets back. The character consistency across the batch is what sold our art director on it.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Brand Designer"
+        }
+      },
+      {
+        "name": "Content Studio Owner",
+        "role": "Social Agency",
+        "quote": "Storyboard frames, thumbnail variants, A/B creative — the 1.8-second 2K speed means we explore five directions before a client call instead of after it.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Content Studio Owner"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "How much does Seedream 4.0 cost per image?",
+        "answer": "Seedream 4.0 costs 30 credits per image on Oddbeam for Starter and Pro plans, and Unlimited plan subscribers generate it for free — yearly Unlimited drops the rate to 3 credits. The Starter plan's 2,500 monthly credits cover about 83 images at $29.99 per month."
+      },
+      {
+        "question": "How many images can Seedream 4.0 make at once?",
+        "answer": "Up to 9 coordinated images in a single run. The batch holds one consistent style, cast, and composition logic across all outputs, which is why it is the default pick on Oddbeam for product lines, storyboards, and campaign sets."
+      },
+      {
+        "question": "How many reference images does Seedream 4.0 support?",
+        "answer": "Up to 6 reference images per job. Images pin what must stay identical — a character's face, a product's packaging, a brand's palette — and the model fuses them so every generated frame keeps those identities intact."
+      },
+      {
+        "question": "What resolutions and aspect ratios does Seedream 4.0 support?",
+        "answer": "Seedream 4.0 renders 2K images in about 1.8 seconds and scales output up to 4K, across 8 aspect ratios on Oddbeam from 21:9 cinematic to 9:16 vertical. The adaptive canvas adjusts composition to the ratio instead of cropping a fixed frame."
+      },
+      {
+        "question": "Can Seedream 4.0 render charts, tables, and formulas?",
+        "answer": "Yes — knowledge-dense content is one of its official strengths. Statistics charts, tables, math formulas, chemistry structures, and annotated infographics render legibly, which makes it suitable for courseware, academic illustration, and explainer content."
+      },
+      {
+        "question": "Seedream 4.0 or Nano Banana Pro — which should I pick?",
+        "answer": "Pick Seedream 4.0 for sets and speed: up to 9 coordinated images per run at 30 credits with 4K output. Pick Nano Banana Pro for iterative editing and factual accuracy with Google Search grounding at 40 credits — sets in volume, or one image refined to death."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "Nine Frames. One Run. Thirty Credits.",
+    "description": "Brief the set, pin your references, and let Seedream 4.0 return a matched family of images — 2K in seconds, 4K when it ships.",
+    "buttons": [
+      {
+        "title": "Generate with Seedream 4.0",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

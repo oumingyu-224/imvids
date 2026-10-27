@@ -18,8 +18,19 @@ const staticPaths = [
   '/ai-music-generator',
   '/seedance-2-free',
   '/nano-banana-pro',
-  '/seedream4-5',
   '/z-image',
+  // 模型页（一个模型一页）
+  '/seedance-2-5',
+  '/seedance-2-0',
+  '/minimax-h3',
+  '/veo-3-1',
+  '/kling-2-5',
+  '/wan-3-0',
+  '/gpt-images-2-5',
+  '/flux-kontext-max',
+  '/seedream-4-0',
+  '/nano-banana-2',
+  '/seedream-5-lite',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

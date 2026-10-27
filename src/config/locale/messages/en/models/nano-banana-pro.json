@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Nano Banana Pro — Images Grounded in Facts, Up to 4K | Oddbeam",
+    "description": "Nano Banana Pro (Gemini 3 Pro Image) on Oddbeam pairs Google Search grounding with up to 14 reference images and 4K output — the accuracy-first studio for infographics, localized campaigns, and brand work. 40 credits, free on Unlimited."
+  },
+  "generator": {
+    "title": "Nano Banana Pro Image Generator"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Nano Banana Pro Image Generator",
+    "description": "Some images have to be true, not just pretty. Nano Banana Pro is Google's Gemini 3 Pro Image: reasoning before rendering, Google Search grounding for real-time facts, up to 14 reference images with 5 consistent people, and the most legible in-image text of any model — at up to 4K. 40 credits per image, free on Unlimited.",
+    "trust_items": [
+      "Google Search-grounded facts",
+      "14 references · 5 consistent people",
+      "1K / 2K / 4K output"
+    ],
+    "buttons": [
+      {
+        "title": "Generate with Nano Banana Pro",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "Design With Sources, Like a Studio",
+    "description": "Nano Banana Pro is built for work that gets fact-checked — the workflow:",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Anchor the Brand",
+        "description": "Upload up to 14 reference images — logos, packaging, key art, faces — and keep up to 5 people consistent across the set. The brand look is pinned at the input, not repaired in review.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Ground It in Real Facts",
+        "description": "When the image must reflect reality — weather, sports, recipes, product specs — Nano Banana Pro draws on Google Search, so the infographic cites the world as it is today.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Let It Plan, Then Render",
+        "description": "Built on Gemini 3's reasoning, the model plans composition, lighting, and typography before drawing — then self-corrects hands, signage, and physics in the loop before you see the frame.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Localize and Upscale",
+        "description": "Translate the in-image text into new languages without breaking the layout, then render the winner at up to 4K — one master asset becomes a multilingual, print-ready campaign.",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "The Accuracy-First Studio on Oddbeam",
+    "description": "What separates Nano Banana Pro from faster siblings:",
+    "items": [
+      {
+        "title": "Grounded in Google Search",
+        "description": "Real-time information from Search feeds the render — infographics with today's facts, weather-aware creatives, product-accurate visuals. When being wrong is the expensive failure mode, this is the feature that matters.",
+        "icon": "RiSearchEyeLine"
+      },
+      {
+        "title": "Studio-grade control surface",
+        "description": "Camera angle, focus, color grading, and lighting are all instructable; localized edits fix one region while the rest of the frame holds. It behaves like a design tool that takes direction.",
+        "icon": "RiSlidersLine"
+      },
+      {
+        "title": "14 references, 5 consistent people",
+        "description": "The largest reference surface in its class keeps characters, packaging, and brand elements stable across dozens of outputs — series campaigns stop re-casting themselves.",
+        "icon": "RiTeamLine"
+      },
+      {
+        "title": "Typography that reads like design",
+        "description": "Legible in-image text across multiple languages, from short taglines to long paragraphs, with varied textures and fonts — the reason posters and packaging land here instead of elsewhere.",
+        "icon": "RiFontSize"
+      },
+      {
+        "title": "Reasoning that self-corrects",
+        "description": "Built on Gemini 3 Pro, each render runs a plan-generate-review loop that fixes hands, signage, and physics before delivery — fewer retries per usable image.",
+        "icon": "RiBrainLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "For Work That Gets Fact-Checked",
+    "description": "Teams whose images face legal, brand, and QA review.",
+    "items": [
+      {
+        "name": "Infographic Designer",
+        "role": "News Media",
+        "quote": "Search grounding means the numbers in my charts are today's numbers. Our fact-check pass went from a correction queue to a skim.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Infographic Designer"
+        }
+      },
+      {
+        "name": "Brand Guardian",
+        "role": "CPG Company",
+        "quote": "Fourteen reference slots hold the packaging, the mascot, and the palette across an entire seasonal campaign — legal review finally stopped flagging our AI assets.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Brand Guardian"
+        }
+      },
+      {
+        "name": "Global Campaign Manager",
+        "role": "Retail Brand",
+        "quote": "One 4K master, then localized in-image copy per market without the layout breaking. The Unlimited free rate made the whole localization matrix painless.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Global Campaign Manager"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "How much does Nano Banana Pro cost per image?",
+        "answer": "Nano Banana Pro costs 40 credits per generation on Oddbeam for Pro plan users, and Unlimited plan subscribers generate it for free — yearly Unlimited drops the rate to 4 credits. It is not available on the Starter plan; the Pro plan at $89.99 per month with 10,000 credits covers about 250 images."
+      },
+      {
+        "question": "What is Nano Banana Pro built on?",
+        "answer": "Nano Banana Pro is Google DeepMind's Gemini 3 Pro Image model — the accuracy-first tier of the Nano Banana family. It pairs Gemini 3's reasoning and world knowledge with image generation, including Google Search grounding for real-time facts."
+      },
+      {
+        "question": "How many reference images can Nano Banana Pro take?",
+        "answer": "Up to 14 reference images per generation, with up to 5 people kept consistent across outputs — the largest reference surface in its class, built for brand kits, character series, and packaging systems."
+      },
+      {
+        "question": "Does Nano Banana Pro render text accurately?",
+        "answer": "Yes — legible in-image text is its headline strength, across multiple languages from short taglines to long paragraphs. It is also the right tool for translating and localizing existing in-image copy without breaking the layout."
+      },
+      {
+        "question": "Can Nano Banana Pro use real-time information?",
+        "answer": "Yes. Google Search grounding lets the model pull current facts — weather, sports results, product data — into the image. Infographics and explainers render from what is true today, not what the training data remembers."
+      },
+      {
+        "question": "Nano Banana Pro or Nano Banana 2 — which should I pick?",
+        "answer": "Pick Pro when the image must be exactly right: Search-grounded facts, 14 references, studio controls, 4K, at 40 credits. Pick Nano Banana 2 when speed and multi-round conversational editing matter more, at the same 40-credit rate on Starter-eligible plans. Pro is the studio; 2 is the sketchpad."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "The Image Has to Be Right. So Is This Model.",
+    "description": "Search-grounded facts, 14 references, 4K delivery — Nano Banana Pro from 40 credits, free on Unlimited.",
+    "buttons": [
+      {
+        "title": "Generate with Nano Banana Pro",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

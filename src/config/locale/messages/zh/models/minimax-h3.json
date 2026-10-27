@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "MiniMax H3 — 一条提示词指挥所有模态 | Oddbeam",
+    "description": "MiniMax H3 在 Oddbeam 上把文本、图片、视频、音频放进同一个创作上下文：同一次生成里借一段运镜、定一个角色、配一段人声。4-15 秒，768P 或 2K 原生立体声，100 积分。"
+  },
+  "generator": {
+    "title": "MiniMax H3 视频生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "MiniMax H3 视频生成器",
+    "description": "一条提示词，所有媒介。MiniMax H3 是开放通用的全模态视频模型，把文字、图片、视频、音频读成同一个上下文：从一段视频借运镜、从一张照片定角色、从一段音频配人声——它以最高 2K 的原生立体声把镜头合成出来。4 到 15 秒，100 积分。",
+    "trust_items": [
+      "文+图+视频+音频同上下文",
+      "2K 原生立体声输出",
+      "4-15s · 首尾帧控制"
+    ],
+    "buttons": [
+      {
+        "title": "用 MiniMax H3 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "把上下文当调音台用",
+    "description": "H3 把每个参考都当成一个可调的旋钮——工作流如下：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "喂混合素材",
+        "description": "图片管身份、视频管动作和镜头语言、音频管人声或节奏——一次生成最多混搭 12 个文件，类型自由组合。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "写清每个文件的职责",
+        "description": "用文字描述关系：「用视频 1 的运镜、图片 2 的角色、音频 3 的人声」。H3 的上下文引擎自己完成跨模态的接线。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "或者用帧定位",
+        "description": "不走参考路线就用位置控制：给首帧、尾帧或两者都给，H3 渲染两者之间的过渡，声音一并生成。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "出 768P 或 2K",
+        "description": "输出 768P 或 2K——2K 是 H3 的默认甜点档，对白、环境声、配乐与画面同 pass 原生生成。每条 4 到 15 秒。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "跨模态需求为什么交给 H3",
+    "description": "让它成为 Oddbeam 多模态指挥台的几项能力：",
+    "items": [
+      {
+        "title": "四种媒介一个上下文",
+        "description": "文本、图片、视频、音频进的是同一个创作上下文，不是各自为政的工具孤岛——模型同时对所有输入做推理，「借那个运镜、照这段人声唱」才会成为一句指令。",
+        "icon": "RiAppsLine"
+      },
+      {
+        "title": "2K 默认，立体声默认",
+        "description": "H3 的标准档就是 2K，配画面同 pass 生成的 32 kHz 原生立体声——分辨率和声音是基线配置，不是加价项。",
+        "icon": "RiSoundModuleLine"
+      },
+      {
+        "title": "11 种语言对白",
+        "description": "阿拉伯语、中文、英语、法语、德语、意大利语、日语、韩语、葡萄牙语、俄语、西班牙语的对白稳定输出——多语言配音直接长在渲染里。",
+        "icon": "RiGlobalLine"
+      },
+      {
+        "title": "动作迁移，正路子",
+        "description": "V2V 动作迁移把参考片段里的表演搬到新主体上——舞步、手势、打斗动作——不用转描，不用手调关键帧。",
+        "icon": "RiDanceLine"
+      },
+      {
+        "title": "像同事一样听得懂人话",
+        "description": "H3 的上下文引擎能解析模糊的口语化指令并自行补全合理细节——复杂的多模态指令在 4-6 秒的短片里，比关键词堆砌的提示词存活率高得多。",
+        "icon": "RiChatSmartLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "为横跨媒介的需求而建",
+    "description": "参考素材从来装不进一个框的团队。",
+    "items": [
+      {
+        "name": "MV 导演",
+        "role": "后期制作",
+        "quote": "把 demo 人声丢进去当参考，出来的人声表演和口型直接对上——光这一条，我排期表上少了两道后期工序。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "MV 导演"
+        }
+      },
+      {
+        "name": "游戏过场美术",
+        "role": "工作室团队",
+        "quote": "一次 H3 任务里丢角色三视图、一段运镜参考、一段声音氛围。以前要三个工具接力拼的活，上下文自己拼完了。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "游戏过场美术"
+        }
+      },
+      {
+        "name": "电商视频负责人",
+        "role": "平台品牌",
+        "quote": "2K 默认输出是个安静的赢点——产品片出来直接够详情页放大看的清晰度，不用再过一遍放大，每条 100 积分。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "电商视频负责人"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "MiniMax H3 生成一条视频要多少积分？",
+        "answer": "在 Oddbeam 上 MiniMax H3 每条 100 积分（Starter 和 Pro 套餐同价）。Unlimited 套餐每条 50 积分，年付 Unlimited 降到 40。Starter 套餐每月 2500 积分（$29.99），大约够生成 25 条。"
+      },
+      {
+        "question": "MiniMax H3 和其他视频模型有什么不同？",
+        "answer": "它是通用全模态模型：文本、图片、视频、音频进同一个统一上下文，H3 对所有输入一起推理——参考视频的运镜、照片的身份、音频的人声——一次生成完成，自带原生立体声。"
+      },
+      {
+        "question": "MiniMax H3 输出什么分辨率？",
+        "answer": "768P 和 2K，2K 是模型的主打档。片段 4 到 15 秒、24 帧每秒，对白、环境声、配乐与画面同 pass 原生生成。"
+      },
+      {
+        "question": "MiniMax H3 一次能吃几个参考？",
+        "answer": "一次生成最多 12 个文件，跨类型混搭——最多 9 张图片、3 段视频（每段 2-15 秒）、3 段音频。在提示词里写清每个文件的职责，模型自己接线。"
+      },
+      {
+        "question": "MiniMax H3 能做首尾帧过渡吗？",
+        "answer": "能。给零、一或两张帧都行：不给图是文生视频，给一张从该帧动起来，给两张生成首尾帧过渡——每种模式声音都跟着出。"
+      },
+      {
+        "question": "MiniMax H3 和 Seedance 2.5 怎么选？",
+        "answer": "需求横跨媒介——音频驱动表演、动作迁移、混合参考——选 H3，2K 立体声每条 100 积分。要 30 秒长镜头和时间戳编辑选 Seedance 2.5，每条 160 积分。H3 指挥乐团，Seedance 跑长镜头。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "一条提示词。所有媒介。原生声音。",
+    "description": "把参考喂给 H3，指挥整支乐团——4-15 秒、最高 2K 立体声，100 积分起。",
+    "buttons": [
+      {
+        "title": "用 MiniMax H3 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

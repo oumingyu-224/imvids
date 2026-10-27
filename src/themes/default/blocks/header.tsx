@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ChevronDown, Menu, Sparkles, X } from 'lucide-react';
 
 import { Link, usePathname } from '@/core/i18n/navigation';
@@ -34,6 +34,21 @@ function filterNavItems(items?: NavItem[]) {
       ...item,
       children: item.children?.filter((child) => !shouldHideItem(child)),
     }));
+}
+
+// 按 group 字段把子项切成连续分组，供下拉两栏渲染
+function groupNavChildren(children: NavItem[]) {
+  const groups: { title: string; items: NavItem[] }[] = [];
+  for (const child of children) {
+    const title = child.group || '';
+    const last = groups[groups.length - 1];
+    if (last && last.title === title) {
+      last.items.push(child);
+    } else {
+      groups.push({ title, items: [child] });
+    }
+  }
+  return groups;
 }
 
 function HeaderTopPromo({
@@ -216,32 +231,58 @@ export function Header({ header }: { header: HeaderType }) {
 
                         <div className={cn(
                           'landing-popover invisible absolute top-full left-0 z-50 mt-3 w-72 rounded-2xl border p-2 opacity-0 shadow-[0_18px_48px_rgba(15,23,42,0.08)] transition-all group-hover:visible group-hover:opacity-100',
+                          item.children.some((c) => c.group) && 'w-[30rem]',
                           openNavIdx === idx && 'visible opacity-100'
                         )}>
-                          {item.children.map((subItem, subIdx) => (
-                            <Link
-                              key={subIdx}
-                              href={subItem.url || ''}
-                              target={subItem.target || '_self'}
-                              className="landing-popover-hover block rounded-xl px-3 py-3"
-                              onClick={() => setOpenNavIdx(null)}
-                            >
-                              <div className="landing-strong flex items-center gap-2 text-sm font-medium">
-                                {subItem.icon ? (
-                                  <SmartIcon
-                                    name={subItem.icon as string}
-                                    className="landing-soft-text size-4"
-                                  />
-                                ) : null}
-                                {subItem.title}
-                              </div>
-                              {subItem.description ? (
-                                <p className="landing-soft-text mt-1 text-xs leading-5">
-                                  {subItem.description}
-                                </p>
-                              ) : null}
-                            </Link>
-                          ))}
+                          {item.children.some((c) => c.group)
+                            ? groupNavChildren(item.children).map((group, gIdx) => (
+                                <div key={gIdx} className="mb-2 last:mb-0">
+                                  {group.title ? (
+                                    <p className="landing-soft-text px-3 pb-1 pt-1 text-xs font-semibold uppercase tracking-wider">
+                                      {group.title}
+                                    </p>
+                                  ) : null}
+                                  <div className="grid grid-cols-2 gap-1">
+                                    {group.items.map((subItem, subIdx) => (
+                                      <Link
+                                        key={subIdx}
+                                        href={subItem.url || ''}
+                                        target={subItem.target || '_self'}
+                                        className="landing-popover-hover block rounded-xl px-3 py-2.5"
+                                        onClick={() => setOpenNavIdx(null)}
+                                      >
+                                        <span className="landing-strong text-sm font-medium">
+                                          {subItem.title}
+                                        </span>
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))
+                            : item.children.map((subItem, subIdx) => (
+                                <Link
+                                  key={subIdx}
+                                  href={subItem.url || ''}
+                                  target={subItem.target || '_self'}
+                                  className="landing-popover-hover block rounded-xl px-3 py-3"
+                                  onClick={() => setOpenNavIdx(null)}
+                                >
+                                  <div className="landing-strong flex items-center gap-2 text-sm font-medium">
+                                    {subItem.icon ? (
+                                      <SmartIcon
+                                        name={subItem.icon as string}
+                                        className="landing-soft-text size-4"
+                                      />
+                                    ) : null}
+                                    {subItem.title}
+                                  </div>
+                                  {subItem.description ? (
+                                    <p className="landing-soft-text mt-1 text-xs leading-5">
+                                      {subItem.description}
+                                    </p>
+                                  ) : null}
+                                </Link>
+                              ))}
                         </div>
                       </>
                     )}
@@ -311,15 +352,23 @@ export function Header({ header }: { header: HeaderType }) {
                         <AccordionContent className="pb-2">
                           <div className="space-y-1">
                             {item.children.map((subItem, subIdx) => (
-                              <Link
-                                key={subIdx}
-                                href={subItem.url || ''}
-                                target={subItem.target || '_self'}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                                className="landing-soft-text landing-popover-hover block rounded-xl px-3 py-2 text-sm hover:text-[var(--landing-nav-text-hover)]"
-                              >
-                                {subItem.title}
-                              </Link>
+                              <Fragment key={subIdx}>
+                                {subItem.group &&
+                                subItem.group !==
+                                  item.children?.[subIdx - 1]?.group ? (
+                                  <p className="landing-soft-text px-3 pt-2 text-xs font-semibold uppercase tracking-wider">
+                                    {subItem.group}
+                                  </p>
+                                ) : null}
+                                <Link
+                                  href={subItem.url || ''}
+                                  target={subItem.target || '_self'}
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="landing-soft-text landing-popover-hover block rounded-xl px-3 py-2 text-sm hover:text-[var(--landing-nav-text-hover)]"
+                                >
+                                  {subItem.title}
+                                </Link>
+                              </Fragment>
                             ))}
                           </div>
                         </AccordionContent>

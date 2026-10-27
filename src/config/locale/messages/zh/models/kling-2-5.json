@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Kling 2.5 — 为高动作场面而生的 AI 视频 | Oddbeam",
+    "description": "Kling 2.5 Turbo 在 Oddbeam 上专治其他模型做不好的镜头：1080p 下跑步、群舞、打斗的物理真实感，首尾帧控制锁定镜头起点与落点。5 或 10 秒，100 积分——Unlimited 免费。"
+  },
+  "generator": {
+    "title": "Kling 2.5 视频生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Kling 2.5 视频生成器",
+    "description": "有些镜头拼的是物理。Kling 2.5 Turbo 是快手旗下的动作专家：强化学习训练出的动力学，让跑步、群舞、滑冰、打斗在 1080p 画面里有真实的重量和惯性——首尾帧控制把镜头的起点和落点钉死。5 或 10 秒，100 积分。",
+    "trust_items": [
+      "1080p 物理真实感",
+      "首尾帧双控",
+      "5s / 10s · Unlimited 免费"
+    ],
+    "buttons": [
+      {
+        "title": "用 Kling 2.5 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "导演的是动作，不是一个瞬间",
+    "description": "Kling 2.5 吃「动作备注」式的提示词——工作流如下：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "把动作写成时间线",
+        "description": "描述整段发生什么，而不是一个定格——人物进门、穿过房间、在窗前停下。Kling 2.5 的提示词遵循能跟住时间推进，不会中途冻住。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "让静图动起来",
+        "description": "上传一张图走图生视频，16:9、9:16、1:1 任选——模型读取原图的风格、光线与质感，动起来的每一帧都跟源头保持一致。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "钉住首帧与尾帧",
+        "description": "给出开场构图和落点画面，模型负责生成两者之间的过渡——产品在手到产品落桌、平静脸到反应脸、远景到特写。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "选 5 秒或 10 秒，1080p 交付",
+        "description": "按节奏选时长，最高 1080p 生成，声音进后期配——这些片子本来就是奔着配乐剪辑去的，没有音轨不挡渲染。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "动作镜头为什么交给 Kling 2.5",
+    "description": "让它成为 Oddbeam 动作专家的几项能力：",
+    "items": [
+      {
+        "title": "速度之下物理不崩",
+        "description": "用强化学习训练真实世界动力学——重力、惯性、流体、头发、布料都守规矩，所以快速运动看起来可信而不是发飘。画面里有东西在高速移动时，就选它。",
+        "icon": "RiRunLine"
+      },
+      {
+        "title": "首尾帧双控",
+        "description": "锁定第一帧和最后一帧，中间的旅程由模型渲染——让转场、揭示、可串联的镜头正好落在剪辑需要的位置。",
+        "icon": "RiFrameLine"
+      },
+      {
+        "title": "时间线级提示词遵循",
+        "description": "复杂多步指令——人物互动、场景转换、整段推进——会被深度解析而不是塌缩成一个动作，这是对比早期 Kling 版本的明确升级。",
+        "icon": "RiListOrderedLine"
+      },
+      {
+        "title": "风格钉死在参考图上",
+        "description": "高强度图像条件化让源图的色彩、光线、质感和氛围贯穿每一帧，动作幅度再大也不跑风格。",
+        "icon": "RiPaletteLine"
+      },
+      {
+        "title": "工作马价格的 1080p",
+        "description": "每条 100 积分——Starter 的 2500 积分一个月够 25 条——Unlimited 套餐免费生成。广播级动态，不打旗舰价。",
+        "icon": "RiPriceTagLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "为会动的镜头而建",
+    "description": "动作密集型团队怎么用 Kling 2.5。",
+    "items": [
+      {
+        "name": "武打设计",
+        "role": "短剧剧组",
+        "quote": "打戏是大多数模型的崩坏点——肢体穿模、重量消失。Kling 2.5 的击打是落地的，首尾帧让我能把一场戏拆成可拍的节拍。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "武打设计"
+        }
+      },
+      {
+        "name": "体育内容制片",
+        "role": "健身媒体",
+        "quote": "100 积分出 1080p 的滑冰和舞蹈素材——物理感撑住了动作，我们本来全部进后期配乐，没音轨这条对我们毫无影响。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "体育内容制片"
+        }
+      },
+      {
+        "name": "广告导演",
+        "role": "广告制作",
+        "quote": "揭示镜头本质是首帧问题：产品藏着、产品亮出。Kling 2.5 两头都钉得准，一遍过就给我能用的过渡。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "广告导演"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Kling 2.5 生成一条视频要多少积分？",
+        "answer": "在 Oddbeam 上 Kling 2.5 每条 100 积分（Starter 和 Pro 套餐同价），Unlimited 套餐免费生成，年付 Unlimited 降到 10 积分。Starter 套餐每月 2500 积分（$29.99），大约够生成 25 条。"
+      },
+      {
+        "question": "Kling 2.5 一条片子最长多久？",
+        "answer": "单次生成 5 秒或 10 秒，按镜头任选。更长的序列用首尾帧控制串联：上一条的最后一帧，就是下一条的开场构图。"
+      },
+      {
+        "question": "对比其他模型，Kling 2.5 最擅长什么？",
+        "answer": "高动态动作：跑步、群舞、滑冰、打斗、流体。强化学习训练的物理和 1080p 输出让快速运动显得可信——这恰好是一次成片电影感模型最容易崩的地方。"
+      },
+      {
+        "question": "Kling 2.5 支持首尾帧过渡生成吗？",
+        "answer": "支持。提供开场帧、结尾帧或两者都给，模型在保持风格和光线的同时生成两者之间的过渡——这是产品揭示和串联叙事节拍的标准做法。"
+      },
+      {
+        "question": "Kling 2.5 有原生音频吗？",
+        "answer": "没有——Kling 2.5 按设计只出画面。专业工作流本来就在后期配音混音；需要画面和对白一起生成的，用 Oddbeam 上的 Seedance 2.5 或 Veo 3.1，两者都带原生音频。"
+      },
+      {
+        "question": "Kling 2.5 和 Seedance 2.5 怎么选？",
+        "answer": "要动作和预算选 Kling 2.5：1080p 动作片段 100 积分，带首尾帧控制。要 30 秒长镜头、50 个多模态参考和原生音频选 Seedance 2.5，每条 160 积分。一个管动，一个管声。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "镜头在动，物理不崩。",
+    "description": "钉住帧、写好动作，让 Kling 2.5 以 1080p 渲染——每条 100 积分，Unlimited 免费。",
+    "buttons": [
+      {
+        "title": "用 Kling 2.5 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

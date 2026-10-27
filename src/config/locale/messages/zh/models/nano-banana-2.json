@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "title": "Nano Banana 2 — 改十轮也不跑偏的 AI 图片模型 | Oddbeam",
+    "description": "Nano Banana 2（Gemini 3.1 Flash Image）在 Oddbeam 上支持多轮编辑不跑偏：最多稳住 5 个角色与 14 个物体，100+ 语言图内文字，Google 搜索接地取真实信息。每张 40 积分，Unlimited 套餐免费。"
+  },
+  "generator": {
+    "title": "Nano Banana 2 图片生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Nano Banana 2 图片生成器",
+    "description": "大多数模型第一轮惊艳，第五轮崩坏。Nano Banana 2 是 Google 的 Gemini 3.1 Flash Image：以 Flash 级速度给出 Pro 级生成与编辑，专为对话式工作流打造——每轮只改一处，角色、物体、构图全程稳住。每张 40 积分。",
+    "trust_items": [
+      "稳住 5 个角色 · 14 个物体",
+      "100+ 语言图内文字",
+      "Flash 速度 · Pro 画质"
+    ],
+    "buttons": [
+      {
+        "title": "用 Nano Banana 2 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "像聊天一样，一轮一轮改到位",
+    "description": "Nano Banana 2 是拿来「对话」的，不是拿来「下咒」的——工作流如下：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "从一张照片开始",
+        "description": "上传图片，用大白话说要改什么——换背景、修光线、替换某个物体。不用蒙版、不用图层、不用修图软件。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "一轮只改一件事",
+        "description": "每轮只改一处，改完确认。Nano Banana 2 对每条指令精准执行，不会把你已经认可的部分重Roll掉——第十轮的画面等于第一轮加十处明确修改。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "让角色全程在场",
+        "description": "模型最多稳住 5 个角色和 14 个物体的一致性，吉祥物、产品、主角模特可以撑完整个分镜，中途不走形。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "放大到 4K 交付",
+        "description": "哪一轮满意了，就把那帧从草稿分辨率放大到 4K 交付——聊天里确认过的细节，放大后原样都在。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Nano Banana 2 赢在「多轮」上",
+    "description": "让它成为 Oddbeam 编辑主力的几项能力：",
+    "items": [
+      {
+        "title": "改到第十轮，还在模型上",
+        "description": "在 Figma 和 Weavy 里使用它的团队反馈：多轮修改之后模型依然「听指挥」——每一轮都让画面变差的通病，正是这个模型要对抗的东西。",
+        "icon": "RiChatCheckLine"
+      },
+      {
+        "title": "撑得住分镜的角色阵容",
+        "description": "最多 5 个角色、14 个物体在工作流中保持长相与细节——第一帧的吉祥物就是第十二帧的吉祥物，叙事图组和产品系列不再「换脸」。",
+        "icon": "RiUserSmileLine"
+      },
+      {
+        "title": "从真实网络取答案",
+        "description": "依托世界知识与 Google 搜索的实时信息——必须事实正确的图（本地化营销、教育工具、产品还原）从事实出发，而不是从猜测出发。",
+        "icon": "RiSearchEyeLine"
+      },
+      {
+        "title": "100+ 语言的文字与翻译",
+        "description": "图内文字渲染准确，并支持 100+ 语言本地化——一张母版海报直接变成多语言 campaign，不用设计团队逐版重新打字。",
+        "icon": "RiTranslateLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "为「永远在改」的工作流而建",
+    "description": "第一版从来不是最后一版的团队。",
+    "items": [
+      {
+        "name": "电商运营经理",
+        "role": "平台卖家",
+        "quote": "产品图要过八轮客户反馈。Nano Banana 2 每条意见都接得住，还不毁掉已确认的部分——第八轮的主角产品还是第一轮那个产品。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "电商运营经理"
+        }
+      },
+      {
+        "name": "绘本作者",
+        "role": "童书出版",
+        "quote": "我的小狐狸十二个跨页都是同一只。5 个角色一致这个数字，让它成了我唯一留下的模型。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "绘本作者"
+        }
+      },
+      {
+        "name": "本地化营销负责人",
+        "role": "全球品牌",
+        "quote": "一张母版创意、14 个语言版本、图内文案按市场渲染——Starter 套餐每帧 40 积分，比我们以前的修图账单低一个数量级。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "本地化营销负责人"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Nano Banana 2 生成一张图要多少积分？",
+        "answer": "在 Oddbeam 上 Nano Banana 2 每张 40 积分（Starter 和 Pro 套餐同价），Unlimited 套餐免费生成，年付 Unlimited 降到 4 积分。Starter 套餐每月 2500 积分（$29.99），大约够生成 62 张。"
+      },
+      {
+        "question": "Nano Banana 2 能在多轮编辑中保持角色一致吗？",
+        "answer": "可以——它最多稳住 5 个角色和 14 个物体的长相与细节。这正是分镜稿、产品系列和任何需要同一批主角贯穿全篇的多图叙事选它的核心原因。"
+      },
+      {
+        "question": "Nano Banana 2 能经得起多少轮修改？",
+        "answer": "它就是为对话式多轮编辑设计的：每轮只改一处，模型执行该指令、保留其余部分。在 Figma 和 Weavy 中使用它的创意团队反馈，即使多轮修改之后它依然保持对指令的响应。"
+      },
+      {
+        "question": "Nano Banana 2 能渲染图内文字吗？",
+        "answer": "可以。它支持准确的图内文字渲染，并提供 100+ 语言的翻译能力——本地化营销物料和多语言 campaign 可以直接渲染进画面里。"
+      },
+      {
+        "question": "Nano Banana 2 支持哪些分辨率？",
+        "answer": "输出从 512px 草稿到 4K，原生支持横版、竖版与方形等多种画幅。低分辨率快速迭代，确认的那一轮再放大到 4K 交付。"
+      },
+      {
+        "question": "Nano Banana 2 和 Nano Banana Pro 怎么选？",
+        "answer": "Nano Banana 2 以 Flash 速度给 Pro 级画质，每张 40 积分，是多轮编辑和走量的更快选择。Nano Banana Pro 是准确优先的高保真档位——要速度和轮次选 2，要单张最高保真选 Pro。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "从第一轮到第十轮，全程在模型上。",
+    "description": "像跟设计师提需求一样跟 Nano Banana 2 对话——每轮改一处、角色不跑偏，每张 40 积分。",
+    "buttons": [
+      {
+        "title": "用 Nano Banana 2 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

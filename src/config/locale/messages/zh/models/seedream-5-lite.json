@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "title": "Seedream 5.0 Lite — 会思考、会查资料的 AI 图片模型 | Oddbeam",
+    "description": "Seedream 5.0 Lite 在 Oddbeam 上支持多步视觉推理，可联网检索实时事实生成海报与信息图，世界知识支撑每一帧。文生图每张 40 积分起，Unlimited 套餐免费。"
+  },
+  "generator": {
+    "title": "Seedream 5.0 Lite 图片生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Seedream 5.0 Lite 图片生成器",
+    "description": "动笔之前，它先读懂需求。Seedream 5.0 Lite 是字节跳动推理优先的图像模型：多步视觉思考、内置世界知识体系，并为 Seedream 系列首次引入实时联网检索——海报里可以放今天的事实，而不是训练数据里的旧影。每张 40 积分起。",
+    "trust_items": [
+      "多步视觉推理",
+      "联网实时检索生成",
+      "40 积分 · Unlimited 免费"
+    ],
+    "buttons": [
+      {
+        "title": "用 Seedream 5.0 Lite 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "说清目标，让它去想",
+    "description": "Seedream 5.0 Lite 响应的是意图，不是关键词——工作流如下：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "说目标，不只是说画面",
+        "description": "讲清这张图要完成什么——解释一个概念、烘托一个节点、讲清一个流程。模型会围绕意图规划构图，而不是匹配风格关键词。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "补上必须为真的事实",
+        "description": "名称、日期、数据、地点。有了实时检索，画面反映的是当下真实——天气海报可以带上今天的预报，而不是去年的训练数据。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "选画质：基础、高清或极致",
+        "description": "按用途选渲染档位——基础档快速验证创意，极致档出定稿。草稿便宜、成稿清晰，提示词一个字不用改。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "检查画面里的逻辑",
+        "description": "因为生成走的是多步推理，结果经得起「读」：标注指向该指的地方，结构符合物理规律，流程按顺序推进。逻辑不通才需要重跑。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "「会思考」到底带来什么",
+    "description": "Seedream 5.0 Lite 在 Oddbeam 上的差异化能力：",
+    "items": [
+      {
+        "title": "动笔之前先推理",
+        "description": "多步视觉推理能搞定一次成图模型搞不定的事：推断一堆零件如何组装成整体、推演棋局下一步、规划一幅自身逻辑自洽的构图。",
+        "icon": "RiBrainLine"
+      },
+      {
+        "title": "海报里放今天的事实",
+        "description": "实时联网检索——Seedream 系列的首次——让它能接时效性需求：跟着天气走的城市海报、票房汇总、锚定热点的创意，训练数据冻结的模型做不了这些。",
+        "icon": "RiTimeLine"
+      },
+      {
+        "title": "信息图遵守物理规律",
+        "description": "增强的世界知识体系覆盖科技与人文多个垂类——雨林分层、地质剖面、流程示意图，结构正确是底线，好看只是顺便。",
+        "icon": "RiBarChartGroupedLine"
+      },
+      {
+        "title": "主体始终是它自己",
+        "description": "主体一致性与图文对齐较 Seedream 4.0 显著提升，官方评测 Elo 超越 Seedream 4.5——更聪明的档位，在 Oddbeam 上只要 40 积分。",
+        "icon": "RiUserSmileLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "为「必须是对的」需求而生",
+    "description": "图片不仅要好看、还必须为真的团队。",
+    "items": [
+      {
+        "name": "新闻编辑室设计师",
+        "role": "数字媒体",
+        "quote": "以前每张热点海报都要人工核一遍事实。内置检索之后，海报上就是当天的真实数字——我们的纠错率基本归零。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "新闻编辑室设计师"
+        }
+      },
+      {
+        "name": "科普作者",
+        "role": "教育频道",
+        "quote": "示意图遵守物理规律、分层分层不乱——雨林分层、地质剖面，画面能「教对」而不是「教错」，这是一次成图模型从来做不到的。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "科普作者"
+        }
+      },
+      {
+        "name": "Campaign 策划",
+        "role": "营销代理",
+        "quote": "从堆关键词改成讲意图，迭代周期直接砍半。Unlimited 套餐免费生成，团队放开探方向，不用盯着积分表。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Campaign 策划"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Seedream 5.0 Lite 生成一张图要多少积分？",
+        "answer": "在 Oddbeam 上 Seedream 5.0 Lite 每张 40 积分（Starter 和 Pro 套餐同价），Unlimited 套餐免费生成，年付 Unlimited 降到 4 积分。Starter 套餐每月 2500 积分（$29.99），大约够生成 62 张。"
+      },
+      {
+        "question": "图像模型的「推理」到底是什么意思？",
+        "answer": "Seedream 5.0 Lite 在渲染前会规划多步视觉逻辑：推断散落零件如何组装成一个整体、推演棋局局面、构建元素之间互相自洽的构图。你给出目标，中间的步骤由模型自己想清楚。"
+      },
+      {
+        "question": "Seedream 5.0 Lite 能用时事和实时数据吗？",
+        "answer": "可以——实时联网检索是它的招牌能力，也是 Seedream 系列的第一次。天气海报、票房汇总、锚定热点的创意等时效性需求，都基于实时检索结果渲染，而不是冻结的训练数据。"
+      },
+      {
+        "question": "Seedream 5.0 Lite 适合做信息图和示意图吗？",
+        "answer": "适合。它的世界知识体系覆盖科技与人文多个垂类，信息可视化是核心强项——分层生态图、地质剖面、流程示意图的结构准确度足以支撑教育和讲解场景。"
+      },
+      {
+        "question": "「Lite」是不是意味着更弱？",
+        "answer": "Lite 是 Seedream 5.0 家族的推理主打档位，字节官方评测 Elo 超越 Seedream 4.5。它在理解力上没有缩水——家族旗舰档位是在同样的思考内核之上叠加了更高保真的渲染。"
+      },
+      {
+        "question": "Seedream 5.0 Lite 和 Seedream 4.0 怎么选？",
+        "answer": "要「想」选 5.0 Lite：时效海报、知识密集信息图、多步构图，每张 40 积分。要「量」选 Seedream 4.0：单次最多 9 张成套图、每张 30 积分、最高 4K。一个负责想，一个负责量产。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "你给目标，它负责思考。",
+    "description": "事实来自今天的网络，逻辑落在每一帧——Seedream 5.0 Lite 每张 40 积分起，Unlimited 免费。",
+    "buttons": [
+      {
+        "title": "用 Seedream 5.0 Lite 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

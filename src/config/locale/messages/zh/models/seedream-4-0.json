@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Seedream 4.0 — 一次出九张成套图，最高 4K | Oddbeam",
+    "description": "在 Oddbeam 上用 Seedream 4.0：单次任务最多返回 9 张协调成套图，6 张参考图锁定人物与品牌一致性，MoE 架构约 1.8 秒出 2K，最高 4K 输出。每张 30 积分，Unlimited 套餐免费。"
+  },
+  "generator": {
+    "title": "Seedream 4.0 图片生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Seedream 4.0 图片生成器",
+    "description": "一份需求书，九张成套图，一次跑完。Seedream 4.0 是字节跳动统一的生成与编辑模型：单次任务最多返回 9 张协调一致的图片，人物、风格、构图逻辑全程不走样——每张 2K 约 1.8 秒出炉，最高可到 4K，每张 30 积分。",
+    "trust_items": [
+      "单次最多 9 张成套图",
+      "2K 约 1.8 秒 · 最高 4K",
+      "6 张参考图锁定一致性"
+    ],
+    "buttons": [
+      {
+        "title": "用 Seedream 4.0 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "从需求书到一整套成品",
+    "description": "Seedream 4.0 把提示词当「成套需求」来读，而不是一张图——工作流如下：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "像写 campaign 一样写需求",
+        "description": "描述的是「一套」而不是「一张」：这组图做什么用、哪些东西必须全套一致——人物、产品、配色——哪些允许变化，一次说清。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "钉住最多 6 张参考图",
+        "description": "上传最多 6 张参考图，把人脸、包装、品牌风格钉死。模型会把它们融合成同一套身份，贯穿整批输出。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "选画幅与分辨率",
+        "description": "8 种画幅从 21:9 电影宽幅到 9:16 竖版，自适应画布会按语义自己调构图——先以 2K 速度出草稿，定稿再渲染 4K。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "整组直接交付",
+        "description": "一次运行返回最多 9 张已经「长得像一家人」的图。整套留下，或者只重跑跑偏的那几张——每张 30 积分，成套出图也扛得住日常量。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "为什么成套出图都选 Seedream 4.0",
+    "description": "让它成为 Oddbeam 上「走量引擎」的几项能力：",
+    "items": [
+      {
+        "title": "一次九张，张张成套",
+        "description": "Seedream 4.0 是首个在单次任务里生成协调成套图的模型——所有输出共享同一套人物、服装与构图逻辑，产品线图或分镜稿回来就是一家人，不是九个陌生人。",
+        "icon": "RiGalleryLine"
+      },
+      {
+        "title": "2K 出图约 1.8 秒",
+        "description": "基于字节 MoE 架构与对抗蒸馏加速，一张 2K 图约 1.8 秒落地——迭代节奏跟对话一样快，不用等一轮咖啡的时间。",
+        "icon": "RiFlashlightLine"
+      },
+      {
+        "title": "6 张参考图撑起一致性",
+        "description": "人物、产品、品牌视觉各有专属参考图钉位，整批输出全程稳定——「身份漂移」这个问题在输入端就解决了，不用进后期补救。",
+        "icon": "RiUserSmileLine"
+      },
+      {
+        "title": "图表公式也拿手，不只是照片",
+        "description": "统计图表、表格、数学公式、化学结构、信息图注释都能清晰渲染——这让它能做课件和科普内容，而不只是拼审美。",
+        "icon": "RiBarChartLine"
+      },
+      {
+        "title": "自适应画幅，最高 4K",
+        "description": "21:9 到 9:16 共 8 种画幅按画面需要自适应，而不是硬裁固定构图；输出可到 4K 印刷级，价格同样是每张 30 积分。",
+        "icon": "RiCropLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "为「成套交付」而生",
+    "description": "团队怎么把九张一批的产出用起来。",
+    "items": [
+      {
+        "name": "电商视觉负责人",
+        "role": "DTC 品牌",
+        "quote": "以前一季上新要约九张产品图，现在一次任务加 6 张参考图就回来一整套，Unlimited 套餐免费生成，日更成了常规操作。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "电商视觉负责人"
+        }
+      },
+      {
+        "name": "品牌设计师",
+        "role": "设计工作室",
+        "quote": "Logo 和吉祥物各钉一张参考图，回来九张协调的品牌物料。整批的角色一致性是让我们美术总监拍板的原因。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "品牌设计师"
+        }
+      },
+      {
+        "name": "内容工作室主理人",
+        "role": "社媒代运营",
+        "quote": "分镜帧、封面变体、A/B 创意——2K 约 1.8 秒的速度，意味着客户会前能探五版方向，而不是会后补作业。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "内容工作室主理人"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Seedream 4.0 生成一张图要多少积分？",
+        "answer": "在 Oddbeam 上 Seedream 4.0 每张 30 积分（Starter 和 Pro 套餐同价），Unlimited 套餐免费生成，年付 Unlimited 降到 3 积分。Starter 套餐每月 2500 积分（$29.99），大约够生成 83 张。"
+      },
+      {
+        "question": "Seedream 4.0 一次能出几张图？",
+        "answer": "单次任务最多 9 张协调成套图。整批共享同一套风格、人物与构图逻辑，这也是它在 Oddbeam 上被默认选来跑产品线图、分镜稿和 campaign 成套物料的原因。"
+      },
+      {
+        "question": "Seedream 4.0 支持几张参考图？",
+        "answer": "每个任务最多 6 张。参考图负责钉住必须一致的部分——角色长相、产品包装、品牌配色——模型会将其融合，保证每一张生成结果都保持这些身份。"
+      },
+      {
+        "question": "Seedream 4.0 支持哪些分辨率和画幅？",
+        "answer": "2K 出图约 1.8 秒，输出最高 4K；Oddbeam 上提供 8 种画幅，从 21:9 电影宽幅到 9:16 竖版。自适应画布会按画幅调整构图，而不是把固定构图硬裁。"
+      },
+      {
+        "question": "Seedream 4.0 能渲染图表、表格和公式吗？",
+        "answer": "可以——知识密度内容是它的官方强项。统计图表、表格、数学公式、化学结构和带注释的信息图都能清晰渲染，适合课件、学术插图和讲解类内容。"
+      },
+      {
+        "question": "Seedream 4.0 和 Nano Banana Pro 怎么选？",
+        "answer": "要成套和速度选 Seedream 4.0：单次最多 9 张协调图，每张 30 积分，最高 4K。要反复迭代编辑和事实准确性（Google 搜索接地）选 Nano Banana Pro，每张 40 积分——一个管走量成套，一个管把一张图磨到死。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "九张一批。一次跑完。每张 30 积分。",
+    "description": "写好成套需求、钉住参考图，让 Seedream 4.0 一次返回一整套协调图——草稿 2K 秒出，交付上 4K。",
+    "buttons": [
+      {
+        "title": "用 Seedream 4.0 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

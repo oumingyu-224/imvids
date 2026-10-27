@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Wan 3.0 — 把文档和网页变成视频 | Oddbeam",
+    "description": "Wan 3.0 是阿里旗下的全能参考模型：在提示词旁丢一个产品页、一份 PDF 或一套幻灯片，直接产出最长 30 秒、带原生音频的 1080P。每条 40 积分——Unlimited 20。"
+  },
+  "generator": {
+    "title": "Wan 3.0 视频生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Wan 3.0 视频生成器",
+    "description": "需求书本身就是输入。阿里的 Wan 3.0 可以把网页、PDF 或幻灯片当参考素材，与提示词一起进模型——单次直出最长 30 秒的连续 1080P，原生音频一并生成。单任务最多 20 个参考资产，40 积分是 30 秒档模型里的最低单价。",
+    "trust_items": [
+      "网页与文档参考输入",
+      "最长 30 秒一镜",
+      "40 积分 — Unlimited 20"
+    ],
+    "buttons": [
+      {
+        "title": "用 Wan 3.0 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "从现有素材到成片画面",
+    "description": "Wan 3.0 从你业务里已有的东西出发——工作流如下：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "丢素材本身，不只是提示词",
+        "description": "丢给它一个产品页链接或一份 PDF、DOCX、幻灯片——Wan 3.0 解析文档内容，直接当视频的场景素材用。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "把参考堆起来",
+        "description": "单任务混搭最多 10 张图、5 段视频、5 段音频——角色图、运镜参考、氛围音轨，全部接进同一次生成。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "按完整 30 秒写分镜",
+        "description": "把镜头写成一镜到底——铺垫、动作、转场、收束。Wan 3.0 的原生 30 秒窗口就是为完整叙事准备的，不是拼碎片。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "低价打稿，干净定稿",
+        "description": "在 480P 迭代——每秒成本只有 1080P 的零头——定稿再以 720P 或全 1080P 带音频重渲染。同一套提示词，分级交付。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "「全能参考」到底带来什么",
+    "description": "让 Wan 3.0 成为 Oddbeam 素材驱动模型的几项能力：",
+    "items": [
+      {
+        "title": "文档和网页变成 footage",
+        "description": "单任务可喂一份文档（PDF、DOCX、PPTX、Markdown 等）或一个公开网页，Wan 3.0 解析后当场景素材——产品页变上市片，课件变讲解视频。",
+        "icon": "RiFileVideoLine"
+      },
+      {
+        "title": "30 秒一镜到底",
+        "description": "上一代上限的两倍：一个 pass 装下铺垫、连续动作、转场和收束——短时长模型逼你拼接的完整故事，它一条跑完。",
+        "icon": "RiTimerLine"
+      },
+      {
+        "title": "最多 20 个参考资产",
+        "description": "单任务最多 10 张图、5 段视频、5 段音频——身份、动作、氛围各有专属信源，在提示词里按位置点名引用。",
+        "icon": "RiGalleryLine"
+      },
+      {
+        "title": "给交付流程吃定心丸的一致性",
+        "description": "人脸、服装、产品几何、Logo、场景关系全程稳住——像素级一致性让客户交付变成确定事件，不是重抽抽奖。",
+        "icon": "RiShieldCheckLine"
+      },
+      {
+        "title": "30 秒故事的最低单价",
+        "description": "每条 40 积分——Unlimited 20、年付 16——音频逐条开关。在 30 秒档模型里，Wan 3.0 是你敢拿来放开试的那一个。",
+        "icon": "RiPriceTagLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "从现有素材出发",
+    "description": "起点是文档而不是空白提示词的团队。",
+    "items": [
+      {
+        "name": "产品营销经理",
+        "role": "SaaS 公司",
+        "quote": "我把产品页链接贴进去写镜头——上市片回来就对着线上文案。不用截图拼贴，不用重新录参数。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "产品营销经理"
+        }
+      },
+      {
+        "name": "企业培训内容制片",
+        "role": "内训团队",
+        "quote": "幻灯片进、带旁白的讲解片出——Wan 3.0 读 PDF 自己排画面。30 秒 1080P 只要 40 积分，课件积压一下能交付了。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "企业培训内容制片"
+        }
+      },
+      {
+        "name": "短剧监制",
+        "role": "竖屏剧集",
+        "quote": "30 秒一镜到底、人脸服装全程稳住——一次渲染就是一整个场景单元，还是我们整个模型库里最便宜的单价。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "短剧监制"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Wan 3.0 生成一条视频要多少积分？",
+        "answer": "在 Oddbeam 上 Wan 3.0 每条 40 积分（Starter 和 Pro 套餐同价），是 30 秒档模型里的最低价。Unlimited 套餐每条 20 积分，年付 Unlimited 降到 16。Starter 套餐每月 2500 积分，大约够生成 62 条。"
+      },
+      {
+        "question": "Wan 3.0 能拿文档或网页当输入吗？",
+        "answer": "能——单任务接受一份文档（PDF、DOCX、PPTX、Markdown 等，最大 100MB、50 页）或一个公开网页链接，模型解析内容后与提示词一起当场景素材。产品页和幻灯片直接变成源素材。"
+      },
+      {
+        "question": "Wan 3.0 一条视频最长多久？",
+        "answer": "单次原生生成最长 30 秒——上一代上限的两倍——并配首尾帧控制，锚定镜头的起点与落点。"
+      },
+      {
+        "question": "Wan 3.0 能放几个参考？",
+        "answer": "单任务最多 20 个参考资产：最多 10 张图、5 段视频、5 段音频。在提示词里按位置引用——图 1、视频 2——各自为同一次生成贡献身份、动作或氛围。"
+      },
+      {
+        "question": "Wan 3.0 支持哪些分辨率？",
+        "answer": "480P、720P、1080P 三档，覆盖 16:9 到 9:16 五种画幅，原生音频随 pass 生成、也可按条关掉出无声母版。480P 打稿，1080P 交付。"
+      },
+      {
+        "question": "Wan 3.0 和 MiniMax H3 怎么选？",
+        "answer": "要素材驱动叙事选 Wan 3.0：文档网页输入、30 秒长镜头、20 个参考位，每条 40 积分。要音频驱动表演和 2K 输出选 MiniMax H3，每条 100 积分。Wan 把素材变成视频，H3 把媒介指挥成表演。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "你的文档本来就是分镜稿。",
+    "description": "把 Wan 3.0 指向一个页面或一份幻灯片，渲染 30 秒带声音的 1080P——每条 40 积分起。",
+    "buttons": [
+      {
+        "title": "用 Wan 3.0 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

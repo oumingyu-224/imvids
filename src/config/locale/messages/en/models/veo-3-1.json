@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Veo 3.1 — Deliverable-Grade AI Video with Native Audio | Oddbeam",
+    "description": "Google Veo 3.1 Premium on Oddbeam renders 8-second clips at up to 4K with dialogue and ambience generated in the same pass, first/last frame control, and up to 3 reference images. 200 credits, available from the Pro plan up."
+  },
+  "generator": {
+    "title": "Veo 3.1 Video Generator"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Veo 3.1 Video Generator",
+    "description": "This is the one you render the final on. Google Veo 3.1 is the ceiling-pusher on Oddbeam: 8-second clips at up to 4K with dialogue, ambience, and effects generated natively in the same pass — then chained with first/last frame control into sequences longer than any single pass allows. 200 credits per clip, available from the Pro plan up.",
+    "trust_items": [
+      "Up to 4K with native audio",
+      "First & last frame control",
+      "Up to 3 reference images"
+    ],
+    "buttons": [
+      {
+        "title": "Generate with Veo 3.1",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "From Keyframe to Deliverable",
+    "description": "Veo 3.1 is built for finishing work, not drafts — the workflow:",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Lock the Look with References",
+        "description": "Attach up to 3 reference images to pin your character, product, or scene style — Google's ingredient system keeps the subject recognizable across every shot you generate from the set.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Write Dialogue Into the Prompt",
+        "description": "Put spoken lines in quotes and describe the ambience. Veo 3.1 generates the picture and its native audio — lip-synced dialogue, room tone, effects — in one synchronized pass, no dubbing session after.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Bridge Shots with First & Last Frames",
+        "description": "Define where a shot starts and where it must end, and Veo 3.1 renders the transition with matching audio — the connective tissue that turns 8-second clips into a continuous narrative.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Finish at 1080p or 4K",
+        "description": "Render the keeper at 720p, 1080p, or full 4K in 16:9 or 9:16 — the clip that leaves this stage is a deliverable, ready for broadcast, client review, or the edit timeline as-is.",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Why Finals Render on Veo 3.1",
+    "description": "The capabilities that make it the finishing model on Oddbeam:",
+    "items": [
+      {
+        "title": "4K output with synchronized sound",
+        "description": "Veo 3.1 renders up to 4K with the audio track generated natively alongside the picture — dialogue with lip-sync, ambience, and effects land together in one pass, which is what separates a deliverable from a draft.",
+        "icon": "Ri4KLine"
+      },
+      {
+        "title": "Ingredients: up to 3 references",
+        "description": "Reference images guide subject and style so a character or product stays recognizable from shot to shot — the mechanism that makes multi-shot brand content hold together instead of re-casting every clip.",
+        "icon": "RiImageAddLine"
+      },
+      {
+        "title": "First & last frame control",
+        "description": "Specify the opening and closing frames and the model renders the motion between them, audio included — precise entry and exit points that make clips chainable into longer sequences.",
+        "icon": "RiFrameLine"
+      },
+      {
+        "title": "Two orientations, three resolutions",
+        "description": "16:9 for the big screen, 9:16 for Shorts and Reels, at 720p, 1080p, or 4K — one model covers the placement matrix without re-rendering the creative for every channel.",
+        "icon": "RiAspectRatioLine"
+      },
+      {
+        "title": "Google's cinematic benchmark",
+        "description": "Veo 3.1 is Google DeepMind's flagship video line, strong across cinematic styles and camera language — when the brief says film-quality, this is the model that definition points to.",
+        "icon": "RiMovie2Line"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "Where the Final Cut Comes From",
+    "description": "Teams that render their keepers on Veo 3.1.",
+    "items": [
+      {
+        "name": "Brand Film Producer",
+        "role": "Agency Production",
+        "quote": "The client sees 4K with dialogue already in the clip — no scratch track, no 'sound comes later' conversation. Veo 3.1 outputs walk straight into the review deck.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Brand Film Producer"
+        }
+      },
+      {
+        "name": "Narrative Shorts Creator",
+        "role": "YouTube",
+        "quote": "Eight seconds a shot sounds short until you bridge them with first and last frames — my last three-minute piece is a chain of Veo 3.1 shots with consistent characters from the reference set.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Narrative Shorts Creator"
+        }
+      },
+      {
+        "name": "Localization Lead",
+        "role": "Streaming Platform",
+        "quote": "Vertical 9:16 with native audio for the app cut, 4K landscape for the homepage hero — same references, same characters, both from one generation session.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Localization Lead"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "How much does Veo 3.1 cost per video?",
+        "answer": "Veo 3.1 Premium costs 200 credits per generation on Oddbeam. Unlimited plan subscribers pay 100 credits per clip, and yearly Unlimited brings it to 80. It is not available on the Starter plan — the Pro plan at $89.99 per month with 10,000 credits covers about 50 generations."
+      },
+      {
+        "question": "How long can a Veo 3.1 clip be?",
+        "answer": "Each generation renders up to 8 seconds. Longer narratives are assembled by chaining clips with first/last frame control and consistent reference images, keeping characters and style continuous across every shot in the sequence."
+      },
+      {
+        "question": "Does Veo 3.1 generate audio with the video?",
+        "answer": "Yes — native audio is the model's signature. Dialogue with lip-sync, ambience, and sound effects are generated in the same pass as the picture, so the clip that renders is a complete audiovisual deliverable with no dubbing step."
+      },
+      {
+        "question": "What resolutions and formats does Veo 3.1 support?",
+        "answer": "720p, 1080p, and up to 4K output, in both 16:9 landscape and 9:16 vertical. Draft in 1080p and re-render the keeper at 4K, or generate vertical directly for Shorts and Reels placement."
+      },
+      {
+        "question": "How many reference images can Veo 3.1 take?",
+        "answer": "Up to 3 reference images per generation. Use them to pin a character's identity, a product's appearance, or a scene's style — Google's ingredient-based system keeps those elements consistent across every clip generated from the same set."
+      },
+      {
+        "question": "Veo 3.1 or Kling 2.5 — which should I pick?",
+        "answer": "Pick Veo 3.1 for finishing: 4K, native audio, and reference-locked characters at 200 credits. Pick Kling 2.5 for high-action motion at 100 credits with sound added in post. One renders the deliverable, the other fills the action reel."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "Render the Final, Not Another Draft.",
+    "description": "4K, native audio, characters that hold across shots — Veo 3.1 from 200 credits, free rate on Unlimited.",
+    "buttons": [
+      {
+        "title": "Generate with Veo 3.1",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

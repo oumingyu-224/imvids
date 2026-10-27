@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Seedance 2.5 — 30 秒一镜到底 AI 视频生成，自带声音 | Oddbeam",
+    "description": "在 Oddbeam 上用 Seedance 2.5 一次生成 30 秒一镜到底视频：Shot 1/Shot 2 多镜头分镜脚本、最多 50 个多模态参考、时间戳级导演控制与局部编辑。每条 160 积分起。"
+  },
+  "generator": {
+    "title": "Seedance 2.5 视频生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Seedance 2.5 视频生成器",
+    "description": "一条完整镜头胜过四段拼接。Seedance 2.5 是字节的旗舰视频模型：单次生成直出最长 30 秒的连续画面，对白、环境声、配乐同步生成，无需后期拼接。支持分镜脚本、最多 50 个参考素材，还能只改局部不重roll整条。",
+    "trust_items": [
+      "30 秒一镜到底",
+      "最多 50 个多模态参考",
+      "原生音频，10+ 语言口型同步"
+    ],
+    "buttons": [
+      {
+        "title": "用 Seedance 2.5 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "一段提示词，写成分镜脚本",
+    "description": "Seedance 2.5 读的是脚本，不是氛围——工作流如下：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "把创意写成分镜",
+        "description": "在一条提示词里写 Shot 1:、Shot 2:、Shot 3:，像导演给分镜表一样描述每个节拍的镜头运动——模型按顺序演绎，角色、光影、运镜语言跨切镜保持一致。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "挂上最多 50 个参考",
+        "description": "单次任务最多可放 30 张图、10 段视频、10 段音频。每个参考各管一摊：角色身份、产品外观、运镜风格，甚至整条片子的节奏都可以由一段音频参考来带。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "定时长、分辨率和声音",
+        "description": "选 4 到 30 秒时长，480p / 720p / 1080p 三档分辨率，打开 generate_audio 开关，对白和音效直接同步进画面。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "改节拍，不重roll整条",
+        "description": "第 11 秒动作不对？直接对那个时间点下指令，或只编辑画面里的一个区域——时间线、构图、音频原样保留，不用为一个小错位重付整条的钱。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Oddbeam 上最长的单条镜头",
+    "description": "相对 Seedance 2.0 的四个关键升级：",
+    "items": [
+      {
+        "title": "一镜 30 秒",
+        "description": "单次生成长度是 Seedance 2.0（15 秒）的两倍——一条完整广告片或剧情节拍一次直出，没有拼接点，也就没有接缝处的人物跳变。",
+        "icon": "RiMovieLine"
+      },
+      {
+        "title": "原生音频，10+ 语言口型",
+        "description": "对白、配乐、环境声与画面同步生成，口型同步覆盖英语、中文、日语、韩语、西班牙语等 10+ 种语言——配音环节直接从排期表上消失。",
+        "icon": "RiVolumeUpLine"
+      },
+      {
+        "title": "50 个参考槽位，各司其职",
+        "description": "角色、产品、动作、声音各由专属参考锁定——AI 视频最被诟病的一致性问题，在输入端解决，而不是靠后期补救。",
+        "icon": "RiGalleryLine"
+      },
+      {
+        "title": "时间戳级导演指令",
+        "description": "写清第 4 秒、第 11 秒、第 20 秒各发生什么。模型按你给的时间点执行，而不是把整段提示词揉在一起理解，精确节拍的重roll次数大幅下降。",
+        "icon": "RiTimeLine"
+      },
+      {
+        "title": "局部就地编辑",
+        "description": "在已生成的片段里换产品、修标签、改服装，其余部分——运动、光影、声音——与原渲染完全一致。",
+        "icon": "RiScissorsCutLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "为「整条镜头」而生的工作流",
+    "description": "看看团队怎么用这 30 秒。",
+    "items": [
+      {
+        "name": "广告工作室监制",
+        "role": "商业广告制作",
+        "quote": "一条带对白和配乐的 30 秒广告，过去是两天的流程，现在是一条带分镜的提示词。Unlimited 档每条 80 积分的价格让日更成为常态。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "广告工作室监制"
+        }
+      },
+      {
+        "name": "短剧导演",
+        "role": "竖屏连续剧",
+        "quote": "用一张参考图锁定女主角，之后每一集脸都不变。首尾帧控制让每集之间的转场干净利落。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "短剧导演"
+        }
+      },
+      {
+        "name": "MV 剪辑师",
+        "role": "后期制作",
+        "quote": "丢一段音频参考进去，整条片子的节奏就跟着音乐走了——镜头切换自动踩点，我不用手动卡任何一帧。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "MV 剪辑师"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Seedance 2.5 生成一条视频多少钱？",
+        "answer": "Oddbeam 上 Seedance 2.5 标准价每条 160 积分。Unlimited 套餐每条 80 积分，Unlimited 年付降到 64 积分。Starter 套餐每月 $29.99 含 2500 积分，够生成约 15 条 Seedance 2.5 视频。"
+      },
+      {
+        "question": "Seedance 2.5 一条最长能到多少秒？",
+        "answer": "单次生成 4 到 30 秒，是 Oddbeam 全站最长的单条镜头。因为这 30 秒是一次连续生成，人物、光影、声音从头到尾保持一致，不会在每个拼接点重置。"
+      },
+      {
+        "question": "Seedance 2.5 的多镜头分镜怎么用？",
+        "answer": "把提示词按 Shot 1:、Shot 2:、Shot 3: 组织，每个镜头写清节拍和运镜。Seedance 2.5 会按顺序演绎整段分镜，切镜自然过渡，同一批演员、服装和视觉风格贯穿全片。"
+      },
+      {
+        "question": "Seedance 2.5 最多能挂多少个参考？分别起什么作用？",
+        "answer": "单次任务最多 50 个文件——30 张图、10 段视频、10 段音频。图片锁定角色和产品，视频锁定运镜和动作，音频参考可以驱动整条片子的节奏、卡点和口型。"
+      },
+      {
+        "question": "Seedance 2.5 能生成对白和口型同步吗？",
+        "answer": "可以。打开 generate_audio，模型会生成与画面同步的对白、环境声和音效，口型同步支持 10+ 种语言，包括中文、英语、日语、韩语和西班牙语。"
+      },
+      {
+        "question": "Seedance 2.5 和 Seedance 2.0 该选哪个？",
+        "answer": "要时长、参考和编辑能力选 2.5：30 秒一镜、50 个参考槽位、局部编辑，每条 160 积分。要控制成本选 2.0，每条 80 积分，或在更短的 4-15 秒片段上需要它更高 4K 分辨率输出时选 2.0。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "一条镜头。三十秒。声音自带。",
+    "description": "写好分镜、挂上参考，用 Seedance 2.5 一次生成完整成片——每条 160 积分起。",
+    "buttons": [
+      {
+        "title": "用 Seedance 2.5 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

@@ -38,6 +38,8 @@ export interface NavItem {
   is_expand?: boolean;
   is_active?: boolean;
   children?: NavItem[];
+  /** 下拉分组标题：相同 group 的子项归入同一栏，group 变化处渲染栏目标题 */
+  group?: string;
   className?: string;
 }
 

@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Kling 2.5 — AI Video Built for High-Action Scenes | Oddbeam",
+    "description": "Kling 2.5 Turbo on Oddbeam handles the shots other models fumble: running, choreography, combat at 1080p with believable physics, plus start/end frame control to lock a shot's entry and exit. 5 or 10 seconds, 100 credits — free on Unlimited."
+  },
+  "generator": {
+    "title": "Kling 2.5 Video Generator"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Kling 2.5 Video Generator",
+    "description": "Some shots need physics. Kling 2.5 Turbo is Kuaishou's motion specialist: reinforcement-learning-trained dynamics make running, group choreography, skating, and combat read as real weight and momentum at 1080p — and start/end frame control locks exactly where a shot enters and where it lands. 100 credits for 5 or 10 seconds.",
+    "trust_items": [
+      "Believable physics at 1080p",
+      "Start & end frame control",
+      "5s or 10s · free on Unlimited"
+    ],
+    "buttons": [
+      {
+        "title": "Generate with Kling 2.5",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "Direct the Motion, Not Just the Moment",
+    "description": "Kling 2.5 rewards prompts written like action notes — here is the workflow:",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Describe Motion as a Sequence",
+        "description": "Write what happens across the clip, not one frozen state — a character enters, crosses the room, stops at the window. Kling 2.5's prompt adherence follows temporal progression instead of freezing mid-action.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Animate a Still",
+        "description": "Upload an image for image-to-video in 16:9, 9:16, or 1:1 — the model reads its style, lighting, and texture and keeps every frame consistent with the source while it moves.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Pin Start and End Frames",
+        "description": "Give it the opening composition and the destination, and Kling 2.5 generates the transition between them — product in hand to product on surface, neutral face to reaction, wide shot to detail.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Pick 5s or 10s, Ship at 1080p",
+        "description": "Choose the duration that fits the beat, generate at up to 1080p, and add sound in post — the clips are edited to be scored, so no audio pass blocks the render.",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Why Action Shots Go to Kling 2.5",
+    "description": "The capabilities that make it the motion specialist on Oddbeam:",
+    "items": [
+      {
+        "title": "Physics that holds at speed",
+        "description": "Trained with reinforcement learning for real-world dynamics — gravity, inertia, fluid, hair, and cloth behave — which is why fast, dynamic movement reads as believable instead of floaty. It is the model to reach for when something in the frame is moving fast.",
+        "icon": "RiRunLine"
+      },
+      {
+        "title": "Start & end frame control",
+        "description": "Lock the first frame and the last frame, and the model renders the journey between them — narrative control that makes reveals, transitions, and chainable shots land exactly where the edit needs them.",
+        "icon": "RiFrameLine"
+      },
+      {
+        "title": "Temporal prompt adherence",
+        "description": "Complex multi-step instructions — interactions, scene transitions, progression across a clip — are parsed deeply instead of collapsing to a single action, a noted upgrade over earlier Kling versions.",
+        "icon": "RiListOrderedLine"
+      },
+      {
+        "title": "Style locked to the reference",
+        "description": "High-intensity image conditioning keeps the color, lighting, texture, and atmosphere of your source image stable across every frame, even while the motion gets large.",
+        "icon": "RiPaletteLine"
+      },
+      {
+        "title": "1080p at a working-model price",
+        "description": "100 credits per clip — 25 clips a month on Starter's 2,500 credits — with free generation on Unlimited. Broadcast-grade motion without flagship pricing.",
+        "icon": "RiPriceTagLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "Built for Shots That Move",
+    "description": "How motion-heavy teams put Kling 2.5 to work.",
+    "items": [
+      {
+        "name": "Fight Choreographer",
+        "role": "Short Drama Unit",
+        "quote": "Combat is where most models fall apart — limbs phase, weight vanishes. Kling 2.5 keeps the hits grounded, and start/end frames let me cut the fight into shottable beats.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Fight Choreographer"
+        }
+      },
+      {
+        "name": "Sports Content Producer",
+        "role": "Fitness Media",
+        "quote": "Skating and dance clips at 1080p for 100 credits — the physics sell the move, and we score everything in post anyway, so the no-audio trade never touches us.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Sports Content Producer"
+        }
+      },
+      {
+        "name": "Commercial Director",
+        "role": "Ad Production",
+        "quote": "The reveal shot is a start-frame problem: product hidden, product shown. Kling 2.5 nails both endpoints and gives me a usable transition in one pass.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Commercial Director"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "How much does Kling 2.5 cost per video?",
+        "answer": "Kling 2.5 costs 100 credits per generation on Oddbeam for Starter and Pro plans, and Unlimited plan subscribers generate it for free — yearly Unlimited drops the rate to 10 credits. The Starter plan's 2,500 monthly credits cover about 25 clips at $29.99 per month."
+      },
+      {
+        "question": "How long can a Kling 2.5 clip be?",
+        "answer": "Each generation runs 5 or 10 seconds — you pick the duration per shot. Longer sequences are built by chaining shots with start/end frame control, where one clip's final frame becomes the next clip's opening composition."
+      },
+      {
+        "question": "What is Kling 2.5 best at compared with other models?",
+        "answer": "High-action motion: running, group choreography, skating, combat, and fluid dynamics. Its reinforcement-learning-trained physics and 1080p output make fast movement believable, which is exactly where one-shot cinematic models tend to break down."
+      },
+      {
+        "question": "Does Kling 2.5 generate start and end frame transitions?",
+        "answer": "Yes. Provide the opening frame, the closing frame, or both, and the model generates the transition between them while holding style and lighting — the standard technique for product reveals and chained narrative beats."
+      },
+      {
+        "question": "Does Kling 2.5 have native audio?",
+        "answer": "No — Kling 2.5 generates picture only, by design. Professional workflows score and mix in post anyway; if you need dialogue and ambience generated with the picture, use Seedance 2.5 or Veo 3.1 on Oddbeam, both of which render native audio."
+      },
+      {
+        "question": "Kling 2.5 or Seedance 2.5 — which should I pick?",
+        "answer": "Pick Kling 2.5 for motion and budget: 1080p action clips at 100 credits with start/end frame control. Pick Seedance 2.5 for 30-second takes, 50 multimodal references, and native audio at 160 credits. One owns the movement, the other owns the sound."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "The Shot Moves. The Physics Holds.",
+    "description": "Lock your frames, write the action, and let Kling 2.5 render it at 1080p — 100 credits per clip, free on Unlimited.",
+    "buttons": [
+      {
+        "title": "Generate with Kling 2.5",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

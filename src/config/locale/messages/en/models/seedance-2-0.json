@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Seedance 2.0 — 4K Video at the Working Rate | Oddbeam",
+    "description": "Seedance 2.0 on Oddbeam delivers 15-second clips at up to 4K for 80 credits — Unlimited subscribers pay 40. Multi-modal references with video and audio inputs, native audio toggle, first/last frame control."
+  },
+  "generator": {
+    "title": "Seedance 2.0 Video Generator"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Seedance 2.0 Video Generator",
+    "description": "The volume tier of ByteDance's flagship line: Seedance 2.0 renders 15-second clips at up to 4K for 80 credits — half the flagship's rate — while keeping the tools that matter: video references that direct camera work, audio references that set rhythm, and a native audio toggle for every tier up to 4K.",
+    "trust_items": [
+      "Up to 4K · 15 seconds",
+      "80 credits — 40 on Unlimited",
+      "Text, image, video & audio inputs"
+    ],
+    "buttons": [
+      {
+        "title": "Generate with Seedance 2.0",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "Show It, Don't Tell It",
+    "description": "Seedance 2.0 is at its best when you feed it footage instead of adjectives — the workflow:",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Lead with a Video Reference",
+        "description": "Instead of describing camera moves in words, upload a reference clip and tell the model to follow its blocking, shot type, and pacing — showing beats explaining every time.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Assign Each Input a Job",
+        "description": "One image sets the character and opening frame, one video drives motion and camera, one audio file sets the beat. Name the role of each input in the prompt so nothing fights for control.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Draft Low, Finish High",
+        "description": "Iterate at 480p or 720p, then re-render the keeper at 1080p or 4K — same prompt, same references, four resolution tiers from draft to broadcast.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Decide the Sound per Clip",
+        "description": "Toggle generate_audio on for synchronized dialogue and effects baked in, or off for a clean picture-only master when your sound team takes over.",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "The Working Model of the Seedance Line",
+    "description": "What 80 credits buys that the flagship's rate doesn't have to:",
+    "items": [
+      {
+        "title": "4K output at half the flagship rate",
+        "description": "The same resolution ceiling as Seedance 2.5 — up to 4K across 480p/720p/1080p/4K tiers — at 80 credits per clip, dropping to 40 on Unlimited monthly. Flagship look, volume-work rate.",
+        "icon": "Ri4KLine"
+      },
+      {
+        "title": "Video as a directing tool",
+        "description": "Reference videos guide complex movement, blocking, shot types, pacing, and camera paths — choreography and camera language transfer to new scenes without describing each move from scratch.",
+        "icon": "RiVideoLine"
+      },
+      {
+        "title": "Audio on your terms",
+        "description": "A native audio toggle per generation: dialogue and effects baked in when you want a finished clip, silent masters when the edit needs clean footage — both up to 4K.",
+        "icon": "RiVolumeUpLine"
+      },
+      {
+        "title": "First/last frame and extension",
+        "description": "Anchor a shot between two frames, extend an existing clip to a new duration, or connect scenes between references — the editing toolkit that turns 15-second renders into longer pieces.",
+        "icon": "RiFrameLine"
+      },
+      {
+        "title": "Batch with identical settings",
+        "description": "Run the same prompt and references as a batch of up to 10 videos — A/B variants, platform cuts, and localization passes come out consistent instead of drifting apart.",
+        "icon": "RiStackLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "The Rate Card Teams Actually Run On",
+    "description": "Volume workflows built on Seedance 2.0.",
+    "items": [
+      {
+        "name": "Content Studio Manager",
+        "role": "Social Agency",
+        "quote": "Forty credits a clip on Unlimited is the number our whole content calendar is priced on. Drafts at 720p, keepers at 4K — the resolution ladder keeps the math honest.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Content Studio Manager"
+        }
+      },
+      {
+        "name": "Dance Channel Producer",
+        "role": "Creator Economy",
+        "quote": "Choreography reference clips are the feature I didn't know I needed — the model follows the blocking and camera moves, and my dancers just perform in new settings.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Dance Channel Producer"
+        }
+      },
+      {
+        "name": "Product Video Lead",
+        "role": "Ecommerce Brand",
+        "quote": "Audio toggle per render is underrated — silent masters for the edit suite, sound-on versions for paid social, both from the same prompt at 80 credits.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Product Video Lead"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "How much does Seedance 2.0 cost per video?",
+        "answer": "Seedance 2.0 costs 80 credits per generation on Oddbeam for Starter and Pro plans. Unlimited plan subscribers pay 40 credits per clip, and yearly Unlimited brings it to 32. The Starter plan's 2,500 monthly credits cover about 31 clips at $29.99 per month."
+      },
+      {
+        "question": "What resolutions does Seedance 2.0 support?",
+        "answer": "Four tiers — 480p, 720p, 1080p, and up to 4K — with 4K being the tier the flagship line is known for. Draft at 480p or 720p, then re-render the keeper at 1080p or 4K from the same prompt and references."
+      },
+      {
+        "question": "Can Seedance 2.0 take video as an input?",
+        "answer": "Yes — video references are its directing tool. A reference clip guides complex movement, blocking, shot types, pacing, and camera paths, so choreography or camera language transfers into new scenes without describing every move in words."
+      },
+      {
+        "question": "Does Seedance 2.0 generate audio?",
+        "answer": "Yes, with a toggle per generation. Turn generate_audio on for synchronized dialogue and effects baked into the render, or off for a clean picture-only master when your sound workflow handles audio separately."
+      },
+      {
+        "question": "How long can a Seedance 2.0 clip be?",
+        "answer": "Up to 15 seconds per generation, with first/last frame control and clip extension for longer pieces — anchor a shot between two frames, extend its duration, or connect scenes between references."
+      },
+      {
+        "question": "Seedance 2.0 or Seedance 2.5 — which should I pick?",
+        "answer": "Pick 2.0 for volume at 4K: 80 credits per clip, video references as a directing tool, batch runs of 10, and free-ish rates on Unlimited at 40. Pick 2.5 for the flagship pass: 30-second takes, 50 reference slots, region editing at 160 credits. Same family, different jobs."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "Flagship Look. Working Rate.",
+    "description": "15 seconds, up to 4K, video references that direct the camera — Seedance 2.0 from 80 credits per clip.",
+    "buttons": [
+      {
+        "title": "Generate with Seedance 2.0",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

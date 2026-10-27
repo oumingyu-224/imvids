@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "title": "GPT Images 2.5 — 图内文字渲染准确的 AI 图片生成器，最高 4K | Oddbeam",
+    "description": "在 Oddbeam 上用 GPT Images 2.5 Flare 生成海报、标签、包装图：引号级文字渲染、局部精准编辑、透明背景、13 种宽高比、提示词最长 20000 字符、1K-4K 输出。每张 70 积分。"
+  },
+  "generator": {
+    "title": "GPT Images 2.5 图片生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "GPT Images 2.5 图片生成器",
+    "description": "有些图，字错了就全废。GPT Images 2.5 Flare 是 OpenAI 在 Oddbeam 上的精准图像引擎，专为海报、标签、UI 示意图和商品图打造——图内文字、引号原文、品牌细节都要经得起校对，每张 70 积分，最高 4K。",
+    "trust_items": [
+      "每张 70 积分",
+      "1K · 2K · 4K 输出",
+      "20000 字符提示词 · 13 种画幅"
+    ],
+    "buttons": [
+      {
+        "title": "用 GPT Images 2.5 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "从需求文档到成品图",
+    "description": "把提示词当设计需求书写，GPT Images 2.5 会照单执行：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "写需求书，引号包住原文",
+        "description": "写清物体、位置、风格，并把要出现在图里的文字用引号原文写入——引号内的字符串渲染保真度远高于转述，这就是海报和标签能逐字正确的原因。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "先用 1K 打草稿",
+        "description": "从 13 种宽高比里选一个，70 积分出 1K 草稿——同一句提示词之后可以原样重渲到 4K，便宜草稿就是成品的真实预览。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "分轮次修图",
+        "description": "每轮只改一件事——先光线，再文字，再背景。GPT Images 2.5 只动你描述的那个区域，画面其余部分原样保留，已确认的部分不会漂移。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "用 4K 交付",
+        "description": "把定稿提示词重渲到 2K 或 4K——4K 档同样是 70 积分，可直接用于印刷，PNG 透明背景导出方便后期合成。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "这 70 积分花在哪",
+    "description": "让它成为 Oddbeam 精准利器的几项能力：",
+    "items": [
+      {
+        "title": "经得起校对的文字渲染",
+        "description": "海报、产品标签、活动传单、信息图注释——GPT Images 2.5 能把短文本和多行版式渲染得清晰可读，且每一代都在 GPT Image 2 系列之上持续改进。",
+        "icon": "RiFileEditLine"
+      },
+      {
+        "title": "草稿要快，编辑要准",
+        "description": "Flare 版本延迟约为上一代的一半，适合大批量出草稿；当一次修改必须精确到位时，同样的提示词写法无需重写就能拿到结果。",
+        "icon": "RiFlashlightLine"
+      },
+      {
+        "title": "局部编辑，其余不动",
+        "description": "只描述一处改动——换个颜色、修一个词、删一个物体——模型把编辑限制在该区域内，而不是重新生成整张图。",
+        "icon": "RiScissorsCutLine"
+      },
+      {
+        "title": "透明背景，13 种画幅",
+        "description": "PNG 透明通道直接用于包装样机和后期合成；21:9 电影宽幅到 9:16 竖屏、1:1 方图全部原生支持，出图后不用再裁。",
+        "icon": "RiCropLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "给「每个字都要对」的工作流",
+    "description": "发布前会逐字核对文字的团队。",
+    "items": [
+      {
+        "name": "美术指导",
+        "role": "品牌代理",
+        "quote": "我们把主标题和页脚文案直接用引号写进提示词，海报回来逐字正确。文字校对环节从两轮压缩到扫一眼。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "美术指导"
+        }
+      },
+      {
+        "name": "包装设计师",
+        "role": "快消品",
+        "quote": "4K 透明背景导出直接落进刀版图。一次 70 积分的生成，替代了找图加修图的一个小时。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "包装设计师"
+        }
+      },
+      {
+        "name": "社媒内容负责人",
+        "role": "媒体品牌",
+        "quote": "1K 出草稿、4K 出成品，用同一句提示词——信息图里发布的数字能正确渲染，我们用过的其他模型都做不到。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "社媒内容负责人"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "GPT Images 2.5 生成一张图多少钱？",
+        "answer": "Oddbeam 上 GPT Images 2.5 Flare 每次生成 70 积分，1K 到 4K 分辨率同价。Unlimited 套餐免费生成，年付档降到 7 积分。Starter 套餐每月 $29.99 含 2500 积分，够出约 35 张图。"
+      },
+      {
+        "question": "GPT Images 2.5 能把图里的文字渲染准确吗？",
+        "answer": "能——图内文字准确正是这个模型系列的招牌能力。把确切文字用引号写进提示词，GPT Images 2.5 可以清晰渲染标题、产品标签和多行海报文案，这也是 Oddbeam 上印刷类需求默认选它的原因。"
+      },
+      {
+        "question": "提示词最长能写多少？",
+        "answer": "最长 20000 字符——足够把一份完整的设计需求书贴进去，包括版式说明、图内文案、风格参考和画幅规格。"
+      },
+      {
+        "question": "可以只改图的某一个局部吗？",
+        "answer": "可以。只描述你想改的那一处——一个词、一种颜色、一个物体——GPT Images 2.5 会把编辑限制在该区域，画面其余部分与渲染结果完全一致，多轮修改中已确认的部分不会漂移。"
+      },
+      {
+        "question": "支持哪些分辨率和画幅？",
+        "answer": "1K、2K、4K 三档同价（70 积分），13 种宽高比从 21:9 电影宽幅到 9:16 竖屏、1:1 方图全覆盖，另支持 PNG 透明背景导出，方便合成与包装用途。"
+      },
+      {
+        "question": "GPT Images 2.5 的产出可以商用吗？",
+        "answer": "可以。Oddbeam 付费套餐包含无水印下载和商用授权。注意 GPT Images 2.5 Flare 运行在高阶工作区，Pro 和 Unlimited 套餐可用，Starter 套餐不支持该模型。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "让每个字都出现在它该在的位置",
+    "description": "引号写文案、1K 出草稿、4K 交付——GPT Images 2.5 Flare 每张 70 积分起。",
+    "buttons": [
+      {
+        "title": "用 GPT Images 2.5 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

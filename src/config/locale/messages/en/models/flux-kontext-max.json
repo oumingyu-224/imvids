@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Flux Kontext Max — Point, Instruct, Iterate | Oddbeam",
+    "description": "FLUX.1 Kontext Max on Oddbeam is in-context editing at flagship grade: upload one image, change exactly what you name, keep the character across scenes — with typography and prompt adherence upgraded and 8x the speed of leading models. 40 credits, free on Unlimited."
+  },
+  "generator": {
+    "title": "Flux Kontext Max Image Generator"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Flux Kontext Max Image Generator",
+    "description": "Black Forest Labs' experimental flagship for in-context editing: hand it one image, say what to change — 'replace the sign, keep her expression' — and it modifies exactly that region at photoreal quality. Character and style survive scene changes and iterative passes, with typography and prompt adherence pushed to the suite's maximum. 40 credits per image.",
+    "trust_items": [
+      "One-image in-context editing",
+      "Character-consistent across scenes",
+      "Up to 8x faster than leading models"
+    ],
+    "buttons": [
+      {
+        "title": "Generate with Flux Kontext Max",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "The Point-and-Instruct Workflow",
+    "description": "Kontext Max treats your image as the context and your words as the edit list:",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Upload One Image, Name One Change",
+        "description": "Be surgical: 'change the red car to a blue sports car', 'remove the people', 'replace the SALE sign with NEW'. The model edits the named region and leaves the rest of the frame untouched.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Say What Must Stay",
+        "description": "Add the constraint in the same breath — 'add sunglasses while keeping the same facial expression'. Preservation instructions are first-class prompts, and they are what keep identity intact.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Iterate Without Quality Decay",
+        "description": "Build on previous edits through multiple turns — background first, then lighting, then copy. Each pass preserves image quality and character, so round five looks as sharp as round one.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Recast the Scene, Keep the Cast",
+        "description": "Take a reference character or object into entirely new environments and styles — storyboards, comics, campaign variants — while the identity carries across every frame.",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Flagship In-Context Editing, Zero Speed Tax",
+    "description": "What Kontext Max adds over the Kontext line's production tier:",
+    "items": [
+      {
+        "title": "Regional edits, named precisely",
+        "description": "Local editing is the model's core skill: change clothing, swap colors, remove objects, replace signage — targeted modifications that leave everything outside the instruction untouched.",
+        "icon": "RiCrosshairLine"
+      },
+      {
+        "title": "Character consistency across scenes",
+        "description": "A reference character or object keeps its identity across environments, poses, and art styles — the mechanism behind storyboards, comics, and product campaigns that must feel like one shoot.",
+        "icon": "RiUserSmileLine"
+      },
+      {
+        "title": "Typography pushed to the suite's max",
+        "description": "Max is the tier where prompt adherence and typography generation get their largest upgrade — text replacement in signs, posters, and labels keeps the original font style while changing the words.",
+        "icon": "RiFontSize"
+      },
+      {
+        "title": "Interactive speed, no compromise",
+        "description": "Generation and editing at up to 8x the speed of leading models — iterative editing happens at conversational latency, so you refine in-session instead of batching retries.",
+        "icon": "RiFlashlightLine"
+      },
+      {
+        "title": "Style reference, photoreal output",
+        "description": "Generate novel scenes that preserve a reference image's unique style, directed by text — from photorealistic product shots to stylized illustration, with professional-grade prompt following.",
+        "icon": "RiPaletteLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "Where One Image Becomes a Campaign",
+    "description": "Teams that live in the edit loop.",
+    "items": [
+      {
+        "name": "Photo Retoucher",
+        "role": "Post Studio",
+        "quote": "Client notes read exactly like Kontext prompts — 'remove the crew, keep the reflections'. One image, five named changes, zero quality tax between passes.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Photo Retoucher"
+        }
+      },
+      {
+        "name": "Comic Artist",
+        "role": "Indie Publishing",
+        "quote": "My lead stays the same lead across eighteen panels and four locations. Character consistency used to be the wall; now it's a setting.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Comic Artist"
+        }
+      },
+      {
+        "name": "Retail Creative Lead",
+        "role": "Omnichannel Brand",
+        "quote": "Swap the promo sign in six poster masters and keep every font intact — at 40 credits and this speed, the whole refresh finished before the meeting ended.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Retail Creative Lead"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "How much does Flux Kontext Max cost per image?",
+        "answer": "Flux Kontext Max costs 40 credits per generation on Oddbeam for Starter and Pro plans, and Unlimited plan subscribers generate it for free — yearly Unlimited drops the rate to 4 credits. The Starter plan's 2,500 monthly credits cover about 62 images at $29.99 per month."
+      },
+      {
+        "question": "What is in-context image editing?",
+        "answer": "It means the model takes both text and image as input: upload one image, describe the change in words, and it modifies exactly that region — local edits, style transfer, or full scene changes — while understanding the spatial relationships in the frame."
+      },
+      {
+        "question": "How does Flux Kontext Max differ from Flux Kontext Pro?",
+        "answer": "Max is the experimental flagship: greatly improved prompt adherence and typography generation, with premium editing consistency. Pro is the production pioneer for fast iterative work. Choose Max when the edit must be exact, Pro for high-volume routine passes."
+      },
+      {
+        "question": "Can Flux Kontext Max keep a character consistent across scenes?",
+        "answer": "Yes — character consistency is one of its core capabilities. A reference character or object preserves identity, features, and style across multiple scenes, environments, and viewpoints, including through iterative editing turns."
+      },
+      {
+        "question": "Can it edit text inside images?",
+        "answer": "Yes. Replace signage, poster copy, and label text while maintaining the original font style — put the exact wording in quotation marks in your instruction for precise swaps."
+      },
+      {
+        "question": "Flux Kontext Max or Nano Banana 2 — which should I pick?",
+        "answer": "Pick Kontext Max for photoreal editing speed: named-region changes at up to 8x leading-model latency, typography swaps, 40 credits. Pick Nano Banana 2 for multilingual text and Search-grounded facts in a conversational workflow. Max edits like a retoucher; 2 converses like a designer."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "Name the Change. Keep the Rest.",
+    "description": "One image in, named edits out, character intact across every scene — Flux Kontext Max from 40 credits, free on Unlimited.",
+    "buttons": [
+      {
+        "title": "Generate with Flux Kontext Max",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

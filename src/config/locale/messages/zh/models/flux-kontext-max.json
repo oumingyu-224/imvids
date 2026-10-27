@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Flux Kontext Max — 指哪改哪的上下文编辑旗舰 | Oddbeam",
+    "description": "FLUX.1 Kontext Max 在 Oddbeam 上提供旗舰级上下文编辑：上传一张图，点名要改的地方，角色跨场景不丢——排版与提示词遵循全面升级，速度最高达领先模型的 8 倍。40 积分，Unlimited 免费。"
+  },
+  "generator": {
+    "title": "Flux Kontext Max 图片生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Flux Kontext Max 图片生成器",
+    "description": "Black Forest Labs 的实验旗舰，专攻上下文编辑：递给它一张图，说要改什么——「换掉招牌，保留她的表情」——它以摄影级质感只改点名的那块区域。角色与风格在场景切换和迭代修改中全程存活，排版与提示词遵循拉到系列最高。每张 40 积分。",
+    "trust_items": [
+      "单图上下文编辑",
+      "角色跨场景一致",
+      "最高 8 倍于领先模型的速度"
+    ],
+    "buttons": [
+      {
+        "title": "用 Flux Kontext Max 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "点名式编辑工作流",
+    "description": "Kontext Max 把你的图当上下文，把你的话当修改清单：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "传一张图，点名一处改动",
+        "description": "下刀要准：「把红色轿车改成蓝色跑车」「把人移除」「把 SALE 招牌换成 NEW」。模型只改点名的区域，画面其余部分纹丝不动。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "同一句话里说清什么不能动",
+        "description": "约束跟指令一起写——「加上墨镜，保持原有表情」。保留类指令是一等公民，正是它们守住身份不漂移。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "迭代不降质",
+        "description": "在之前的修改上继续叠——先换背景，再调光线，最后改文案。每一轮都保住画质和角色，第五轮和第一轮一样锐利。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "换场景，不换演员",
+        "description": "把参考角色或物件带进全新的环境和风格——分镜、漫画、campaign 变体——身份贯穿每一帧。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "旗舰级上下文编辑，速度零妥协",
+    "description": "Kontext Max 相对系列生产档多出的东西：",
+    "items": [
+      {
+        "title": "点名即改的局部编辑",
+        "description": "局部编辑是模型的核心技能：换服装、调颜色、移除物件、替换招牌——定向修改，指令之外的一切保持原样。",
+        "icon": "RiCrosshairLine"
+      },
+      {
+        "title": "角色跨场景一致",
+        "description": "参考角色或物件在环境、姿态、画风切换中保住身份——分镜、漫画、产品 campaign 看起来像同一场拍摄拍出来的机制。",
+        "icon": "RiUserSmileLine"
+      },
+      {
+        "title": "排版拉到系列最高档",
+        "description": "Max 档是提示词遵循与排版生成升级最大的版本——招牌、海报、标签里的文字替换，改词不改字体。",
+        "icon": "RiFontSize"
+      },
+      {
+        "title": "交互级速度，不做取舍",
+        "description": "生成与编辑速度最高达领先模型的 8 倍——迭代编辑发生在对话延迟级别，当场改完，不用攒着重试批跑。",
+        "icon": "RiFlashlightLine"
+      },
+      {
+        "title": "风格参考，摄影级输出",
+        "description": "保留参考图独特风格生成全新场景，由文字指挥——从写实产品图到风格化插画，专业级提示词遵循打底。",
+        "icon": "RiPaletteLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "一张图变成一整组素材的地方",
+    "description": "活在修改循环里的团队。",
+    "items": [
+      {
+        "name": "修图师",
+        "role": "后期工作室",
+        "quote": "客户的修改意见读起来就是 Kontext 指令——「移除工作人员，保留倒影」。一张图五处点名修改，轮与轮之间零画质损耗。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "修图师"
+        }
+      },
+      {
+        "name": "漫画作者",
+        "role": "独立出版",
+        "quote": "主角跨 18 个分格、4 个场景都是同一个人。角色一致性从前是墙，现在是个设置项。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "漫画作者"
+        }
+      },
+      {
+        "name": "零售创意负责人",
+        "role": "全渠道品牌",
+        "quote": "六张海报母版换促销文案、每张字体原样保留——40 积分加这个速度，整轮换稿在会议结束前做完了。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "零售创意负责人"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Flux Kontext Max 生成一张图要多少积分？",
+        "answer": "在 Oddbeam 上 Flux Kontext Max 每张 40 积分（Starter 和 Pro 套餐同价），Unlimited 套餐免费生成，年付 Unlimited 降到 4 积分。Starter 套餐每月 2500 积分（$29.99），大约够生成 62 张。"
+      },
+      {
+        "question": "什么是「上下文图像编辑」？",
+        "answer": "指模型同时以文字和图片为输入：上传一张图、用文字描述改动，它只修改点名的区域——局部编辑、风格迁移或整景更换——并且理解画面里的空间关系。"
+      },
+      {
+        "question": "Flux Kontext Max 和 Flux Kontext Pro 有什么区别？",
+        "answer": "Max 是实验旗舰：提示词遵循与排版生成大幅升级，编辑一致性为最高档。Pro 是面向快节奏迭代的生产先锋。改动必须精准选 Max，大批量常规修改选 Pro。"
+      },
+      {
+        "question": "Flux Kontext Max 能让角色跨场景保持一致吗？",
+        "answer": "能——角色一致性是它的核心能力之一。参考角色或物件在多个场景、环境与视角中保持身份、特征与风格，包括多轮迭代修改的过程中。"
+      },
+      {
+        "question": "它能编辑图里的文字吗？",
+        "answer": "能。替换招牌、海报文案、标签文字时保持原有字体风格——把准确措辞放进指令的引号里即可精准换词。"
+      },
+      {
+        "question": "Flux Kontext Max 和 Nano Banana 2 怎么选？",
+        "answer": "要摄影级编辑速度选 Kontext Max：点名区域修改、最高 8 倍速度、文字替换，40 积分。要多语言文字和搜索接地事实、对话式工作流选 Nano Banana 2。Max 像修图师，2 像会聊天的设计师。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "点名要改的，其余全保留。",
+    "description": "一张图进，点名修改出，角色跨场景不丢——Flux Kontext Max 每张 40 积分，Unlimited 免费。",
+    "buttons": [
+      {
+        "title": "用 Flux Kontext Max 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

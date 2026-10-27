@@ -1,12 +1,12 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
-import { getThemePage } from '@/core/theme';
-import { ImageGenerator } from '@/shared/blocks/generator';
+import { nanoBananaProModelPageConfig } from '@/config/landing-pages';
 import { getMetadata } from '@/shared/lib/seo';
-import { DynamicPage } from '@/shared/types/blocks/landing';
+
+import { LandingPageRenderer } from '../landing-page-renderer';
 
 export const generateMetadata = getMetadata({
-  metadataKey: 'pages.nanobananapro.metadata',
+  metadataKey: 'models.nano-banana-pro.metadata',
   canonicalUrl: '/nano-banana-pro',
 });
 
@@ -21,30 +21,11 @@ export default async function NanoBananaProPage({
   const { prompt: promptKey } = await searchParams;
   setRequestLocale(locale);
 
-  // get translations
-  const t = await getTranslations('pages.nanobananapro');
-
-  // build page sections
-  const page: DynamicPage = {
-    sections: {
-      features: {
-        block: 'custom-features',
-        title: t.raw('page.title'),
-        description: t.raw('page.description'),
-      },
-      generator: {
-        component: <ImageGenerator srOnlyTitle={t.raw('generator.title')} promptKey={promptKey} />,
-      },
-      faq: {
-        block: 'faq',
-        title: t.raw('faq.title'),
-        items: t.raw('faq.items'),
-      },
-    },
-  };
-
-  // load page component
-  const Page = await getThemePage('dynamic-page');
-
-  return <Page locale={locale} page={page} />;
+  return (
+    <LandingPageRenderer
+      locale={locale}
+      config={nanoBananaProModelPageConfig}
+      promptKey={promptKey}
+    />
+  );
 }

@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "title": "Seedream 5.0 Lite — An Image Model That Thinks and Searches | Oddbeam",
+    "description": "Seedream 5.0 Lite on Oddbeam reasons through multi-step visual tasks, pulls real-time web facts into posters and infographics, and keeps world knowledge behind every frame. Text-to-image from 40 credits, free on Unlimited."
+  },
+  "generator": {
+    "title": "Seedream 5.0 Lite Image Generator"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Seedream 5.0 Lite Image Generator",
+    "description": "It reads the brief before it draws. Seedream 5.0 Lite is ByteDance's reasoning-first image model: multi-step visual thinking, a built-in world knowledge base, and — a first for the Seedream line — real-time web retrieval, so a poster can carry today's facts instead of training-data ghosts. From 40 credits per image.",
+    "trust_items": [
+      "Multi-step visual reasoning",
+      "Real-time web-grounded generation",
+      "40 credits · free on Unlimited"
+    ],
+    "buttons": [
+      {
+        "title": "Generate with Seedream 5.0 Lite",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "State the Goal, Let It Think",
+    "description": "Seedream 5.0 Lite responds to intent, not keywords — the workflow:",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "State the Goal, Not Just the Scene",
+        "description": "Say what the image must accomplish — explain a concept, sell a deadline, teach a process. The model plans the composition around the intent instead of matching style keywords.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Add the Facts That Must Be True",
+        "description": "Names, dates, data, locations. With real-time retrieval, the render reflects what is actually current — a weather poster can carry today's forecast, not last year's training data.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Pick Quality: Basic, High, or Ultra",
+        "description": "Choose the render tier for the job — Basic for quick concept checks, Ultra for the final frame. Draft cheap, finish sharp, without changing the prompt.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Check the Logic in the Frame",
+        "description": "Because generation follows multi-step reasoning, the result should survive a read-through: labels point where they should, structures obey physics, sequences run in order. Re-roll only if the logic misses.",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "What 'Thinking' Buys You Here",
+    "description": "The capabilities that set Seedream 5.0 Lite apart on Oddbeam:",
+    "items": [
+      {
+        "title": "It reasons before it renders",
+        "description": "Multi-step visual reasoning handles tasks one-shot models fumble: infer how scattered parts assemble into a whole, work through a game position, plan a composition that obeys its own internal logic.",
+        "icon": "RiBrainLine"
+      },
+      {
+        "title": "Posters that carry today's facts",
+        "description": "Real-time web retrieval — a first for the Seedream line — lets the model respond to time-sensitive briefs: weather-aware city posters, box-office summaries, trend-anchored creatives that training-data-frozen models cannot render honestly.",
+        "icon": "RiTimeLine"
+      },
+      {
+        "title": "Infographics that obey physics",
+        "description": "An enhanced world knowledge base covers tech and humanities verticals, so information visualization — layered ecosystems, geological cross-sections, process diagrams — comes out structurally correct, not just pretty.",
+        "icon": "RiBarChartGroupedLine"
+      },
+      {
+        "title": "A subject that stays itself",
+        "description": "Subject consistency and prompt alignment both improved over Seedream 4.0, and its benchmark Elo score surpasses Seedream 4.5 — the smarter tier, priced at 40 credits on Oddbeam.",
+        "icon": "RiUserSmileLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "For Briefs Where Being Right Matters",
+    "description": "Teams whose images have to be true, not just attractive.",
+    "items": [
+      {
+        "name": "Newsroom Designer",
+        "role": "Digital Media",
+        "quote": "Trend posters used to need a fact-check pass on every render. With retrieval built in, the poster carries the day's actual numbers — our correction rate dropped to near zero.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Newsroom Designer"
+        }
+      },
+      {
+        "name": "Science Communicator",
+        "role": "Education Channel",
+        "quote": "Diagrams that obey physics and get the layering right — rainforest strata, geological sections — mean my visuals teach instead of mislead. That was never true of one-shot models.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Science Communicator"
+        }
+      },
+      {
+        "name": "Campaign Planner",
+        "role": "Marketing Agency",
+        "quote": "Briefing intent instead of keywords cut our iteration loop in half. On the Unlimited plan it generates free, so the team explores directions without watching a credit meter.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Campaign Planner"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "How much does Seedream 5.0 Lite cost per image?",
+        "answer": "Seedream 5.0 Lite costs 40 credits per generation on Oddbeam for Starter and Pro plans, and Unlimited plan subscribers generate it for free — yearly Unlimited drops the rate to 4 credits. The Starter plan's 2,500 monthly credits cover about 62 images at $29.99 per month."
+      },
+      {
+        "question": "What does 'reasoning' actually mean for an image model?",
+        "answer": "Seedream 5.0 Lite plans multi-step visual logic before rendering: it can infer how scattered parts assemble into one object, work through a board-game position, or build a composition whose elements obey each other. You brief the goal, and the model works out the steps in between."
+      },
+      {
+        "question": "Can Seedream 5.0 Lite use current events and real-time data?",
+        "answer": "Yes — real-time web retrieval is its headline feature and a first for the Seedream line. Time-sensitive briefs like weather-aware posters, box-office summaries, or trend-anchored creatives are rendered from live search results rather than frozen training data."
+      },
+      {
+        "question": "Is Seedream 5.0 Lite good for infographics and diagrams?",
+        "answer": "Yes. Its enhanced world knowledge base spans tech and humanities verticals, and information visualization is a core strength — layered ecosystem charts, geological cross-sections, and process diagrams come out structurally accurate enough for education and explainer use."
+      },
+      {
+        "question": "What does 'Lite' mean — is it a weaker model?",
+        "answer": "Lite is the reasoning-focused tier of the Seedream 5.0 family, and ByteDance's own benchmark Elo places it above Seedream 4.5. It trades nothing on understanding — the family's flagship tiers add higher-fidelity rendering on top of the same thinking core."
+      },
+      {
+        "question": "Seedream 5.0 Lite or Seedream 4.0 — which should I pick?",
+        "answer": "Pick 5.0 Lite for thinking work: time-sensitive posters, knowledge-dense infographics, multi-step compositions, at 40 credits. Pick Seedream 4.0 for volume and sets — up to 9 coordinated images per run at 30 credits with 4K output. One reasons, one mass-produces."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "Brief the Goal. It Does the Thinking.",
+    "description": "Facts from today's web, logic in every frame — Seedream 5.0 Lite from 40 credits per image, free on Unlimited.",
+    "buttons": [
+      {
+        "title": "Generate with Seedream 5.0 Lite",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

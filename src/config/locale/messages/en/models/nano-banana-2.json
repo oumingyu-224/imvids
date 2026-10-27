@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "title": "Nano Banana 2 — Edits That Survive Ten Rounds | Oddbeam",
+    "description": "Nano Banana 2 (Gemini 3.1 Flash Image) on Oddbeam holds up to 5 characters and 14 objects steady across round after round of edits, renders text in 100+ languages, and pulls real facts from web search. 40 credits per image, free on Unlimited."
+  },
+  "generator": {
+    "title": "Nano Banana 2 Image Generator"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Nano Banana 2 Image Generator",
+    "description": "Most models nail round one and fall apart by round five. Nano Banana 2 is Google's Gemini 3.1 Flash Image: Pro-level generation and editing at Flash speed, built for conversational workflows where you change one thing per round — and the cast, the objects, and the composition hold through all of them. 40 credits per image.",
+    "trust_items": [
+      "5 characters · 14 objects held steady",
+      "Text in 100+ languages",
+      "Pro-level quality at Flash speed"
+    ],
+    "buttons": [
+      {
+        "title": "Generate with Nano Banana 2",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "Chat It Right, One Round at a Time",
+    "description": "Nano Banana 2 is built to be talked to, not prompted at — the workflow:",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Start From a Photo",
+        "description": "Upload an image and say what to change in plain language — swap the background, fix the lighting, replace one object. No masks, no layers, no editing software.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Edit One Round at a Time",
+        "description": "Change one thing per round and check it. Nano Banana 2 follows each instruction tightly without re-rolling parts you already approved — round ten looks like round one, plus ten deliberate changes.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Keep the Cast Consistent",
+        "description": "The model holds up to 5 characters and 14 objects steady across edits, so a mascot, a product, and a hero model can survive an entire storyboard without identity drift.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Upscale to 4K",
+        "description": "When a round lands, take the frame from draft resolution up to 4K for delivery — the details that were approved in the chat survive the upscale.",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Where Nano Banana 2 Beats One-Shot Models",
+    "description": "The capabilities that make it the editing workhorse on Oddbeam:",
+    "items": [
+      {
+        "title": "Ten rounds later, still on model",
+        "description": "Teams editing in Figma and Weavy report it stays responsive to direction after many rounds of edits — the failure mode where every pass degrades the image is exactly what this model was built against.",
+        "icon": "RiChatCheckLine"
+      },
+      {
+        "title": "A cast that survives the storyboard",
+        "description": "Up to 5 characters and 14 objects keep their resemblance and fidelity across a workflow, so the mascot in frame one is the same mascot in frame twelve — narratives and product series stop melting between shots.",
+        "icon": "RiUserSmileLine"
+      },
+      {
+        "title": "Answers pulled from the real web",
+        "description": "Nano Banana 2 draws on world knowledge and real-time information from Google Search, so visuals that must be factually right — local marketing, educational tools, product-accurate imagery — start from facts, not guesses.",
+        "icon": "RiSearchEyeLine"
+      },
+      {
+        "title": "Text and translation in 100+ languages",
+        "description": "In-image text renders accurately and can be localized across more than 100 languages — one poster master becomes a multilingual campaign without a design team retyping every version.",
+        "icon": "RiTranslateLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "For Workflows That Never Stop Editing",
+    "description": "Teams whose first render is never the last.",
+    "items": [
+      {
+        "name": "Ecommerce Operations Manager",
+        "role": "Marketplace Seller",
+        "quote": "Product shots take eight rounds of client feedback. Nano Banana 2 takes every note without wrecking the approved parts — the hero product in round eight is still the product from round one.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Ecommerce Operations Manager"
+        }
+      },
+      {
+        "name": "Picture Book Author",
+        "role": "Children's Publishing",
+        "quote": "My little fox stays the same fox across twelve spreads. Five consistent characters was the number that made this model the only one I kept.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Picture Book Author"
+        }
+      },
+      {
+        "name": "Localization Marketing Lead",
+        "role": "Global Brand",
+        "quote": "One master creative, 14 language versions, in-image copy rendered per market — at 40 credits a frame on Starter, the math beats our old retouching invoices by an order of magnitude.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Localization Marketing Lead"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "How much does Nano Banana 2 cost per image?",
+        "answer": "Nano Banana 2 costs 40 credits per generation on Oddbeam for Starter and Pro plans, and Unlimited plan subscribers generate it for free — yearly Unlimited drops the rate to 4 credits. The Starter plan's 2,500 monthly credits cover about 62 images at $29.99 per month."
+      },
+      {
+        "question": "Does Nano Banana 2 keep characters consistent across edits?",
+        "answer": "Yes — it holds up to 5 characters and 14 objects with their resemblance and detail intact across a workflow. That is the core reason to choose it for storyboards, product series, and any multi-image narrative that must feature the same subjects throughout."
+      },
+      {
+        "question": "How many rounds of editing can Nano Banana 2 handle?",
+        "answer": "It is built for conversational, multi-round editing: change one thing per round and the model follows each instruction while leaving approved parts alone. Creative teams using it inside Figma and Weavy report it stays responsive to direction even after many rounds of edits."
+      },
+      {
+        "question": "Can Nano Banana 2 render text inside images?",
+        "answer": "Yes. It renders accurate in-image text and supports translations in more than 100 languages, which makes it a fit for localized marketing materials and multilingual campaigns rendered straight into the artwork."
+      },
+      {
+        "question": "What resolutions does Nano Banana 2 support?",
+        "answer": "Output scales from 512px drafts up to 4K, with native support for widescreen, vertical, and square formats. Draft at low resolution to iterate fast, then upscale the approved round to 4K for delivery."
+      },
+      {
+        "question": "Nano Banana 2 or Nano Banana Pro — which should I pick?",
+        "answer": "Nano Banana 2 delivers Pro-level quality at Flash speed for 40 credits and is the faster pick for iterative editing and volume. Nano Banana Pro is the accuracy-first tier for tasks where factual fidelity matters most — pick 2 for speed and rounds, Pro for the highest-fidelity single results."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "Round One to Round Ten, On Model.",
+    "description": "Talk to Nano Banana 2 the way you'd brief a designer — one change per round, cast intact, 40 credits per image.",
+    "buttons": [
+      {
+        "title": "Generate with Nano Banana 2",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "MiniMax H3 — Direct Every Modality in One Prompt | Oddbeam",
+    "description": "MiniMax H3 on Oddbeam unifies text, images, video, and audio in one creative context: reference a Hitchcock camera move, a character photo, and a vocal take in the same generation. 4-15s clips at 768P or 2K with native stereo, 100 credits."
+  },
+  "generator": {
+    "title": "MiniMax H3 Video Generator"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "MiniMax H3 Video Generator",
+    "description": "One prompt, every medium. MiniMax H3 is the open general-purpose video model that reads text, images, video clips, and audio as a single context: borrow a camera move from one video, cast a character from one photo, match a vocal from one audio take — and it composes the shot with native stereo sound at up to 2K. 4 to 15 seconds, 100 credits.",
+    "trust_items": [
+      "Text + image + video + audio context",
+      "2K native stereo output",
+      "4-15s · first/last frame control"
+    ],
+    "buttons": [
+      {
+        "title": "Generate with MiniMax H3",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "Run the Context Like a Switchboard",
+    "description": "H3 treats every reference as a dial you set — the workflow:",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Feed It Mixed Media",
+        "description": "Combine images for identity, video clips for motion and camera language, and audio for voice or rhythm — up to 12 files across types in one generation, mixed freely.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Name Each File's Role",
+        "description": "Write the relationship in words: 'use the camera move from Video 1, the character from Image 2, the vocal from Audio 3.' H3's context engine handles the cross-modal wiring itself.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Or Anchor with Frames",
+        "description": "Skip the references and go positional: give the first frame, the last frame, or both, and H3 renders the transition between them with sound attached.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Render 768P or 2K",
+        "description": "Output lands at 768P or 2K — the 2K tier is H3's default sweet spot, with dialogue, ambience, and score generated natively in the same pass. 4 to 15 seconds per clip.",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Why Full-Modality Briefs Go to H3",
+    "description": "The capabilities that make it the指挥台 of multimodal direction on Oddbeam:",
+    "items": [
+      {
+        "title": "One context for four media types",
+        "description": "Text, images, video, and audio enter the same creative context instead of separate tool silos — the model reasons over all of them at once, which is what makes 'borrow that camera move, sing like this take' a single instruction.",
+        "icon": "RiAppsLine"
+      },
+      {
+        "title": "2K by default, stereo by default",
+        "description": "H3 outputs 2K as its standard tier with native 32 kHz stereo audio generated alongside the picture — resolution and sound are the baseline, not an upsold add-on.",
+        "icon": "RiSoundModuleLine"
+      },
+      {
+        "title": "Dialogue in 11 languages",
+        "description": "Stable native dialogue across Arabic, Chinese, English, French, German, Italian, Japanese, Korean, Portuguese, Russian, and Spanish — multilingual voiceover ships inside the render.",
+        "icon": "RiGlobalLine"
+      },
+      {
+        "title": "Motion transfer, done right",
+        "description": "V2V motion transfer carries a performance from a reference clip onto a new subject — the dance, the gesture, the fight move — without rotoscoping or hand-keying the animation.",
+        "icon": "RiDanceLine"
+      },
+      {
+        "title": "Instructed like a colleague",
+        "description": "H3's context engine parses fuzzy, conversational direction and fills sensible gaps itself — complex multimodal instructions survive contact with short 4-6 second clips better than keyword-stuffed prompts.",
+        "icon": "RiChatSmartLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "For Briefs That Span Mediums",
+    "description": "Teams whose references never fit in one box.",
+    "items": [
+      {
+        "name": "Music Video Director",
+        "role": "Post Production",
+        "quote": "Dropping the demo vocal in as a reference and getting performance and lip-sync matched to it — that alone moved two post steps off my schedule.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Music Video Director"
+        }
+      },
+      {
+        "name": "Game Cinematics Artist",
+        "role": "Studio Team",
+        "quote": "I feed the character sheet, a camera-move clip, and a sound mood in one H3 run. The context does the assembly that used to take three different tools.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Game Cinematics Artist"
+        }
+      },
+      {
+        "name": "Ecommerce Video Lead",
+        "role": "Marketplace Brand",
+        "quote": "2K default output is the quiet win — product films come out sharp enough for detail-page zoom without an upscale pass, at 100 credits a run.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Ecommerce Video Lead"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "How much does MiniMax H3 cost per video?",
+        "answer": "MiniMax H3 costs 100 credits per generation on Oddbeam for Starter and Pro plans. Unlimited plan subscribers pay 50 credits per clip, and yearly Unlimited brings it to 40. The Starter plan's 2,500 monthly credits cover about 25 generations at $29.99 per month."
+      },
+      {
+        "question": "What makes MiniMax H3 different from other video models?",
+        "answer": "It is a general-purpose omni-modal model: text, images, video clips, and audio enter one unified context, and H3 reasons across all of them — camera moves from a reference video, identity from a photo, vocals from an audio take — in a single generation with native stereo sound."
+      },
+      {
+        "question": "What resolutions does MiniMax H3 output?",
+        "answer": "768P and 2K, with 2K as the model's default target tier. Clips run 4 to 15 seconds at 24 fps, with dialogue, ambience, and score generated natively alongside the picture."
+      },
+      {
+        "question": "How many references can MiniMax H3 take at once?",
+        "answer": "Up to 12 files in one generation, mixed across types — as many as 9 images, 3 video clips of 2-15 seconds each, and 3 audio clips. Describe each file's role in the prompt and the model wires them together."
+      },
+      {
+        "question": "Can MiniMax H3 do first and last frame transitions?",
+        "answer": "Yes. Provide zero, one, or two frames: no image is text-to-video, one image animates from that frame, and two images generate the first-and-last-frame transition — with sound attached in every mode."
+      },
+      {
+        "question": "MiniMax H3 or Seedance 2.5 — which should I pick?",
+        "answer": "Pick H3 when your brief spans mediums — audio-driven performance, motion transfer, mixed references — with 2K stereo output at 100 credits. Pick Seedance 2.5 for 30-second takes and timestamp editing at 160 credits. H3 conducts the ensemble; Seedance runs the long take."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "One Prompt. Every Medium. Native Sound.",
+    "description": "Feed H3 your references and direct the whole ensemble — 4-15s at up to 2K stereo, from 100 credits.",
+    "buttons": [
+      {
+        "title": "Generate with MiniMax H3",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

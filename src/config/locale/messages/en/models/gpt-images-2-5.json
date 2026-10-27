@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "title": "GPT Images 2.5 — AI Images Where the Text Comes Out Right | Oddbeam",
+    "description": "GPT Images 2.5 Flare on Oddbeam renders posters, labels, and packaging with legible in-image text: quoted-string typography, targeted edits, transparent backgrounds, 13 aspect ratios, prompts up to 20,000 characters, 1K-4K output. 70 credits per image."
+  },
+  "generator": {
+    "title": "GPT Images 2.5 Image Generator"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "GPT Images 2.5 Image Generator",
+    "description": "Some images only count if the words come out right. GPT Images 2.5 Flare is OpenAI's precision image engine on Oddbeam, built for posters, labels, UI mockups, and product shots where in-image text, quoted strings, and brand details have to survive proofreading — at 70 credits per image, up to 4K.",
+    "trust_items": [
+      "70 credits per image",
+      "1K · 2K · 4K output",
+      "20,000-character prompts · 13 ratios"
+    ],
+    "buttons": [
+      {
+        "title": "Generate with GPT Images 2.5",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "From Brief to Render",
+    "description": "Treat the prompt like a design brief and GPT Images 2.5 follows it:",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Write the Brief, Quote the Words",
+        "description": "Name objects, positions, and style, and put the exact on-image copy in quotation marks — quoted strings render far more faithfully than paraphrased intent, which is how posters and labels come out letter-perfect.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Draft at 1K",
+        "description": "Pick one of 13 aspect ratios and render drafts at 1K for 70 credits — same prompt later re-renders faithfully at 4K, so cheap drafts are a true preview of the final.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Edit in Passes",
+        "description": "Fix one thing per pass — lighting, then copy, then background. GPT Images 2.5 changes only the area you describe and leaves the rest of the frame alone, so approved parts never drift.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Deliver at 4K",
+        "description": "Re-render the winning prompt at 2K or 4K for the deliverable — the 4K tier costs the same 70 credits and is print-ready, with transparent-background PNG export for compositing.",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Where GPT Images 2.5 Earns Its 70 Credits",
+    "description": "The capabilities that make it the precision instrument on Oddbeam:",
+    "items": [
+      {
+        "title": "Typography that survives proofreading",
+        "description": "Posters, product labels, event flyers, infographic annotations — GPT Images 2.5 renders short text and multi-line layouts legibly, and it improves every generation over the GPT Image 2 line.",
+        "icon": "RiFileEditLine"
+      },
+      {
+        "title": "Fast drafts, precise edits",
+        "description": "Flare runs at roughly half the latency of the previous generation for volume drafting; when an edit must be exact, the same prompt style gets you there without a rewrite.",
+        "icon": "RiFlashlightLine"
+      },
+      {
+        "title": "Targeted editing, untouched rest",
+        "description": "Describe one change — swap a color, fix a word, remove an object — and the model confines the edit to that area instead of regenerating the whole frame.",
+        "icon": "RiScissorsCutLine"
+      },
+      {
+        "title": "Transparent backgrounds, 13 ratios",
+        "description": "Export PNGs with clean alpha for packaging mockups and compositing, and frame anything from 21:9 cinematic to 9:16 vertical natively — no cropping pass afterward.",
+        "icon": "RiCropLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "For Work Where the Words Have to Be Right",
+    "description": "Teams that review every letter before publishing.",
+    "items": [
+      {
+        "name": "Art Director",
+        "role": "Brand Agency",
+        "quote": "We quote the headline and the footer copy inside the prompt and the poster comes back letter-perfect. Our typography QA pass went from two rounds to a skim.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "Art Director"
+        }
+      },
+      {
+        "name": "Packaging Designer",
+        "role": "CPG",
+        "quote": "Transparent-background 4K exports drop straight into the dieline layout. One 70-credit generation replaces a stock-photo hunt plus a retouch hour.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Packaging Designer"
+        }
+      },
+      {
+        "name": "Social Content Lead",
+        "role": "Media Brand",
+        "quote": "Drafts at 1K, finals at 4K from the same prompt — the numbers we publish on infographics render correctly, which no other model in our stack managed.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Social Content Lead"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "How much does GPT Images 2.5 cost per image?",
+        "answer": "GPT Images 2.5 Flare costs 70 credits per generation on Oddbeam at any resolution from 1K to 4K. Unlimited plan subscribers generate it for free, and yearly tiers drop it to 7 credits. The Starter plan's 2,500 monthly credits cover about 35 images at $29.99 per month."
+      },
+      {
+        "question": "Can GPT Images 2.5 render text inside images accurately?",
+        "answer": "Yes — accurate in-image text is this model line's signature strength. Put the exact words in quotation marks in your prompt and GPT Images 2.5 renders headlines, product labels, and multi-line poster copy legibly, which is why it is the default pick for print-adjacent work on Oddbeam."
+      },
+      {
+        "question": "How long can my prompt be?",
+        "answer": "Up to 20,000 characters — long enough to paste a complete creative brief with layout notes, in-image copy, style references, and aspect-ratio specs into a single prompt."
+      },
+      {
+        "question": "Can I edit just one part of an image?",
+        "answer": "Yes. Describe the single change you want — a word, a color, an object — and GPT Images 2.5 confines the edit to that area while the rest of the frame stays exactly as rendered, so approved sections never drift across edit passes."
+      },
+      {
+        "question": "What resolutions and ratios does GPT Images 2.5 support?",
+        "answer": "1K, 2K, and 4K output at the same 70-credit price, across 13 aspect ratios from 21:9 cinematic to 9:16 vertical and 1:1 square. Transparent-background PNG export is supported for compositing and packaging work."
+      },
+      {
+        "question": "Can I use GPT Images 2.5 output commercially?",
+        "answer": "Yes. Paid Oddbeam plans include watermark-free downloads and a commercial license. Note that GPT Images 2.5 Flare runs on the higher workspace tier, so it is available on Pro and Unlimited plans rather than Starter."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "Images Where Every Word Comes Out Right",
+    "description": "Quote the copy, draft at 1K, deliver at 4K — GPT Images 2.5 Flare from 70 credits per image.",
+    "buttons": [
+      {
+        "title": "Generate with GPT Images 2.5",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

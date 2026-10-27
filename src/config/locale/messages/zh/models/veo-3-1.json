@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Veo 3.1 — 成片级 AI 视频，原生音频最高 4K | Oddbeam",
+    "description": "Google Veo 3.1 Premium 在 Oddbeam 上渲染 8 秒成片：最高 4K，对白与音效同 pass 原生生成，首尾帧控制，最多 3 张参考图。每条 200 积分，Pro 套餐起可用。"
+  },
+  "generator": {
+    "title": "Veo 3.1 视频生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Veo 3.1 视频生成器",
+    "description": "定稿在这一版。Google Veo 3.1 是 Oddbeam 上的画质天花板：8 秒片段最高 4K，对白、环境声、音效与画面同 pass 原生生成——再用首尾帧控制串成超过单次时长上限的连续叙事。每条 200 积分，Pro 套餐起可用。",
+    "trust_items": [
+      "最高 4K · 原生音频",
+      "首尾帧双控",
+      "最多 3 张参考图"
+    ],
+    "buttons": [
+      {
+        "title": "用 Veo 3.1 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "从关键帧到可交付成片",
+    "description": "Veo 3.1 是为定稿而非草稿而建的——工作流如下：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "用参考图锁定视觉",
+        "description": "附上最多 3 张参考图，钉住角色、产品或场景风格——Google 的素材（Ingredients）体系让你从这套参考生成的每条镜头里，主体都认得出来。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "把对白写进提示词",
+        "description": "台词放进引号，再描述环境声。Veo 3.1 在同一个同步 pass 里生成画面和原生音频——带口型的对白、房间底噪、音效，一条到位，事后不用配音。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "首尾帧桥接镜头",
+        "description": "定死一条镜头从哪开始、必须到哪结束，Veo 3.1 渲染带配套音频的过渡——这正是把 8 秒片段串成连续叙事的连接组织。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "1080p 或 4K 定稿",
+        "description": "以 720p、1080p 或全 4K 渲染定稿，16:9 或 9:16 任选——离开这一步的片子就是交付件，可直接进评审、进广播或进剪辑时间线。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "定稿为什么在 Veo 3.1 上渲染",
+    "description": "让它成为 Oddbeam 定稿模型的几项能力：",
+    "items": [
+      {
+        "title": "4K 输出，音画同步",
+        "description": "最高 4K 渲染，音轨与画面在同一 pass 原生生成——带口型的对白、环境声、音效一起落地，这就是「成片」和「草稿」的分界线。",
+        "icon": "Ri4KLine"
+      },
+      {
+        "title": "Ingredients：最多 3 张参考",
+        "description": "参考图引导主体和风格，让角色或产品从一条镜头到另一条都认得出来——多镜头品牌内容能成套成立、而不是每条都换演员的机制。",
+        "icon": "RiImageAddLine"
+      },
+      {
+        "title": "首尾帧控制",
+        "description": "指定开场帧与收尾帧，模型渲染两者之间的运动，音频一起出——精确的进出点让片段可串联成更长的序列。",
+        "icon": "RiFrameLine"
+      },
+      {
+        "title": "两种画幅，三档分辨率",
+        "description": "16:9 给大屏，9:16 给 Shorts 和 Reels，720p、1080p、4K 三档——一个模型覆盖投放矩阵，不用为每个渠道重做创意。",
+        "icon": "RiAspectRatioLine"
+      },
+      {
+        "title": "Google 的电影感基准",
+        "description": "Veo 3.1 是 Google DeepMind 的旗舰视频系列，电影风格与镜头语言表现突出——需求书写「电影级」三个字时，指向的就是它。",
+        "icon": "RiMovie2Line"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "定稿从这里出",
+    "description": "把成片渲染交给 Veo 3.1 的团队。",
+    "items": [
+      {
+        "name": "品牌片制片",
+        "role": "代理公司制作部",
+        "quote": "客户看到的是对白已经在片里的 4K——没有小样音轨，没有「声音后补」的对话。Veo 3.1 的输出直接进评审文档。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "品牌片制片"
+        }
+      },
+      {
+        "name": "叙事短片作者",
+        "role": "YouTube 创作者",
+        "quote": "一条 8 秒听着短，用首尾帧桥起来就不短了——我上一部三分钟的片子就是一串 Veo 3.1 镜头，参考图集里的角色全程一致。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "叙事短片作者"
+        }
+      },
+      {
+        "name": "本地化负责人",
+        "role": "流媒体平台",
+        "quote": "App 版要 9:16 带原生音频，首页主视觉要 4K 横版——同样的参考、同样的角色，一次创作会话里两个都出了。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "本地化负责人"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Veo 3.1 生成一条视频要多少积分？",
+        "answer": "Veo 3.1 Premium 在 Oddbeam 上每条 200 积分。Unlimited 套餐每条 100 积分，年付 Unlimited 降到 80。Starter 套餐不可用——Pro 套餐每月 $89.99 含 10000 积分，大约够 50 条。"
+      },
+      {
+        "question": "Veo 3.1 一条片子最长多久？",
+        "answer": "单次渲染最长 8 秒。更长的叙事用首尾帧控制和一致的参考图串联，让角色与风格在整个序列的每条镜头里保持连续。"
+      },
+      {
+        "question": "Veo 3.1 会连同音频一起生成吗？",
+        "answer": "会——原生音频是它的招牌。带口型的对白、环境声、音效与画面在同一个 pass 里生成，渲染出来就是一条完整的视听交付件，没有配音环节。"
+      },
+      {
+        "question": "Veo 3.1 支持哪些分辨率和格式？",
+        "answer": "720p、1080p、最高 4K 输出，16:9 横屏与 9:16 竖屏都支持。用 1080p 打草稿、4K 渲染定稿，或直接出竖版投放 Shorts 和 Reels。"
+      },
+      {
+        "question": "Veo 3.1 能放几张参考图？",
+        "answer": "每次生成最多 3 张。用来钉住角色长相、产品外观或场景风格——Google 的素材体系让同一套参考生成的每条片子都保持这些元素一致。"
+      },
+      {
+        "question": "Veo 3.1 和 Kling 2.5 怎么选？",
+        "answer": "要定稿选 Veo 3.1：4K、原生音频、参考锁定角色，每条 200 积分。要高动作、声音进后期选 Kling 2.5，每条 100 积分。一个出交付件，一个填动作库。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "渲染定稿，不是又一张草稿。",
+    "description": "4K、原生音频、跨镜头不换脸——Veo 3.1 每条 200 积分起，Unlimited 有免费价。",
+    "buttons": [
+      {
+        "title": "用 Veo 3.1 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

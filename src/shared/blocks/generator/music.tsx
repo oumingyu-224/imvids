@@ -445,7 +445,8 @@ export function MusicGenerator({ className, srOnlyTitle }: SongGeneratorProps) {
 
   return (
     <section id="create" className={cn('py-16 md:py-24', className)}>
-      {srOnlyTitle && <h2 className="sr-only">{srOnlyTitle}</h2>}
+      {/* 该页唯一 H1：用模型/工具页传入的标题，保证每页主题明确 */}
+      {srOnlyTitle && <h1 className="sr-only">{srOnlyTitle}</h1>}
       <div className="container">
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">

@@ -1165,31 +1165,39 @@ export function ImageGenerator({
 
   return (
     <section className={cn('w-full', className)}>
-      {srOnlyTitle && <h2 className="sr-only">{srOnlyTitle}</h2>}
       <div className="flex w-full max-w-[100vw] overflow-hidden bg-background pt-16 transition-[padding] duration-300 md:h-screen">
         <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
           <main className="workbench-main custom-scrollbar-thin flex h-full flex-col overflow-y-auto overflow-x-hidden bg-background p-2 pb-20 md:pb-2 lg:overflow-hidden">
             {/* 标题行 */}
             <div className="mb-2">
               <div className="flex items-center gap-3">
-                <h1 className="flex items-baseline gap-1.5 text-lg font-bold leading-tight text-foreground sm:text-xl md:text-xl lg:text-2xl">
-                  <span className="text-foreground">
-                    {t('workbench.title_prefix')}
-                  </span>
-                  <span className="title-gradient-text inline-block">
-                    {t('workbench.title_highlight')}
-                  </span>
-                  <span className="text-foreground">
-                    {t('workbench.title_suffix')}
-                  </span>
-                </h1>
+                {/* 传入 srOnlyTitle（模型/工具页）时 H1 用模型名，口号降级为副标题段落，保证每页只有一个主题明确的 H1 */}
+                {srOnlyTitle ? (
+                  <h1 className="flex items-baseline gap-1.5 text-lg font-bold leading-tight text-foreground sm:text-xl md:text-xl lg:text-2xl">
+                    {srOnlyTitle}
+                  </h1>
+                ) : (
+                  <h1 className="flex items-baseline gap-1.5 text-lg font-bold leading-tight text-foreground sm:text-xl md:text-xl lg:text-2xl">
+                    <span className="text-foreground">
+                      {t('workbench.title_prefix')}
+                    </span>
+                    <span className="title-gradient-text inline-block">
+                      {t('workbench.title_highlight')}
+                    </span>
+                    <span className="text-foreground">
+                      {t('workbench.title_suffix')}
+                    </span>
+                  </h1>
+                )}
                 <span className="hidden items-center gap-1 rounded-full border border-[hsl(var(--highlight))]/30 bg-[hsl(var(--highlight))]/10 px-2.5 py-0.5 text-xs font-medium text-[hsl(var(--highlight))] sm:inline-flex">
                   <Sparkles className="h-3 w-3" />
                   {t('workbench.badge')}
                 </span>
               </div>
               <p className="mt-1 text-xs text-foreground/40">
-                {t('workbench.subtitle')}
+                {srOnlyTitle
+                  ? `${t('workbench.title_prefix')} ${t('workbench.title_highlight')} ${t('workbench.title_suffix')} — ${t('workbench.subtitle')}`
+                  : t('workbench.subtitle')}
               </p>
             </div>
 

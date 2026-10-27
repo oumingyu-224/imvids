@@ -51,7 +51,11 @@ export function FAQ({
                     <AccordionTrigger className="landing-strong cursor-pointer text-base hover:no-underline">
                       {item.question || item.title || ''}
                     </AccordionTrigger>
-                    <AccordionContent>
+                    {/* forceMount：答案始终进服务端 HTML（SEO），收起态由 CSS 隐藏 */}
+                    <AccordionContent
+                      forceMount
+                      className="data-[state=closed]:hidden"
+                    >
                       <p className="landing-body text-base">
                         {item.answer || item.description || ''}
                       </p>

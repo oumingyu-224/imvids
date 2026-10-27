@@ -250,7 +250,7 @@
     "block": "features-step",
     "id": "usage",
     "title": "使用流程",
-    "description": "一个简单直接的 AI 视频与图片生成器工作流，从提示词到图片再到视频：",
+    "description": "从提示词到图片再到视频，只需三步：",
     "image": {
       "src": "/imgs/features/1.png",
       "alt": "usage"

@@ -52,6 +52,22 @@ export function getMetadata(
       locale || ''
     );
 
+    // hreflang：每页自指 —— en/x-default 指英文页，zh 指对应中文页
+    const rawPath = options.canonicalUrl || '/';
+    const isFullUrl = rawPath.startsWith('http');
+    const normalizedPath = isFullUrl
+      ? ''
+      : rawPath.startsWith('/')
+        ? rawPath
+        : `/${rawPath}`;
+    const enUrl = isFullUrl
+      ? rawPath
+      : `${envConfigs.app_url}${normalizedPath}`;
+    const zhUrl = isFullUrl
+      ? rawPath
+      : `${envConfigs.app_url}/zh${normalizedPath === '/' ? '' : normalizedPath}`;
+    const languages = { en: enUrl, zh: zhUrl, 'x-default': enUrl };
+
     const title =
       passedMetadata.title || translatedMetadata.title || defaultMetadata.title;
     const description =
@@ -88,6 +104,7 @@ export function getMetadata(
         defaultMetadata.keywords,
       alternates: {
         canonical: canonicalUrl,
+        languages,
       },
 
       openGraph: {
@@ -105,7 +122,6 @@ export function getMetadata(
         title,
         description,
         images: [imageUrl.toString()],
-        site: envConfigs.app_url,
       },
 
       robots: {

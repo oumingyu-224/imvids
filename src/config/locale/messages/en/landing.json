@@ -153,7 +153,7 @@
   "showcases-flow": {
     "id": "showcases",
     "title": "Community Showcases",
-    "description": "Real images and videos created with the ai image and video generator workflows on Oddbeam.",
+    "description": "Real images and videos created by the Oddbeam community.",
     "items": [
       {
         "title": "Showcase 1",
@@ -250,7 +250,7 @@
     "block": "features-step",
     "id": "usage",
     "title": "How it works",
-    "description": "A simple ai video and image generator workflow that takes you from prompt to image to video:",
+    "description": "From prompt to image to video in three simple steps:",
     "image": {
       "src": "/imgs/features/1.png",
       "alt": "usage"

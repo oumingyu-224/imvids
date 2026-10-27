@@ -26,7 +26,7 @@ export const envConfigs: ConfigMap = {
   app_url: normalizeAppUrl(
     process.env.NEXT_PUBLIC_APP_URL ?? 'https://www.chatgptimage2.app'
   ),
-  app_name: process.env.NEXT_PUBLIC_APP_NAME ?? 'chatgptimage2',
+  app_name: process.env.NEXT_PUBLIC_APP_NAME ?? 'Oddbeam',
   app_description: process.env.NEXT_PUBLIC_APP_DESCRIPTION ?? '',
   app_logo: process.env.NEXT_PUBLIC_APP_LOGO ?? '/logo.png',
   app_favicon: process.env.NEXT_PUBLIC_APP_FAVICON ?? '/favicon.ico',

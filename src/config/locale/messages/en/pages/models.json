@@ -12,6 +12,7 @@
     "audio": "Audio Models"
   },
   "credit_unit": "credits per run",
+  "coming_soon": "Details page coming soon",
   "params": {
     "seedance-2-5": "Up to 30s per run, 480P–1080P, accepts text/image/video/audio input",
     "seedance-2-0": "Up to 15s per run, 480P–1080P, accepts text/image/video input",

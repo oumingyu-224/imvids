@@ -1,5 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 
+import { buildPricingAggregateOffer } from '@/config/constants/pricing';
 import { homeLandingPageConfig } from '@/config/landing-pages';
 import { envConfigs } from '@/config';
 import { JsonLd } from '@/shared/blocks/common/json-ld';
@@ -9,7 +10,7 @@ import { LandingPageRenderer } from './landing-page-renderer';
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
-// 首页 JSON-LD：Organization + WebSite + SoftwareApplication（三档真实价格）
+// 首页 JSON-LD：Organization + WebSite + SoftwareApplication（全部真实档位）
 function buildHomeJsonLd() {
   const appName = envConfigs.app_name || 'Oddbeam';
   const appUrl = envConfigs.app_url;
@@ -40,33 +41,7 @@ function buildHomeJsonLd() {
           applicationCategory: 'MultimediaApplication',
           operatingSystem: 'Web',
           url: appUrl,
-          offers: {
-            '@type': 'AggregateOffer',
-            priceCurrency: 'USD',
-            lowPrice: '29.99',
-            highPrice: '149.99',
-            offerCount: 3,
-            offers: [
-              {
-                '@type': 'Offer',
-                name: 'Starter',
-                price: '29.99',
-                priceCurrency: 'USD',
-              },
-              {
-                '@type': 'Offer',
-                name: 'Pro',
-                price: '89.99',
-                priceCurrency: 'USD',
-              },
-              {
-                '@type': 'Offer',
-                name: 'Unlimited',
-                price: '149.99',
-                priceCurrency: 'USD',
-              },
-            ],
-          },
+          offers: buildPricingAggregateOffer(),
         }}
       />
     </>

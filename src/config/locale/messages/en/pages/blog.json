@@ -1,20 +1,20 @@
 {
   "metadata": {
-    "title": "Blog",
-    "description": "Read the latest ChatGPT Image 2 articles, workflow tips, feature updates, and practical guidance for image generation, editing, and visual content production."
+    "title": "Oddbeam Blog | AI Image and Video Guides",
+    "description": "Guides and workflow tips for AI image and video generation on Oddbeam — prompting, editing, and visual content production."
   },
   "blog": {
     "id": "blog",
-    "sr_only_title": "ChatGPT Image 2 Blog",
-    "title": "Blog",
+    "sr_only_title": "Oddbeam Blog",
+    "title": "",
     "description": "Read about our latest product features, solutions, and updates."
   },
   "page": {
-    "title": "ChatGPT Image 2 Blog",
+    "title": "Oddbeam Blog",
     "sections": {
       "blog": {
         "id": "blog",
-        "title": "Blog",
+        "title": "",
         "description": "Read about our latest product features, solutions, and updates."
       }
     }

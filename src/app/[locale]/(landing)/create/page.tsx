@@ -9,6 +9,8 @@ import { DynamicPage } from '@/shared/types/blocks/landing';
 export const generateMetadata = getMetadata({
   metadataKey: 'pages.create.metadata',
   canonicalUrl: '/create',
+  // 工作台页不参与索引，仅允许跟进链接
+  noIndex: true,
 });
 
 export default async function CreatePage({
@@ -33,12 +35,12 @@ export default async function CreatePage({
     sections: {
       "features": {
         "block": "custom-features",
-        sr_only_title: t.raw('page.title'),
-        title: t.raw('page.title'),
+        title: '',
         description: t.raw('page.description'),
       },
       generator: {
-        component: <ImageGenerator srOnlyTitle={t.raw('generator.title')} promptKey={promptKey} />,
+        // 全页唯一可见 H1
+        component: <ImageGenerator srOnlyTitle={t.raw('page.title')} promptKey={promptKey} />,
       },
       faq: {
         // BUG-12：FAQ 随生成器模式（图片/视频）切换

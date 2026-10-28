@@ -1,14 +1,14 @@
 {
   "metadata": {
-    "title": "ChatGPT Image 2 Generator",
-    "description": "Generate and edit images with ChatGPT Image 2 using detailed prompts and reference images for stronger control, cleaner outputs, and commercial-ready visuals."
+    "title": "AI Workspace — Create Images and Videos | Oddbeam",
+    "description": "The Oddbeam workspace for creating and editing AI images and videos with detailed prompts and reference images."
   },
   "page": {
-    "title": "ChatGPT Image 2 Generator",
-    "description": "Create and refine visuals with ChatGPT Image 2 for text-to-image and image-to-image workflows."
+    "title": "AI Workspace",
+    "description": "Create and edit AI images and videos with detailed prompts and reference images."
   },
   "generator": {
-    "title": "ChatGPT Image 2 Generator",
+    "title": "AI Workspace",
     "description": "Use ChatGPT Image 2 for high-quality image generation and editing with strong prompt control.",
     "tabs": {
       "text-to-image": "Text to Image",

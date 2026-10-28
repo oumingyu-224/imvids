@@ -1,16 +1,16 @@
 {
   "metadata": {
-    "title": "ChatGPT Image 2 Pricing",
-    "description": "Choose a ChatGPT Image 2 plan for image generation and editing, with flexible credits, subscription options, and support for higher-volume visual workflows."
+    "title": "AI Video & Image Generator Pricing | Oddbeam",
+    "description": "Choose an Oddbeam plan for AI video and image generation — flexible credits, subscription tiers, and support for high-volume visual workflows."
   },
   "pricing": {
     "id": "pricing",
     "promo": {
       "badge": "Yearly exclusive",
       "title": "Seedance 2.5 is here!",
-      "title_accent": "Up to 10% off!",
-      "copy": "Seedance 2.5 is now live! Yearly users get 10% off Basic and Enhanced models, and up to 50% off Seedance 2.5. Offer ends November 30, 2026.",
-      "footnote": "10% off Basic and Enhanced models, up to 50% off Seedance 2.5 — yearly users only.",
+      "title_accent": "{discount}!",
+      "copy": "Get {discount} on all Pro plans for a limited time. Offer ends November 30, 2026.",
+      "footnote": "{discount} on all Pro plans — limited time.",
       "cta": "Try it now"
     },
     "sr_only_title": "Pricing plans",
@@ -346,7 +346,7 @@
         "total_price_note": "$100/yr billed annually",
         "unit": "/ mo",
         "is_featured": false,
-        "tip": "$0.10 /video (97% off)",
+        "tip": "$0.10 /video",
         "button": {
           "title": "Subscribe",
           "url": "/#pricing",
@@ -357,10 +357,9 @@
         "plan_name": "Starter Yearly",
         "credits": 10000,
         "credits_videos": "1,000 videos",
-        "per_video_discount": "(97% off)",
         "valid_days": 365,
         "group": "yearly",
-        "discount_text": "· 20% off",
+        "discount_text": "· {percent_off}% off",
         "per_video_price": "$0.10"
       },
       {
@@ -449,7 +448,7 @@
         "credits_videos": "Unlimited videos",
         "valid_days": 365,
         "group": "yearly",
-        "discount_text": "· 50% off",
+        "discount_text": "· {percent_off}% off",
         "per_video_price": "~ $0.001"
       },
       {
@@ -516,10 +515,9 @@
         "plan_name": "Pro Yearly",
         "credits": 32000,
         "credits_videos": "3,200 videos",
-        "per_video_discount": "(97% off)",
         "valid_days": 365,
         "group": "yearly",
-        "discount_text": "· 30% off",
+        "discount_text": "· {percent_off}% off",
         "per_video_price": "$0.09"
       },
       {

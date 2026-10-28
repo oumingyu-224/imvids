@@ -39,6 +39,9 @@ const nextConfig = {
       // 历史坏链 301 到工作台
       { source: '/seedance-prompts', destination: '/create', permanent: true, locale: false },
       { source: '/zh/seedance-prompts', destination: '/zh/create', permanent: true, locale: false },
+      // 博客占位 slug 301 到真实主题 slug
+      { source: '/blog/what-is-xxx', destination: '/blog/what-is-chatgpt-image-2', permanent: true, locale: false },
+      { source: '/zh/blog/what-is-xxx', destination: '/zh/blog/what-is-chatgpt-image-2', permanent: true, locale: false },
     ];
   },
   async headers() {

@@ -16,6 +16,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 
 import { SmartIcon } from '@/shared/blocks/common';
+import { applyPromo } from '@/config/constants/promo';
 import { PaymentModal } from '@/shared/blocks/payment/payment-modal';
 import { Button } from '@/shared/components/ui/button';
 import { CardContent, CardHeader } from '@/shared/components/ui/card';
@@ -661,9 +662,6 @@ export function PricingPlans({
     <>
       {!hideHeader && (
         <div className="flex flex-col items-center justify-start">
-          {pricing.sr_only_title && (
-            <h1 className="sr-only">{pricing.sr_only_title}</h1>
-          )}
           <div className="mx-auto mb-8 flex max-w-3xl flex-col items-center sm:mb-10">
             <h1 className="text-center text-2xl font-bold tracking-tight text-card-foreground sm:text-4xl lg:text-5xl">
               {pricing.title}
@@ -804,7 +802,7 @@ export function PricingPlans({
                     boxShadow: '0 0 12px rgba(255, 169, 77, 0.55)',
                   }}
                 >
-                  {displayedItem.discount_text}
+                  {applyPromo(displayedItem.discount_text, locale)}
                 </span>
               )}
               <CardHeader className={cn(compact ? 'p-4 pb-3 sm:p-4 sm:pb-3' : 'p-0 pb-0')}>

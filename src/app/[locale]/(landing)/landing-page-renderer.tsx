@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getThemePage } from '@/core/theme';
+import { buildPricingAggregateOffer } from '@/config/constants/pricing';
 import {
   type LandingPageConfig,
 } from '@/config/landing-pages';
@@ -197,33 +198,7 @@ export async function LandingPageRenderer({
             operatingSystem: 'Web',
             url: `${envConfigs.app_url}/${currentSlug}`,
             description,
-            offers: {
-              '@type': 'AggregateOffer',
-              priceCurrency: 'USD',
-              lowPrice: '29.99',
-              highPrice: '149.99',
-              offerCount: 3,
-              offers: [
-                {
-                  '@type': 'Offer',
-                  name: 'Starter',
-                  price: '29.99',
-                  priceCurrency: 'USD',
-                },
-                {
-                  '@type': 'Offer',
-                  name: 'Pro',
-                  price: '89.99',
-                  priceCurrency: 'USD',
-                },
-                {
-                  '@type': 'Offer',
-                  name: 'Unlimited',
-                  price: '149.99',
-                  priceCurrency: 'USD',
-                },
-              ],
-            },
+            offers: buildPricingAggregateOffer(),
           }}
         />
         {faqEntities.length ? (

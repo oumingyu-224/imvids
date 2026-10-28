@@ -72,6 +72,8 @@ export interface Hero extends Section {
   avatars_tip?: string;
   show_award?: boolean;
   highlight_text?: string;
+  /** 首页 hero 三层结构：kicker 存在时启用 kicker + h1 + p.hero-sub 新结构 */
+  kicker?: string;
 }
 
 export interface Logos extends Section {}

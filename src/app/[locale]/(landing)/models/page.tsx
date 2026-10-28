@@ -31,14 +31,23 @@ const MODEL_ID_TO_SLUG: Record<string, string> = {
   'grok-imagine-image': 'grok-imagine-image',
 };
 
+/** 标点按语言区分：中文全角逗号，其余半角 */
+function joinComma(locale: string): string {
+  return locale === 'zh' ? '，' : ', ';
+}
+
 function ModelRows({
   models,
   params,
   creditUnit,
+  comingSoonLabel,
+  comma,
 }: {
   models: GeneratorModel[];
   params: Record<string, string>;
   creditUnit: string;
+  comingSoonLabel: string;
+  comma: string;
 }) {
   return (
     <ul className="landing-panel divide-y rounded-2xl border px-6 py-2">
@@ -57,13 +66,18 @@ function ModelRows({
                   {model.name}
                 </Link>
               ) : (
-                model.name
+                <span className="landing-muted">
+                  {model.name}
+                  <span className="ml-2 rounded-full border px-2 py-0.5 text-xs font-normal opacity-75">
+                    {comingSoonLabel}
+                  </span>
+                </span>
               )}
               <span className="landing-muted font-normal">
                 {' — '}
                 {paramLine}
                 {typeof credits === 'number'
-                  ? `${paramLine ? '，' : ''}${credits} ${creditUnit}`
+                  ? `${paramLine ? comma : ''}${credits} ${creditUnit}`
                   : ''}
               </span>
             </p>
@@ -85,6 +99,8 @@ export default async function ModelsPage({
   const t = await getTranslations('pages.models');
   const params_ = t.raw('params') as Record<string, string>;
   const creditUnit = t.raw('credit_unit') as string;
+  const comingSoonLabel = t.raw('coming_soon') as string;
+  const comma = joinComma(locale);
 
   const videoModels = VIDEO_MODELS.filter((m) => !m.hidden);
   const imageModels = IMAGE_MODELS.filter((m) => !m.hidden);
@@ -119,6 +135,8 @@ export default async function ModelsPage({
                 models={group.models}
                 params={params_}
                 creditUnit={creditUnit}
+                comingSoonLabel={comingSoonLabel}
+                comma={comma}
               />
             </section>
           ))}

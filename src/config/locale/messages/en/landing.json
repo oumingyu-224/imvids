@@ -6,11 +6,11 @@
     "brand": "Oddbeam",
     "models": "Models",
     "pages": {
-      "/ai-video-generator": "AI Video Generator",
-      "/ai-image-generator": "AI Image Generator",
-      "/pricing": "Pricing",
-      "/updates": "Updates",
-      "/blog": "Blog"
+      "ai-video-generator": "AI Video Generator",
+      "ai-image-generator": "AI Image Generator",
+      "pricing": "Pricing",
+      "updates": "Updates",
+      "blog": "Blog"
     }
   },
   "header": {
@@ -152,12 +152,6 @@
               "url": "/ai-music-generator",
               "target": "_self",
               "description": "Generate music from a prompt"
-            },
-            {
-              "title": "Showcases",
-              "url": "/showcases",
-              "target": "_self",
-              "description": "Real images and videos from the community"
             }
           ]
         },
@@ -192,8 +186,8 @@
   },
   "hero": {
     "id": "hero",
-    "title": "All-in-One AI Video and Image Generator",
-    "description": "One workflow, from image to video. Generate images, animate them into video, and edit both — Seedance, Seedream, Veo, Wan, Kling, Nano Banana, Flux and Grok in one place.",
+    "title": "AI Video and Image Generator",
+    "description": "Generate images and videos with AI — animate an image into video, edit both in one workspace.",
     "trust_items": [
       "Free credits to start",
       "Up to 4K",
@@ -221,7 +215,8 @@
     "background_image": {
       "src": "",
       "alt": "hero"
-    }
+    },
+    "kicker": "AI Video + Image Studio"
   },
   "showcases-flow": {
     "id": "showcases",
@@ -323,7 +318,7 @@
     "block": "features-step",
     "id": "usage",
     "title": "How it works",
-    "description": "From prompt to image to video in three simple steps:",
+    "description": "From prompt to image to video in four simple steps:",
     "image": {
       "src": "/imgs/features/1.png",
       "alt": "usage"

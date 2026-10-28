@@ -1,11 +1,15 @@
 'use client';
 
 import { ArrowUpRight, Sparkles } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+
+import { applyPromo } from '@/config/constants/promo';
 
 // promo-bubble 模块：原样复制自 价格修改/sv-onetime.html
 export function PricingPromo() {
+  const t = useLocale();
   const tp = useTranslations('pages.pricing.pricing.promo');
+  const promo = (key: string) => applyPromo(tp(key), t);
 
   return (
     <button
@@ -23,22 +27,22 @@ export function PricingPromo() {
             className="lucide lucide-sparkles h-3 w-3"
             aria-hidden="true"
           />
-          <span>{tp('badge')}</span>
+          <span>{promo('badge')}</span>
         </span>
         <span className="flex max-w-4xl flex-col gap-1.5">
           <span className="promo-bubble-title">
-            {tp('title')}
-            <span className="promo-bubble-title-accent"> {tp('title_accent')}</span>
+            {promo('title')}
+            <span className="promo-bubble-title-accent"> {promo('title_accent')}</span>
           </span>
-          <span className="promo-bubble-copy">{tp('copy')}</span>
+          <span className="promo-bubble-copy">{promo('copy')}</span>
         </span>
       </span>
       <span className="relative z-10 flex w-full items-center justify-between gap-3">
         <span className="promo-bubble-footnote hidden sm:inline">
-          {tp('footnote')}
+          {promo('footnote')}
         </span>
         <span className="promo-bubble-cta">
-          {tp('cta')}
+          {promo('cta')}
           <ArrowUpRight
             className="lucide lucide-arrow-up-right h-4 w-4"
             aria-hidden="true"

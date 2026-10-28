@@ -1,14 +1,14 @@
 {
   "metadata": {
-    "title": "ChatGPT Image 2 生成器",
-    "description": "使用 ChatGPT Image 2 通过提示词和参考图生成、编辑图像。"
+    "title": "AI 工作台 — 创建图片和视频 | Oddbeam",
+    "description": "Oddbeam 工作台：用详细提示词与参考图创建和编辑 AI 图片与视频。"
   },
   "page": {
-    "title": "ChatGPT Image 2 生成器",
-    "description": "使用 ChatGPT Image 2 完成文生图和图生图工作流，生成并精修视觉内容。"
+    "title": "AI 工作台",
+    "description": "用详细提示词与参考图创建和编辑 AI 图片与视频。"
   },
   "generator": {
-    "title": "ChatGPT Image 2 生成器",
+    "title": "AI 工作台",
     "description": "使用 ChatGPT Image 2 进行高质量图像生成与编辑，获得更强的提示词控制能力。",
     "tabs": {
       "text-to-image": "文生图",

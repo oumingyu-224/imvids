@@ -1,16 +1,16 @@
 {
   "metadata": {
-    "title": "ChatGPT Image 2 价格",
-    "description": "选择适合的方案，使用 ChatGPT Image 2 进行图像生成与编辑。"
+    "title": "AI 视频与图片生成器价格 | Oddbeam",
+    "description": "选择 Oddbeam 套餐进行 AI 视频与图片生成——灵活积分、多档订阅，支持大批量视觉创作。"
   },
   "pricing": {
     "id": "pricing",
     "promo": {
       "badge": "年费专属",
       "title": "Seedance 2.5 正式上线！",
-      "title_accent": "最高九折优惠！",
-      "copy": "Seedance 2.5 现已上线！年费用户可享基础和增强模型九折优惠，Seedance 2.5 最高五折优惠。优惠截止至2026年11月30日。",
-      "footnote": "基础和增强模型九折，Seedance 2.5 最高五折优惠，年费用户专享。",
+      "title_accent": "{discount}！",
+      "copy": "限时 Pro 套餐 {discount}。优惠截止至 2026 年 11 月 30 日。",
+      "footnote": "Pro 套餐 {discount}，限时专享。",
       "cta": "立即试用"
     },
     "sr_only_title": "定价方案",
@@ -356,7 +356,7 @@
         "total_price_note": "$100/年 按年计费",
         "unit": "/ 月",
         "is_featured": false,
-        "tip": "$0.10 /video（97% off）",
+        "tip": "$0.10 /video",
         "button": {
           "title": "立即订阅",
           "url": "/#pricing",
@@ -369,10 +369,9 @@
         "credit_accent": "#abbbcc",
         "credits_videos": "1,000 个视频",
         "per_video_price": "$0.10",
-        "per_video_discount": "(97% off)",
         "valid_days": 365,
         "group": "yearly",
-        "discount_text": "· 20% off"
+        "discount_text": "· {discount}"
       },
       {
         "title": "无限制",
@@ -462,7 +461,7 @@
         "per_video_price": "~ $0.001",
         "valid_days": 365,
         "group": "yearly",
-        "discount_text": "· 50% off"
+        "discount_text": "· {discount}"
       },
       {
         "title": "专业版",
@@ -549,10 +548,9 @@
         "credit_accent": "#ffb475",
         "credits_videos": "3,200 个视频",
         "per_video_price": "$0.09",
-        "per_video_discount": "(97% off)",
         "valid_days": 365,
         "group": "yearly",
-        "discount_text": "· 30% off"
+        "discount_text": "· {discount}"
       },
       {
         "features": [

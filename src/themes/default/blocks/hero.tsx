@@ -104,27 +104,50 @@ export function Hero({
         )}
 
         <div className="relative mx-auto max-w-5xl px-4 text-center">
-          <motion.div {...createFadeInVariant(0.15)}>
-            {texts && texts.length > 0 ? (
-              <h1 className="landing-title mx-auto max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-balance sm:mt-5 sm:text-6xl md:text-7xl">
-                {texts[0]}
-                <span className="bg-[linear-gradient(90deg,#637dff_0%,#9f67ff_48%,#ff5fa8_100%)] bg-clip-text text-transparent">
-                  {highlightText}
-                </span>
-                {texts[1]}
-              </h1>
-            ) : (
-              <h1 className="landing-title mx-auto max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-balance sm:mt-5 sm:text-6xl md:text-7xl">
-                {section.title}
-              </h1>
-            )}
-          </motion.div>
+          {section.kicker ? (
+            // 首页新结构：kicker 在 h1 外上方，h1 只放核心词，副标题是 h1 的兄弟 <p>
+            <motion.div {...createFadeInVariant(0.15)}>
+              <div className="hero-kicker">{section.kicker}</div>
+              <h1 className="hero-h1">{section.title}</h1>
+              <motion.p
+                {...createFadeInVariant(0.3)}
+                className="hero-sub"
+                dangerouslySetInnerHTML={{ __html: section.description ?? '' }}
+              />
+            </motion.div>
+          ) : texts && texts.length > 0 ? (
+            <>
+              <motion.div {...createFadeInVariant(0.15)}>
+                <h1 className="landing-title mx-auto max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-balance sm:mt-5 sm:text-6xl md:text-7xl">
+                  {texts[0]}
+                  <span className="bg-[linear-gradient(90deg,#637dff_0%,#9f67ff_48%,#ff5fa8_100%)] bg-clip-text text-transparent">
+                    {highlightText}
+                  </span>
+                  {texts[1]}
+                </h1>
+              </motion.div>
 
-          <motion.p
-            {...createFadeInVariant(0.3)}
-            className="landing-body mx-auto mt-4 mb-6 max-w-3xl text-[15px] leading-6 text-balance sm:text-[17px]"
-            dangerouslySetInnerHTML={{ __html: section.description ?? '' }}
-          />
+              <motion.p
+                {...createFadeInVariant(0.3)}
+                className="landing-body mx-auto mt-4 mb-6 max-w-3xl text-[15px] leading-6 text-balance sm:text-[17px]"
+                dangerouslySetInnerHTML={{ __html: section.description ?? '' }}
+              />
+            </>
+          ) : (
+            <>
+              <motion.div {...createFadeInVariant(0.15)}>
+                <h1 className="landing-title mx-auto max-w-4xl text-5xl font-semibold tracking-[-0.06em] text-balance sm:mt-5 sm:text-6xl md:text-7xl">
+                  {section.title}
+                </h1>
+              </motion.div>
+
+              <motion.p
+                {...createFadeInVariant(0.3)}
+                className="landing-body mx-auto mt-4 mb-6 max-w-3xl text-[15px] leading-6 text-balance sm:text-[17px]"
+                dangerouslySetInnerHTML={{ __html: section.description ?? '' }}
+              />
+            </>
+          )}
 
           {primaryButton && (
             <motion.div

@@ -6,11 +6,11 @@
     "brand": "Oddbeam",
     "models": "模型",
     "pages": {
-      "/ai-video-generator": "AI 视频生成器",
-      "/ai-image-generator": "AI 图片生成器",
-      "/pricing": "价格",
-      "/updates": "更新",
-      "/blog": "博客"
+      "ai-video-generator": "AI 视频生成器",
+      "ai-image-generator": "AI 图片生成器",
+      "pricing": "价格",
+      "updates": "更新",
+      "blog": "博客"
     }
   },
   "header": {
@@ -152,12 +152,6 @@
               "url": "/ai-music-generator",
               "target": "_self",
               "description": "一段提示词生成 AI 音乐"
-            },
-            {
-              "title": "灵感案例",
-              "url": "/showcases",
-              "target": "_self",
-              "description": "社区真实图片与视频作品"
             }
           ]
         },
@@ -192,8 +186,8 @@
   },
   "hero": {
     "id": "hero",
-    "title": "一站式 AI 视频与图片生成器",
-    "description": "一个工作流，从图片到视频。生成图片、把图片动起来变成视频，并对两者进行编辑 —— Seedance、Seedream、Veo、Wan、Kling、Nano Banana、Flux 和 Grok，全部在一个平台完成。",
+    "title": "AI 视频与图片生成器",
+    "description": "用 AI 生成图片和视频——把图片动成视频，两者都能在同一个工作台里编辑。",
     "trust_items": [
       "免费积分可直接开始",
       "最高支持 4K",
@@ -221,7 +215,8 @@
     "background_image": {
       "src": "",
       "alt": "hero"
-    }
+    },
+    "kicker": "AI 视频 + 图片工作室"
   },
   "showcases-flow": {
     "id": "showcases",
@@ -323,7 +318,7 @@
     "block": "features-step",
     "id": "usage",
     "title": "使用流程",
-    "description": "从提示词到图片再到视频，只需三步：",
+    "description": "从提示词到图片再到视频，只需四步：",
     "image": {
       "src": "/imgs/features/1.png",
       "alt": "usage"

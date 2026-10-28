@@ -8,11 +8,18 @@ export interface BreadcrumbItem {
   href?: string;
 }
 
+/** 识别未翻译的 i18n key（如 landing.breadcrumb.pages.pricing）：含两个以上点且无空格 */
+function isI18nKey(name: string): boolean {
+  return /^[a-z0-9_.-]+\.[a-z0-9_.-]+(\.[a-z0-9_.-]+)+$/i.test(name) && !name.includes(' ');
+}
+
 /**
  * 全站面包屑：可见 <nav aria-label="breadcrumb"><ol> 与 BreadcrumbList JSON-LD
  * 由同一份 items 驱动，保证逐字一致；最后一级为当前页（无链接、无 item URL）。
+ * 兜底：形如 i18n key 的 name 不渲染、不进 JSON-LD，避免把内部 key 泄漏给搜索引擎。
  */
-export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+export function Breadcrumbs({ items: rawItems }: { items: BreadcrumbItem[] }) {
+  const items = rawItems.filter((item) => !isI18nKey(item.name));
   if (!items.length) {
     return null;
   }

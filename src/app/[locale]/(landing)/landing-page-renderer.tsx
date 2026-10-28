@@ -5,6 +5,10 @@ import {
   type LandingPageConfig,
 } from '@/config/landing-pages';
 import { PromptShowcase } from '@/shared/blocks/common/prompt-showcase';
+import { RelatedModels } from '@/shared/blocks/common/related-models';
+import { Breadcrumbs } from '@/shared/blocks/common/breadcrumbs';
+import { JsonLd } from '@/shared/blocks/common/json-ld';
+import { envConfigs } from '@/config';
 import { GeneratorErrorBoundary } from '@/shared/blocks/common/generator-error-boundary';
 import {
   getCurrentSubscription,
@@ -115,6 +119,20 @@ export async function LandingPageRenderer({
               </div>
             ),
           };
+        } else if (section === 'related-models') {
+          // 模型页底部「相关系链接区」：同系列模型页 + 功能页，数据来自 MODEL_PAGES 注册表
+          const currentSlug = config.namespace.replace('models.', '');
+          acc[section] = {
+            component: (
+              <RelatedModels
+                key="related-models"
+                currentSlug={currentSlug}
+                title={landingT.raw('related_models_title') || undefined}
+                videoLabel={landingT.raw('related_func_video') || undefined}
+                imageLabel={landingT.raw('related_func_image') || undefined}
+              />
+            ),
+          };
         } else if (section === 'pricing') {
           const pricingT = landingT;
           const { sr_only_title, ...pricing } = pricingT.raw('pricing');
@@ -149,16 +167,122 @@ export async function LandingPageRenderer({
   // load page component
   const Page = await getThemePage('dynamic-page');
 
+  // 模型页 JSON-LD：SoftwareApplication（三档真实价格）+ FAQPage（与页面可见 FAQ 逐字一致）
+  const isModelPage = config.namespace.startsWith('models.');
+  let modelJsonLd: React.ReactNode = null;
+  if (isModelPage) {
+    const currentSlug = config.namespace.replace('models.', '');
+    const modelName = String(t.raw('generator.title') || currentSlug);
+    const description = String(t.raw('metadata.description') || '');
+    const faqItems = (t.raw('faq.items') || []) as Array<{
+      question?: string;
+      answer?: string;
+    }>;
+    const faqEntities = faqItems
+      .filter((item) => item.question && item.answer)
+      .map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+      }));
+
+    modelJsonLd = (
+      <>
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'SoftwareApplication',
+            name: modelName,
+            applicationCategory: 'MultimediaApplication',
+            operatingSystem: 'Web',
+            url: `${envConfigs.app_url}/${currentSlug}`,
+            description,
+            offers: {
+              '@type': 'AggregateOffer',
+              priceCurrency: 'USD',
+              lowPrice: '29.99',
+              highPrice: '149.99',
+              offerCount: 3,
+              offers: [
+                {
+                  '@type': 'Offer',
+                  name: 'Starter',
+                  price: '29.99',
+                  priceCurrency: 'USD',
+                },
+                {
+                  '@type': 'Offer',
+                  name: 'Pro',
+                  price: '89.99',
+                  priceCurrency: 'USD',
+                },
+                {
+                  '@type': 'Offer',
+                  name: 'Unlimited',
+                  price: '149.99',
+                  priceCurrency: 'USD',
+                },
+              ],
+            },
+          }}
+        />
+        {faqEntities.length ? (
+          <JsonLd
+            data={{
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: faqEntities,
+            }}
+          />
+        ) : null}
+      </>
+    );
+  }
+
+  // 面包屑（可见 nav>ol + BreadcrumbList JSON-LD 同源）：
+  // - 模型页：Oddbeam > 模型 > <模型名>（URL 保持扁平，层级由面包屑表达）
+  // - 功能页（ai-video-generator / ai-image-generator）：Oddbeam > <页面名> 两级
+  // - 首页不输出面包屑
+  const breadcrumbItems = (() => {
+    const brand = String(landingT.raw('breadcrumb.brand') || 'Oddbeam');
+    if (isModelPage) {
+      const currentSlug = config.namespace.replace('models.', '');
+      const modelName = String(t.raw('generator.title') || currentSlug);
+      return [
+        { name: brand, href: '/' },
+        { name: String(landingT.raw('breadcrumb.models') || 'Models'), href: '/models' },
+        { name: modelName },
+      ];
+    }
+    const canonicalUrl = config.metadata?.canonicalUrl;
+    const pageName = canonicalUrl
+      ? landingT.raw(`breadcrumb.pages.${canonicalUrl.replace(/^\//, '').replace(/\//g, '.')}`)
+      : null;
+    if (canonicalUrl && typeof pageName === 'string' && pageName) {
+      return [{ name: brand, href: '/' }, { name: pageName }];
+    }
+    return null;
+  })();
+
   return (
-    <GeneratorErrorBoundary>
-      <LandingGeneratorToggle
-        generator={config.workbenchGenerator}
-        landing={<Page locale={locale} page={page} />}
-        generatorSrOnlyTitle={t.raw('generator.title')}
-        promptKey={promptKey}
-        modeLocked={config.lockedMode}
-        currentSubscription={currentSubscription}
-      />
-    </GeneratorErrorBoundary>
+    <>
+      {modelJsonLd}
+      {breadcrumbItems ? (
+        <div className="mx-auto w-full max-w-7xl px-4 pt-6 md:px-8">
+          <Breadcrumbs items={breadcrumbItems} />
+        </div>
+      ) : null}
+      <GeneratorErrorBoundary>
+        <LandingGeneratorToggle
+          generator={config.workbenchGenerator}
+          landing={<Page locale={locale} page={page} />}
+          generatorSrOnlyTitle={t.raw('generator.title')}
+          promptKey={promptKey}
+          modeLocked={config.lockedMode}
+          defaultModel={config.defaultModel}
+          currentSubscription={currentSubscription}
+        />
+      </GeneratorErrorBoundary>
+    </>
   );
 }

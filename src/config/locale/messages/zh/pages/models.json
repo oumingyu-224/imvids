@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "title": "Oddbeam AI 模型 — 视频与图像生成",
+    "description": "Oddbeam 全部 AI 视频与图像模型一览：一个账号、同一积分池。按时长、分辨率与单次积分对比各模型，直接进工作台生成。"
+  },
+  "h1": "Oddbeam AI 模型",
+  "intro": "一个 Oddbeam 账号解锁全部 AI 模型：视频与图像生成共用同一积分池，无需分别订阅。按用途在下方挑选模型，或在工作台内随时切换。",
+  "sr_only_title": "AI 模型",
+  "groups": {
+    "video": "视频模型",
+    "image": "图像模型",
+    "audio": "音频模型"
+  },
+  "credit_unit": "积分/次",
+  "params": {
+    "seedance-2-5": "单次最长 30 秒，480P–1080P，支持文本/图片/视频/音频输入",
+    "seedance-2-0": "单次最长 15 秒，480P–1080P，支持文本/图片/视频输入",
+    "seedance-2-0-fast": "单次最长 15 秒，480P–1080P，Seedance 2.0 提速版",
+    "seedance-2-0-mini": "单次最长 15 秒，480P–1080P，Seedance 2.0 轻量版",
+    "veo-3-1-premium": "单次 8 秒，最高 4K，原生音频，支持尾帧",
+    "veo-3-1-lite": "单次 8 秒，支持尾帧与多图参考",
+    "kling-2-5": "单次最长 10 秒，强化动作与物理表现，无音频",
+    "kling-2-1-master": "单次 10 秒，支持文本和图片输入",
+    "kling-2-1-pro": "单次 10 秒，支持尾帧，仅图片输入",
+    "wan-3-0": "单次最长 30 秒，支持文档/网页输入与多模态参考",
+    "wan-3-0-prime": "单次最长 30 秒，支持首尾帧与多模态参考",
+    "wan-2-5": "单次 10 秒，HD 输出",
+    "minimax-h3": "单次最长 15 秒，支持尾帧与多图参考，全模态输入输出",
+    "minimax-h3-max-turbo": "单次 5–15 秒，支持尾帧，极速出片",
+    "gemini-omni-flash-1-1": "单次 4–10 秒，支持文本、首尾帧、视频、音频与角色参考",
+    "gemini-omni": "单次 4–10 秒，支持文本、图片、视频、音频与角色参考",
+    "ltx-2-5-fast": "单次 2–20 秒，支持尾帧，快速生成",
+    "pixverse-v6": "单次 1–15 秒，HD 输出，支持尾帧、多图与多分镜",
+    "seedance-1-5-pro": "单次 8 秒，支持尾帧",
+    "grok-imagine-video": "单次约 5 秒，支持文本和图片输入",
+    "runway-gen-4": "单次 10 秒，支持文本和图片输入",
+    "gpt-images-2-5-flare": "5+ 张参考图，多图输入，HD 输出，文字渲染准确",
+    "seedream-4": "支持文本和图片输入，一次生成成套多图",
+    "seedream-5-lite": "会查资料的轻量图片模型，支持文本和图片输入",
+    "nano-banana-pro": "搜索接地，14 张参考图，5 个一致人物，HD 输出",
+    "nano-banana-2": "多轮局部编辑不跑偏，支持文本和图片输入",
+    "nano-banana": "支持文本和图片输入",
+    "flux-kontext-pro": "上下文感知局部编辑，支持文本和图片输入",
+    "flux-kontext-max": "上下文感知局部编辑，8 倍提速档",
+    "grok-imagine-image": "指哪改哪的局部编辑，5 张参考图，智能改比例",
+    "qwen-image-edit": "仅图片编辑",
+    "gpt-4o-image": "支持文本和图片输入"
+  },
+  "audio_entry": {
+    "name": "AI Music Generator",
+    "description": "在同一个工作台内用提示词生成音乐"
+  },
+  "guide_title": "怎么选模型",
+  "guide": "要长镜头选 Seedance 2.5 或 Wan 3.0（单次最长 30 秒）；要 4K 和原生音频选 Veo 3.1 Premium；要便宜量大选 Seedance 2.0 Mini 或 Wan 3.0；要改产品图选 Nano Banana 2 或 Flux Kontext Max；要一次成套出图选 Seedream 4.0；要文字准确的海报选 GPT Images 2.5。",
+  "view_all": "查看全部模型",
+  "cta_text": "打开工作台开始生成",
+  "cta_button": "开始创作"
+}

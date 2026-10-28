@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 import {
   Accordion,
   AccordionContent,
@@ -17,6 +19,10 @@ export function FAQ({
   section: Section;
   className?: string;
 }) {
+  // 受控单开：显隐由本地状态决定，不依赖 Radix 的 data-state，
+  // 答案始终渲染进服务端 HTML（SEO），点击后正常展开收起
+  const [open, setOpen] = useState<string | undefined>(undefined);
+
   return (
     <section
       id={section.id}
@@ -39,31 +45,36 @@ export function FAQ({
             <Accordion
               type="single"
               collapsible
+              value={open}
+              onValueChange={setOpen}
               className="landing-panel relative w-full rounded-2xl border p-1 shadow-[0_0_0_1px_rgba(255,255,255,0.02),0_0_28px_rgba(94,114,255,0.14),0_0_52px_rgba(245,120,255,0.10)]"
             >
               <div className="pointer-events-none absolute inset-x-10 -top-px h-px bg-[linear-gradient(90deg,transparent,rgba(120,132,255,0.7),rgba(243,122,255,0.65),transparent)]" />
-              {section.items?.map((item, idx) => (
-                <div className="group" key={idx}>
-                  <AccordionItem
-                    value={item.question || item.title || ''}
-                    className="peer rounded-xl border-none bg-transparent px-7 py-1 data-[state=open]:border-none data-[state=open]:bg-transparent data-[state=open]:shadow-none"
-                  >
-                    <AccordionTrigger className="landing-strong cursor-pointer text-base hover:no-underline">
-                      {item.question || item.title || ''}
-                    </AccordionTrigger>
-                    {/* forceMount：答案始终进服务端 HTML（SEO），收起态由 CSS 隐藏 */}
-                    <AccordionContent
-                      forceMount
-                      className="data-[state=closed]:hidden"
+              {section.items?.map((item, idx) => {
+                const value = item.question || item.title || '';
+                return (
+                  <div className="group" key={idx}>
+                    <AccordionItem
+                      value={value}
+                      className="peer rounded-xl border-none bg-transparent px-7 py-1 data-[state=open]:border-none data-[state=open]:bg-transparent data-[state=open]:shadow-none"
                     >
-                      <p className="landing-body text-base">
-                        {item.answer || item.description || ''}
-                      </p>
-                    </AccordionContent>
-                  </AccordionItem>
-                  <hr className="landing-divider mx-7 border-dashed group-last:hidden" />
-                </div>
-              ))}
+                      <AccordionTrigger className="landing-strong cursor-pointer text-base hover:no-underline">
+                        {value}
+                      </AccordionTrigger>
+                      {/* forceMount：答案始终进服务端 HTML（SEO），显隐由受控状态切换 */}
+                      <AccordionContent
+                        forceMount
+                        className={cn(open === value ? '' : 'hidden')}
+                      >
+                        <p className="landing-body text-base">
+                          {item.answer || item.description || ''}
+                        </p>
+                      </AccordionContent>
+                    </AccordionItem>
+                    <hr className="landing-divider mx-7 border-dashed group-last:hidden" />
+                  </div>
+                );
+              })}
             </Accordion>
 
             <p

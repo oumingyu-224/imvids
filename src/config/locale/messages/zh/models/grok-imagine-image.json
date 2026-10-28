@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Grok Imagine Image — 为真实交付而生的精确编辑 | Oddbeam",
+    "description": "Oddbeam 上的 Grok Imagine Image（xAI Imagine 2.0）：指哪改哪的局部编辑、单次最多 5 张参考图合成、5 种比例智能改幅、设计师级排版。每次 30 积分，文生图每次出 2 张。"
+  },
+  "generator": {
+    "title": "Grok Imagine Image 生成器"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Grok Imagine Image 生成器",
+    "description": "xAI Imagine 2.0，为能直接交付的图而生：魔方式编辑只改你点名的区域，单次最多 5 张参考图合成一个画面，智能改比例让一张母图适配 5 种画幅。图像编辑与文生图两项竞技场均列全球第二。Oddbeam 上每次生成 30 积分，文生图每次请求返回 2 张。",
+    "trust_items": [
+      "指哪改哪的局部编辑",
+      "单次最多 5 张参考图",
+      "5 种比例智能改幅"
+    ],
+    "buttons": [
+      {
+        "title": "用 Grok Imagine Image 生成",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "交付优先的工作流",
+    "description": "Imagine 2.0 把编辑当一等能力，所以工作流从你要交付的东西开始：",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "从文字或最多 5 张参考图开始",
+        "description": "提示词最长 4000 字符，写明风格、光线和要出现的文字；或直接丢入最多 5 张参考图——主体合成、风格迁移、场景拼装，不需要再去别的软件手动合成。",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "每次生成两张候选",
+        "description": "文生图每次请求返回 2 张图，同样 30 积分；图生图返回 1 张精修结果——第一轮就能对比取舍，不用一张一张重摇。",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "只改你点名的区域",
+        "description": "说清要改什么——换夹克颜色、换标题字、去掉路人——编辑只落在点名的区域，画面其余部分原样不动。",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "一个母图适配所有渠道",
+        "description": "选 1:1、2:3、3:2、16:9 或 9:16，模型自动补满新画幅——一张母图同时变成 Instagram 帖子、YouTube 封面和 TikTok 竖版，不用重拍。",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "精确编辑，直接可交付",
+    "description": "Imagine 2.0 带进 Oddbeam 工作台的能力：",
+    "items": [
+      {
+        "title": "点名区域编辑",
+        "description": "魔方式编辑只改你描述的区域：改色、换物、去路人、抠背景出透明底，画面其余部分保持原样，导出即可投入后续工作。",
+        "icon": "RiCrosshairLine"
+      },
+      {
+        "title": "多参考图合成",
+        "description": "单次最多输入 5 张参考图——产品组合、风格迁移、人物置入新场景，一次生成完成，不需要额外的合成软件。",
+        "icon": "RiStackLine"
+      },
+      {
+        "title": "设计师级排版规划",
+        "description": "2.0 像设计师一样先规划排版：密集多元素的构图能撑得住，小字依然清晰——海报、标签、缩略图出来就能用，而不是差一点能用。",
+        "icon": "RiFontSize"
+      },
+      {
+        "title": "跨代一致性",
+        "description": "角色、场景、道具在多次生成和编辑之间保持同一套视觉——这就是世界观套图能一张接一张连起来的原因。",
+        "icon": "RiUserSmileLine"
+      },
+      {
+        "title": "五种比例，一张母图",
+        "description": "1:1、2:3、3:2、16:9、9:16 覆盖信息流、印刷、YouTube 封面和竖版短视频——改母图的比例，而不是每个渠道重新写提示词。",
+        "icon": "RiAspectRatioLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "为要交东西的人准备",
+    "description": "这些工作流的终点是成品，不是截图。",
+    "items": [
+      {
+        "name": "电商设计师",
+        "role": "DTC 品牌",
+        "quote": "五个产品角度合成一个场景，再智能改幅出信息流图和故事封面。一张母图、五个投放位，每次 30 积分。",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "电商设计师"
+        }
+      },
+      {
+        "name": "社媒运营经理",
+        "role": "代理公司",
+        "quote": "每次出两张改变了我们的审稿节奏——第一轮就能对比取舍，而点名式编辑让修改意见不再变成重拍。",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "社媒运营经理"
+        }
+      },
+      {
+        "name": "封面图设计师",
+        "role": "YouTube 工作室",
+        "quote": "小字清晰、排版不散。点名改标题里的一个词然后直接导出——背景纹丝不动。",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "封面图设计师"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "Grok Imagine Image 每张图多少钱？",
+        "answer": "Oddbeam 上每次生成 30 积分。文生图每次请求返回 2 张，Starter 套餐 2500 积分/月（$29.99）约可跑 83 次——约 166 张图；Pro 的 10000 积分（$89.99）约可跑 333 次。"
+      },
+      {
+        "question": "它能编辑什么？",
+        "answer": "支持指哪改哪的局部编辑——换物件颜色、换标题字、去路人——以及选区编辑、抠图出透明底、风格迁移，指令之外的画面内容保持原样。"
+      },
+      {
+        "question": "最多能放几张参考图？",
+        "answer": "单次生成最多 5 张参考图。主体合成、风格迁移、场景拼装都能在一次请求里完成，不需要在别的编辑器里手动合成。"
+      },
+      {
+        "question": "支持哪些画面比例？",
+        "answer": "五种：1:1、2:3、3:2、16:9、9:16。智能改比例能从已有图直接补满新画幅，一张母图覆盖信息流、印刷、YouTube 封面和竖版短视频。"
+      },
+      {
+        "question": "文生图真的每次出两张吗？",
+        "answer": "是的。Oddbeam 上每次 Grok Imagine 文生图请求都返回 2 张图，价格同为 30 积分；图生图编辑每次返回 1 张精修图。"
+      },
+      {
+        "question": "Grok Imagine Image 和 Flux Kontext Max 怎么选？",
+        "answer": "要多参考图合成、5 种比例智能改幅、每次 30 积分出两张，选 Grok Imagine Image；要单图多轮迭代、角色跨场景一致（40 积分），选 Flux Kontext Max。Grok 负责铺整套素材，Kontext 负责磨一张图。"
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "点名就改，改完就交付。",
+    "description": "五张参考图进，两张候选出，一张母图适配所有渠道——Grok Imagine Image 每次 30 积分起。",
+    "buttons": [
+      {
+        "title": "用 Grok Imagine Image 生成",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

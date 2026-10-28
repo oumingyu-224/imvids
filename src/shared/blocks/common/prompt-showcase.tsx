@@ -18,6 +18,7 @@ import {
   Video,
 } from 'lucide-react';
 
+import { Link } from '@/core/i18n/navigation';
 import { cn } from '@/shared/lib/utils';
 
 import {
@@ -28,15 +29,17 @@ import {
 
 import './prompt-showcase.css';
 
+// 模型 pill：带对应模型页链接（SEO 内链）。左键点击阻止导航仅切换模型，
+// 中键/Cmd+点击在新标签打开模型页
 const MODELS = [
-  { name: 'Seedance', icon: BarChart3 },
-  { name: 'Seedream', icon: AudioLines },
-  { name: 'Veo', icon: Sparkles },
-  { name: 'Wan', icon: Aperture },
-  { name: 'Grok', icon: CircleSlash },
-  { name: 'Kling', icon: Orbit },
-  { name: 'Nano Banana', icon: Banana },
-  { name: 'Flux', icon: Triangle },
+  { name: 'Seedance', icon: BarChart3, href: '/seedance-2-5' },
+  { name: 'Seedream', icon: AudioLines, href: '/seedream-4-0' },
+  { name: 'Veo', icon: Sparkles, href: '/veo-3-1' },
+  { name: 'Wan', icon: Aperture, href: '/wan-3-0' },
+  { name: 'Grok', icon: CircleSlash, href: '/grok-imagine-image' },
+  { name: 'Kling', icon: Orbit, href: '/kling-2-5' },
+  { name: 'Nano Banana', icon: Banana, href: '/nano-banana-pro' },
+  { name: 'Flux', icon: Triangle, href: '/flux-kontext-max' },
 ];
 
 const VIDEO_RATIOS = ['21:9', '16:9', '4:3', '1:1', '3:4', '9:16'];
@@ -606,10 +609,22 @@ export function PromptShowcase({
           {MODELS.map((model) => {
             const active = activeModel === model.name;
             return (
-              <button
+              <Link
                 key={model.name}
-                type="button"
-                onClick={() => setActiveModel(model.name)}
+                href={model.href}
+                aria-label={`Use ${model.name} or open the ${model.name} page`}
+                onClick={(event) => {
+                  // 左键点击只切换模型，不离开当前页；修饰键点击保留链接行为
+                  if (
+                    !event.metaKey &&
+                    !event.ctrlKey &&
+                    !event.shiftKey &&
+                    event.button === 0
+                  ) {
+                    event.preventDefault();
+                    setActiveModel(model.name);
+                  }
+                }}
                 className={cn(
                   'flex items-center gap-2 text-[15px] font-medium transition-colors',
                   active ? 'text-[#f5d78e]' : 'text-white/80 hover:text-white'
@@ -617,7 +632,7 @@ export function PromptShowcase({
               >
                 <model.icon className="size-4" />
                 <span>{model.name}</span>
-              </button>
+              </Link>
             );
           })}
         </div>

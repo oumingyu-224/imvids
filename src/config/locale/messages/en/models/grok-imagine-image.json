@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Grok Imagine Image — Edits Built for Real Work | Oddbeam",
+    "description": "Grok Imagine Image (xAI Imagine 2.0) on Oddbeam: point-at-a-region edits, up to 5 reference images in one generation, smart resize across 5 ratios, and typography that plans like a designer. 30 credits per image — text-to-image returns 2 images per run."
+  },
+  "generator": {
+    "title": "Grok Imagine Image Generator"
+  },
+  "hero": {
+    "id": "hero",
+    "title": "Grok Imagine Image Generator",
+    "description": "xAI's Imagine 2.0, built for images you can ship: a wand-style edit changes the region you point at and nothing else, up to 5 reference images combine in a single generation, and smart resize reframes one image across 5 ratios. It ranks second worldwide in both image editing and text-to-image arenas. On Oddbeam it runs at 30 credits per image, and every text-to-image request returns 2 images.",
+    "trust_items": [
+      "Point-at-a-region precise edits",
+      "Up to 5 reference images in one run",
+      "Smart resize across 5 ratios"
+    ],
+    "buttons": [
+      {
+        "title": "Generate with Grok Imagine Image",
+        "icon": "Zap",
+        "url": "/create",
+        "target": "_self",
+        "variant": "default"
+      }
+    ],
+    "show_avatars": false,
+    "show_award": false,
+    "background_image": {
+      "src": "",
+      "alt": "hero"
+    }
+  },
+  "usage": {
+    "block": "features-step",
+    "id": "usage",
+    "title": "The Deliverable-First Workflow",
+    "description": "Imagine 2.0 treats editing as a first-class capability, so the workflow starts from what you need to ship:",
+    "image": {
+      "src": "/imgs/features/1.png",
+      "alt": "usage"
+    },
+    "image_position": "left",
+    "text_align": "center",
+    "items": [
+      {
+        "title": "Start From Text or Up to 5 References",
+        "description": "Write a prompt up to 4,000 characters naming style, lighting, and exact text, or drop up to 5 reference images — subjects combine, styles transfer, and scenes compose without manual compositing.",
+        "image": {
+          "src": "/imgs/features/5.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Generate Two Takes Per Run",
+        "description": "Every text-to-image request returns 2 images at 30 credits, and image-to-image edits return 1 refined take — compare variations immediately instead of re-rolling one at a time.",
+        "image": {
+          "src": "/imgs/features/6.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Edit Exactly What You Point At",
+        "description": "Say the change — recolor the jacket, swap the headline, remove the bystander — and the edit applies to the named region while the rest of the frame stays untouched.",
+        "image": {
+          "src": "/imgs/features/7.png",
+          "alt": "usage"
+        }
+      },
+      {
+        "title": "Resize for Every Channel",
+        "description": "Pick 1:1, 2:3, 3:2, 16:9, or 9:16 and the model fills the new frame — one master image becomes an Instagram post, a YouTube thumbnail, and a TikTok vertical without re-shooting.",
+        "image": {
+          "src": "/imgs/features/8.png",
+          "alt": "usage"
+        }
+      }
+    ]
+  },
+  "features": {
+    "id": "features",
+    "title": "Precision Editing, Production Ready",
+    "description": "What Imagine 2.0 brings to the Oddbeam workbench:",
+    "items": [
+      {
+        "title": "Named-region edits",
+        "description": "Magic-wand style editing changes the region you describe and preserves everything else — background removal, object swaps, and color changes export clean, ready to drop into other work.",
+        "icon": "RiCrosshairLine"
+      },
+      {
+        "title": "Multi-reference composition",
+        "description": "Up to 5 input images in a single generation — combine products, transfer styles, and place characters into new scenes without manual compositing in a separate editor.",
+        "icon": "RiStackLine"
+      },
+      {
+        "title": "Typography that plans like a designer",
+        "description": "2.0 plans layout and typography the way a designer would, so dense multi-part visuals hold together and small text stays sharp — posters, labels, and thumbnails come out usable, not almost-usable.",
+        "icon": "RiFontSize"
+      },
+      {
+        "title": "Consistency across generations",
+        "description": "It preserves what you put in across edits and re-generations — a character, her locations, and her props hold one look from image to image, which is how world-building sets stay coherent.",
+        "icon": "RiUserSmileLine"
+      },
+      {
+        "title": "Five ratios, one master",
+        "description": "1:1, 2:3, 3:2, 16:9, and 9:16 cover feed posts, prints, YouTube thumbnails, and vertical short-video covers — resize the master instead of re-prompting per channel.",
+        "icon": "RiAspectRatioLine"
+      }
+    ]
+  },
+  "testimonials": {
+    "id": "testimonials",
+    "title": "Built for People Who Ship Assets",
+    "description": "Workflows that end with a deliverable, not a screenshot.",
+    "items": [
+      {
+        "name": "E-commerce Creative",
+        "role": "DTC Brand",
+        "quote": "Five product angles into one composed scene, then smart resize for the feed and the story cover. One master image, five placements, 30 credits a run.",
+        "image": {
+          "src": "/imgs/avatars/1.png",
+          "alt": "E-commerce Creative"
+        }
+      },
+      {
+        "name": "Social Media Manager",
+        "role": "Agency Team",
+        "quote": "The two-images-per-run thing changed our review loop — we compare takes in the first pass, and the pointed edits mean revision notes stop being re-shoots.",
+        "image": {
+          "src": "/imgs/avatars/2.png",
+          "alt": "Social Media Manager"
+        }
+      },
+      {
+        "name": "Thumbnail Designer",
+        "role": "YouTube Studio",
+        "quote": "Small text stays legible and the layout holds. I point at the headline, change one word, and export — the background never shifts.",
+        "image": {
+          "src": "/imgs/avatars/3.png",
+          "alt": "Thumbnail Designer"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "id": "faq",
+    "title": "FAQ",
+    "items": [
+      {
+        "question": "How much does Grok Imagine Image cost per image?",
+        "answer": "Grok Imagine Image costs 30 credits per generation on Oddbeam. Text-to-image requests return 2 images per run, so the Starter plan's 2,500 monthly credits ($29.99) cover about 83 runs — roughly 166 images — and Pro's 10,000 credits ($89.99) cover about 333 runs."
+      },
+      {
+        "question": "What can Grok Imagine Image edit?",
+        "answer": "It handles point-at-a-region edits — recolor an object, swap a headline, remove a bystander — plus segmentation-based selection, background removal to transparent, and style transfer, while leaving everything outside the instruction untouched."
+      },
+      {
+        "question": "How many reference images does it accept?",
+        "answer": "Up to 5 reference images in a single generation. Subjects can be combined, styles transferred, and scenes composed in one run — no manual compositing in a separate editor."
+      },
+      {
+        "question": "What aspect ratios does it support?",
+        "answer": "Five ratios: 1:1, 2:3, 3:2, 16:9, and 9:16. Smart resize fills a new ratio from an existing image, so one master works across feed posts, prints, YouTube thumbnails, and vertical short-video covers."
+      },
+      {
+        "question": "Does text-to-image really return two images?",
+        "answer": "Yes. On Oddbeam every Grok Imagine text-to-image request generates 2 images per run at the same 30-credit price, and image-to-image edits return 1 refined image per run."
+      },
+      {
+        "question": "Grok Imagine Image or Flux Kontext Max — which should I pick?",
+        "answer": "Pick Grok Imagine Image for multi-reference composition, smart resize across 5 ratios, and 2 takes per run at 30 credits. Pick Flux Kontext Max for one-image iterative editing with character consistency across scenes at 40 credits. Grok builds the asset set; Kontext perfects a single frame."
+      }
+    ]
+  },
+  "cta": {
+    "id": "cta",
+    "title": "Point at It. Ship It.",
+    "description": "Five references in, two takes out, one master resized for every channel — Grok Imagine Image from 30 credits.",
+    "buttons": [
+      {
+        "title": "Generate with Grok Imagine Image",
+        "url": "/create",
+        "target": "_self",
+        "icon": "Wand"
+      }
+    ],
+    "className": "landing-cta-band"
+  }
+}

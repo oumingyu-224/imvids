@@ -1,13 +1,11 @@
 'use client';
 
 import { Send } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
 
 import { Link } from '@/core/i18n/navigation';
 import {
   BrandLogo,
   Copyright,
-  LazyImage,
   LocaleSelector,
   // ThemeToggler, // 主题切换已禁用（仅暗色模式）
 } from '@/shared/blocks/common';
@@ -24,79 +22,6 @@ export function Footer({ footer }: { footer: FooterType }) {
       ...item,
       children: item.children?.filter((subItem) => !subItem.hidden),
     }));
-  const partners = footer.partners?.items || [];
-  const partnersLabel = footer.partners?.title || 'Partners';
-  const scrollSeconds = footer.partners?.scroll_speed_seconds || 30;
-  const railRef = useRef<HTMLDivElement | null>(null);
-  const trackRef = useRef<HTMLDivElement | null>(null);
-  const [shouldMarquee, setShouldMarquee] = useState(false);
-
-  useEffect(() => {
-    const updateMarquee = () => {
-      const rail = railRef.current;
-      const track = trackRef.current;
-
-      if (!rail || !track) return;
-      setShouldMarquee(track.scrollWidth >= rail.clientWidth);
-    };
-
-    updateMarquee();
-
-    const resizeObserver = new ResizeObserver(() => {
-      updateMarquee();
-    });
-
-    if (railRef.current) {
-      resizeObserver.observe(railRef.current);
-    }
-
-    if (trackRef.current) {
-      resizeObserver.observe(trackRef.current);
-    }
-
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, [partners]);
-
-  const renderPartnerItem = (item: (typeof partners)[number], index: number) => {
-    const content = item.logo?.src ? (
-      <LazyImage
-        src={item.logo.src}
-        alt={item.logo.alt || item.title || item.text || 'Partner'}
-        className="h-5 w-auto object-contain opacity-85 transition-opacity group-hover:opacity-100 dark:opacity-80 dark:group-hover:opacity-100"
-      />
-    ) : (
-      <span className="text-[12px] font-medium tracking-[0.08em] uppercase">
-        {item.title || item.text}
-      </span>
-    );
-
-    const itemClassName =
-      'landing-input-surface group inline-flex h-9 shrink-0 items-center justify-center rounded-full border px-4 text-[var(--landing-muted)] transition-colors hover:text-[var(--landing-strong)]';
-
-    if (item.url) {
-      return (
-        <Link
-          key={`${item.title || item.text || 'partner'}-${index}`}
-          href={item.url}
-          target={item.target || '_self'}
-          className={itemClassName}
-        >
-          {content}
-        </Link>
-      );
-    }
-
-    return (
-      <div
-        key={`${item.title || item.text || 'partner'}-${index}`}
-        className={itemClassName}
-      >
-        {content}
-      </div>
-    );
-  };
 
   return (
     <footer
@@ -117,7 +42,7 @@ export function Footer({ footer }: { footer: FooterType }) {
               ) : null}
 
               <a
-                href={emailItem?.url || 'mailto:ai-image@chatgptimage2.app'}
+                href={emailItem?.url || 'mailto:support@oddbeam.com'}
                 target={emailItem?.target || '_self'}
                 aria-label={emailItem?.title || 'Subscribe'}
                 className="inline-flex size-11 items-center justify-center rounded-xl bg-[#1773ea] text-white shadow-[0_12px_24px_rgba(23,115,234,0.22)] transition-transform hover:-translate-y-0.5"
@@ -159,51 +84,6 @@ export function Footer({ footer }: { footer: FooterType }) {
               {footer.show_locale !== false ? (
                 <LocaleSelector type="button" />
               ) : null}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="landing-divider-soft border-t">
-        <div className="container py-4">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
-            <div className="landing-muted shrink-0 text-[11px] font-medium tracking-[0.12em] uppercase">
-              {partnersLabel}
-            </div>
-            <div ref={railRef} className="min-w-0 flex-1 overflow-hidden">
-              {shouldMarquee ? (
-                <>
-                  <style jsx>{`
-                    @keyframes footer-partners-marquee {
-                      from {
-                        transform: translate3d(0, 0, 0);
-                      }
-                      to {
-                        transform: translate3d(calc(-50% - 0.5rem), 0, 0);
-                      }
-                    }
-                  `}</style>
-                  <div
-                    className="flex w-max gap-2 will-change-transform [animation-iteration-count:infinite] [animation-name:footer-partners-marquee] [animation-timing-function:linear]"
-                    style={{
-                      animationDuration: `${scrollSeconds}s`,
-                    }}
-                  >
-                    <div ref={trackRef} className="flex w-max gap-2 pr-2">
-                      {partners.map(renderPartnerItem)}
-                    </div>
-                    <div className="flex w-max gap-2 pr-2" aria-hidden="true">
-                      {partners.map((item, index) =>
-                        renderPartnerItem(item, index + partners.length)
-                      )}
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <div ref={trackRef} className="flex flex-wrap gap-2">
-                  {partners.map(renderPartnerItem)}
-                </div>
-              )}
             </div>
           </div>
         </div>

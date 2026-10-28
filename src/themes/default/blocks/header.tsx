@@ -1,9 +1,11 @@
 'use client';
 
 import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useLocale } from 'next-intl';
 import { ChevronDown, Menu, Sparkles, X } from 'lucide-react';
 
 import { Link, usePathname } from '@/core/i18n/navigation';
+import { applyPromo } from '@/config/constants/promo';
 import {
   BrandLogo,
   LocaleSelector,
@@ -98,6 +100,7 @@ function HeaderTopPromo({
 
 export function Header({ header }: { header: HeaderType }) {
   const pathname = usePathname();
+  const locale = useLocale();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [promoClosed, setPromoClosed] = useState(false);
@@ -163,7 +166,7 @@ export function Header({ header }: { header: HeaderType }) {
       >
         {!promoClosed ? (
           <HeaderTopPromo
-            text={header.topbanner?.text}
+            text={applyPromo(header.topbanner?.text, locale)}
             buttonText={header.topbanner?.buttonText}
             href={header.topbanner?.href}
             target={header.topbanner?.target}
@@ -205,7 +208,7 @@ export function Header({ header }: { header: HeaderType }) {
                         <span>{item.title}</span>
                         {item.badge ? (
                           <span className="ml-0.5 rounded-full bg-orange-500 px-2 py-0.5 text-xs font-semibold text-white">
-                            {item.badge}
+                            {applyPromo(item.badge, locale)}
                           </span>
                         ) : null}
                       </Link>
@@ -389,7 +392,7 @@ export function Header({ header }: { header: HeaderType }) {
                         {item.title}
                         {item.badge ? (
                           <span className="ml-0.5 rounded-full bg-orange-500 px-2 py-0.5 text-xs font-semibold text-white">
-                            {item.badge}
+                            {applyPromo(item.badge, locale)}
                           </span>
                         ) : null}
                       </Link>

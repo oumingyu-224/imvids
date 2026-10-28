@@ -32,7 +32,14 @@ const nextConfig = {
     ],
   },
   async redirects() {
-    return [];
+    return [
+      // 旧模型页 301 到新地址（含 /zh 前缀，locale:false 不做本地化改写）
+      { source: '/seedream4-5', destination: '/seedream-4-0', permanent: true, locale: false },
+      { source: '/zh/seedream4-5', destination: '/zh/seedream-4-0', permanent: true, locale: false },
+      // 历史坏链 301 到工作台
+      { source: '/seedance-prompts', destination: '/create', permanent: true, locale: false },
+      { source: '/zh/seedance-prompts', destination: '/zh/create', permanent: true, locale: false },
+    ];
   },
   async headers() {
     return [

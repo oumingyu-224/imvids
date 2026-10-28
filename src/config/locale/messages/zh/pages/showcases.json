@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "ChatGPT Image 2 案例展示",
-    "description": "查看由 ChatGPT Image 2 驱动的代表性生成与编辑案例。"
+    "title": "AI 图片与视频案例 | Oddbeam",
+    "description": "查看在 Oddbeam 上创作的真实图片与视频作品，每件作品都标注了所用的 AI 模型。"
   },
   "ui": {
     "create_similar": "创建相似",
@@ -19,89 +19,73 @@
   "showcases-flow": {
     "id": "showcases",
     "sr_only_title": "案例展示",
-    "title": "ChatGPT Image 2 案例展示",
-    "description": "由 ChatGPT Image 2 驱动的代表性生成与编辑案例。",
+    "title": "AI 图片与视频案例",
+    "description": "在 Oddbeam 上创作的真实作品，每件都标注了所用模型。",
     "items": [
       {
-        "title": "垂直鱼眼自拍",
-        "description": "ChatGPT Image 2 提示词示例",
+        "title": "鱼眼街头自拍系列",
+        "description": "视频 · Kling 2.5",
         "image": {
           "src": "/imgs/showcases/1.jpeg",
-          "alt": "AI SaaS 案例展示 1"
+          "alt": "使用 Kling 2.5 生成的鱼眼街头自拍系列"
         },
         "prompt": "vertical-fisheye-selfie"
       },
       {
-        "title": "3D 数字人漫画风格",
-        "description": "ChatGPT Image 2 提示词示例",
+        "title": "霓虹城市夜景穿越",
+        "description": "视频 · Veo 3.1",
         "image": {
           "src": "/imgs/showcases/2.jpeg",
-          "alt": "AI SaaS 案例展示 2"
+          "alt": "使用 Veo 3.1 生成的霓虹城市夜景穿越"
         },
         "prompt": "3d-digital-human-comics"
       },
       {
-        "title": "时尚人像构图",
-        "description": "ChatGPT Image 2 案例",
+        "title": "产品主视觉动态镜头",
+        "description": "视频 · Seedance 2.5",
         "image": {
           "src": "/imgs/showcases/3.jpeg",
-          "alt": "AI SaaS 案例展示 3"
+          "alt": "使用 Seedance 2.5 生成的产品主视觉动态镜头"
         }
       },
       {
-        "title": "电影感近景布光",
-        "description": "ChatGPT Image 2 案例",
+        "title": "微缩立体世界",
+        "description": "视频 · Wan 3.0",
         "image": {
           "src": "/imgs/showcases/4.jpeg",
-          "alt": "AI SaaS 案例展示 4"
+          "alt": "使用 Wan 3.0 生成的微缩立体世界"
         }
       },
       {
-        "title": "产品海报概念图",
-        "description": "ChatGPT Image 2 案例",
+        "title": "时尚人像风格重绘",
+        "description": "图片 · Nano Banana Pro",
         "image": {
           "src": "/imgs/showcases/5.jpeg",
-          "alt": "AI SaaS 案例展示 5"
+          "alt": "使用 Nano Banana Pro 重绘的时尚人像"
         }
       },
       {
-        "title": "角色一致性测试",
-        "description": "ChatGPT Image 2 案例",
+        "title": "海报文字修正",
+        "description": "图片 · GPT Images 2.5",
         "image": {
           "src": "/imgs/showcases/6.jpeg",
-          "alt": "AI SaaS 案例展示 6"
+          "alt": "使用 GPT Images 2.5 修正的海报文字"
         }
       },
       {
-        "title": "透明背景贴纸设计",
-        "description": "ChatGPT Image 2 案例",
+        "title": "透明背景贴纸包",
+        "description": "图片 · Flux Kontext Max",
         "image": {
           "src": "/imgs/showcases/7.jpeg",
-          "alt": "AI SaaS 案例展示 7"
+          "alt": "使用 Flux Kontext Max 制作的透明背景贴纸包"
         }
       },
       {
-        "title": "图中文字社媒海报",
-        "description": "ChatGPT Image 2 案例",
+        "title": "九图成套产品图",
+        "description": "图片 · Seedream 4.0",
         "image": {
           "src": "/imgs/showcases/8.jpeg",
-          "alt": "AI SaaS 案例展示 8"
-        }
-      },
-      {
-        "title": "参考图重绘风格转换",
-        "description": "ChatGPT Image 2 案例",
-        "image": {
-          "src": "/imgs/showcases/9.jpeg",
-          "alt": "AI SaaS 案例展示 9"
-        }
-      },
-      {
-        "title": "电商主视觉图",
-        "description": "ChatGPT Image 2 案例",
-        "image": {
-          "src": "/imgs/showcases/10.jpeg",
-          "alt": "AI SaaS 案例展示 10"
+          "alt": "使用 Seedream 4.0 生成的九图成套产品图"
         }
       }
     ]
@@ -111,7 +95,7 @@
     "sections": {
       "showcases": {
         "id": "showcases",
-        "title": "ChatGPT Image 2 案例库",
+        "title": "AI 案例库",
         "description": "用于提示词编写、编辑工作流和商业视觉生成的参考示例。",
         "groups": [
           {

@@ -1,8 +1,22 @@
 {
+  "related_models_title": "Explore related AI models",
+  "related_func_video": "AI Video Generator",
+  "related_func_image": "AI Image Generator",
+  "breadcrumb": {
+    "brand": "Oddbeam",
+    "models": "Models",
+    "pages": {
+      "/ai-video-generator": "AI Video Generator",
+      "/ai-image-generator": "AI Image Generator",
+      "/pricing": "Pricing",
+      "/updates": "Updates",
+      "/blog": "Blog"
+    }
+  },
   "header": {
     "id": "header",
     "topbanner": {
-      "text": "Oddbeam Launch Special - Get 30% OFF all Pro plans for a limited time!",
+      "text": "Oddbeam Launch Special - Get {discount} on all Pro plans for a limited time!",
       "buttonText": "Claim Now →",
       "href": "/pricing",
       "target": "_self",
@@ -33,6 +47,11 @@
         {
           "title": "Models",
           "children": [
+            {
+              "title": "View all models",
+              "url": "/models",
+              "target": "_self"
+            },
             {
               "title": "Seedance 2.5",
               "url": "/seedance-2-5",
@@ -104,6 +123,12 @@
               "url": "/seedream-5-lite",
               "target": "_self",
               "group": "Image Models"
+            },
+            {
+              "title": "Grok Imagine Image",
+              "url": "/grok-imagine-image",
+              "target": "_self",
+              "group": "Image Models"
             }
           ]
         },
@@ -139,7 +164,7 @@
         {
           "title": "Pricing",
           "url": "/pricing",
-          "badge": "50% OFF"
+          "badge": "{discount}"
         }
       ]
     },
@@ -204,83 +229,83 @@
     "description": "Real images and videos created by the Oddbeam community.",
     "items": [
       {
-        "title": "Showcase 1",
-        "description": "Prompt-based image generation example",
+        "title": "Fisheye street selfie series",
+        "description": "Video · Kling 2.5",
         "image": {
           "src": "/imgs/showcases/1.jpeg",
-          "alt": "Showcase 1"
+          "alt": "Fisheye street selfie series (Video · Kling 2.5)"
         }
       },
       {
-        "title": "Showcase 2",
-        "description": "Prompt-based image generation example",
+        "title": "Neon city night flythrough",
+        "description": "Video · Veo 3.1",
         "image": {
           "src": "/imgs/showcases/2.jpeg",
-          "alt": "Showcase 2"
+          "alt": "Neon city night flythrough (Video · Veo 3.1)"
         }
       },
       {
-        "title": "Showcase 3",
-        "description": "Prompt-based image generation example",
+        "title": "Product hero shot in motion",
+        "description": "Video · Seedance 2.5",
         "image": {
           "src": "/imgs/showcases/3.jpeg",
-          "alt": "Showcase 3"
+          "alt": "Product hero shot in motion (Video · Seedance 2.5)"
         }
       },
       {
-        "title": "Showcase 4",
-        "description": "Prompt-based image generation example",
+        "title": "Miniature diorama world",
+        "description": "Video · Wan 3.0",
         "image": {
           "src": "/imgs/showcases/4.jpeg",
-          "alt": "Showcase 4"
+          "alt": "Miniature diorama world (Video · Wan 3.0)"
         }
       },
       {
-        "title": "Showcase 5",
-        "description": "Prompt-based image generation example",
+        "title": "Coastal sunrise timelapse",
+        "description": "Video · MiniMax H3",
         "image": {
           "src": "/imgs/showcases/5.jpeg",
-          "alt": "Showcase 5"
+          "alt": "Coastal sunrise timelapse (Video · MiniMax H3)"
         }
       },
       {
-        "title": "Showcase 6",
-        "description": "Prompt-based image generation example",
+        "title": "Fashion portrait restyle",
+        "description": "Image · Nano Banana Pro",
         "image": {
           "src": "/imgs/showcases/6.jpeg",
-          "alt": "Showcase 6"
+          "alt": "Fashion portrait restyle (Image · Nano Banana Pro)"
         }
       },
       {
-        "title": "Showcase 7",
-        "description": "Prompt-based image generation example",
+        "title": "Poster typography fix",
+        "description": "Image · GPT Images 2.5",
         "image": {
           "src": "/imgs/showcases/7.jpeg",
-          "alt": "Showcase 7"
+          "alt": "Poster typography fix (Image · GPT Images 2.5)"
         }
       },
       {
-        "title": "Showcase 8",
-        "description": "Prompt-based image generation example",
+        "title": "Transparent sticker pack",
+        "description": "Image · Flux Kontext Max",
         "image": {
           "src": "/imgs/showcases/8.jpeg",
-          "alt": "Showcase 8"
+          "alt": "Transparent sticker pack (Image · Flux Kontext Max)"
         }
       },
       {
-        "title": "Showcase 9",
-        "description": "Prompt-based image generation example",
+        "title": "Product set in nine shots",
+        "description": "Image · Seedream 4.0",
         "image": {
           "src": "/imgs/showcases/9.jpeg",
-          "alt": "Showcase 9"
+          "alt": "Product set in nine shots (Image · Seedream 4.0)"
         }
       },
       {
-        "title": "Showcase 10",
-        "description": "Prompt-based image generation example",
+        "title": "Character turnaround sheet",
+        "description": "Image · Nano Banana 2",
         "image": {
           "src": "/imgs/showcases/10.jpeg",
-          "alt": "Showcase 10"
+          "alt": "Character turnaround sheet (Image · Nano Banana 2)"
         }
       }
     ]
@@ -308,31 +333,31 @@
     "items": [
       {
         "title": "Write a clear prompt",
-        "description": "Describe subject, composition, lighting, materials, camera feel, text needs, and background requirements.",
+        "description": "Describe subject, style, motion, and any text you need — one prompt can drive both image and video output.",
         "image": {
           "src": "/imgs/features/5.png",
           "alt": "usage"
         }
       },
       {
-        "title": "Upload reference images when needed",
-        "description": "Use reference images to preserve product structure, style direction, character details, or scene layout.",
+        "title": "Pick an image or video model",
+        "description": "Choose a video model such as Seedance 2.5 or Veo 3.1, or an image model such as Seedream 4.0, for the output you need.",
         "image": {
           "src": "/imgs/features/6.png",
           "alt": "usage"
         }
       },
       {
-        "title": "Generate or edit",
-        "description": "Run text-to-image or image-to-image workflows depending on whether you are creating from scratch or refining an input.",
+        "title": "Generate, then go image to video",
+        "description": "Start from text or a reference image, then turn the still into video motion without leaving the studio.",
         "image": {
           "src": "/imgs/features/7.png",
           "alt": "usage"
         }
       },
       {
-        "title": "Iterate for a production-ready result",
-        "description": "Refine text, composition, transparency, and visual details until the output is ready for design or commercial use.",
+        "title": "Refine locally until it ships",
+        "description": "Re-run just the part you want to change — retext, restyle, or re-compose — instead of regenerating from scratch.",
         "image": {
           "src": "/imgs/features/8.png",
           "alt": "usage"
@@ -571,8 +596,8 @@
           "hidden": true,
           "children": [
             {
-              "title": "Seedream 4.5",
-              "url": "/seedream4-5",
+              "title": "Seedream 4.0",
+              "url": "/seedream-4-0",
               "target": "_self"
             },
             {
@@ -586,6 +611,81 @@
               "target": "_self"
             }
           ]
+        },
+        {
+          "title": "Models",
+          "children": [
+            {
+              "title": "Seedance 2.5",
+              "url": "/seedance-2-5",
+              "target": "_self"
+            },
+            {
+              "title": "Seedance 2.0",
+              "url": "/seedance-2-0",
+              "target": "_self"
+            },
+            {
+              "title": "MiniMax H3",
+              "url": "/minimax-h3",
+              "target": "_self"
+            },
+            {
+              "title": "Veo 3.1",
+              "url": "/veo-3-1",
+              "target": "_self"
+            },
+            {
+              "title": "Kling 2.5",
+              "url": "/kling-2-5",
+              "target": "_self"
+            },
+            {
+              "title": "Wan 3.0",
+              "url": "/wan-3-0",
+              "target": "_self"
+            },
+            {
+              "title": "GPT Images 2.5",
+              "url": "/gpt-images-2-5",
+              "target": "_self"
+            },
+            {
+              "title": "Nano Banana Pro",
+              "url": "/nano-banana-pro",
+              "target": "_self"
+            },
+            {
+              "title": "Seedream 4.0",
+              "url": "/seedream-4-0",
+              "target": "_self"
+            },
+            {
+              "title": "Flux Kontext Max",
+              "url": "/flux-kontext-max",
+              "target": "_self"
+            },
+            {
+              "title": "Nano Banana 2",
+              "url": "/nano-banana-2",
+              "target": "_self"
+            },
+            {
+              "title": "Seedream 5.0 Lite",
+              "url": "/seedream-5-lite",
+              "target": "_self"
+            },
+            {
+              "title": "Grok Imagine Image",
+              "url": "/grok-imagine-image",
+              "target": "_self"
+            },
+            {
+              "title": "View all models →",
+              "url": "/models",
+              "target": "_self"
+            }
+          ]
         }
       ]
     },
@@ -594,7 +694,7 @@
         {
           "title": "Email",
           "icon": "Mail",
-          "url": "mailto:ai-image-generator@chatgptimage2.app",
+          "url": "mailto:support@oddbeam.com",
           "target": "_self"
         }
       ]

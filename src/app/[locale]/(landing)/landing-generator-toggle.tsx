@@ -17,6 +17,7 @@ export function LandingGeneratorToggle({
   generatorSrOnlyTitle,
   promptKey,
   modeLocked = false,
+  defaultModel,
   currentSubscription,
 }: {
   landing: React.ReactNode;
@@ -24,6 +25,7 @@ export function LandingGeneratorToggle({
   generatorSrOnlyTitle?: string;
   promptKey?: string;
   modeLocked?: boolean;
+  defaultModel?: string;
   currentSubscription?: Subscription;
 }) {
   const [showGenerator, setShowGenerator] = useState(false);
@@ -72,6 +74,7 @@ export function LandingGeneratorToggle({
               <VideoGenerator
                 srOnlyTitle={generatorSrOnlyTitle}
                 modeLocked={modeLocked}
+                defaultModel={defaultModel}
                 currentSubscription={currentSubscription}
               />
             ) : (
@@ -80,6 +83,7 @@ export function LandingGeneratorToggle({
                 promptKey={promptKey}
                 initialConfig={initialConfig}
                 modeLocked={modeLocked}
+                defaultModel={defaultModel}
                 currentSubscription={currentSubscription}
               />
             )}

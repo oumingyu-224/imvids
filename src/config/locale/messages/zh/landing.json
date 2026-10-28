@@ -1,8 +1,22 @@
 {
+  "related_models_title": "探索相关 AI 模型",
+  "related_func_video": "AI 视频生成器",
+  "related_func_image": "AI 图片生成器",
+  "breadcrumb": {
+    "brand": "Oddbeam",
+    "models": "模型",
+    "pages": {
+      "/ai-video-generator": "AI 视频生成器",
+      "/ai-image-generator": "AI 图片生成器",
+      "/pricing": "价格",
+      "/updates": "更新",
+      "/blog": "博客"
+    }
+  },
   "header": {
     "id": "header",
     "topbanner": {
-      "text": "Oddbeam 限时特惠，全场 Pro 套餐限时 7 折！",
+      "text": "Oddbeam 限时特惠，全场 Pro 套餐限时 {discount}！",
       "buttonText": "立即领取 →",
       "href": "/pricing",
       "target": "_self",
@@ -33,6 +47,11 @@
         {
           "title": "模型",
           "children": [
+            {
+              "title": "查看全部模型",
+              "url": "/models",
+              "target": "_self"
+            },
             {
               "title": "Seedance 2.5",
               "url": "/seedance-2-5",
@@ -104,6 +123,12 @@
               "url": "/seedream-5-lite",
               "target": "_self",
               "group": "图片生成模型"
+            },
+            {
+              "title": "Grok Imagine Image",
+              "url": "/grok-imagine-image",
+              "target": "_self",
+              "group": "图片生成模型"
             }
           ]
         },
@@ -139,7 +164,7 @@
         {
           "title": "价格",
           "url": "/pricing",
-          "badge": "50% OFF"
+          "badge": "{discount}"
         }
       ]
     },
@@ -204,83 +229,83 @@
     "description": "使用 Oddbeam 的 AI 图片与视频生成工作流创作的真实作品。",
     "items": [
       {
-        "title": "案例 1",
-        "description": "提示词生成案例",
+        "title": "鱼眼街头自拍系列",
+        "description": "视频 · Kling 2.5",
         "image": {
           "src": "/imgs/showcases/1.jpeg",
-          "alt": "案例 1"
+          "alt": "鱼眼街头自拍系列 (视频 · Kling 2.5)"
         }
       },
       {
-        "title": "案例 2",
-        "description": "提示词生成案例",
+        "title": "霓虹城市夜景穿越",
+        "description": "视频 · Veo 3.1",
         "image": {
           "src": "/imgs/showcases/2.jpeg",
-          "alt": "案例 2"
+          "alt": "霓虹城市夜景穿越 (视频 · Veo 3.1)"
         }
       },
       {
-        "title": "案例 3",
-        "description": "提示词生成案例",
+        "title": "产品主视觉动态镜头",
+        "description": "视频 · Seedance 2.5",
         "image": {
           "src": "/imgs/showcases/3.jpeg",
-          "alt": "案例 3"
+          "alt": "产品主视觉动态镜头 (视频 · Seedance 2.5)"
         }
       },
       {
-        "title": "案例 4",
-        "description": "提示词生成案例",
+        "title": "微缩立体世界",
+        "description": "视频 · Wan 3.0",
         "image": {
           "src": "/imgs/showcases/4.jpeg",
-          "alt": "案例 4"
+          "alt": "微缩立体世界 (视频 · Wan 3.0)"
         }
       },
       {
-        "title": "案例 5",
-        "description": "提示词生成案例",
+        "title": "海岸日出延时",
+        "description": "视频 · MiniMax H3",
         "image": {
           "src": "/imgs/showcases/5.jpeg",
-          "alt": "案例 5"
+          "alt": "海岸日出延时 (视频 · MiniMax H3)"
         }
       },
       {
-        "title": "案例 6",
-        "description": "提示词生成案例",
+        "title": "时尚人像风格重绘",
+        "description": "图片 · Nano Banana Pro",
         "image": {
           "src": "/imgs/showcases/6.jpeg",
-          "alt": "案例 6"
+          "alt": "时尚人像风格重绘 (图片 · Nano Banana Pro)"
         }
       },
       {
-        "title": "案例 7",
-        "description": "提示词生成案例",
+        "title": "海报文字修正",
+        "description": "图片 · GPT Images 2.5",
         "image": {
           "src": "/imgs/showcases/7.jpeg",
-          "alt": "案例 7"
+          "alt": "海报文字修正 (图片 · GPT Images 2.5)"
         }
       },
       {
-        "title": "案例 8",
-        "description": "提示词生成案例",
+        "title": "透明背景贴纸包",
+        "description": "图片 · Flux Kontext Max",
         "image": {
           "src": "/imgs/showcases/8.jpeg",
-          "alt": "案例 8"
+          "alt": "透明背景贴纸包 (图片 · Flux Kontext Max)"
         }
       },
       {
-        "title": "案例 9",
-        "description": "提示词生成案例",
+        "title": "九图成套产品图",
+        "description": "图片 · Seedream 4.0",
         "image": {
           "src": "/imgs/showcases/9.jpeg",
-          "alt": "案例 9"
+          "alt": "九图成套产品图 (图片 · Seedream 4.0)"
         }
       },
       {
-        "title": "案例 10",
-        "description": "提示词生成案例",
+        "title": "角色三视图设定",
+        "description": "图片 · Nano Banana 2",
         "image": {
           "src": "/imgs/showcases/10.jpeg",
-          "alt": "案例 10"
+          "alt": "角色三视图设定 (图片 · Nano Banana 2)"
         }
       }
     ]
@@ -308,31 +333,31 @@
     "items": [
       {
         "title": "写清楚提示词",
-        "description": "描述主体、构图、光线、材质、镜头感、图中文字需求，以及背景要求。",
+        "description": "描述主体、风格、运动和文字需求——同一段提示词既能驱动图片输出，也能驱动视频输出。",
         "image": {
           "src": "/imgs/features/5.png",
           "alt": "usage"
         }
       },
       {
-        "title": "需要时上传参考图",
-        "description": "如果需要保留商品结构、风格方向、角色细节或场景布局，就上传参考图。",
+        "title": "选图像或视频模型",
+        "description": "要视频选 Seedance 2.5、Veo 3.1 等视频模型，要图片选 Seedream 4.0 等图片模型。",
         "image": {
           "src": "/imgs/features/6.png",
           "alt": "usage"
         }
       },
       {
-        "title": "执行生成或编辑",
-        "description": "根据需求选择文生图或图生图流程，决定是从零创作还是基于输入图精修。",
+        "title": "生成，再从图到视频",
+        "description": "从文字或参考图开始，再把静图直接转成视频动态，全程不离开工作台。",
         "image": {
           "src": "/imgs/features/7.png",
           "alt": "usage"
         }
       },
       {
-        "title": "迭代到可用成品",
-        "description": "继续调整文字、构图、透明背景和细节，直到结果可以用于设计或商用发布。",
+        "title": "局部修改直到可用",
+        "description": "只重跑要改的那部分——改字、换风格、调构图——不用从头重新生成。",
         "image": {
           "src": "/imgs/features/8.png",
           "alt": "usage"
@@ -571,8 +596,8 @@
           "hidden": true,
           "children": [
             {
-              "title": "Seedream 4.5",
-              "url": "/seedream4-5",
+              "title": "Seedream 4.0",
+              "url": "/seedream-4-0",
               "target": "_self"
             },
             {
@@ -586,6 +611,81 @@
               "target": "_self"
             }
           ]
+        },
+        {
+          "title": "模型",
+          "children": [
+            {
+              "title": "Seedance 2.5",
+              "url": "/seedance-2-5",
+              "target": "_self"
+            },
+            {
+              "title": "Seedance 2.0",
+              "url": "/seedance-2-0",
+              "target": "_self"
+            },
+            {
+              "title": "MiniMax H3",
+              "url": "/minimax-h3",
+              "target": "_self"
+            },
+            {
+              "title": "Veo 3.1",
+              "url": "/veo-3-1",
+              "target": "_self"
+            },
+            {
+              "title": "Kling 2.5",
+              "url": "/kling-2-5",
+              "target": "_self"
+            },
+            {
+              "title": "Wan 3.0",
+              "url": "/wan-3-0",
+              "target": "_self"
+            },
+            {
+              "title": "GPT Images 2.5",
+              "url": "/gpt-images-2-5",
+              "target": "_self"
+            },
+            {
+              "title": "Nano Banana Pro",
+              "url": "/nano-banana-pro",
+              "target": "_self"
+            },
+            {
+              "title": "Seedream 4.0",
+              "url": "/seedream-4-0",
+              "target": "_self"
+            },
+            {
+              "title": "Flux Kontext Max",
+              "url": "/flux-kontext-max",
+              "target": "_self"
+            },
+            {
+              "title": "Nano Banana 2",
+              "url": "/nano-banana-2",
+              "target": "_self"
+            },
+            {
+              "title": "Seedream 5.0 Lite",
+              "url": "/seedream-5-lite",
+              "target": "_self"
+            },
+            {
+              "title": "Grok Imagine Image",
+              "url": "/grok-imagine-image",
+              "target": "_self"
+            },
+            {
+              "title": "查看全部模型 →",
+              "url": "/models",
+              "target": "_self"
+            }
+          ]
         }
       ]
     },
@@ -594,7 +694,7 @@
         {
           "title": "邮箱",
           "icon": "Mail",
-          "url": "mailto:ai-image-generator@chatgptimage2.app",
+          "url": "mailto:support@oddbeam.com",
           "target": "_self"
         }
       ]

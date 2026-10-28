@@ -87,9 +87,10 @@ export function Testimonials({
               className="flex w-max gap-6 will-change-transform"
               style={{ animation: 'testimonials-marquee 48s linear infinite' }}
             >
-              {items.map((item, index) => (
+              {/* 双份拼接：配合 translate3d(calc(-100% - 1.5rem)) 实现无缝循环滚动 */}
+              {[...items, ...items].map((item, index) => (
                 <TestimonialCard
-                  key={`${item.name || item.title || 'item'}-${index}`}
+                  key={`testimonial-${index}`}
                   item={item}
                 />
               ))}

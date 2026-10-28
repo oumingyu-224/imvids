@@ -24,7 +24,7 @@ const normalizeAppUrl = (url: string) => url.replace(/\/+$/, '');
 
 export const envConfigs: ConfigMap = {
   app_url: normalizeAppUrl(
-    process.env.NEXT_PUBLIC_APP_URL ?? 'https://www.chatgptimage2.app'
+    process.env.NEXT_PUBLIC_APP_URL ?? 'https://oddbeam.com'
   ),
   app_name: process.env.NEXT_PUBLIC_APP_NAME ?? 'Oddbeam',
   app_description: process.env.NEXT_PUBLIC_APP_DESCRIPTION ?? '',

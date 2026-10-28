@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getThemePage } from '@/core/theme';
 import { getMetadata } from '@/shared/lib/seo';
+import { Breadcrumbs } from '@/shared/blocks/common/breadcrumbs';
 import { getCurrentSubscription } from '@/shared/models/subscription';
 import { getUserInfo } from '@/shared/models/user';
 import { DynamicPage } from '@/shared/types/blocks/landing';
@@ -55,5 +56,17 @@ export default async function PricingPage({
   // load page component
   const Page = await getThemePage('dynamic-page');
 
-  return <Page locale={locale} page={page} />;
+  return (
+    <>
+      <div className="mx-auto w-full max-w-7xl px-4 pt-6 md:px-8">
+        <Breadcrumbs
+          items={[
+            { name: tl.raw('breadcrumb.brand'), href: '/' },
+            { name: tl.raw('breadcrumb.pages.pricing') },
+          ]}
+        />
+      </div>
+      <Page locale={locale} page={page} />
+    </>
+  );
 }

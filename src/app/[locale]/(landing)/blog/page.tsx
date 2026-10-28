@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 
 import { getThemePage } from '@/core/theme';
 import { getMetadata } from '@/shared/lib/seo';
+import { Breadcrumbs } from '@/shared/blocks/common/breadcrumbs';
 import { getPostsAndCategories } from '@/shared/models/post';
 import {
   Blog as BlogType,
@@ -82,5 +83,19 @@ export default async function BlogPage({
   // load page component
   const Page = await getThemePage('dynamic-page');
 
-  return <Page locale={locale} page={page} />;
+  const tl = await getTranslations('landing');
+
+  return (
+    <>
+      <div className="mx-auto w-full max-w-7xl px-4 pt-6 md:px-8">
+        <Breadcrumbs
+          items={[
+            { name: tl.raw('breadcrumb.brand'), href: '/' },
+            { name: tl.raw('breadcrumb.pages.blog') },
+          ]}
+        />
+      </div>
+      <Page locale={locale} page={page} />
+    </>
+  );
 }

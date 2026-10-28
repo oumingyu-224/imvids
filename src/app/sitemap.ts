@@ -13,6 +13,7 @@ const staticPaths = [
   '/pricing',
   '/blog',
   '/updates',
+  '/models',
   '/ai-video-generator',
   '/ai-image-generator',
   '/ai-music-generator',
@@ -31,6 +32,7 @@ const staticPaths = [
   '/seedream-4-0',
   '/nano-banana-2',
   '/seedream-5-lite',
+  '/grok-imagine-image',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

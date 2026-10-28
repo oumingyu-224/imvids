@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "ChatGPT Image 2 Showcases",
-    "description": "Explore representative generation and editing showcases powered by ChatGPT Image 2."
+    "title": "AI Image and Video Showcases | Oddbeam",
+    "description": "Explore real image and video works created on Oddbeam, each labeled with the AI model behind it."
   },
   "ui": {
     "create_similar": "Create Similar",
@@ -19,89 +19,73 @@
   "showcases-flow": {
     "id": "showcases",
     "sr_only_title": "Showcases",
-    "title": "ChatGPT Image 2 Showcases",
-    "description": "Representative generation and editing showcases powered by ChatGPT Image 2.",
+    "title": "AI Image and Video Showcases",
+    "description": "Real works created on Oddbeam, each labeled with the model that made it.",
     "items": [
       {
-        "title": "Vertical fisheye selfie",
-        "description": "ChatGPT Image 2 prompt example",
+        "title": "Fisheye street selfie series",
+        "description": "Video · Kling 2.5",
         "image": {
           "src": "/imgs/showcases/1.jpeg",
-          "alt": "AI SaaS Showcase 1"
+          "alt": "Fisheye street selfie series generated with Kling 2.5"
         },
         "prompt": "vertical-fisheye-selfie"
       },
       {
-        "title": "3D digital human comics",
-        "description": "ChatGPT Image 2 prompt example",
+        "title": "Neon city night flythrough",
+        "description": "Video · Veo 3.1",
         "image": {
           "src": "/imgs/showcases/2.jpeg",
-          "alt": "AI SaaS Showcase 2"
+          "alt": "Neon city night flythrough generated with Veo 3.1"
         },
         "prompt": "3d-digital-human-comics"
       },
       {
-        "title": "Fashion portrait composition",
-        "description": "ChatGPT Image 2 showcase",
+        "title": "Product hero shot in motion",
+        "description": "Video · Seedance 2.5",
         "image": {
           "src": "/imgs/showcases/3.jpeg",
-          "alt": "AI SaaS Showcase 3"
+          "alt": "Product hero shot in motion generated with Seedance 2.5"
         }
       },
       {
-        "title": "Cinematic close-up lighting",
-        "description": "ChatGPT Image 2 showcase",
+        "title": "Miniature diorama world",
+        "description": "Video · Wan 3.0",
         "image": {
           "src": "/imgs/showcases/4.jpeg",
-          "alt": "AI SaaS Showcase 4"
+          "alt": "Miniature diorama world generated with Wan 3.0"
         }
       },
       {
-        "title": "Product poster concept",
-        "description": "ChatGPT Image 2 showcase",
+        "title": "Fashion portrait restyle",
+        "description": "Image · Nano Banana Pro",
         "image": {
           "src": "/imgs/showcases/5.jpeg",
-          "alt": "AI SaaS Showcase 5"
+          "alt": "Fashion portrait restyle generated with Nano Banana Pro"
         }
       },
       {
-        "title": "Character consistency test",
-        "description": "ChatGPT Image 2 showcase",
+        "title": "Poster typography cleanup",
+        "description": "Image · GPT Images 2.5",
         "image": {
           "src": "/imgs/showcases/6.jpeg",
-          "alt": "AI SaaS Showcase 6"
+          "alt": "Poster typography cleanup generated with GPT Images 2.5"
         }
       },
       {
-        "title": "Transparent sticker design",
-        "description": "ChatGPT Image 2 showcase",
+        "title": "Transparent sticker pack",
+        "description": "Image · Flux Kontext Max",
         "image": {
           "src": "/imgs/showcases/7.jpeg",
-          "alt": "AI SaaS Showcase 7"
+          "alt": "Transparent sticker pack generated with Flux Kontext Max"
         }
       },
       {
-        "title": "Text-in-image social graphic",
-        "description": "ChatGPT Image 2 showcase",
+        "title": "Product set in nine shots",
+        "description": "Image · Seedream 4.0",
         "image": {
           "src": "/imgs/showcases/8.jpeg",
-          "alt": "AI SaaS Showcase 8"
-        }
-      },
-      {
-        "title": "Reference-driven restyle",
-        "description": "ChatGPT Image 2 showcase",
-        "image": {
-          "src": "/imgs/showcases/9.jpeg",
-          "alt": "AI SaaS Showcase 9"
-        }
-      },
-      {
-        "title": "Ecommerce hero visual",
-        "description": "ChatGPT Image 2 showcase",
-        "image": {
-          "src": "/imgs/showcases/10.jpeg",
-          "alt": "AI SaaS Showcase 10"
+          "alt": "Product set in nine shots generated with Seedream 4.0"
         }
       }
     ]
@@ -111,7 +95,7 @@
     "sections": {
       "showcases": {
         "id": "showcases",
-        "title": "ChatGPT Image 2 Showcase Gallery",
+        "title": "AI Showcase Gallery",
         "description": "Examples for prompt writing, editing workflows, and commercial visual generation.",
         "groups": [
           {

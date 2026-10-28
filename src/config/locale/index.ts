@@ -57,6 +57,7 @@ export const localeMessagesPaths = [
   'pages/seedance2free',
   'pages/nanobananapro',
   'pages/zimage',
+  'pages/models',
   'models/seedance-2-5',
   'models/seedance-2-0',
   'models/minimax-h3',
@@ -69,6 +70,7 @@ export const localeMessagesPaths = [
   'models/flux-kontext-max',
   'models/nano-banana-2',
   'models/seedream-5-lite',
+  'models/grok-imagine-image',
   'admin/prompts',
   'admin/showcases',
 ];

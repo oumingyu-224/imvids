@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "title": "Oddbeam AI Models — Video & Image Generation",
+    "description": "All AI video and image models on Oddbeam, one account, one credit pool. Compare duration, resolution, and credit cost per model, then generate in the studio."
+  },
+  "h1": "Oddbeam AI Models",
+  "intro": "One Oddbeam account unlocks every AI model: video and image generation share the same credit pool, with no separate subscriptions. Pick a model by task below, or switch anytime inside the studio.",
+  "sr_only_title": "AI Models",
+  "groups": {
+    "video": "Video Models",
+    "image": "Image Models",
+    "audio": "Audio Models"
+  },
+  "credit_unit": "credits per run",
+  "params": {
+    "seedance-2-5": "Up to 30s per run, 480P–1080P, accepts text/image/video/audio input",
+    "seedance-2-0": "Up to 15s per run, 480P–1080P, accepts text/image/video input",
+    "seedance-2-0-fast": "Up to 15s per run, 480P–1080P, faster Seedance 2.0 variant",
+    "seedance-2-0-mini": "Up to 15s per run, 480P–1080P, lightweight Seedance 2.0",
+    "veo-3-1-premium": "8s per run, up to 4K, native audio, last-frame support",
+    "veo-3-1-lite": "8s per run, last-frame and multi-image references",
+    "kling-2-5": "Up to 10s per run, enhanced motion and physics, no audio",
+    "kling-2-1-master": "10s per run, accepts text and image input",
+    "kling-2-1-pro": "10s per run, last-frame support, image input only",
+    "wan-3-0": "Up to 30s per run, accepts document/webpage input and multimodal references",
+    "wan-3-0-prime": "Up to 30s per run, first/last frame and multimodal references",
+    "wan-2-5": "10s per run, HD output",
+    "minimax-h3": "Up to 15s per run, last-frame and multi-image references, omni-modal input/output",
+    "minimax-h3-max-turbo": "5–15s per run, last-frame support, turbo speed",
+    "gemini-omni-flash-1-1": "4–10s per run, accepts text, first/last frame, video, audio, and character references",
+    "gemini-omni": "4–10s per run, accepts text, image, video, audio, and character references",
+    "ltx-2-5-fast": "2–20s per run, last-frame support, fast generation",
+    "pixverse-v6": "1–15s per run, HD output, last-frame, multi-image, and multi-shot support",
+    "seedance-1-5-pro": "8s per run, last-frame support",
+    "grok-imagine-video": "About 5s per run, accepts text and image input",
+    "runway-gen-4": "10s per run, accepts text and image input",
+    "gpt-images-2-5-flare": "5+ reference images, multi-image input, HD output, accurate text rendering",
+    "seedream-4": "Accepts text and image input, generates matched image sets in one run",
+    "seedream-5-lite": "Research-aware lightweight image model, accepts text and image input",
+    "nano-banana-pro": "Search-grounded, 14 reference images, 5 consistent characters, HD output",
+    "nano-banana-2": "Multi-turn local editing without drift, accepts text and image input",
+    "nano-banana": "Accepts text and image input",
+    "flux-kontext-pro": "Context-aware local editing, accepts text and image input",
+    "flux-kontext-max": "Context-aware local editing, 8x faster tier",
+    "grok-imagine-image": "Point-and-edit local editing, 5 reference images, smart resize",
+    "qwen-image-edit": "Image editing only",
+    "gpt-4o-image": "Accepts text and image input"
+  },
+  "audio_entry": {
+    "name": "AI Music Generator",
+    "description": "Generate music tracks from a prompt in the same studio"
+  },
+  "guide_title": "How to choose a model",
+  "guide": "For long takes, pick Seedance 2.5 or Wan 3.0 (up to 30s per run). For 4K with native audio, pick Veo 3.1 Premium. For high-volume budgets, pick Seedance 2.0 Mini or Wan 3.0. To edit product photos, pick Nano Banana 2 or Flux Kontext Max. For matched image sets, pick Seedream 4.0. For posters where text must be right, pick GPT Images 2.5.",
+  "view_all": "View all models",
+  "cta_text": "Open the studio and start generating",
+  "cta_button": "Start Creating"
+}

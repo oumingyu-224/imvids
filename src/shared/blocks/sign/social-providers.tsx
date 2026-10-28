@@ -10,6 +10,7 @@ import { defaultLocale } from '@/config/locale';
 import { Button } from '@/shared/components/ui/button';
 import { useAppContext } from '@/shared/contexts/app';
 import { cn } from '@/shared/lib/utils';
+import { trackEvent } from '@/shared/lib/track-event';
 import { Button as ButtonType } from '@/shared/types/blocks/common';
 
 export function SocialProviders({
@@ -69,6 +70,7 @@ export function SocialProviders({
 
   const handleSignIn = async ({ provider }: { provider: string }) => {
     setLoading(true);
+    trackEvent('sign_in_click', { method: provider });
 
     // Open popup to the intermediate page that triggers signIn.social()
     const popupPath =

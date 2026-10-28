@@ -29,6 +29,7 @@ import {
 } from '@/shared/components/ui/select';
 import { useAppContext } from '@/shared/contexts/app';
 import { getCookie } from '@/shared/lib/cookie';
+import { trackEvent } from '@/shared/lib/track-event';
 import { cn } from '@/shared/lib/utils';
 import { Subscription } from '@/shared/models/subscription';
 import {
@@ -620,6 +621,13 @@ export function PricingPlans({
       if (!checkoutUrl) {
         throw new Error('checkout url not found');
       }
+
+      trackEvent('checkout_start', {
+        plan: item.title,
+        amount: item.amount,
+        currency: item.currency,
+        provider: paymentProvider || '',
+      });
 
       window.location.href = checkoutUrl;
     } catch (e: any) {

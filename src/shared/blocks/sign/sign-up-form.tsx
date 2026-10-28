@@ -12,6 +12,7 @@ import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import { Label } from '@/shared/components/ui/label';
 import { useAppContext } from '@/shared/contexts/app';
+import { trackEvent } from '@/shared/lib/track-event';
 
 import { SocialProviders } from './social-providers';
 
@@ -96,6 +97,7 @@ export function SignUpForm({
     }
 
     setLoading(true);
+    trackEvent('sign_up_start', { method: 'email' });
 
     try {
       await signUp.email(
@@ -108,6 +110,7 @@ export function SignUpForm({
           onRequest: () => {},
           onResponse: () => {},
           onSuccess: async () => {
+            trackEvent('sign_up_success', { method: 'email' });
             reportAffiliate({ userEmail: email });
 
             if (emailVerificationEnabled) {

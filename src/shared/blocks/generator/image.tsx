@@ -42,6 +42,7 @@ import {
   applyPlanDiscount,
   getBaseCredits,
 } from '@/shared/lib/plan-credits';
+import { trackEvent } from '@/shared/lib/track-event';
 import { cn } from '@/shared/lib/utils';
 import type { Subscription } from '@/shared/models/subscription';
 
@@ -1081,6 +1082,12 @@ export function ImageGenerator({
         throw new Error('Task id missing in response');
       }
 
+      trackEvent('generation_submit', {
+        media_type: 'image',
+        model,
+        scene,
+      });
+
       if (data.status === AITaskStatus.SUCCESS && data.taskInfo) {
         const parsedResult = parseTaskResult(data.taskInfo);
         const imageUrls = extractImageUrls(parsedResult);
@@ -1105,6 +1112,7 @@ export function ImageGenerator({
           ) {
             await saveShowcase(images[0].url, newTaskId, trimmedPrompt);
           }
+          trackEvent('generation_success', { media_type: 'image', model });
           toast.success(t('success.generated_successfully'));
           return;
         }
@@ -1144,6 +1152,7 @@ export function ImageGenerator({
       link.click();
       document.body.removeChild(link);
       setTimeout(() => URL.revokeObjectURL(blobUrl), 200);
+      trackEvent('generation_download', { media_type: 'image' });
       toast.success(t('success.downloaded'));
     } catch (error) {
       console.error('Failed to download image:', error);

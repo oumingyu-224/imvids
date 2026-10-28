@@ -39,6 +39,7 @@ import {
 import { Switch } from '@/shared/components/ui/switch';
 import { Textarea } from '@/shared/components/ui/textarea';
 import { useAppContext } from '@/shared/contexts/app';
+import { trackEvent } from '@/shared/lib/track-event';
 import { cn } from '@/shared/lib/utils';
 
 interface SongData {
@@ -341,6 +342,11 @@ export function MusicGenerator({ className, srOnlyTitle }: SongGeneratorProps) {
         throw new Error('Failed to generate music');
       }
 
+      trackEvent('generation_submit', {
+        media_type: 'music',
+        model,
+      });
+
       // refresh user credits
       await fetchUserCredits();
 
@@ -436,6 +442,7 @@ export function MusicGenerator({ className, srOnlyTitle }: SongGeneratorProps) {
       // Clean up object URL
       setTimeout(() => URL.revokeObjectURL(blobUrl), 100);
 
+      trackEvent('generation_download', { media_type: 'music' });
       toast.success(t('generator.download_success'));
     } catch (error) {
       console.error('Failed to download audio:', error);

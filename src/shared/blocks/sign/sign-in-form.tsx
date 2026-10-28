@@ -12,6 +12,7 @@ import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
 import { Label } from '@/shared/components/ui/label';
 import { useAppContext } from '@/shared/contexts/app';
+import { trackEvent } from '@/shared/lib/track-event';
 
 import { SocialProviders } from './social-providers';
 
@@ -87,6 +88,7 @@ export function SignInForm({
             // Do NOT reset loading here; navigation may not have completed yet.
           },
           onSuccess: async () => {
+            trackEvent('sign_in_success', { method: 'email' });
             try {
               const res: any = await authClient.getSession();
               const freshUser = res?.data?.user ?? res?.user ?? null;

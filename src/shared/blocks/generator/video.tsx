@@ -32,6 +32,7 @@ import {
   getBaseCredits,
   getResolutionMultiplier,
 } from '@/shared/lib/plan-credits';
+import { trackEvent } from '@/shared/lib/track-event';
 import { cn } from '@/shared/lib/utils';
 import type { Subscription } from '@/shared/models/subscription';
 
@@ -732,6 +733,12 @@ export function VideoGenerator({
         throw new Error('Task id missing in response');
       }
 
+      trackEvent('generation_submit', {
+        media_type: 'video',
+        model: targetModel.value,
+        scene: activeTab,
+      });
+
       if (data.status === AITaskStatus.SUCCESS && data.taskInfo) {
         const parsedResult = parseTaskResult(data.taskInfo);
         const videoUrls = extractVideoUrls(parsedResult);
@@ -746,6 +753,10 @@ export function VideoGenerator({
               prompt: trimmedPrompt,
             }))
           );
+          trackEvent('generation_success', {
+            media_type: 'video',
+            model: targetModel.value,
+          });
           toast.success('Video generated successfully');
           setProgress(100);
           resetTaskState();
@@ -789,6 +800,7 @@ export function VideoGenerator({
       link.click();
       document.body.removeChild(link);
       setTimeout(() => URL.revokeObjectURL(blobUrl), 200);
+      trackEvent('generation_download', { media_type: 'video' });
       toast.success('Video downloaded');
     } catch (error) {
       console.error('Failed to download video:', error);

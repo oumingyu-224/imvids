@@ -55,6 +55,7 @@ export const aiVideoGeneratorPageConfig: LandingPageConfig = {
     'features',
     'stats',
     'testimonials',
+    'pricing',
     'subscribe',
     'faq',
     'cta',
@@ -81,6 +82,7 @@ export const aiImageGeneratorPageConfig: LandingPageConfig = {
     'features',
     'stats',
     'testimonials',
+    'pricing',
     'subscribe',
     'faq',
     'cta',
@@ -94,13 +96,14 @@ export const aiImageGeneratorPageConfig: LandingPageConfig = {
   },
 };
 
-/** 模型页通用 sections：聚焦模型本身，不渲染首页通用的展示区/价格等区块 */
+/** 模型页通用 sections：聚焦模型本身，不渲染首页通用的展示区区块 */
 const MODEL_PAGE_SECTIONS = [
   'hero',
   'prompt-showcase',
   'usage',
   'features',
   'testimonials',
+  'pricing',
   'faq',
   'cta',
   'related-models',

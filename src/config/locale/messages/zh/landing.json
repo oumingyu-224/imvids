@@ -720,5 +720,1390 @@
       ]
     },
     "className": "landing-bottom-band"
+  },
+  "pricing": {
+    "id": "pricing",
+    "promo": {
+      "badge": "年费专属",
+      "title": "Seedance 2.5 正式上线！",
+      "title_accent": "{discount}！",
+      "copy": "限时 Pro 套餐 {discount}。优惠截止至 2026 年 11 月 30 日。",
+      "footnote": "Pro 套餐 {discount}，限时专享。",
+      "cta": "立即试用"
+    },
+    "sr_only_title": "定价方案",
+    "groups": [
+      {
+        "name": "monthly",
+        "title": "按月计费",
+        "description": "随时可取消 • 未用完的额度自动结转"
+      },
+      {
+        "name": "yearly",
+        "title": "按年计费",
+        "label": "节省50%",
+        "description": "随时可取消 • 未用完的额度自动结转"
+      },
+      {
+        "name": "one-time",
+        "title": "一次性购买",
+        "description": "随时升级 • 保留积分 • 立享新权益"
+      }
+    ],
+    "items": [
+      {
+        "title": "入门版",
+        "description": "非常适合入门",
+        "features": [
+          {
+            "title": "基础模型访问权限",
+            "items": [
+              "视频:",
+              "• MiniMax H3",
+              "• Veo 3、Veo 3.1 Lite",
+              "• Kling 2.5、Kling 2.1 Pro",
+              "• Wan 2.5、Runway Gen 4",
+              "• Grok Imagine Video",
+              "• Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "图像:",
+              "• GPT-4o、Nano Banana、Nano Banana 2",
+              "• Flux Kontext Pro、Flux Kontext Max",
+              "• Seedream 4.0、Seedream 5.0 Lite",
+              "• Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
+          {
+            "title": "可使用 SOTA 模型（需消耗积分）",
+            "items": [
+              "包含的 SOTA 模型:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 超出免费画质时长",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分",
+              "MiniMax H3 定价:",
+              "• 768P：每秒 20 积分；2K：每秒 30 积分",
+              "• 前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣",
+              "套餐折扣:",
+              "• 月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "• 年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "• 所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
+          "1 并发生成数",
+          "私密生成",
+          "无广告体验",
+          "无水印",
+          "优先处理队列",
+          "优先支持",
+          {
+            "title": "商业许可证",
+            "included": false
+          },
+          "无限存储空间"
+        ],
+        "interval": "month",
+        "amount": 2999,
+        "currency": "USD",
+        "price": "$29.99",
+        "unit": "/ 月",
+        "is_featured": false,
+        "tip": "$0.12 /video",
+        "button": {
+          "title": "立即订阅",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "starter-monthly",
+        "product_name": "SeeVideo 入门版包月",
+        "plan_name": "入门版包月",
+        "credits": 2500,
+        "credit_accent": "#abbbcc",
+        "credits_videos": "25 个视频",
+        "per_video_price": "$1.20",
+        "valid_days": 30,
+        "group": "monthly"
+      },
+      {
+        "title": "无限制",
+        "description": "适合高级用户和团队",
+        "label": "最超值",
+        "features": [
+          {
+            "title": "全部基础与增强模型无限使用",
+            "items": [
+              "无限使用基础与增强模型。SOTA 模型需消耗积分，包括 Veo 3.1 Premium、PixVerse V6 超出免费画质时长、LTX 2.5 Fast 4K、Kling 2.1 Master、Seedance 2.x 和 MiniMax H3。"
+            ]
+          },
+          {
+            "title": "所有高级 AI 模型（已解锁）",
+            "items": [
+              "视频:",
+              "• MiniMax H3",
+              "• Veo 3、Veo 3.1 Lite、Veo 3.1 Premium",
+              "• Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "• Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5、Runway Gen 4",
+              "• Grok Imagine Video",
+              "图像:",
+              "• GPT-4o",
+              "• Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "• Flux Kontext Pro、Flux Kontext Max",
+              "• Seedream 4.0、Seedream 5.0 Lite",
+              "• Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
+          {
+            "title": "15,000 SOTA 模型额外积分（每次生成享五折）",
+            "items": [
+              "包含的 SOTA 模型:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 超出免费画质时长",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分",
+              "MiniMax H3 定价:",
+              "• 768P：每秒 20 积分；2K：每秒 30 积分",
+              "• 前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣",
+              "套餐折扣:",
+              "• 月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "• 年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "• 所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
+          "5 并发生成数",
+          "私密生成",
+          "无广告体验",
+          "无水印",
+          "优先处理队列",
+          "优先支持",
+          {
+            "title": "商业许可证",
+            "included": false
+          },
+          "无限存储空间"
+        ],
+        "interval": "month",
+        "amount": 14999,
+        "currency": "USD",
+        "price": "$149.99",
+        "unit": "/ 月",
+        "is_featured": true,
+        "tip": "~ $0.001 /video",
+        "button": {
+          "title": "立即订阅",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "premium-monthly",
+        "product_name": "SeeVideo 无限制包月",
+        "plan_name": "无限制包月",
+        "credits_label": "无限点数",
+        "credits": 15000,
+        "credit_accent": "#ffba6b",
+        "credits_videos": "无限视频",
+        "per_video_price": "~ $0.001",
+        "valid_days": 30,
+        "group": "monthly"
+      },
+      {
+        "title": "专业版",
+        "description": "专业人士首选",
+        "label": "热门",
+        "features": [
+          {
+            "title": "增强模型访问权限",
+            "items": [
+              "视频:",
+              "• MiniMax H3",
+              "• Veo 3、Veo 3.1 Lite、Veo 3.1 Premium",
+              "• Kling 2.5、Kling 2.1 Pro",
+              "• Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5、Runway Gen 4",
+              "• Grok Imagine Video",
+              "图像:",
+              "• GPT-4o、Nano Banana、Nano Banana 2",
+              "• Flux Kontext Pro、Flux Kontext Max",
+              "• Seedream 4.0、Seedream 5.0 Lite",
+              "• Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
+          {
+            "title": "SOTA 模型八折优惠",
+            "items": [
+              "包含的 SOTA 模型:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 超出免费画质时长",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分",
+              "MiniMax H3 定价:",
+              "• 768P：每秒 20 积分；2K：每秒 30 积分",
+              "• 前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣",
+              "套餐折扣:",
+              "• 月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "• 年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "• 所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
+          "3 并发生成数",
+          "私密生成",
+          "无广告体验",
+          "无水印",
+          "优先处理队列",
+          "优先支持",
+          {
+            "title": "商业许可证",
+            "included": false
+          },
+          "无限存储空间"
+        ],
+        "interval": "month",
+        "amount": 8999,
+        "currency": "USD",
+        "price": "$89.99",
+        "unit": "/ 月",
+        "is_featured": false,
+        "tip": "$0.09 /video",
+        "button": {
+          "title": "立即订阅",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "standard-monthly",
+        "product_name": "SeeVideo 专业版包月",
+        "plan_name": "专业版包月",
+        "credits": 10000,
+        "credit_accent": "#ffb475",
+        "credits_videos": "100 个视频",
+        "per_video_price": "$0.90",
+        "valid_days": 30,
+        "group": "monthly"
+      },
+      {
+        "title": "入门版",
+        "description": "非常适合入门",
+        "features": [
+          {
+            "title": "全部基础与增强模型一折（限时特惠）",
+            "items": [
+              "Seedance 2.0 和 MiniMax H3 不参与此限时折扣，采用按秒计费的积分定价，并按套餐单独享受最高 60% 折扣。"
+            ]
+          },
+          {
+            "title": "所有高级 AI 模型（已解锁）",
+            "items": [
+              "视频:",
+              "• MiniMax H3",
+              "• Veo 3、Veo 3.1 Lite、Veo 3.1 Premium",
+              "• Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "• Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5、Runway Gen 4",
+              "• Grok Imagine Video",
+              "图像:",
+              "• GPT-4o",
+              "• Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "• Flux Kontext Pro、Flux Kontext Max",
+              "• Seedream 4.0、Seedream 5.0 Lite",
+              "• Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
+          {
+            "title": "SOTA 模型八折优惠",
+            "items": [
+              "包含的 SOTA 模型:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 超出免费画质时长",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分",
+              "MiniMax H3 定价:",
+              "• 768P：每秒 20 积分；2K：每秒 30 积分",
+              "• 前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣",
+              "套餐折扣:",
+              "• 月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "• 年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "• 所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
+          "1 并发生成数",
+          "私密生成",
+          "无广告体验",
+          "无水印",
+          "优先处理队列",
+          "优先支持",
+          "商业许可证",
+          "无限存储空间"
+        ],
+        "interval": "year",
+        "amount": 10000,
+        "currency": "USD",
+        "price": "$8.3",
+        "total_price_note": "$100/年 按年计费",
+        "unit": "/ 月",
+        "is_featured": false,
+        "tip": "$0.10 /video",
+        "button": {
+          "title": "立即订阅",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "starter-yearly",
+        "product_name": "SeeVideo 入门版包年",
+        "plan_name": "入门版包年",
+        "credits": 10000,
+        "credit_accent": "#abbbcc",
+        "credits_videos": "1,000 个视频",
+        "per_video_price": "$0.10",
+        "valid_days": 365,
+        "group": "yearly",
+        "discount_text": "· {discount}"
+      },
+      {
+        "title": "无限制",
+        "description": "适合高级用户和团队",
+        "label": "最超值",
+        "features": [
+          {
+            "title": "全部基础与增强模型无限使用",
+            "items": [
+              "无限使用基础与增强模型。SOTA 模型需消耗积分，包括 Veo 3.1 Premium、PixVerse V6 超出免费画质时长、LTX 2.5 Fast 4K、Kling 2.1 Master、Seedance 2.x 和 MiniMax H3。"
+            ]
+          },
+          {
+            "title": "所有高级 AI 模型（已解锁）",
+            "items": [
+              "视频:",
+              "• MiniMax H3",
+              "• Veo 3、Veo 3.1 Lite、Veo 3.1 Premium",
+              "• Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "• Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5、Runway Gen 4",
+              "• Grok Imagine Video",
+              "图像:",
+              "• GPT-4o",
+              "• Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "• Flux Kontext Pro、Flux Kontext Max",
+              "• Seedream 4.0、Seedream 5.0 Lite",
+              "• Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
+          {
+            "title": "90,000 SOTA 模型额外积分（每次生成享 60% 折扣）",
+            "items": [
+              "包含的 SOTA 模型:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 超出免费画质时长",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分",
+              "MiniMax H3 定价:",
+              "• 768P：每秒 20 积分；2K：每秒 30 积分",
+              "• 前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣",
+              "套餐折扣:",
+              "• 月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "• 年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "• 所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
+          "5 并发生成数",
+          "私密生成",
+          "无广告体验",
+          "无水印",
+          "优先处理队列",
+          "优先支持",
+          "商业许可证",
+          "无限存储空间"
+        ],
+        "interval": "year",
+        "amount": 90000,
+        "currency": "USD",
+        "price": "$75.0",
+        "total_price_note": "$900/年 按年计费",
+        "original_price": "$149.99/mo",
+        "unit": "/ 月",
+        "is_featured": true,
+        "tip": "$900/年",
+        "button": {
+          "title": "立即订阅",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "premium-yearly",
+        "product_name": "SeeVideo 无限制包年",
+        "plan_name": "无限制包年",
+        "credits_label": "无限点数",
+        "credits": 90000,
+        "credit_accent": "#ffba6b",
+        "credits_videos": "无限视频",
+        "per_video_price": "~ $0.001",
+        "valid_days": 365,
+        "group": "yearly",
+        "discount_text": "· {discount}"
+      },
+      {
+        "title": "专业版",
+        "description": "专业人士首选",
+        "label": "热门",
+        "features": [
+          {
+            "title": "全部基础与增强模型一折（限时特惠）",
+            "items": [
+              "Seedance 2.0 和 MiniMax H3 不参与此限时折扣，采用按秒计费的积分定价，并按套餐单独享受最高 60% 折扣。"
+            ]
+          },
+          {
+            "title": "所有高级 AI 模型（已解锁）",
+            "items": [
+              "视频:",
+              "• MiniMax H3",
+              "• Veo 3、Veo 3.1 Lite、Veo 3.1 Premium",
+              "• Kling 2.5、Kling 2.1 Pro、Kling 2.1 Master",
+              "• Seedance 1.0 Lite、Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5、Runway Gen 4",
+              "• Grok Imagine Video",
+              "图像:",
+              "• GPT-4o",
+              "• Nano Banana、Nano Banana Pro、Nano Banana 2",
+              "• Flux Kontext Pro、Flux Kontext Max",
+              "• Seedream 4.0、Seedream 5.0 Lite",
+              "• Qwen Image Edit、Grok Imagine Image"
+            ]
+          },
+          {
+            "title": "SOTA 模型七折优惠",
+            "items": [
+              "包含的 SOTA 模型:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 超出免费画质时长",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分",
+              "MiniMax H3 定价:",
+              "• 768P：每秒 20 积分；2K：每秒 30 积分",
+              "• 前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣",
+              "套餐折扣:",
+              "• 月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "• 年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "• 所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
+          "3 并发生成数",
+          "私密生成",
+          "无广告体验",
+          "无水印",
+          "优先处理队列",
+          "优先支持",
+          "商业许可证",
+          "无限存储空间"
+        ],
+        "interval": "year",
+        "amount": 30000,
+        "currency": "USD",
+        "price": "$25.0",
+        "total_price_note": "$300/年 按年计费",
+        "original_price": "$35.99/mo",
+        "unit": "/ 月",
+        "is_featured": false,
+        "tip": "$300/年",
+        "button": {
+          "title": "立即订阅",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "standard-yearly",
+        "product_name": "SeeVideo 专业版包年",
+        "plan_name": "专业版包年",
+        "credits": 32000,
+        "credit_accent": "#ffb475",
+        "credits_videos": "3,200 个视频",
+        "per_video_price": "$0.09",
+        "valid_days": 365,
+        "group": "yearly",
+        "discount_text": "· {discount}"
+      },
+      {
+        "features": [
+          "20,000 + 3,500 积分",
+          {
+            "title": "可使用 SOTA 模型（需消耗积分）",
+            "items": [
+              "包含的 SOTA 模型:",
+              "• Gemini Omni Flash 1.1",
+              "• Gemini Omni",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 超出免费画质时长",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分",
+              "MiniMax H3 定价:",
+              "• 768P：每秒 20 积分；2K：每秒 30 积分",
+              "• 前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣",
+              "套餐折扣:",
+              "• 月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "• 年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "• 所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
+          "3 并发生成数",
+          "私密生成",
+          "无广告体验",
+          "无水印",
+          "优先处理队列",
+          "优先支持",
+          "无限存储空间"
+        ],
+        "interval": "one-time",
+        "amount": 19999,
+        "currency": "USD",
+        "price": "$199.99",
+        "unit": "",
+        "is_featured": false,
+        "tip": "",
+        "button": {
+          "title": "一次性付款",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "starter",
+        "product_name": "SeeVideo 标准积分包",
+        "plan_name": "标准积分包",
+        "credits": 23500,
+        "credit_accent": "#abbbcc",
+        "credits_display": "20,000",
+        "credits_extra": "3,500",
+        "credits_videos": "235 个视频",
+        "per_video_price": "$0.85",
+        "valid_days": 365,
+        "group": "one-time"
+      },
+      {
+        "features": [
+          "50,000 + 10,000 积分",
+          {
+            "title": "可使用 SOTA 模型（需消耗积分）",
+            "items": [
+              "包含的 SOTA 模型:",
+              "• Gemini Omni Flash 1.1",
+              "• Gemini Omni",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 超出免费画质时长",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分",
+              "MiniMax H3 定价:",
+              "• 768P：每秒 20 积分；2K：每秒 30 积分",
+              "• 前 5 张参考图片免费；超出后每张 5 积分，且额外图片费用不参与任何套餐折扣",
+              "套餐折扣:",
+              "• 月 Starter 与一次性积分包：原价；月 Pro：八折；月 Unlimited：五折",
+              "• 年 Starter：八折；年 Pro：七折（Fast 与 Mini 六折）；年 Unlimited：四折",
+              "• 所有套餐（包括 Unlimited）使用 SOTA 模型均需消耗积分"
+            ]
+          },
+          "6 并发生成数",
+          "私密生成",
+          "无广告体验",
+          "无水印",
+          "优先处理队列",
+          "优先支持",
+          "无限存储空间"
+        ],
+        "interval": "one-time",
+        "amount": 49999,
+        "currency": "USD",
+        "price": "$499.99",
+        "unit": "",
+        "is_featured": true,
+        "tip": "",
+        "button": {
+          "title": "一次性付款",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "standard",
+        "product_name": "SeeVideo 专业积分包",
+        "plan_name": "专业积分包",
+        "credits": 60000,
+        "credit_accent": "#ffb475",
+        "credits_display": "50,000",
+        "credits_extra": "10,000",
+        "credits_videos": "600 个视频",
+        "per_video_price": "$0.83",
+        "valid_days": 365,
+        "group": "one-time",
+        "label": "热门"
+      }
+    ],
+    "models": {
+      "section_title": "模型积分",
+      "section_description": "各模型每次生成的积分消耗，随所选套餐联动",
+      "video_title": "视频模型",
+      "image_title": "图像模型",
+      "free_label": "无限制",
+      "not_included_label": "当前套餐不包含该模型",
+      "show_more": "展开全部模型",
+      "show_less": "收起",
+      "visible_count": 23,
+      "card_title": "AI 模型（原价）",
+      "card_show_more": "查看更多模型",
+      "card_show_less": "收起",
+      "items": [
+        {
+          "name": "Seedance 2.5",
+          "category": "video",
+          "badge": "NEW",
+          "description": "显示 480p 4 秒价格。按秒计费，年费用户享受最高六折优惠。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 160,
+            "standard-monthly": {
+              "original": 160,
+              "value": 128
+            },
+            "premium-monthly": {
+              "original": 160,
+              "value": 80
+            },
+            "starter-yearly": {
+              "original": 160,
+              "value": 128
+            },
+            "standard-yearly": {
+              "original": 160,
+              "value": 112
+            },
+            "premium-yearly": {
+              "original": 160,
+              "value": 64
+            },
+            "starter": 160,
+            "standard": 160
+          }
+        },
+        {
+          "name": "Seedance 2.0",
+          "category": "video",
+          "badge": "ULTRA",
+          "description": "显示 480p 5 秒价格。按秒计费，年费用户享受最高六折优惠。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 80,
+            "standard-monthly": {
+              "original": 80,
+              "value": 65
+            },
+            "premium-monthly": {
+              "original": 80,
+              "value": 40
+            },
+            "starter-yearly": {
+              "original": 80,
+              "value": 64
+            },
+            "standard-yearly": {
+              "original": 80,
+              "value": 56
+            },
+            "premium-yearly": {
+              "original": 80,
+              "value": 32
+            },
+            "starter": 80,
+            "standard": 80
+          }
+        },
+        {
+          "name": "Seedance 2.0 Fast",
+          "category": "video",
+          "description": "显示 480p 5 秒价格。按秒计费，年费用户享受最高六折优惠。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 65,
+            "standard-monthly": {
+              "original": 65,
+              "value": 50
+            },
+            "premium-monthly": {
+              "original": 65,
+              "value": 35
+            },
+            "starter-yearly": {
+              "original": 65,
+              "value": 52
+            },
+            "standard-yearly": {
+              "original": 65,
+              "value": 39
+            },
+            "premium-yearly": {
+              "original": 65,
+              "value": 26
+            },
+            "starter": 65,
+            "standard": 65
+          }
+        },
+        {
+          "name": "Seedance 2.0 Mini",
+          "category": "video",
+          "description": "显示 480p 5 秒价格。按秒计费，年费用户享受最高六折优惠。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 55,
+            "standard-monthly": {
+              "original": 55,
+              "value": 45
+            },
+            "premium-monthly": {
+              "original": 55,
+              "value": 30
+            },
+            "starter-yearly": {
+              "original": 55,
+              "value": 44
+            },
+            "standard-yearly": {
+              "original": 55,
+              "value": 33
+            },
+            "premium-yearly": {
+              "original": 55,
+              "value": 22
+            },
+            "starter": 55,
+            "standard": 55
+          }
+        },
+        {
+          "name": "Veo 3.1 Premium",
+          "category": "video",
+          "description": "限时一折：200 → 20 积分。电影级 4K 画质，帧级精控，支持多参考图。",
+          "credits": {
+            "starter-monthly": null,
+            "standard-monthly": {
+              "original": 200,
+              "value": 160
+            },
+            "premium-monthly": {
+              "original": 200,
+              "value": 100
+            },
+            "starter-yearly": {
+              "original": 200,
+              "value": 160
+            },
+            "standard-yearly": {
+              "original": 200,
+              "value": 140
+            },
+            "premium-yearly": {
+              "original": 200,
+              "value": 80
+            },
+            "starter": null,
+            "standard": 200
+          }
+        },
+        {
+          "name": "Gemini Omni Flash 1.1",
+          "category": "video",
+          "description": "展示720p、4 秒价格:55积分。4/6/8/10秒标准价在360p/720p/1080p 下为55/75/90/110积分，在4K下为125/145/165/180积分。视频参考模式在360p/720p/1080p下为145积分，4K为215积分。所有套餐均需消耗SOTA积分，折扣后均为整数积分。",
+          "credits": {
+            "starter-monthly": 55,
+            "standard-monthly": {
+              "original": 55,
+              "value": 44
+            },
+            "premium-monthly": {
+              "original": 55,
+              "value": 27
+            },
+            "starter-yearly": {
+              "original": 55,
+              "value": 44
+            },
+            "standard-yearly": {
+              "original": 55,
+              "value": 38
+            },
+            "premium-yearly": {
+              "original": 55,
+              "value": 22
+            },
+            "starter": 55,
+            "standard": 55
+          }
+        },
+        {
+          "name": "Gemini Omni",
+          "category": "video",
+          "description": "展示720p/1080p、4秒价格:55积分。4/6/8/10秒标准价在720p/1080p下为55/75/90/110积分，在4K下为125/145/165/180积分。视频参考模式在720p/1080p下为145积分，4K为215积分。付费用户创建Audio和Character 免费。所有套餐均需消耗 SOTA积分，折扣后均为整数积分",
+          "credits": {
+            "starter-monthly": 55,
+            "standard-monthly": {
+              "original": 55,
+              "value": 44
+            },
+            "premium-monthly": {
+              "original": 55,
+              "value": 27
+            },
+            "starter-yearly": {
+              "original": 55,
+              "value": 44
+            },
+            "standard-yearly": {
+              "original": 55,
+              "value": 38
+            },
+            "premium-yearly": {
+              "original": 55,
+              "value": 22
+            },
+            "starter": 55,
+            "standard": 55
+          }
+        },
+        {
+          "name": "Wan 3.0",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "显示 480p 5 秒价格。基础费率：480p 每秒 8 积分、720p 每秒 14 积分、1080p 每秒 27 积分。参考视频模式按输入与输出总时长计费。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": {
+              "original": 40,
+              "value": 32
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": 20
+            },
+            "starter-yearly": {
+              "original": 40,
+              "value": 32
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 28
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": 16
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Wan 3.0 Prime",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "显示 480p 5 秒价格。基础费率：480p 每秒 10 积分、720p 每秒 20 积分、1080p 每秒 40 积分。参考视频模式按输入与输出总时长计费。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 50,
+            "standard-monthly": {
+              "original": 50,
+              "value": 40
+            },
+            "premium-monthly": {
+              "original": 50,
+              "value": 25
+            },
+            "starter-yearly": {
+              "original": 50,
+              "value": 40
+            },
+            "standard-yearly": {
+              "original": 50,
+              "value": 35
+            },
+            "premium-yearly": {
+              "original": 50,
+              "value": 20
+            },
+            "starter": 50,
+            "standard": 50
+          }
+        },
+        {
+          "name": "MiniMax H3",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "显示 768P 5 秒价格。基础费率为 768P 每秒 20 积分、2K 每秒 30 积分。所有付费套餐均需消耗积分；月 Pro 八折、月 Unlimited 五折，年费最高享 60% 折扣。前 5 张参考图片免费，之后每张额外收取 5 积分且不参与折扣。",
+          "credits": {
+            "starter-monthly": 100,
+            "standard-monthly": {
+              "original": 100,
+              "value": 80
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": 50
+            },
+            "starter-yearly": {
+              "original": 100,
+              "value": 80
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 70
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": 40
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Kling 2.1 Master",
+          "category": "video",
+          "description": "限时一折：200 → 20 积分。Kling 旗舰级画质，仅年付与一次性套餐可用。",
+          "credits": {
+            "starter-monthly": null,
+            "standard-monthly": {
+              "original": 200,
+              "value": 160
+            },
+            "premium-monthly": {
+              "original": 200,
+              "value": 100
+            },
+            "starter-yearly": {
+              "original": 200,
+              "value": 160
+            },
+            "standard-yearly": {
+              "original": 200,
+              "value": 140
+            },
+            "premium-yearly": {
+              "original": 200,
+              "value": 80
+            },
+            "starter": null,
+            "standard": 200
+          }
+        },
+        {
+          "name": "LTX 2.5 Fast",
+          "category": "video",
+          "description": "显示 720p 5 秒价格。基础费率为 720p 每秒 8 积分、1080p 每秒 16 积分、2K 每秒 24 积分、4K 每秒 48 积分。LTX 4K 在所有套餐（包括 Unlimited）均需消耗 SOTA 积分。",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Seedance 1.5 Pro",
+          "category": "video",
+          "description": "限时一折：40 → 4 积分。按秒计费，年费用户享受最高六折优惠。所有套餐均需消耗积分。",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Veo 3.1 Lite",
+          "category": "video",
+          "description": "限时一折：75 → 7 积分。在 Veo 3 基础上更快的生成速度与更优画质。",
+          "credits": {
+            "starter-monthly": 75,
+            "standard-monthly": 75,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 75,
+              "value": 7
+            },
+            "standard-yearly": {
+              "original": 75,
+              "value": 7
+            },
+            "premium-yearly": "free",
+            "starter": 75,
+            "standard": 75
+          }
+        },
+        {
+          "name": "Wan 2.5",
+          "category": "video",
+          "description": "限时一折：100 → 10 积分。图文生视频，支持音画同步。",
+          "credits": {
+            "starter-monthly": 100,
+            "standard-monthly": 100,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-yearly": "free",
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "PixVerse V6",
+          "category": "video",
+          "description": "显示 720p 5 秒价格。Unlimited 用户：360p 不超过 14 秒、540p 不超过 12 秒、720p 不超过 10 秒、1080p 不超过 8 秒包含在无限使用内；超出后需消耗 SOTA 积分。",
+          "credits": {
+            "starter-monthly": 70,
+            "standard-monthly": 70,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "standard-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "premium-yearly": "free",
+            "starter": 70,
+            "standard": 70
+          }
+        },
+        {
+          "name": "Seedream 5.0 Lite",
+          "category": "image",
+          "description": "限时一折：40 → 4 积分。Seedream 最新轻量版，速度与质量兼顾。",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Seedream 4.0",
+          "category": "image",
+          "description": "限时一折：30 → 3 积分。4K 级文生图，多图参考与编辑。",
+          "credits": {
+            "starter-monthly": 30,
+            "standard-monthly": 30,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-yearly": "free",
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Nano Banana",
+          "category": "image",
+          "description": "限时一折：30 → 3 积分。支持最多 4 张参考图，确保角色生成的一致性。",
+          "credits": {
+            "starter-monthly": 30,
+            "standard-monthly": 30,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-yearly": "free",
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Nano Banana Pro",
+          "category": "image",
+          "description": "限时一折：40 → 4 积分。支持最多 4 张参考图，确保角色生成的一致性，仅年付与一次性套餐可用。",
+          "credits": {
+            "starter-monthly": null,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": null,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Nano Banana 2",
+          "category": "image",
+          "description": "限时一折：40 → 4 积分。支持最多 4 张参考图，确保角色生成的一致性。",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Veo 3",
+          "category": "video",
+          "description": "限时一折：100 → 10 积分。8 秒视频，支持原生音频生成。",
+          "credits": {
+            "starter-monthly": 100,
+            "standard-monthly": 100,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-yearly": "free",
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Kling 2.5",
+          "category": "video",
+          "description": "限时一折：100 → 10 积分。图文生视频，动作自然流畅。",
+          "credits": {
+            "starter-monthly": 100,
+            "standard-monthly": 100,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-yearly": "free",
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Kling 2.1 Pro",
+          "category": "video",
+          "description": "限时一折：120 → 12 积分。高品质视频生成，运镜与物理表现出色。",
+          "credits": {
+            "starter-monthly": 120,
+            "standard-monthly": 120,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 120,
+              "value": 12
+            },
+            "standard-yearly": {
+              "original": 120,
+              "value": 12
+            },
+            "premium-yearly": "free",
+            "starter": 120,
+            "standard": 120
+          }
+        },
+        {
+          "name": "Runway Gen 4",
+          "category": "video",
+          "description": "限时一折：100 → 10 积分。影视级视频生成与角色一致性。",
+          "credits": {
+            "starter-monthly": 100,
+            "standard-monthly": 100,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-yearly": "free",
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Flux Kontext Pro",
+          "category": "image",
+          "description": "限时一折：30 → 3 积分。上下文感知的图像生成与编辑。",
+          "credits": {
+            "starter-monthly": 30,
+            "standard-monthly": 30,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-yearly": "free",
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Flux Kontext Max",
+          "category": "image",
+          "description": "限时一折：40 → 4 积分。Flux 旗舰级图像生成，细节与文字渲染更佳。",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "GPT Images 2.5 Flare",
+          "category": "image",
+          "description": "展示为 1K、单张图片。积分随分辨率和生成数量变化，适用普通图片模型的套餐折扣，Unlimited 套餐免积分。",
+          "credits": {
+            "starter-monthly": 70,
+            "standard-monthly": 70,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "standard-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "premium-yearly": "free",
+            "starter": 70,
+            "standard": 70
+          }
+        }
+      ]
+    },
+    "title": "选择您的计划以开始使用"
   }
 }

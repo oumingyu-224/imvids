@@ -720,5 +720,1358 @@
       ]
     },
     "className": "landing-bottom-band"
+  },
+  "pricing": {
+    "id": "pricing",
+    "promo": {
+      "badge": "Yearly exclusive",
+      "title": "Seedance 2.5 is here!",
+      "title_accent": "{discount}!",
+      "copy": "Get {discount} on all Pro plans for a limited time. Offer ends November 30, 2026.",
+      "footnote": "{discount} on all Pro plans — limited time.",
+      "cta": "Try it now"
+    },
+    "sr_only_title": "Pricing plans",
+    "groups": [
+      {
+        "name": "monthly",
+        "title": "Monthly billing",
+        "description": "Cancel anytime • Unused credits roll over"
+      },
+      {
+        "name": "yearly",
+        "title": "Annual billing",
+        "label": "save 50%",
+        "description": "Cancel anytime • Unused credits roll over"
+      },
+      {
+        "name": "one-time",
+        "title": "One-time purchase",
+        "description": "Upgrade anytime • Keep your credits • Enjoy new benefits instantly"
+      }
+    ],
+    "items": [
+      {
+        "title": "Starter",
+        "description": "Perfect for getting started",
+        "features": [
+          {
+            "title": "Base model access",
+            "items": [
+              "Video:",
+              "• MiniMax H3",
+              "• Veo 3, Veo 3.1 Lite",
+              "• Kling 2.5, Kling 2.1 Pro",
+              "• Wan 2.5, Runway Gen 4",
+              "• Grok Imagine Video",
+              "• Seedance 1.0 Lite, Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "Image:",
+              "• GPT-4o, Nano Banana, Nano Banana 2",
+              "• Flux Kontext Pro, Flux Kontext Max",
+              "• Seedream 4.0, Seedream 5.0 Lite",
+              "• Qwen Image Edit, Grok Imagine Image"
+            ]
+          },
+          {
+            "title": "SOTA model access (credits required)",
+            "items": [
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
+            ]
+          },
+          "1 concurrent generation",
+          "Private generations",
+          "Ad-free experience",
+          "No watermark",
+          "Priority processing queue",
+          "Priority support",
+          {
+            "title": "Commercial license",
+            "included": false
+          },
+          "Unlimited storage"
+        ],
+        "interval": "month",
+        "amount": 2999,
+        "currency": "USD",
+        "price": "$29.99",
+        "unit": "/ mo",
+        "is_featured": false,
+        "tip": "$0.12 /video",
+        "button": {
+          "title": "Subscribe",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "starter-monthly",
+        "product_name": "SeeVideo Starter Monthly",
+        "plan_name": "Starter Monthly",
+        "credits": 2500,
+        "credits_videos": "25 videos",
+        "valid_days": 30,
+        "group": "monthly",
+        "per_video_price": "$1.20"
+      },
+      {
+        "title": "Unlimited",
+        "description": "Great for power users and teams",
+        "label": "Best value",
+        "features": [
+          {
+            "title": "Unlimited use of all base & enhanced models",
+            "items": [
+              "Use all base and enhanced models without limits. SOTA models require credits, including Veo 3.1 Premium, PixVerse V6 beyond the free quality duration, LTX 2.5 Fast 4K, Kling 2.1 Master, Seedance 2.x, and MiniMax H3."
+            ]
+          },
+          {
+            "title": "All premium AI models (unlocked)",
+            "items": [
+              "Video:",
+              "• MiniMax H3",
+              "• Veo 3, Veo 3.1 Lite, Veo 3.1 Premium",
+              "• Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
+              "• Seedance 1.0 Lite, Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5, Runway Gen 4",
+              "• Grok Imagine Video",
+              "Image:",
+              "• GPT-4o",
+              "• Nano Banana, Nano Banana Pro, Nano Banana 2",
+              "• Flux Kontext Pro, Flux Kontext Max",
+              "• Seedream 4.0, Seedream 5.0 Lite",
+              "• Qwen Image Edit, Grok Imagine Image"
+            ]
+          },
+          {
+            "title": "15,000 extra SOTA model credits (50% off per generation)",
+            "items": [
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
+            ]
+          },
+          "5 concurrent generations",
+          "Private generations",
+          "Ad-free experience",
+          "No watermark",
+          "Priority processing queue",
+          "Priority support",
+          {
+            "title": "Commercial license",
+            "included": false
+          },
+          "Unlimited storage"
+        ],
+        "interval": "month",
+        "amount": 14999,
+        "currency": "USD",
+        "price": "$149.99",
+        "unit": "/ mo",
+        "is_featured": true,
+        "tip": "~ $0.001 /video",
+        "button": {
+          "title": "Subscribe",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "premium-monthly",
+        "product_name": "SeeVideo Unlimited Monthly",
+        "plan_name": "Unlimited Monthly",
+        "credits_label": "Unlimited points",
+        "credits": 15000,
+        "credits_videos": "Unlimited videos",
+        "valid_days": 30,
+        "group": "monthly",
+        "per_video_price": "~ $0.001"
+      },
+      {
+        "title": "Pro",
+        "description": "First choice for professionals",
+        "label": "Popular",
+        "features": [
+          {
+            "title": "Enhanced model access",
+            "items": [
+              "Video:",
+              "• MiniMax H3",
+              "• Veo 3, Veo 3.1 Lite, Veo 3.1 Premium",
+              "• Kling 2.5, Kling 2.1 Pro",
+              "• Seedance 1.0 Lite, Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5, Runway Gen 4",
+              "• Grok Imagine Video",
+              "Image:",
+              "• GPT-4o, Nano Banana, Nano Banana 2",
+              "• Flux Kontext Pro, Flux Kontext Max",
+              "• Seedream 4.0, Seedream 5.0 Lite",
+              "• Qwen Image Edit, Grok Imagine Image"
+            ]
+          },
+          {
+            "title": "SOTA models at 20% off",
+            "items": [
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
+            ]
+          },
+          "3 concurrent generations",
+          "Private generations",
+          "Ad-free experience",
+          "No watermark",
+          "Priority processing queue",
+          "Priority support",
+          {
+            "title": "Commercial license",
+            "included": false
+          },
+          "Unlimited storage"
+        ],
+        "interval": "month",
+        "amount": 8999,
+        "currency": "USD",
+        "price": "$89.99",
+        "unit": "/ mo",
+        "is_featured": false,
+        "tip": "$0.09 /video",
+        "button": {
+          "title": "Subscribe",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "standard-monthly",
+        "product_name": "SeeVideo Pro Monthly",
+        "plan_name": "Pro Monthly",
+        "credits": 10000,
+        "credits_videos": "100 videos",
+        "valid_days": 30,
+        "group": "monthly",
+        "per_video_price": "$0.90"
+      },
+      {
+        "title": "Starter",
+        "description": "Perfect for getting started",
+        "features": [
+          {
+            "title": "Base model access",
+            "items": [
+              "Video:",
+              "• MiniMax H3",
+              "• Veo 3, Veo 3.1 Lite",
+              "• Kling 2.5, Kling 2.1 Pro",
+              "• Wan 2.5, Runway Gen 4",
+              "• Grok Imagine Video",
+              "• Seedance 1.0 Lite, Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "Image:",
+              "• GPT-4o, Nano Banana, Nano Banana 2",
+              "• Flux Kontext Pro, Flux Kontext Max",
+              "• Seedream 4.0, Seedream 5.0 Lite",
+              "• Qwen Image Edit, Grok Imagine Image"
+            ]
+          },
+          {
+            "title": "SOTA model access (credits required)",
+            "items": [
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
+            ]
+          },
+          "1 concurrent generation",
+          "Private generations",
+          "Ad-free experience",
+          "No watermark",
+          "Priority processing queue",
+          "Priority support",
+          "Commercial license",
+          "Unlimited storage"
+        ],
+        "interval": "year",
+        "amount": 10000,
+        "currency": "USD",
+        "price": "$8.3",
+        "total_price_note": "$100/yr billed annually",
+        "unit": "/ mo",
+        "is_featured": false,
+        "tip": "$0.10 /video",
+        "button": {
+          "title": "Subscribe",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "starter-yearly",
+        "product_name": "SeeVideo Starter Yearly",
+        "plan_name": "Starter Yearly",
+        "credits": 10000,
+        "credits_videos": "1,000 videos",
+        "valid_days": 365,
+        "group": "yearly",
+        "discount_text": "· {percent_off}% off",
+        "per_video_price": "$0.10"
+      },
+      {
+        "title": "Unlimited",
+        "description": "Great for power users and teams",
+        "label": "Best value",
+        "features": [
+          {
+            "title": "Unlimited use of all base & enhanced models",
+            "items": [
+              "Use all base and enhanced models without limits. SOTA models require credits, including Veo 3.1 Premium, PixVerse V6 beyond the free quality duration, LTX 2.5 Fast 4K, Kling 2.1 Master, Seedance 2.x, and MiniMax H3."
+            ]
+          },
+          {
+            "title": "All premium AI models (unlocked)",
+            "items": [
+              "Video:",
+              "• MiniMax H3",
+              "• Veo 3, Veo 3.1 Lite, Veo 3.1 Premium",
+              "• Kling 2.5, Kling 2.1 Pro, Kling 2.1 Master",
+              "• Seedance 1.0 Lite, Seedance 1.5 Pro",
+              "• Seedance 2.0",
+              "• Wan 2.5, Runway Gen 4",
+              "• Grok Imagine Video",
+              "Image:",
+              "• GPT-4o",
+              "• Nano Banana, Nano Banana Pro, Nano Banana 2",
+              "• Flux Kontext Pro, Flux Kontext Max",
+              "• Seedream 4.0, Seedream 5.0 Lite",
+              "• Qwen Image Edit, Grok Imagine Image"
+            ]
+          },
+          {
+            "title": "90,000 extra SOTA model credits (60% off per generation)",
+            "items": [
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
+            ]
+          },
+          "5 concurrent generations",
+          "Private generations",
+          "Ad-free experience",
+          "No watermark",
+          "Priority processing queue",
+          "Priority support",
+          "Commercial license",
+          "Unlimited storage"
+        ],
+        "interval": "year",
+        "amount": 90000,
+        "currency": "USD",
+        "price": "$75.0",
+        "total_price_note": "$900/yr billed annually",
+        "original_price": "$149.99/mo",
+        "unit": "/ mo",
+        "is_featured": true,
+        "tip": "$900 / year",
+        "button": {
+          "title": "Subscribe",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "premium-yearly",
+        "product_name": "SeeVideo Unlimited Yearly",
+        "plan_name": "Unlimited Yearly",
+        "credits_label": "Unlimited points",
+        "credits": 90000,
+        "credits_videos": "Unlimited videos",
+        "valid_days": 365,
+        "group": "yearly",
+        "discount_text": "· {percent_off}% off",
+        "per_video_price": "~ $0.001"
+      },
+      {
+        "title": "Pro",
+        "description": "First choice for professionals",
+        "label": "Popular",
+        "features": [
+          {
+            "title": "90% off all base & enhanced models (limited-time)",
+            "items": [
+              "Seedance 2.0 and MiniMax H3 are excluded from this limited-time discount; they use per-second credit pricing with a separate plan discount of up to 60% off."
+            ]
+          },
+          {
+            "title": "SOTA models at 30% off",
+            "items": [
+              "Included SOTA models:",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
+            ]
+          },
+          "3 concurrent generations",
+          "Private generations",
+          "Ad-free experience",
+          "No watermark",
+          "Priority processing queue",
+          "Priority support",
+          "Commercial license",
+          "Unlimited storage"
+        ],
+        "interval": "year",
+        "amount": 30000,
+        "currency": "USD",
+        "price": "$25.0",
+        "total_price_note": "$300/yr billed annually",
+        "original_price": "$35.99/mo",
+        "unit": "/ mo",
+        "is_featured": false,
+        "tip": "$300 / year",
+        "button": {
+          "title": "Subscribe",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "standard-yearly",
+        "product_name": "SeeVideo Pro Yearly",
+        "plan_name": "Pro Yearly",
+        "credits": 32000,
+        "credits_videos": "3,200 videos",
+        "valid_days": 365,
+        "group": "yearly",
+        "discount_text": "· {percent_off}% off",
+        "per_video_price": "$0.09"
+      },
+      {
+        "features": [
+          "20,000 + 3,500 Credits",
+          {
+            "title": "SOTA model access (credits required)",
+            "items": [
+              "Included SOTA models:",
+              "• Gemini Omni Flash 1.1",
+              "• Gemini Omni",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
+            ]
+          },
+          "3 concurrent generations",
+          "Private generations",
+          "Ad-free experience",
+          "No watermark",
+          "Priority processing queue",
+          "Priority support",
+          "Unlimited storage"
+        ],
+        "interval": "one-time",
+        "amount": 19999,
+        "currency": "USD",
+        "price": "$199.99",
+        "unit": "",
+        "is_featured": false,
+        "tip": "",
+        "button": {
+          "title": "One-time payment",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "starter",
+        "product_name": "SeeVideo Standard Credits Pack",
+        "plan_name": "Standard Credits Pack",
+        "credits": 23500,
+        "credits_videos": "235 videos",
+        "valid_days": 365,
+        "group": "one-time",
+        "per_video_price": "$0.85",
+        "credit_accent": "#abbbcc",
+        "credits_display": "20,000",
+        "credits_extra": "3,500"
+      },
+      {
+        "features": [
+          "50,000 + 10,000 Credits",
+          {
+            "title": "SOTA model access (credits required)",
+            "items": [
+              "Included SOTA models:",
+              "• Gemini Omni Flash 1.1",
+              "• Gemini Omni",
+              "• Wan 3.0, Wan 3.0 Prime",
+              "• MiniMax H3",
+              "• Seedance 2.5",
+              "• Seedance 2.0",
+              "• Seedance 2.0 Fast",
+              "• Seedance 2.0 Mini",
+              "• Veo 3.1 Premium",
+              "• Kling 2.1 Master",
+              "• PixVerse V6 beyond the free quality duration",
+              "• LTX 2.5 Fast 4K",
+              "PixVerse V6:",
+              "• For Unlimited users, 360p up to 14 sec, 540p up to 12 sec, 720p up to 10 sec, and 1080p up to 8 sec are included in unlimited usage; beyond that, SOTA credits are required",
+              "MiniMax H3 pricing:",
+              "• 768P: 20 credits per second; 2K: 30 credits per second",
+              "• The first 5 reference images are free; each additional image costs 5 credits and is not eligible for any plan discount",
+              "Plan discounts:",
+              "• Monthly Starter and one-time credit packs: regular price; monthly Pro: 20% off; monthly Unlimited: 50% off",
+              "• Yearly Starter: 20% off; yearly Pro: 30% off (Fast and Mini: 40% off); yearly Unlimited: 60% off",
+              "• All plans, including Unlimited, require credits for SOTA models"
+            ]
+          },
+          "6 concurrent generations",
+          "Private generations",
+          "Ad-free experience",
+          "No watermark",
+          "Priority processing queue",
+          "Priority support",
+          "Unlimited storage"
+        ],
+        "interval": "one-time",
+        "amount": 49999,
+        "currency": "USD",
+        "price": "$499.99",
+        "unit": "",
+        "is_featured": true,
+        "tip": "",
+        "button": {
+          "title": "One-time payment",
+          "url": "/#pricing",
+          "icon": "RiFlashlightFill"
+        },
+        "product_id": "standard",
+        "product_name": "SeeVideo Pro Credits Pack",
+        "plan_name": "Pro Credits Pack",
+        "credits": 60000,
+        "credits_videos": "600 videos",
+        "valid_days": 365,
+        "group": "one-time",
+        "label": "Popular",
+        "per_video_price": "$0.83",
+        "credit_accent": "#ffb475",
+        "credits_display": "50,000",
+        "credits_extra": "10,000"
+      }
+    ],
+    "models": {
+      "section_title": "Model Credits",
+      "section_description": "Credits per generation for each model, synced with the selected plan",
+      "video_title": "Video Models",
+      "image_title": "Image Models",
+      "free_label": "Unlimited",
+      "not_included_label": "Not included in the current plan",
+      "show_more": "Show all models",
+      "show_less": "Show less",
+      "visible_count": 23,
+      "card_title": "AI Models (Regular Price)",
+      "card_show_more": "View More Models",
+      "card_show_less": "Show Less",
+      "items": [
+        {
+          "name": "Seedance 2.5",
+          "category": "video",
+          "badge": "NEW",
+          "description": "Shows 480p 4s price. Billed per second, up to 40% off for yearly users. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 160,
+            "standard-monthly": {
+              "original": 160,
+              "value": 128
+            },
+            "premium-monthly": {
+              "original": 160,
+              "value": 80
+            },
+            "starter-yearly": {
+              "original": 160,
+              "value": 128
+            },
+            "standard-yearly": {
+              "original": 160,
+              "value": 112
+            },
+            "premium-yearly": {
+              "original": 160,
+              "value": 64
+            },
+            "starter": 160,
+            "standard": 160
+          }
+        },
+        {
+          "name": "Seedance 2.0",
+          "category": "video",
+          "badge": "ULTRA",
+          "description": "Shows 480p 5s price. Billed per second, up to 40% off for yearly users. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 80,
+            "standard-monthly": {
+              "original": 80,
+              "value": 65
+            },
+            "premium-monthly": {
+              "original": 80,
+              "value": 40
+            },
+            "starter-yearly": {
+              "original": 80,
+              "value": 64
+            },
+            "standard-yearly": {
+              "original": 80,
+              "value": 56
+            },
+            "premium-yearly": {
+              "original": 80,
+              "value": 32
+            },
+            "starter": 80,
+            "standard": 80
+          }
+        },
+        {
+          "name": "Seedance 2.0 Fast",
+          "category": "video",
+          "description": "Shows 480p 5s price. Billed per second, up to 40% off for yearly users. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 65,
+            "standard-monthly": {
+              "original": 65,
+              "value": 50
+            },
+            "premium-monthly": {
+              "original": 65,
+              "value": 35
+            },
+            "starter-yearly": {
+              "original": 65,
+              "value": 52
+            },
+            "standard-yearly": {
+              "original": 65,
+              "value": 39
+            },
+            "premium-yearly": {
+              "original": 65,
+              "value": 26
+            },
+            "starter": 65,
+            "standard": 65
+          }
+        },
+        {
+          "name": "Seedance 2.0 Mini",
+          "category": "video",
+          "description": "Shows 480p 5s price. Billed per second, up to 40% off for yearly users. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 55,
+            "standard-monthly": {
+              "original": 55,
+              "value": 45
+            },
+            "premium-monthly": {
+              "original": 55,
+              "value": 30
+            },
+            "starter-yearly": {
+              "original": 55,
+              "value": 44
+            },
+            "standard-yearly": {
+              "original": 55,
+              "value": 33
+            },
+            "premium-yearly": {
+              "original": 55,
+              "value": 22
+            },
+            "starter": 55,
+            "standard": 55
+          }
+        },
+        {
+          "name": "Veo 3.1 Premium",
+          "category": "video",
+          "description": "Flash sale: 200 → 20 credits. Cinematic 4K, frame-level control, multiple reference images.",
+          "credits": {
+            "starter-monthly": null,
+            "standard-monthly": {
+              "original": 200,
+              "value": 160
+            },
+            "premium-monthly": {
+              "original": 200,
+              "value": 100
+            },
+            "starter-yearly": {
+              "original": 200,
+              "value": 160
+            },
+            "standard-yearly": {
+              "original": 200,
+              "value": 140
+            },
+            "premium-yearly": {
+              "original": 200,
+              "value": 80
+            },
+            "starter": null,
+            "standard": 200
+          }
+        },
+        {
+          "name": "Gemini Omni Flash 1.1",
+          "category": "video",
+          "description": "720p 4s shown: 55 credits. Standard prices for 4/6/8/10s are 55/75/90/110 credits at 360p/720p/1080p and 125/145/165/180 at 4K. Video reference costs 145 credits at 360p/720p/1080p or 215 at 4K. SOTA credits are required on every plan; discounted totals are whole credits.",
+          "credits": {
+            "starter-monthly": 55,
+            "standard-monthly": {
+              "original": 55,
+              "value": 44
+            },
+            "premium-monthly": {
+              "original": 55,
+              "value": 27
+            },
+            "starter-yearly": {
+              "original": 55,
+              "value": 44
+            },
+            "standard-yearly": {
+              "original": 55,
+              "value": 38
+            },
+            "premium-yearly": {
+              "original": 55,
+              "value": 22
+            },
+            "starter": 55,
+            "standard": 55
+          }
+        },
+        {
+          "name": "Gemini Omni",
+          "category": "video",
+          "description": "720p/1080p 4s shown: 55 credits. Standard prices for 4/6/8/10s are 55/75/90/110 credits at 720p/1080p and 125/145/165/180 at 4K. Video reference costs 145 credits at 720p/1080p or 215 at 4K. Audio and Character creation are free for paid users. SOTA credits are required on every plan; discounted totals are whole credits.",
+          "credits": {
+            "starter-monthly": 55,
+            "standard-monthly": {
+              "original": 55,
+              "value": 44
+            },
+            "premium-monthly": {
+              "original": 55,
+              "value": 27
+            },
+            "starter-yearly": {
+              "original": 55,
+              "value": 44
+            },
+            "standard-yearly": {
+              "original": 55,
+              "value": 38
+            },
+            "premium-yearly": {
+              "original": 55,
+              "value": 22
+            },
+            "starter": 55,
+            "standard": 55
+          }
+        },
+        {
+          "name": "Wan 3.0",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "Shows 480p 5s price. Base rate: 480p 8 credits/s, 720p 14 credits/s, 1080p 27 credits/s. Reference-video mode bills input + output duration. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": {
+              "original": 40,
+              "value": 32
+            },
+            "premium-monthly": {
+              "original": 40,
+              "value": 20
+            },
+            "starter-yearly": {
+              "original": 40,
+              "value": 32
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 28
+            },
+            "premium-yearly": {
+              "original": 40,
+              "value": 16
+            },
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Wan 3.0 Prime",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "Shows 480p 5s price. Base rate: 480p 10 credits/s, 720p 20 credits/s, 1080p 40 credits/s. Reference-video mode bills input + output duration. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 50,
+            "standard-monthly": {
+              "original": 50,
+              "value": 40
+            },
+            "premium-monthly": {
+              "original": 50,
+              "value": 25
+            },
+            "starter-yearly": {
+              "original": 50,
+              "value": 40
+            },
+            "standard-yearly": {
+              "original": 50,
+              "value": 35
+            },
+            "premium-yearly": {
+              "original": 50,
+              "value": 20
+            },
+            "starter": 50,
+            "standard": 50
+          }
+        },
+        {
+          "name": "MiniMax H3",
+          "category": "video",
+          "badge": "SOTA",
+          "description": "Shows 768P 5s price. Base rate: 768P 20 credits/s, 2K 30 credits/s. Credits required on all paid plans; monthly Pro 20% off, monthly Unlimited 50% off, up to 60% off on yearly. First 5 reference images free, then 5 credits each (no plan discounts).",
+          "credits": {
+            "starter-monthly": 100,
+            "standard-monthly": {
+              "original": 100,
+              "value": 80
+            },
+            "premium-monthly": {
+              "original": 100,
+              "value": 50
+            },
+            "starter-yearly": {
+              "original": 100,
+              "value": 80
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 70
+            },
+            "premium-yearly": {
+              "original": 100,
+              "value": 40
+            },
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Kling 2.1 Master",
+          "category": "video",
+          "description": "Flash sale: 200 → 20 credits. Flagship Kling quality, yearly & one-time plans only.",
+          "credits": {
+            "starter-monthly": null,
+            "standard-monthly": {
+              "original": 200,
+              "value": 160
+            },
+            "premium-monthly": {
+              "original": 200,
+              "value": 100
+            },
+            "starter-yearly": {
+              "original": 200,
+              "value": 160
+            },
+            "standard-yearly": {
+              "original": 200,
+              "value": 140
+            },
+            "premium-yearly": {
+              "original": 200,
+              "value": 80
+            },
+            "starter": null,
+            "standard": 200
+          }
+        },
+        {
+          "name": "LTX 2.5 Fast",
+          "category": "video",
+          "description": "Shows 720p 5s price. Base rate: 720p 8 credits/s, 1080p 16 credits/s, 2K 24 credits/s, 4K 48 credits/s. LTX 4K requires SOTA credits on all plans including Unlimited.",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Seedance 1.5 Pro",
+          "category": "video",
+          "description": "Flash sale: 40 → 4 credits. Billed per second, up to 40% off for yearly users. Credits required on all plans.",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Veo 3.1 Lite",
+          "category": "video",
+          "description": "Flash sale: 75 → 7 credits. Faster generation and better quality over Veo 3.",
+          "credits": {
+            "starter-monthly": 75,
+            "standard-monthly": 75,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 75,
+              "value": 7
+            },
+            "standard-yearly": {
+              "original": 75,
+              "value": 7
+            },
+            "premium-yearly": "free",
+            "starter": 75,
+            "standard": 75
+          }
+        },
+        {
+          "name": "Wan 2.5",
+          "category": "video",
+          "description": "Flash sale: 100 → 10 credits. Text & image to video with synced audio.",
+          "credits": {
+            "starter-monthly": 100,
+            "standard-monthly": 100,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-yearly": "free",
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "PixVerse V6",
+          "category": "video",
+          "description": "Shows 720p 5s price. Unlimited users: 360p up to 14s, 540p up to 12s, 720p up to 10s, 1080p up to 8s included in unlimited usage; beyond that SOTA credits apply.",
+          "credits": {
+            "starter-monthly": 70,
+            "standard-monthly": 70,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "standard-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "premium-yearly": "free",
+            "starter": 70,
+            "standard": 70
+          }
+        },
+        {
+          "name": "Seedream 5.0 Lite",
+          "category": "image",
+          "description": "Flash sale: 40 → 4 credits. The latest lightweight Seedream balancing speed and quality.",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Seedream 4.0",
+          "category": "image",
+          "description": "Flash sale: 30 → 3 credits. 4K text-to-image with multi-image reference and editing.",
+          "credits": {
+            "starter-monthly": 30,
+            "standard-monthly": 30,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-yearly": "free",
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Nano Banana",
+          "category": "image",
+          "description": "Flash sale: 30 → 3 credits. Up to 4 reference images for consistent characters.",
+          "credits": {
+            "starter-monthly": 30,
+            "standard-monthly": 30,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-yearly": "free",
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Nano Banana Pro",
+          "category": "image",
+          "description": "Flash sale: 40 → 4 credits. Up to 4 reference images for consistent characters, yearly & one-time plans only.",
+          "credits": {
+            "starter-monthly": null,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": null,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Nano Banana 2",
+          "category": "image",
+          "description": "Flash sale: 40 → 4 credits. Up to 4 reference images for consistent characters.",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "Veo 3",
+          "category": "video",
+          "description": "Flash sale: 100 → 10 credits. 8s videos with native audio generation.",
+          "credits": {
+            "starter-monthly": 100,
+            "standard-monthly": 100,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-yearly": "free",
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Kling 2.5",
+          "category": "video",
+          "description": "Flash sale: 100 → 10 credits. Text & image to video with natural motion.",
+          "credits": {
+            "starter-monthly": 100,
+            "standard-monthly": 100,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-yearly": "free",
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Kling 2.1 Pro",
+          "category": "video",
+          "description": "Flash sale: 120 → 12 credits. High-quality video with excellent camera work and physics.",
+          "credits": {
+            "starter-monthly": 120,
+            "standard-monthly": 120,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 120,
+              "value": 12
+            },
+            "standard-yearly": {
+              "original": 120,
+              "value": 12
+            },
+            "premium-yearly": "free",
+            "starter": 120,
+            "standard": 120
+          }
+        },
+        {
+          "name": "Runway Gen 4",
+          "category": "video",
+          "description": "Flash sale: 100 → 10 credits. Filmmaker-grade video with consistent characters.",
+          "credits": {
+            "starter-monthly": 100,
+            "standard-monthly": 100,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "standard-yearly": {
+              "original": 100,
+              "value": 10
+            },
+            "premium-yearly": "free",
+            "starter": 100,
+            "standard": 100
+          }
+        },
+        {
+          "name": "Flux Kontext Pro",
+          "category": "image",
+          "description": "Flash sale: 30 → 3 credits. Context-aware image generation and editing.",
+          "credits": {
+            "starter-monthly": 30,
+            "standard-monthly": 30,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "standard-yearly": {
+              "original": 30,
+              "value": 3
+            },
+            "premium-yearly": "free",
+            "starter": 30,
+            "standard": 30
+          }
+        },
+        {
+          "name": "Flux Kontext Max",
+          "category": "image",
+          "description": "Flash sale: 40 → 4 credits. Flagship Flux quality with better details and text rendering.",
+          "credits": {
+            "starter-monthly": 40,
+            "standard-monthly": 40,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "standard-yearly": {
+              "original": 40,
+              "value": 4
+            },
+            "premium-yearly": "free",
+            "starter": 40,
+            "standard": 40
+          }
+        },
+        {
+          "name": "GPT Images 2.5 Flare",
+          "category": "image",
+          "description": "Shown as 1K, single image. Credits vary with resolution and image count, normal image-model plan discounts apply, Unlimited plans are credit-free.",
+          "credits": {
+            "starter-monthly": 70,
+            "standard-monthly": 70,
+            "premium-monthly": "free",
+            "starter-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "standard-yearly": {
+              "original": 70,
+              "value": 7
+            },
+            "premium-yearly": "free",
+            "starter": 70,
+            "standard": 70
+          }
+        }
+      ]
+    },
+    "title": "Choose your plan to get started"
   }
 }

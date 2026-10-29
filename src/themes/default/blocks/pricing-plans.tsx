@@ -668,12 +668,12 @@ export function PricingPlans({
 
   return (
     <>
-      {!hideHeader && (
+      {!hideHeader && !!pricing.title && (
         <div className="flex flex-col items-center justify-start">
           <div className="mx-auto mb-8 flex max-w-3xl flex-col items-center sm:mb-10">
-            <h1 className="text-center text-2xl font-bold tracking-tight text-card-foreground sm:text-4xl lg:text-5xl">
+            <h2 className="text-center text-2xl font-bold tracking-tight text-card-foreground sm:text-4xl lg:text-5xl">
               {pricing.title}
-            </h1>
+            </h2>
           </div>
         </div>
       )}
